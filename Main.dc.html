@@ -5,10 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Iniciar sessão · Sign in</title>
 <link rel="icon" href="assets/naval-simbolo.png">
+
 <style>
 body{margin:0;background:#070B1F}
 a{color:#7CC6EE}a:hover{color:#B5DEF4}
 input:focus,select:focus{outline:2px solid #2397D4;outline-offset:1px}
+
+
+
+/*RSP*/
+@media (max-width:1100px){.g6,.g5{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}@media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width:620px){.g6,.g5{grid-template-columns:repeat(2,minmax(0,1fr)) !important}.g3{grid-template-columns:1fr !important}}
+@media (max-width:1180px){.dock .dock-l{display:none !important}.dock .dock-i{min-width:44px !important;height:44px !important;padding:0 4px !important}}
+@media (max-width:760px){
+.dock{flex-wrap:nowrap !important;overflow-x:auto !important;justify-content:flex-start !important;align-self:stretch !important;max-width:100% !important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.dock::-webkit-scrollbar{display:none}.dock>*{flex:0 0 auto}
+main{padding:14px 12px 28px !important;gap:12px !important}
+main section[style*="background"]{padding:14px !important;border-radius:20px !important}
+.g3>*,.g4>*,.g5>*,.g6>*{padding:12px 14px !important;border-radius:18px !important}
+main [style*="justify-content: flex-end"]>span[style*="font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)"]{display:none}
+nav.side:not(.side-g){padding:12px !important;gap:10px !important}
+nav.side:not(.side-g)>div:nth-child(2){flex-direction:row !important;flex-wrap:nowrap !important;overflow-x:auto !important;scrollbar-width:none;gap:6px !important}
+nav.side:not(.side-g)>div:nth-child(2)::-webkit-scrollbar{display:none}
+nav.side:not(.side-g)>div:nth-child(2)>*{flex:0 0 auto;white-space:nowrap}
+nav.side:not(.side-g)>div:nth-child(2)>span{display:none}
+main h1{font-size:25px !important;letter-spacing:-0.3px !important}
+main select,main input,main textarea{max-width:100% !important;min-width:0 !important}
+main [style*="align-items: flex-end"][style*="gap: 10px"]{gap:4px !important}
+main [style*="grid-template-columns: 172px"]{grid-template-columns:104px minmax(0,1fr) 44px !important}
+main [style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]{grid-template-columns:minmax(0,1fr) 40px 100px 52px !important;gap:6px !important}
+main [style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]>:nth-child(5){grid-column:1/-1;text-align:left !important;font-size:12px !important;color:rgba(235,235,245,0.6) !important}
+main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]>:nth-child(5){display:none}
+}
+@media (max-width:420px){main [style*="font-size: 11px; color: rgba(235,235,245,0.6)"]{font-size:10px !important}}
+@media (min-width:1700px){main{padding-left:40px !important;padding-right:40px !important}}
+/*RSP-END*/
 </style>
 <script src="dc.js"></script>
 </head>
@@ -38,7 +68,8 @@ class Component extends DCLogic {
 constructor(props) {
 super(props);
 var l = 'pt';
-try { l = window.localStorage.getItem('naval-lang') || 'pt'; } catch (e) {}
+try { var __nl = String((window.navigator.languages && window.navigator.languages[0]) || window.navigator.language || 'pt').toLowerCase(); l = __nl.indexOf('pt') === 0 ? 'pt' : 'en'; } catch (e) {}
+try { l = window.localStorage.getItem('naval-lang') || l; } catch (e) {}
 this.state = { lang: l };
 }
 setLang(l) {

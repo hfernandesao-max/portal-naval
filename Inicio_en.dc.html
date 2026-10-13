@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Início · Home</title>
 <link rel="icon" href="assets/naval-simbolo.png">
+<script>(function(){try{var f=location.pathname.split("/").pop()||"index.html";var en=/_en\.dc\.html$/.test(f);var p=null;try{p=localStorage.getItem("naval-lang")}catch(e){}if(!p){var n=String((navigator.languages&&navigator.languages[0])||navigator.language||"pt").toLowerCase();p=n.indexOf("pt")===0?"pt":"en"}if(p==="en"&&!en)location.replace("Inicio.dc.html"+location.search+location.hash);else if(p==="pt"&&en)location.replace("Inicio.dc.html"+location.search+location.hash)}catch(e){}})();</script>
 <style>
 body{margin:0;background:#070B1F;overflow:hidden}
 a{color:#7CC6EE}a:hover{color:#B5DEF4}
@@ -16,6 +17,12 @@ button:focus-visible,a:focus-visible,select:focus-visible{outline:2px solid #7CC
 @media (max-height: 760px){.tile p{display:none}.tile{padding:14px 16px !important}}
 @media (max-width: 1000px){.grid{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}
 @media (max-width: 760px){body{overflow:auto}.page{height:auto !important;min-height:100vh;overflow:visible !important}.grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;grid-auto-rows:minmax(130px,auto) !important}.tile p{display:none}.hide-sm{display:none !important}.tile>div:first-child{flex-direction:column}}
+
+
+
+/*RSP*/
+@media (max-width:760px){.grid{grid-template-rows:none !important;grid-auto-rows:auto !important;gap:10px !important}.tile{padding:14px !important;border-radius:20px !important;min-height:118px !important;gap:8px !important}.tile>div:first-child>span:first-child{width:40px !important;height:40px !important;border-radius:12px !important}.tile .bdg{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px !important}.tile span[style*="font-size: 18px"]{font-size:16px !important}}
+/*RSP-END*/
 </style>
 <script src="dc.js"></script>
 </head>
