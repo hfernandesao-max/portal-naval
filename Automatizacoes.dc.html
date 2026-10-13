@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automatizações</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<script>(function(){try{var f=location.pathname.split("/").pop()||"index.html";var en=/_en\.dc\.html$/.test(f);var p=null;try{p=localStorage.getItem("naval-lang")}catch(e){}if(!p){var n=String((navigator.languages&&navigator.languages[0])||navigator.language||"pt").toLowerCase();p=n.indexOf("pt")===0?"pt":"en"}if(p==="en"&&!en)location.replace("Automatizacoes_en.dc.html"+location.search+location.hash);else if(p==="pt"&&en)location.replace("Automatizacoes_en.dc.html"+location.search+location.hash)}catch(e){}})();</script>
+<style>
+body{margin:0;background:#070B1F;padding-bottom:0}@media (max-width: 760px){.dock-l{display:none}.dock-i{min-width:42px !important;height:44px !important}}.dock-i:hover{background:rgba(255,255,255,0.12) !important;color:#FFFFFF !important}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+button:focus-visible{outline:2px solid #7CC6EE;outline-offset:2px}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}
+
+
+
+
+.side-g details>summary::-webkit-details-marker{display:none}.side-g details>summary:hover{background:rgba(255,255,255,0.06)}.side-g details[open]>summary .chev{transform:rotate(90deg)}.side-g details[open]>summary{color:#FFFFFF;font-weight:500}.side-g a:hover{background:rgba(255,255,255,0.06)}@media (min-width: 820px){.side-g summary{padding-top:clamp(4px,0.9vh,8px) !important;padding-bottom:clamp(4px,0.9vh,8px) !important}.side-g details a{padding-top:clamp(4px,0.8vh,8px) !important;padding-bottom:clamp(4px,0.8vh,8px) !important}}@media (max-width: 819px){.side-g{display:none !important}}
+
+/*RSP*/
+.side-c details>summary::-webkit-details-marker{display:none}.side-c details>summary:hover{background:rgba(255,255,255,0.06)}.side-c details[open]>summary .chev{transform:rotate(90deg)}.side-c details[open]>summary{color:#FFFFFF;font-weight:500}.side-c a:hover{background:rgba(255,255,255,0.06)}.side-m::-webkit-scrollbar{display:none}
+@media (max-width:760px){.side-c{display:none !important}.side-m{display:flex !important}}
+@media (max-width:1100px){.g6,.g5{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}@media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width:620px){.g6,.g5{grid-template-columns:repeat(2,minmax(0,1fr)) !important}.g3{grid-template-columns:1fr !important}}
+@media (max-width:1180px){.dock .dock-l{display:none !important}.dock .dock-i{min-width:44px !important;height:44px !important;padding:0 4px !important}}
+@media (max-width:760px){
+.dock{flex-wrap:nowrap !important;overflow-x:auto !important;justify-content:flex-start !important;align-self:stretch !important;max-width:100% !important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.dock::-webkit-scrollbar{display:none}.dock>*{flex:0 0 auto}
+main{padding:14px 12px 28px !important;gap:12px !important}
+main section[style*="background"]{padding:14px !important;border-radius:20px !important}
+.g3>*,.g4>*,.g5>*,.g6>*{padding:12px 14px !important;border-radius:18px !important;min-width:0 !important;overflow:hidden}
+main [style*="justify-content: flex-end"]>span[style*="font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)"]{display:none}
+nav.side:not(.side-g){padding:12px !important;gap:10px !important}
+nav.side:not(.side-g)>div:nth-child(2){flex-direction:row !important;flex-wrap:nowrap !important;overflow-x:auto !important;scrollbar-width:none;gap:6px !important}
+nav.side:not(.side-g)>div:nth-child(2)::-webkit-scrollbar{display:none}
+nav.side:not(.side-g)>div:nth-child(2)>*{flex:0 0 auto;white-space:nowrap}
+nav.side:not(.side-g)>div:nth-child(2)>span{display:none}
+main h1{font-size:25px !important;letter-spacing:-0.3px !important}
+main select,main input,main textarea{max-width:100% !important;min-width:0 !important}
+main [style*="align-items: flex-end"][style*="gap: 10px"]{gap:4px !important}
+main [style*="grid-template-columns: 172px"]{grid-template-columns:104px minmax(0,1fr) 44px !important}
+main [style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]{grid-template-columns:minmax(0,1fr) 40px 100px 52px !important;gap:6px !important}
+main [style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]>:nth-child(5){grid-column:1/-1;text-align:left !important;font-size:12px !important;color:rgba(235,235,245,0.6) !important}
+main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]>:nth-child(5){display:none}
+}
+@media (max-width:420px){main [style*="font-size: 11px; color: rgba(235,235,245,0.6)"]{font-size:10px !important}}
+@media (min-width:1700px){main{padding-left:40px !important;padding-right:40px !important}}
+/*RSP-END*/
+</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side side-g" aria-label="Menu principal" style="flex: 1 1 250px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 15px">Grupo Naval Angola</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Portal do grupo</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="Inicio.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.9)"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 11l9-7 9 7M5 10v10h14V10"></path></svg>Início</a>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"></path></svg><span>Direção</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Painel executivo</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span>Comercial</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Painel.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Vendas consolidadas</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 6h18v13H3zM3 10h18M16 15h2"></path></svg><span>Finanças</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ContasCorrentes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Contas correntes</a>
+<a href="ColabDespesas.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Despesas e cartões</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 7a5 5 0 1 0 0 10a5 5 0 1 0 0-10M12 11v2"></path></svg><span>Contabilidade de gestão</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="CentrosCusto.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Centros de custo</a>
+<a href="Orcamento.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Orçamento e desvios</a>
+<a href="Projectos.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Projectos e horas</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 2l9 5v10l-9 5-9-5V7zM12 22V12M21 7l-9 5-9-5"></path></svg><span>Logística e Compras</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Stock.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Stock do grupo</a>
+<a href="Requisicoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Requisições internas</a>
+<a href="Cotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Comparação de cotações</a>
+<a href="Rececao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Receção e conferência</a>
+<a href="Executivo.dc.html#fornecedores" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Fornecedores</a>
+<a href="FornCotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal de fornecedores</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14"></path></svg><span>Frota</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#frota" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos da frota</a>
+<a href="VeloTransAgendar.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Agendar revisão de viatura</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 4.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7"></path></svg><span>Recursos Humanos</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#rh" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos com pessoal</a>
+<a href="Executivo.dc.html#absentismo" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Taxa de absentismo</a>
+<a href="ColabInicio.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal do colaborador</a>
+<a href="RHPessoas.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Gestão de pessoas</a>
+<a href="RHTurnos.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Turnos</a>
+<a href="RHRecrutamento.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Recrutamento</a>
+<a href="ColabFormacao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Formações</a>
+<a href="RHRelatorios.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Relatórios de RH</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"></path></svg><span>Serviços Gerais</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#housekeeping" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Housekeeping</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 5h16v10H4zM2 19h20M10 15v4M14 15v4"></path></svg><span>Sistemas de informação</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ITEquipamentos.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">IT e equipamentos</a>
+</details>
+<details name="menu" open>
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 3h6v5H9zM2.5 16h6v5h-6zM15.5 16h6v5h-6zM12 8v4M5.5 16v-4h13v4"></path></svg><span>Organização</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Organizacao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Grupos e acessos</a>
+<a href="MatrizLOA.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Matriz de aprovação (LOA)</a>
+<a href="Automatizacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500" aria-current="page">Automatizações</a>
+<a href="ColabComunicados.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Comunicados e eventos</a>
+</details>
+</div>
+<div style="margin-top: auto; padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6)">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 99px; background: #30D158"></span>23 empresas · 16 Primavera · 7 SAP</span>
+<span>consulta directa · há 1 min</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<nav class="dock" aria-label="Navegação rápida" style="align-self: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 6px 8px; border-radius: 22px; background: rgba(16,24,58,0.55); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); max-width: 100%; box-sizing: border-box">
+<a href="Inicio.dc.html" title="{{dk.home}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.home}}</span></a>
+<a href="Painel.dc.html" title="{{dk.sales}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.sales}}</span></a>
+<a href="ContasCorrentes.dc.html" title="{{dk.cc}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><path d="M16 15h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.cc}}</span></a>
+<a href="Stock.dc.html" title="{{dk.stock}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.stock}}</span></a>
+<a href="Executivo.dc.html" title="{{dk.exec}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.exec}}</span></a>
+<a href="CentrosCusto.dc.html" title="{{dk.ccu}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.ccu}}</span></a>
+<a href="FornCotacoes.dc.html" title="{{dk.forn}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"></path><path d="M13 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.forn}}</span></a>
+<a href="VeloTransAgendar.dc.html" title="{{dk.frota}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.6"></circle><circle cx="16" cy="17" r="1.6"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.frota}}</span></a>
+<a href="ColabInicio.dc.html" title="{{dk.colab}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.colab}}</span></a>
+<a href="Organizacao.dc.html" title="{{dk.org}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1.2"></rect><rect x="2.5" y="16" width="6" height="5" rx="1.2"></rect><rect x="15.5" y="16" width="6" height="5" rx="1.2"></rect><path d="M12 8v4M5.5 16v-4h13v4"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.org}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<a href="VendasMovel.dc.html" title="{{dk.phone}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.phone}}</span></a>
+<a href="Main.dc.html" title="{{dk.out}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4"></path><path d="M10 8l-4 4 4 4"></path><path d="M6 12h10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.out}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; padding: 2px; border-radius: 12px; background: rgba(255,255,255,0.06)">
+<a href="{{dkPThref}}" onClick="{{dkPT}}" style="{{dkPTs}}">PT</a>
+<a href="{{dkENhref}}" onClick="{{dkEN}}" style="{{dkENs}}">EN</a>
+</div>
+</nav>
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">ORGANIZAÇÃO</span>
+<span class="fase2" title="Fase 2" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 99px; background: rgba(201,130,42,0.16); color: #E0A458; border: 1px solid rgba(201,130,42,0.35)">Fase 2 · protótipo do circuito, ainda não grava no ERP</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">Automatizações</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">Quando algo acontece no portal ou nos ERPs, o passo seguinte corre sozinho · respeita a matriz de aprovação · <span style="color: #C9822A">dados de exemplo</span></span>
+</div>
+<a href="MatrizLOA.dc.html" style="font-size: 13px; font-weight: 500">Matriz de aprovação →</a>
+</header>
+<section aria-label="Indicadores" class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
+<span style="font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums">{{k.value}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span>
+</div>
+</sc-for>
+</section>
+<section aria-label="Criar automatização" style="background: linear-gradient(135deg, rgba(35,151,212,0.16), rgba(123,135,224,0.10)); border: 1px solid rgba(124,198,238,0.35); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 0 30px rgba(35,151,212,0.12); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Descreva o que quer automatizar</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<input type="text" value="{{pedido}}" onInput="{{setPedido}}" placeholder="Ex.: quando um contrato estiver a 30 dias de terminar, avisar a chefia e os Recursos Humanos" aria-label="Descrição" style="flex: 1 1 360px; min-width: 0; height: 44px; border: 1px solid rgba(255,255,255,0.22); border-radius: 12px; padding: 0 14px; font-family: inherit; font-size: 14px; background: rgba(7,11,31,0.5); color: #F5F5F7">
+<button type="button" onClick="{{gerar}}" style="height: 44px; padding: 0 18px; border-radius: 12px; border: none; background: #2397D4; color: #FFFFFF; font-family: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Criar com o assistente</button>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{sugestoes}}" as="s" hint-placeholder-count="3"><button type="button" onClick="{{s.pick}}" style="height: 30px; padding: 0 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.05); color: rgba(235,235,245,0.85); font-family: inherit; font-size: 12px; cursor: pointer">{{s.label}}</button></sc-for>
+</div>
+<sc-if value="{{temRascunho}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 18px; background: rgba(7,11,31,0.45); border: 1px dashed rgba(124,198,238,0.45)">
+<span style="font-size: 13px; font-weight: 600">{{rascunho.nome}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{rascunho.passos}}" as="p" hint-placeholder-count="4"><span style="{{p.style}}">{{p.label}}</span><span style="{{p.setaStyle}}">→</span></sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><button type="button" onClick="{{activar}}" style="height: 36px; padding: 0 16px; border-radius: 10px; border: none; background: #30D158; color: #04260F; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Activar</button><button type="button" onClick="{{descartar}}" style="height: 36px; padding: 0 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: rgba(235,235,245,0.8); font-family: inherit; font-size: 13px; cursor: pointer">Descartar</button></div>
+</div>
+</sc-if>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
+<section aria-label="Automatizações" style="flex: 3 1 560px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0 0 4px; font-size: 17px; font-weight: 600">Automatizações do grupo</h2>
+<sc-for list="{{fluxos}}" as="f" hint-placeholder-count="6">
+<div style="{{f.box}}">
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto; min-width: 0"><span style="font-size: 14px; font-weight: 600">{{f.nome}}</span><span style="font-size: 11px; color: rgba(235,235,245,0.55)">{{f.info}}</span></span>
+<button type="button" role="switch" aria-checked="{{f.on}}" aria-label="{{f.nome}}" onClick="{{f.pick}}" style="{{f.track}}"><span style="{{f.knob}}"></span></button>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{f.passos}}" as="p" hint-placeholder-count="4"><span style="{{p.style}}">{{p.label}}</span><span style="{{p.setaStyle}}">→</span></sc-for>
+</div>
+</div>
+</sc-for>
+</section>
+<section aria-label="Execuções" style="flex: 1 1 300px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0 0 4px; font-size: 17px; font-weight: 600">Últimas execuções</h2>
+<sc-for list="{{log}}" as="l" hint-placeholder-count="6">
+<div style="display: flex; gap: 10px; align-items: flex-start"><span style="{{l.dot}}"></span><span style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font-size: 13px">{{l.txt}}</span><span style="font-size: 11px; color: rgba(235,235,245,0.55)">{{l.quando}}</span></span></div>
+</sc-for>
+</section>
+</div>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { pedido: '', rascunho: null, extra: [], off: { f6: true } };
+}
+renderVals() {
+var self = this;
+var K = { g: ['#2397D4', 'rgba(35,151,212,0.16)'], c: ['#C9822A', 'rgba(201,130,42,0.16)'], a: ['#30D158', 'rgba(48,209,88,0.12)'] };
+var chip = function (t, l) { return { label: l, style: 'font-size: 12px; padding: 5px 10px; border-radius: 10px; color: ' + K[t][0] + '; background: ' + K[t][1] + '; border: 1px solid ' + K[t][0] + '55', setaStyle: 'color: rgba(235,235,245,0.4); font-size: 12px' }; };
+var fim = function (arr) { if (arr.length) arr[arr.length - 1].setaStyle = 'display: none'; return arr; };
+var F = [
+['f1', 'Entrada de um colaborador', 'Recursos Humanos · 14 execuções em Outubro', [['g', 'Quando: contratado no Recrutamento'], ['a', 'Criar conta Microsoft 365'], ['a', 'Pedir portátil e telemóvel ao IT'], ['a', 'Inscrever na formação inicial'], ['a', 'Avisar a chefia no Teams']]],
+['f2', 'V/ Factura a aguardar aprovação', 'Finanças · 312 execuções em Outubro', [['g', 'Quando: V/ Factura «Aguarda aprovação» no ERP'], ['c', 'Se valor acima de 5 M Kz'], ['a', 'Pedir aprovação ao nível seguinte da LOA'], ['a', 'Lembrar a cada 48 h']]],
+['f3', 'Documento de fornecedor a expirar', 'Compras · 23 execuções em Outubro', [['g', 'Quando: faltam 30 dias para expirar'], ['a', 'Pedir o documento novo ao fornecedor'], ['a', 'Avisar Compras'], ['c', 'Se expirar'], ['a', 'Suspender o fornecedor nas cotações']]],
+['f4', 'Saída de um colaborador', 'Recursos Humanos · 9 execuções em Outubro', [['g', 'Quando: data de saída registada'], ['a', 'Pedir devolução do equipamento'], ['a', 'Desactivar contas no último dia'], ['a', 'Preparar acerto final no SAP']]],
+['f5', 'Horas extra acima do limite', 'Chefias · 41 execuções em Outubro', [['g', 'Quando: mais de 10 h extra no mês'], ['c', 'Se sem aprovação prévia'], ['a', 'Pedir aprovação ao director'], ['a', 'Avisar Recursos Humanos']]],
+['f6', 'Aniversário de casa', 'Comunicação · desactivada', [['g', 'Quando: 5, 10, 15 ou 20 anos no grupo'], ['a', 'Publicar em Comunicados e eventos'], ['a', 'Enviar mensagem da Administração']]]
+];
+var off = this.state.off;
+var lista = this.state.extra.concat(F);
+var fluxos = lista.map(function (f) {
+var on = !off[f[0]];
+return { nome: f[1], info: f[2], on: on ? 'true' : 'false', passos: fim(f[3].map(function (p) { return chip(p[0], p[1]); })),
+pick: function () { var x = Object.assign({}, self.state.off); x[f[0]] = on; self.setState({ off: x }); },
+track: 'position: relative; width: 44px; height: 26px; flex: 0 0 auto; border-radius: 99px; border: none; cursor: pointer; padding: 0; background: ' + (on ? '#30D158' : 'rgba(255,255,255,0.16)'),
+knob: 'position: absolute; top: 3px; left: ' + (on ? 21 : 3) + 'px; width: 20px; height: 20px; border-radius: 99px; background: #FFFFFF; transition: left .2s ease',
+box: 'display: flex; flex-direction: column; gap: 10px; padding: 14px; border-radius: 18px; background: rgba(255,255,255,0.03); border: 1px solid ' + (on ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.05)') + (on ? '' : '; opacity: 0.6') };
+});
+var MODELOS = [
+[['contrat', 'contract'], 'Contrato a terminar', [['g', 'Quando: faltam 30 dias para terminar o contrato'], ['a', 'Avisar a chefia'], ['a', 'Avisar Recursos Humanos'], ['c', 'Se a chefia quiser renovar'], ['a', 'Preparar adenda para assinatura digital']]],
+[['factur', 'invoice'], 'Facturas em atraso de clientes', [['g', 'Quando: factura vencida há 15 dias'], ['a', 'Enviar lembrete ao cliente'], ['c', 'Se acima do plafond'], ['a', 'Bloquear novas vendas a crédito'], ['a', 'Avisar o comercial']]],
+[['stock', 'ruptura'], 'Ruptura de stock', [['g', 'Quando: artigo abaixo do mínimo'], ['a', 'Criar requisição interna'], ['c', 'Se sem stock no armazém central'], ['a', 'Pedir 3 cotações']]],
+[['', ''], 'Nova automatização', [['g', 'Quando: o evento que descreveu'], ['a', 'Avisar as pessoas responsáveis'], ['a', 'Registar no histórico']]]
+];
+var gerar = function (txt) {
+var t = String(txt || '').toLowerCase(), m = MODELOS[3];
+MODELOS.forEach(function (x, i) { if (i < 3 && (t.indexOf(x[0][0]) >= 0 || t.indexOf(x[0][1]) >= 0) && m === MODELOS[3]) m = x; });
+self.setState({ rascunho: { nome: m[1], passos: m[2] }, pedido: txt });
+};
+var SUG = [['Quando um contrato estiver a 30 dias de terminar, avisar a chefia', 'Contratos a terminar'], ['Quando uma factura de cliente estiver vencida há 15 dias, lembrar o cliente', 'Facturas vencidas'], ['Quando um artigo entrar em ruptura, criar requisição e pedir cotações', 'Ruptura de stock']];
+var r = this.state.rascunho;
+var log = [['a', 'Entrada de [COLABORADOR F] · 4 passos concluídos', 'Hoje 08:05'], ['a', 'V/ Factura VFA 2026/1184 enviada ao 2.º nível da LOA', 'Hoje 07:40'], ['c', 'Documento de [FORNECEDOR C] expira em 30 dias · pedido enviado', 'Ontem 09:00'], ['r', 'Falhou: conta Microsoft 365 já existia para [COLABORADOR I]', 'Ontem 08:12 · resolvido pelo IT'], ['a', 'Horas extra de [COLABORADOR E] enviadas ao director', '12 Out 18:30'], ['a', 'Saída de [COLABORADOR L] · contas desactivadas', '10 Out 23:59']].map(function (l) {
+var c = l[0] === 'a' ? '#30D158' : (l[0] === 'c' ? '#E0A458' : '#FF6961');
+return { txt: l[1], quando: l[2], dot: 'width: 8px; height: 8px; flex: 0 0 auto; margin-top: 6px; border-radius: 99px; background: ' + c + '; box-shadow: 0 0 8px ' + c };
+});
+var nota = 'font-size: 12px; color: ';
+var act = fluxos.filter(function (f) { return f.on === 'true'; }).length;
+var kpis = [
+{ label: 'Automatizações activas', value: String(act), note: 'de ' + fluxos.length + ' criadas', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Execuções no mês', value: '1 846', note: '▲ 22% face a Setembro', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Tempo poupado', value: '212 h', note: 'estimativa de Outubro', noteStyle: nota + '#30D158' },
+{ label: 'Falhas', value: '1', note: 'resolvida pelo IT', noteStyle: nota + '#E0A458' }
+];
+var __me = this;
+var __pill = 'display: inline-flex; align-items: center; justify-content: center; text-decoration: none; height: 36px; width: 38px; border: none; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+var __en = false;
+return { dkPThref: 'Automatizacoes.dc.html', dkENhref: 'Automatizacoes_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'}, kpis: kpis, fluxos: fluxos, log: log,
+pedido: this.state.pedido, setPedido: function (e) { self.setState({ pedido: e.target.value }); }, gerar: function () { gerar(self.state.pedido); },
+sugestoes: SUG.map(function (s) { return { label: s[1], pick: function () { gerar(s[0]); } }; }),
+temRascunho: !!r, rascunho: r ? { nome: r.nome, passos: fim(r.passos.map(function (p) { return chip(p[0], p[1]); })) } : { nome: '', passos: [] },
+activar: function () { if (!r) return; var n = ['n' + Date.now(), r.nome, 'Criada agora · a partir da sua descrição', r.passos]; self.setState({ extra: [n].concat(self.state.extra), rascunho: null, pedido: '' }); },
+descartar: function () { self.setState({ rascunho: null }); } };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>
