@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orçamento e desvios</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F;padding-bottom:0}@media (max-width: 1100px){.g6{grid-template-columns:repeat(3,minmax(0,1fr)) !important}.g5{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}@media (max-width: 900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 620px){.g6,.g5{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 760px){.dock-l{display:none}.dock-i{min-width:42px !important;height:44px !important}}.dock-i:hover{background:rgba(255,255,255,0.12) !important;color:#FFFFFF !important}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}.side-g details>summary::-webkit-details-marker{display:none}.side-g details>summary:hover{background:rgba(255,255,255,0.06)}.side-g details[open]>summary .chev{transform:rotate(90deg)}.side-g details[open]>summary{color:#FFFFFF;font-weight:500}.side-g a:hover{background:rgba(255,255,255,0.06)}@media (min-width: 820px){.side-g summary{padding-top:clamp(4px,0.9vh,8px) !important;padding-bottom:clamp(4px,0.9vh,8px) !important}.side-g details a{padding-top:clamp(4px,0.8vh,8px) !important;padding-bottom:clamp(4px,0.8vh,8px) !important}}@media (max-width: 819px){.side-g{display:none !important}}</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side side-g" aria-label="Menu principal" style="flex: 1 1 250px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 15px">Grupo Naval Angola</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Portal do grupo</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="Inicio.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.9)"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 11l9-7 9 7M5 10v10h14V10"></path></svg>Início</a>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"></path></svg><span>Direção</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Painel executivo</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span>Comercial</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Painel.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Vendas consolidadas</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 6h18v13H3zM3 10h18M16 15h2"></path></svg><span>Finanças</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ContasCorrentes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Contas correntes</a>
+</details>
+<details name="menu" open>
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 7a5 5 0 1 0 0 10a5 5 0 1 0 0-10M12 11v2"></path></svg><span>Contabilidade de gestão</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="CentrosCusto.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Centros de custo</a>
+<a href="Orcamento.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500" aria-current="page">Orçamento e desvios</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 2l9 5v10l-9 5-9-5V7zM12 22V12M21 7l-9 5-9-5"></path></svg><span>Logística e Compras</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Stock.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Stock do grupo</a>
+<a href="Requisicoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Requisições internas</a>
+<a href="Cotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Comparação de cotações</a>
+<a href="Rececao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Receção e conferência</a>
+<a href="Executivo.dc.html#fornecedores" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Fornecedores</a>
+<a href="FornCotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal de fornecedores</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14"></path></svg><span>Frota</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#frota" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos da frota</a>
+<a href="VeloTransAgendar.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Agendar revisão de viatura</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 4.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7"></path></svg><span>Recursos Humanos</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#rh" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos com pessoal</a>
+<a href="Executivo.dc.html#absentismo" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Taxa de absentismo</a>
+<a href="ColabFerias.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal do colaborador</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"></path></svg><span>Serviços Gerais</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#housekeeping" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Housekeeping</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 3h6v5H9zM2.5 16h6v5h-6zM15.5 16h6v5h-6zM12 8v4M5.5 16v-4h13v4"></path></svg><span>Organização</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Organizacao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Grupos e acessos</a>
+<a href="MatrizLOA.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Matriz de aprovação (LOA)</a>
+</details>
+</div>
+<div style="margin-top: auto; padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6)">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 99px; background: #30D158"></span>23 empresas · 16 Primavera · 7 SAP</span>
+<span>consulta directa · há 1 min</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Navegação rápida" style="align-self: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 6px 8px; border-radius: 22px; background: rgba(16,24,58,0.55); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); max-width: 100%; box-sizing: border-box">
+<a href="Inicio.dc.html" title="{{dk.home}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.home}}</span></a>
+<a href="Painel.dc.html" title="{{dk.sales}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.sales}}</span></a>
+<a href="ContasCorrentes.dc.html" title="{{dk.cc}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><path d="M16 15h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.cc}}</span></a>
+<a href="Stock.dc.html" title="{{dk.stock}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.stock}}</span></a>
+<a href="Executivo.dc.html" title="{{dk.exec}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.exec}}</span></a>
+<a href="CentrosCusto.dc.html" title="{{dk.ccu}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.ccu}}</span></a>
+<a href="FornCotacoes.dc.html" title="{{dk.forn}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"></path><path d="M13 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.forn}}</span></a>
+<a href="VeloTransAgendar.dc.html" title="{{dk.frota}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.6"></circle><circle cx="16" cy="17" r="1.6"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.frota}}</span></a>
+<a href="ColabFerias.dc.html" title="{{dk.colab}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.colab}}</span></a>
+<a href="Organizacao.dc.html" title="{{dk.org}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1.2"></rect><rect x="2.5" y="16" width="6" height="5" rx="1.2"></rect><rect x="15.5" y="16" width="6" height="5" rx="1.2"></rect><path d="M12 8v4M5.5 16v-4h13v4"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.org}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<a href="VendasMovel.dc.html" title="{{dk.phone}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.phone}}</span></a>
+<a href="Main.dc.html" title="{{dk.out}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4"></path><path d="M10 8l-4 4 4 4"></path><path d="M6 12h10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.out}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; padding: 2px; border-radius: 12px; background: rgba(255,255,255,0.06)">
+<a href="{{dkPThref}}" onClick="{{dkPT}}" style="{{dkPTs}}">PT</a>
+<a href="{{dkENhref}}" onClick="{{dkEN}}" style="{{dkENs}}">EN</a>
+</div>
+</nav>
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">CONTABILIDADE DE GESTÃO</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">Orçamento e desvios</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)"><span style="color: #F5F5F7; font-weight: 500">{{vista}}</span> · 2026 até Outubro (10 de 12 meses) · milhões Kz · <span style="color: #C9822A">dados de exemplo</span></span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<label for="emp" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Empresa</label>
+<select id="emp" value="{{empresa}}" onChange="{{setEmpresa}}" style="height: 40px; max-width: 320px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: #10183A; color: #F5F5F7">
+<sc-for list="{{empresas}}" as="e" hint-placeholder-count="24">
+<option value="{{e.v}}">{{e.label}}</option>
+</sc-for>
+</select>
+<a href="CentrosCusto.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 12px; border: 1px solid #2397D4; color: #7CC6EE; text-decoration: none; font-weight: 500; font-size: 14px; box-sizing: border-box">Centros de custo →</a>
+</div>
+</header>
+<section aria-label="Indicadores" class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
+<span style="{{k.valStyle}}">{{k.value}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span>
+</div>
+</sc-for>
+</section>
+<section aria-label="Evolução mensal" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Gastos por mês · real face ao orçamento</h2>
+<span style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: rgba(235,235,245,0.78)">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Real</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #C9822A"></span>Real acima do orçamento</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: rgba(35,151,212,0.35)"></span>Previsão</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 0; border-top: 2px solid #F5F5F7"></span>Orçamento</span>
+</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 10px; align-items: end; height: 200px">
+<sc-for list="{{meses}}" as="m" hint-placeholder-count="12">
+<div title="{{m.tip}}" style="height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px">
+<span style="font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{m.v}}</span>
+<div style="position: relative; width: 100%; max-width: 46px; height: 150px; display: flex; align-items: flex-end">
+<div style="{{m.bar}}"></div>
+<div style="{{m.meta}}"></div>
+</div>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6)">{{m.mes}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
+<section aria-label="Desvios por centro de custo" style="flex: 3 1 620px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Desvios por centro de custo · até Outubro</h2>
+<div role="tablist" aria-label="Filtro" style="display: flex; gap: 4px; padding: 4px; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; background: rgba(255,255,255,0.05)">
+<sc-for list="{{filtros}}" as="f" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{f.on}}" onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.9fr) repeat(4, minmax(0, 0.72fr)) minmax(0, 1.2fr) 90px; gap: 10px; padding: 0 10px; font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">
+<span>Centro de custo</span><span style="text-align: right">Orçamento</span><span style="text-align: right">Real</span><span style="text-align: right">Desvio</span><span style="text-align: right">%</span><span style="text-align: center">Poupança · Excesso</span><span style="text-align: right">Estado</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{linhas}}" as="l" hint-placeholder-count="13">
+<button type="button" onClick="{{l.pick}}" aria-pressed="{{l.on}}" style="{{l.rowStyle}}">
+<span style="display: flex; flex-direction: column; gap: 2px; min-width: 0; text-align: left"><span style="font-size: 14px; font-weight: 500; color: #F5F5F7">{{l.nome}}</span><span style="font-size: 11px; color: rgba(235,235,245,0.6)">{{l.cod}}</span></span>
+<span style="font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{l.orc}}</span>
+<span style="font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; color: #F5F5F7">{{l.real}}</span>
+<span style="{{l.desvStyle}}">{{l.desv}}</span>
+<span style="{{l.desvStyle}}">{{l.pct}}</span>
+<span style="position: relative; display: block; height: 10px"><span style="position: absolute; left: 50%; top: -4px; bottom: -4px; width: 1px; background: rgba(255,255,255,0.35)"></span><span style="{{l.bar}}"></span></span>
+<span style="display: flex; justify-content: flex-end"><span style="{{l.estStyle}}">{{l.est}}</span></span>
+</button>
+</sc-for>
+</div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Orçamento até Outubro = 10/12 do orçamento anual. Dentro: até 3% · Atenção: 3% a 8% · Acima: mais de 8%. Toque num centro para ver o detalhe.</span>
+</section>
+<section aria-label="Detalhe do desvio" style="flex: 2 1 340px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{det.cod}}</span>
+<h2 style="margin: 0; font-size: 20px; font-weight: 600">{{det.nome}}</h2>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">Responsável: [NOME DO RESPONSÁVEL]</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">Desvio até Outubro</span><span style="{{det.desvStyle}}">{{det.desv}}</span><span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{det.desvPct}}</span></div>
+<div style="padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">Previsão de fecho do ano</span><span style="font-size: 22px; font-variant-numeric: tabular-nums">{{det.fecho}}</span><span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{det.fechoNota}}</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Desvio por natureza · milhões Kz</span>
+<sc-for list="{{det.nat}}" as="n" hint-placeholder-count="5">
+<div title="{{n.tip}}" style="display: grid; grid-template-columns: 150px minmax(0, 1fr) 52px; align-items: center; gap: 10px">
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{n.nome}}</span>
+<span style="position: relative; display: block; height: 10px"><span style="position: absolute; left: 50%; top: -4px; bottom: -4px; width: 1px; background: rgba(255,255,255,0.35)"></span><span style="{{n.bar}}"></span></span>
+<span style="{{n.vStyle}}">{{n.v}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08)">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Justificação do responsável</span>
+<span style="{{det.justStyle}}">{{det.just}}</span>
+<button type="button" onClick="{{det.pedir}}" style="{{det.btnStyle}}">{{det.btn}}</button>
+</div>
+</section>
+</div>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { sel: 5, empresa: 'all', filtro: 'todos', pedidos: {} };
+}
+renderVals() {
+var self = this;
+var f1 = function (v) { var p = v.toFixed(1).split('.'); return (p[0].replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + '.' + p[1]).replace('.', ','); };
+var sg = function (v) { return (v > 0 ? '+' : (v < 0 ? '−' : '')) + f1(Math.abs(v)); };
+var dados = [
+['1.01', 'Administração', 'sup', 210, 86], ['1.02', 'Financeiro', 'sup', 150, 79], ['1.03', 'Recursos Humanos', 'sup', 118, 81], ['1.04', 'Informática', 'sup', 120, 94],
+['2.01', 'Comercial', 'op', 420, 88], ['2.02', 'Logística', 'op', 520, 91], ['2.03', 'Produção', 'op', 1380, 85],
+['3.01', 'Canal 01 · Viana', 'can', 70, 84], ['3.02', 'Canal 02 · Talatona', 'can', 66, 92], ['3.03', 'Canal 03 · Kilamba', 'can', 62, 95], ['3.04', 'Canal 04 · Cacuaco', 'can', 48, 80], ['3.05', 'Canal 05 · Benfica', 'can', 46, 103],
+['4.01', 'Obra Vistar · Talatona', 'proj', 900, 78]
+];
+var EMP = [
+['OCEANO', 'P', 0.14], ['CAZENGO', 'P', 0.10], ['YAWABA', 'P', 0.08], ['INOVAGATE', 'P', 0.07], ['VISTAR', 'P', 0.08], ['PAKTEC', 'P', 0.05], ['EMBALTEC', 'P', 0.04],
+['AGRO', 'P', 0.02], ['BIGAS', 'P', 0.01], ['EVERYTEL', 'P', 0.02], ['INDUCLEAN', 'P', 0.02], ['LIMPODOURO', 'P', 0.01], ['MAJITEC', 'P', 0.01], ['METAL', 'P', 0.03], ['MFUTILA', 'P', 0.01], ['ZOMBO', 'P', 0.01],
+['Foodtec', 'S', 0.08], ['VeloTrans', 'S', 0.07], ['Naval Trading', 'S', 0.05], ['Everywhere Grãos', 'S', 0.04], ['Refitec', 'S', 0.03], ['Higitec', 'S', 0.03], ['Guarda Oceânica', 'S', 0.02]
+];
+var CANAL = { '3.01': 'CAZENGO', '3.04': 'CAZENGO', '3.02': 'INOVAGATE', '3.05': 'INOVAGATE', '3.03': 'YAWABA' };
+var aplica = function (d, e) {
+if (d[2] === 'can') return CANAL[d[0]] === e[0];
+if (d[2] === 'proj') return e[0] === 'VISTAR';
+if (d[0] === '2.03') return ['OCEANO', 'PAKTEC', 'EMBALTEC', 'METAL', 'AGRO', 'Foodtec', 'Everywhere Grãos', 'Refitec', 'Higitec', 'INDUCLEAN'].indexOf(e[0]) >= 0;
+return true;
+};
+var quota = function (d, e) { var tot = 0; EMP.forEach(function (x) { if (aplica(d, x)) tot += x[2]; }); return aplica(d, e) ? e[2] / tot : 0; };
+var emp = this.state.empresa || 'all';
+var empObj = null;
+EMP.forEach(function (e) { if (e[0] === emp) empObj = e; });
+var nomesArea = { sup: 'Suporte', op: 'Operacional', can: 'Canais de Venda Direta', proj: 'Projectos' };
+var rows = [];
+dados.forEach(function (d, i) {
+var q = empObj ? quota(d, empObj) : 1;
+if (!q) return;
+var anual = d[3] * q;
+var orc = anual * 10 / 12;
+var real = anual * d[4] / 100;
+var dv = real - orc;
+rows.push({ i: i, cod: d[0], nome: d[1], area: d[2], anual: anual, orc: orc, real: real, dv: dv, pct: orc ? dv / orc * 100 : 0 });
+});
+var estado = function (p) { return p > 8 ? 'acima' : (p > 3 ? 'atencao' : 'dentro'); };
+var EST = { acima: ['Acima', 'background: rgba(255,69,58,0.16); color: #FF6961'], atencao: ['Atenção', 'background: rgba(201,130,42,0.16); color: #E0A458'], dentro: ['Dentro', 'background: rgba(48,209,88,0.12); color: #30D158'] };
+var maxAbs = 0;
+rows.forEach(function (r) { if (Math.abs(r.pct) > maxAbs) maxAbs = Math.abs(r.pct); });
+maxAbs = Math.max(maxAbs, 10);
+var sel = this.state.sel;
+var temSel = false;
+rows.forEach(function (r) { if (r.i === sel) temSel = true; });
+if (!temSel && rows.length) sel = rows[0].i;
+var filtro = this.state.filtro;
+var lista = rows.slice().sort(function (a, b) { return b.pct - a.pct; }).filter(function (r) { return filtro === 'todos' || (filtro === 'desvio' ? estado(r.pct) !== 'dentro' : r.dv < 0); });
+var linhas = lista.map(function (r) {
+var on = r.i === sel;
+var e = estado(r.pct);
+var w = Math.min(50, Math.abs(r.pct) / maxAbs * 50);
+var cor = r.dv < 0 ? '#30D158' : (e === 'acima' ? '#FF453A' : (e === 'atencao' ? '#C9822A' : '#2397D4'));
+return {
+cod: r.cod + ' · ' + nomesArea[r.area], nome: r.nome, orc: f1(r.orc), real: f1(r.real), desv: sg(r.dv), pct: sg(r.pct) + '%', on: on ? 'true' : 'false',
+desvStyle: 'font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; color: ' + (r.dv < 0 ? '#30D158' : (e === 'dentro' ? '#F5F5F7' : (e === 'atencao' ? '#E0A458' : '#FF6961'))),
+bar: 'position: absolute; top: 0; bottom: 0; border-radius: 3px; background: ' + cor + '; width: ' + w + '%; ' + (r.dv < 0 ? 'right: 50%' : 'left: 50%'),
+est: r.dv < 0 ? 'Poupança' : EST[e][0], estStyle: 'font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; white-space: nowrap; ' + (r.dv < 0 ? 'background: rgba(48,209,88,0.12); color: #30D158' : EST[e][1]),
+pick: function () { self.setState({ sel: r.i }); },
+rowStyle: 'width: 100%; display: grid; grid-template-columns: minmax(0, 1.9fr) repeat(4, minmax(0, 0.72fr)) minmax(0, 1.2fr) 90px; gap: 10px; align-items: center; padding: 10px; border-radius: 14px; font-family: inherit; cursor: pointer; ' + (on ? 'background: rgba(35,151,212,0.16); border: 1px solid #2397D4' : 'background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06)')
+};
+});
+var tab = 'height: 32px; padding: 0 12px; border-radius: 10px; border: none; font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; ';
+var filtros = [['todos', 'Todos'], ['desvio', 'Com desvio'], ['poup', 'Com poupança']].map(function (f) {
+var on = f[0] === filtro;
+return { label: f[1], on: on ? 'true' : 'false', pick: function () { self.setState({ filtro: f[0] }); }, style: tab + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.78)') };
+});
+var tA = 0, tO = 0, tR = 0, nAcima = 0;
+rows.forEach(function (r) { tA += r.anual; tO += r.orc; tR += r.real; if (r.dv > 0 && estado(r.pct) !== 'dentro') nAcima++; });
+var tD = tR - tO, tP = tO ? tD / tO * 100 : 0;
+var fecho = tR / 10 * 12;
+var nota = 'font-size: 12px; color: ';
+var vs = 'font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums; color: ';
+var kpis = [
+{ label: 'Orçamento anual', value: f1(tA) + ' M', valStyle: vs + '#F5F5F7', note: 'aprovado em Dezembro de 2025', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Real até Outubro', value: f1(tR) + ' M', valStyle: vs + '#F5F5F7', note: 'previsto: ' + f1(tO) + ' M', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Desvio', value: sg(tD) + ' M', valStyle: vs + (tD > 0 ? '#E0A458' : '#30D158'), note: sg(tP) + '% face ao previsto', noteStyle: nota + (tD > 0 ? '#E0A458' : '#30D158') },
+{ label: 'Centros com desvio', value: String(nAcima), valStyle: vs + (nAcima ? '#FF6961' : '#30D158'), note: 'de ' + rows.length + ' centros · acima de 3%', noteStyle: nota + 'rgba(235,235,245,0.6)' }
+];
+var saz = [0.94, 0.92, 1.02, 0.97, 1.01, 1.03, 0.99, 1.04, 1.03, 1.07];
+var sz = 0; saz.forEach(function (x) { sz += x; });
+var orcM = tA / 12;
+var MES = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+var vals = MES.map(function (m, i) { return i < 10 ? tR * saz[i] / sz : tR / 10; });
+var top = Math.max.apply(null, vals.concat([orcM])) * 1.08;
+var meses = MES.map(function (m, i) {
+var v = vals[i];
+var prev = i >= 10;
+var cor = prev ? 'rgba(35,151,212,0.35)' : (v > orcM ? '#C9822A' : '#2397D4');
+return {
+mes: m, v: f1(v), tip: m + (prev ? ' (previsão)' : '') + ': ' + f1(v) + ' M · orçamento ' + f1(orcM) + ' M',
+bar: 'width: 100%; border-radius: 6px 6px 2px 2px; background: ' + cor + '; height: ' + Math.round(v / top * 100) + '%',
+meta: 'position: absolute; left: -4px; right: -4px; height: 0; border-top: 2px solid #F5F5F7; bottom: ' + Math.round(orcM / top * 100) + '%'
+};
+});
+var s = null;
+rows.forEach(function (r) { if (r.i === sel) s = r; });
+if (!s) s = { cod: '—', nome: '—', area: 'sup', dv: 0, pct: 0, anual: 0, real: 0, i: -1 };
+var partes = { sup: [0.52, 0.22, 0.06, 0.14, 0.06], op: [0.38, 0.30, 0.18, 0.10, 0.04], can: [0.47, 0.18, 0.07, 0.23, 0.05], proj: [0.34, 0.46, 0.12, 0.03, 0.05] };
+var desvN = { sup: [0.7, 0.4, -0.1, 0.1, -0.1], op: [0.2, 0.5, 0.4, -0.05, -0.05], can: [0.3, 0.2, 0.1, 0.5, -0.1], proj: [0.1, 0.8, 0.2, -0.05, -0.05] };
+var NAT = ['Pessoal', 'Fornecimentos e serviços', 'Frota', 'Housekeeping', 'Amortizações'];
+var nv = desvN[s.area].map(function (k) { return s.dv * k; });
+var mxn = 0.1; nv.forEach(function (v) { if (Math.abs(v) > mxn) mxn = Math.abs(v); });
+var se = estado(s.pct);
+var pedido = this.state.pedidos[s.i];
+var temJust = s.dv > 0 && se !== 'dentro';
+var JUST = { 5: 'Aumento das rendas de dois armazéns em Viana desde Junho e horas extraordinárias na campanha de Agosto.', 11: 'Abertura do canal em Março obrigou a custos de arranque (equipamento e formação) não previstos no orçamento.', 3: 'Renovação antecipada das licenças do ERP e do Microsoft 365 para três anos.', 8: 'Obras de manutenção da loja após infiltração em Julho.', 9: 'Reforço de segurança após incidente em Setembro.' };
+var det = {
+cod: s.cod + ' · ' + nomesArea[s.area], nome: s.nome,
+desv: sg(s.dv) + ' M', desvPct: sg(s.pct) + '% face ao orçamento até Outubro', desvStyle: 'font-size: 22px; font-variant-numeric: tabular-nums; color: ' + (s.dv < 0 ? '#30D158' : (se === 'acima' ? '#FF6961' : (se === 'atencao' ? '#E0A458' : '#F5F5F7'))),
+fecho: f1(s.real / 10 * 12) + ' M', fechoNota: 'orçamento anual: ' + f1(s.anual) + ' M',
+nat: NAT.map(function (n, k) { var v = nv[k]; return { nome: n, v: sg(v), tip: n + ': ' + sg(v) + ' M Kz', vStyle: 'font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; color: ' + (v < 0 ? '#30D158' : '#F5F5F7'), bar: 'position: absolute; top: 0; bottom: 0; border-radius: 3px; background: ' + (v < 0 ? '#30D158' : '#2397D4') + '; width: ' + Math.min(50, Math.abs(v) / mxn * 50) + '%; ' + (v < 0 ? 'right: 50%' : 'left: 50%') }; }),
+just: !temJust ? 'Sem justificação necessária: o desvio está dentro do limite de 3%.' : (JUST[s.i] || (pedido ? 'Pedido enviado ao responsável por e-mail e Teams. Prazo de resposta: 5 dias úteis.' : 'Ainda sem justificação.')),
+justStyle: 'font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 12px; ' + (temJust && !JUST[s.i] && !pedido ? 'background: rgba(255,69,58,0.10); color: #FF6961' : 'background: rgba(255,255,255,0.04); color: rgba(235,235,245,0.8)'),
+btn: !temJust ? 'Nada a pedir' : (JUST[s.i] ? 'Justificação recebida' : (pedido ? 'Pedido enviado' : 'Pedir justificação ao responsável')),
+pedir: function () { if (temJust && !JUST[s.i]) { var p = Object.assign({}, self.state.pedidos); p[s.i] = true; self.setState({ pedidos: p }); } },
+btnStyle: 'align-self: flex-start; height: 36px; padding: 0 14px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 500; ' + (temJust && !JUST[s.i] && !pedido ? 'border: none; background: #2397D4; color: #FFFFFF; cursor: pointer' : 'border: 1px solid rgba(255,255,255,0.14); background: transparent; color: rgba(235,235,245,0.6); cursor: default')
+};
+var empresas = [{ v: 'all', label: 'Todas as empresas (23) · consolidado' }].concat(EMP.map(function (e) { return { v: e[0], label: e[0] + (e[1] === 'S' ? ' · SAP' : ' · Primavera') }; }));
+var vista = empObj ? empObj[0] + (empObj[1] === 'S' ? ' (SAP)' : ' (Primavera)') : 'Consolidado das 23 empresas';
+var __me = this;
+var __pill = 'display: inline-flex; align-items: center; justify-content: center; text-decoration: none; height: 36px; width: 38px; border: none; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+var __en = false;
+return { dkPThref: 'Orcamento.dc.html', dkENhref: 'Orcamento_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'}, kpis: kpis, meses: meses, linhas: linhas, filtros: filtros, det: det, empresas: empresas, empresa: emp, vista: vista, setEmpresa: function (e) { self.setState({ empresa: e.target.value }); } };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>

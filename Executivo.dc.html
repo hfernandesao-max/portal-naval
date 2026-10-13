@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel executivo</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F;padding-bottom:0}@media (max-width: 1100px){.g6{grid-template-columns:repeat(3,minmax(0,1fr)) !important}.g5{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}@media (max-width: 900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 620px){.g6,.g5{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 620px){.g3{grid-template-columns:1fr !important}}@media (max-width: 760px){.dock-l{display:none}.dock-i{min-width:42px !important;height:44px !important}}.dock-i:hover{background:rgba(255,255,255,0.12) !important;color:#FFFFFF !important}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}.side-g details>summary::-webkit-details-marker{display:none}.side-g details>summary:hover{background:rgba(255,255,255,0.06)}.side-g details[open]>summary .chev{transform:rotate(90deg)}.side-g details[open]>summary{color:#FFFFFF;font-weight:500}.side-g a:hover{background:rgba(255,255,255,0.06)}@media (min-width: 820px){.side-g summary{padding-top:clamp(4px,0.9vh,8px) !important;padding-bottom:clamp(4px,0.9vh,8px) !important}.side-g details a{padding-top:clamp(4px,0.8vh,8px) !important;padding-bottom:clamp(4px,0.8vh,8px) !important}}@media (max-width: 819px){.side-g{display:none !important}}</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side side-g" aria-label="Menu principal" style="flex: 1 1 250px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 15px">Grupo Naval Angola</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Portal do grupo</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="Inicio.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.9)"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 11l9-7 9 7M5 10v10h14V10"></path></svg>Início</a>
+<details name="menu" open>
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"></path></svg><span>Direção</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500" aria-current="page">Painel executivo</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span>Comercial</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Painel.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Vendas consolidadas</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 6h18v13H3zM3 10h18M16 15h2"></path></svg><span>Finanças</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ContasCorrentes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Contas correntes</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 7a5 5 0 1 0 0 10a5 5 0 1 0 0-10M12 11v2"></path></svg><span>Contabilidade de gestão</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="CentrosCusto.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Centros de custo</a>
+<a href="Orcamento.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Orçamento e desvios</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 2l9 5v10l-9 5-9-5V7zM12 22V12M21 7l-9 5-9-5"></path></svg><span>Logística e Compras</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Stock.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Stock do grupo</a>
+<a href="Requisicoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Requisições internas</a>
+<a href="Cotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Comparação de cotações</a>
+<a href="Rececao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Receção e conferência</a>
+<a href="#fornecedores" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Fornecedores</a>
+<a href="FornCotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal de fornecedores</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14"></path></svg><span>Frota</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="#frota" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos da frota</a>
+<a href="VeloTransAgendar.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Agendar revisão de viatura</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 4.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7"></path></svg><span>Recursos Humanos</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="#rh" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos com pessoal</a>
+<a href="#absentismo" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Taxa de absentismo</a>
+<a href="ColabFerias.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal do colaborador</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"></path></svg><span>Serviços Gerais</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="#housekeeping" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Housekeeping</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 3h6v5H9zM2.5 16h6v5h-6zM15.5 16h6v5h-6zM12 8v4M5.5 16v-4h13v4"></path></svg><span>Organização</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Organizacao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Grupos e acessos</a>
+<a href="MatrizLOA.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Matriz de aprovação (LOA)</a>
+</details>
+</div>
+<div style="margin-top: auto; padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6)">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 99px; background: #30D158"></span>23 empresas · 16 Primavera · 7 SAP</span>
+<span>consulta directa · há 1 min</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Navegação rápida" style="align-self: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 6px 8px; border-radius: 22px; background: rgba(16,24,58,0.55); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); max-width: 100%; box-sizing: border-box">
+<a href="Inicio.dc.html" title="{{dk.home}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.home}}</span></a>
+<a href="Painel.dc.html" title="{{dk.sales}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.sales}}</span></a>
+<a href="ContasCorrentes.dc.html" title="{{dk.cc}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><path d="M16 15h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.cc}}</span></a>
+<a href="Stock.dc.html" title="{{dk.stock}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.stock}}</span></a>
+<a href="Executivo.dc.html" title="{{dk.exec}}" aria-current="page" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: rgba(35,151,212,0.28); color: #FFFFFF"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.exec}}</span></a>
+<a href="CentrosCusto.dc.html" title="{{dk.ccu}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.ccu}}</span></a>
+<a href="FornCotacoes.dc.html" title="{{dk.forn}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"></path><path d="M13 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.forn}}</span></a>
+<a href="VeloTransAgendar.dc.html" title="{{dk.frota}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.6"></circle><circle cx="16" cy="17" r="1.6"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.frota}}</span></a>
+<a href="ColabFerias.dc.html" title="{{dk.colab}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.colab}}</span></a>
+<a href="Organizacao.dc.html" title="{{dk.org}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1.2"></rect><rect x="2.5" y="16" width="6" height="5" rx="1.2"></rect><rect x="15.5" y="16" width="6" height="5" rx="1.2"></rect><path d="M12 8v4M5.5 16v-4h13v4"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.org}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<a href="VendasMovel.dc.html" title="{{dk.phone}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.phone}}</span></a>
+<a href="Main.dc.html" title="{{dk.out}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4"></path><path d="M10 8l-4 4 4 4"></path><path d="M6 12h10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.out}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; padding: 2px; border-radius: 12px; background: rgba(255,255,255,0.06)">
+<a href="{{dkPThref}}" onClick="{{dkPT}}" style="{{dkPTs}}">PT</a>
+<a href="{{dkENhref}}" onClick="{{dkEN}}" style="{{dkENs}}">EN</a>
+</div>
+</nav>
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: #7CC6EE; letter-spacing: 1px">VISÃO GLOBAL DO GRUPO</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">Painel executivo</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">Outubro 2026 · 23 empresas (16 Primavera e 7 SAP) · valores em Kz · <span style="color: #C9822A">dados de exemplo</span></span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<select aria-label="Período" style="height: 40px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.05); color: #F5F5F7"><option>Este mês</option><option>Trimestre</option><option>Este ano</option></select>
+<select aria-label="Empresas" style="height: 40px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.05); color: #F5F5F7"><option>Todas as empresas (23)</option></select>
+</div>
+</header>
+<section aria-label="Indicadores" class="g6" style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="6">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
+<span style="font-size: 24px; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.5px">{{k.value}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span>
+</div>
+</sc-for>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<section style="flex: 3 1 460px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Vendas mensais do grupo</h2>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: rgba(235,235,245,0.6)">milhões Kz</span>
+</div>
+<div role="img" aria-label="Vendas mensais de Novembro 2025 a Outubro 2026, a crescer de 610 para 1285 milhões" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px; align-items: end; height: 220px; border-bottom: 1px solid rgba(255,255,255,0.12)">
+<sc-for list="{{meses}}" as="m" hint-placeholder-count="12">
+<div title="{{m.tip}}" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%">
+<span style="{{m.valStyle}}">{{m.v}}</span>
+<div style="{{m.bar}}"></div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px; margin-top: -6px">
+<sc-for list="{{meses}}" as="m" hint-placeholder-count="12">
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6); text-align: center">{{m.label}}</span>
+</sc-for>
+</div>
+</section>
+<section style="flex: 2 1 320px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Vendas por empresa</h2>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: rgba(235,235,245,0.6)">milhões Kz</span>
+</div>
+<sc-for list="{{empresas}}" as="e" hint-placeholder-count="8">
+<div title="{{e.tip}}" style="display: grid; grid-template-columns: 92px minmax(0, 1fr) 44px; align-items: center; gap: 10px">
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
+<div style="height: 12px"><div style="{{e.bar}}"></div></div>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+</div>
+</sc-for>
+</section>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<section style="flex: 3 1 460px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Tesouraria prevista · próximas 8 semanas</h2>
+<div style="display: flex; gap: 16px; font-size: 12px; color: rgba(235,235,245,0.78)">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Recebimentos</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #C9822A"></span>Pagamentos</span>
+</div>
+</div>
+<div role="img" aria-label="Recebimentos e pagamentos previstos por semana" style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; align-items: end; height: 200px; border-bottom: 1px solid rgba(255,255,255,0.12)">
+<sc-for list="{{semanas}}" as="s" hint-placeholder-count="8">
+<div title="{{s.tip}}" style="display: flex; align-items: flex-end; justify-content: center; gap: 2px; height: 100%">
+<div style="{{s.rec}}"></div>
+<div style="{{s.pag}}"></div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; margin-top: -6px">
+<sc-for list="{{semanas}}" as="s" hint-placeholder-count="8">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 2px">
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6)">{{s.label}}</span>
+<span style="{{s.saldoStyle}}">{{s.saldo}}</span>
+</div>
+</sc-for>
+</div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Valor por baixo de cada semana: saldo da semana, em milhões Kz. Recebimentos pelas datas de vencimento dos clientes; pagamentos pelas facturas aprovadas.</span>
+</section>
+<section style="flex: 2 1 320px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Antiguidade dos saldos</h2>
+<sc-for list="{{ageing}}" as="a" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span>{{a.nome}}</span><span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{a.total}}</span></div>
+<div style="display: flex; gap: 2px; height: 22px">
+<sc-for list="{{a.seg}}" as="g" hint-placeholder-count="5">
+<div title="{{g.tip}}" style="{{g.style}}"></div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 14px; font-size: 12px; color: rgba(235,235,245,0.78)">
+<sc-for list="{{ageLeg}}" as="l" hint-placeholder-count="5">
+<span style="display: flex; align-items: center; gap: 6px"><span style="{{l.dot}}"></span>{{l.label}}</span>
+</sc-for>
+</div>
+</section>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px">
+<section style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Cobertura de stock</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Percentagem do valor em stock · 2 731,5 M Kz</span>
+<div style="display: flex; gap: 2px; height: 28px">
+<sc-for list="{{stock}}" as="s" hint-placeholder-count="4">
+<div title="{{s.tip}}" style="{{s.style}}"></div>
+</sc-for>
+</div>
+<sc-for list="{{stock}}" as="s" hint-placeholder-count="4">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="{{s.dot}}"></span>{{s.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{s.pct}}</span>
+</div>
+</sc-for>
+</section>
+<section id="compras" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Circuito de compras · este mês</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Da requisição à factura aprovada</span>
+<a href="Requisicoes.dc.html" style="align-self: flex-start; font-size: 13px; font-weight: 500">Abrir requisições internas →</a>
+<sc-for list="{{funil}}" as="f" hint-placeholder-count="7">
+<div title="{{f.tip}}" style="display: grid; grid-template-columns: 170px minmax(0, 1fr) 36px; align-items: center; gap: 10px">
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{f.label}}</span>
+<div style="height: 14px"><div style="{{f.bar}}"></div></div>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{f.n}}</span>
+</div>
+</sc-for>
+<span style="font-size: 12px; color: #C9822A">14 requisições a aguardar aprovação há mais de 48 h</span>
+</section>
+<section id="fornecedores" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Fornecedores</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">212 fornecedores activos por classificação</span>
+<div role="img" aria-label="Fornecedores por classe: A 58, B 104, C 37, sem classificação 13" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; align-items: end; height: 120px; border-bottom: 1px solid rgba(255,255,255,0.12)">
+<sc-for list="{{classes}}" as="c" hint-placeholder-count="4">
+<div title="{{c.tip}}" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%">
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px">{{c.n}}</span>
+<div style="{{c.bar}}"></div>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: -4px">
+<sc-for list="{{classes}}" as="c" hint-placeholder-count="4">
+<span style="font-size: 12px; color: rgba(235,235,245,0.6); text-align: center">{{c.label}}</span>
+</sc-for>
+</div>
+<div style="display: flex; justify-content: space-between; gap: 10px; padding-top: 6px; font-size: 13px"><span>Documentos a expirar em 30 dias</span><span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: #C9822A">23</span></div>
+<div style="display: flex; justify-content: space-between; gap: 10px; font-size: 13px"><span>Suspensos por documentos expirados</span><span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: #FF6961">9</span></div>
+<div style="display: flex; justify-content: space-between; gap: 10px; font-size: 13px"><span>Registos novos por aprovar</span><span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums">5</span></div>
+</section>
+</div>
+<section style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Requisições internas · este mês</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Tempo médio do pedido à entrega: <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: #F5F5F7">2,4 dias</span> pelo armazém · <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: #F5F5F7">9,8 dias</span> via compra</span>
+</div>
+<div class="g5" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{reqKpis}}" as="r" hint-placeholder-count="5">
+<div style="padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 22px">{{r.n}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{r.note}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Estado das 186 requisições efectuadas</span>
+<div style="display: flex; gap: 2px; height: 26px">
+<sc-for list="{{reqSeg}}" as="g" hint-placeholder-count="5">
+<div title="{{g.tip}}" style="{{g.style}}"></div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 16px; font-size: 12px; color: rgba(235,235,245,0.78)">
+<sc-for list="{{reqSeg}}" as="g" hint-placeholder-count="5">
+<span style="display: flex; align-items: center; gap: 6px"><span style="{{g.dot}}"></span>{{g.label}} · {{g.n}}</span>
+</sc-for>
+</div>
+</div>
+</section>
+<section id="frota" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Frota · custos totais do mês</h2>
+<a href="VeloTransAgendar.dc.html" style="font-size: 13px; font-weight: 500">Agendar revisão de viatura na VeloTrans →</a>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">SAP: Foodtec, Higitec, Refitec, VeloTrans, Everywhere Grãos, Naval Trading e Guarda Oceânica · Primavera: restantes empresas · quilómetros do sistema de localização</span>
+</div>
+<div style="display: flex; gap: 8px">
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.18); color: rgba(235,235,245,0.78)">SAP</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.18); color: rgba(235,235,245,0.78)">Primavera</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; padding: 4px 10px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.18); color: rgba(235,235,245,0.78)">Localização</span>
+</div>
+</div>
+<div class="g5" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{frotaKpis}}" as="r" hint-placeholder-count="5">
+<div style="padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 22px">{{r.n}}</span>
+<span style="{{r.noteStyle}}">{{r.note}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Custos por tipo · 96,4 M Kz</span>
+<div style="display: flex; gap: 2px; height: 26px">
+<sc-for list="{{frotaTipos}}" as="g" hint-placeholder-count="6">
+<div title="{{g.tip}}" style="{{g.style}}"></div>
+</sc-for>
+</div>
+<sc-for list="{{frotaTipos}}" as="g" hint-placeholder-count="6">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="{{g.dot}}"></span>{{g.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{g.v}}</span>
+</div>
+</sc-for>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Custo por empresa · milhões Kz</span>
+<sc-for list="{{frotaEmp}}" as="e" hint-placeholder-count="6">
+<div title="{{e.tip}}" style="display: grid; grid-template-columns: 172px minmax(0, 1fr) 40px; align-items: center; gap: 10px">
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
+<div style="height: 12px"><div style="{{e.bar}}"></div></div>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Viaturas com custo por km mais alto</span>
+<div style="overflow-x: auto">
+<table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 14px">
+<thead>
+<tr style="text-align: left; color: rgba(235,235,245,0.6); font-size: 11px; text-transform: uppercase; letter-spacing: 1px">
+<th style="padding: 8px 10px; font-weight: 500">Viatura</th>
+<th style="padding: 8px 10px; font-weight: 500">Empresa</th>
+<th style="padding: 8px 10px; font-weight: 500; text-align: right">Km no mês</th>
+<th style="padding: 8px 10px; font-weight: 500; text-align: right">Custo (Kz)</th>
+<th style="padding: 8px 10px; font-weight: 500; text-align: right">Kz/km</th>
+<th style="padding: 8px 10px; font-weight: 500; text-align: right">L/100 km</th>
+<th style="padding: 8px 10px; font-weight: 500">Alerta</th>
+</tr>
+</thead>
+<tbody>
+<sc-for list="{{viaturas}}" as="v" hint-placeholder-count="5">
+<tr style="border-top: 1px solid rgba(255,255,255,0.08)">
+<td style="padding: 11px 10px"><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums">{{v.mat}}</span><span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{v.tipo}}</span></div></td>
+<td style="padding: 11px 10px; font-size: 13px; color: rgba(235,235,245,0.78)">{{v.emp}}</td>
+<td style="padding: 11px 10px; text-align: right; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums">{{v.km}}</td>
+<td style="padding: 11px 10px; text-align: right; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums">{{v.custo}}</td>
+<td style="padding: 11px 10px; text-align: right; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums">{{v.ckm}}</td>
+<td style="padding: 11px 10px; text-align: right; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums">{{v.cons}}</td>
+<td style="padding: 11px 10px"><span style="{{v.alStyle}}">{{v.al}}</span></td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<section id="rh" style="flex: 1 1 420px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Recursos Humanos · custos com pessoal</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Contabilidade do Primavera e do SAP · gastos com pessoal de todas as empresas</span>
+<a href="ColabFerias.dc.html" style="align-self: flex-start; margin-top: 6px; font-size: 13px; font-weight: 500">Abrir o meu portal do colaborador →</a>
+</div>
+<div class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{pes.kpis}}" as="r" hint-placeholder-count="4">
+<div style="padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 20px">{{r.n}}</span>
+<span style="{{r.noteStyle}}">{{r.note}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{pes.tipoTit}}</span>
+<div style="display: flex; gap: 2px; height: 24px">
+<sc-for list="{{pes.tipos}}" as="g" hint-placeholder-count="6">
+<div title="{{g.tip}}" style="{{g.style}}"></div>
+</sc-for>
+</div>
+<sc-for list="{{pes.tipos}}" as="g" hint-placeholder-count="6">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="{{g.dot}}"></span>{{g.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{g.v}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{pes.barTit}}</span>
+<sc-for list="{{pes.barras}}" as="e" hint-placeholder-count="5">
+<div title="{{e.tip}}" style="display: grid; grid-template-columns: 172px minmax(0, 1fr) 40px; align-items: center; gap: 10px">
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
+<div style="height: 12px"><div style="{{e.bar}}"></div></div>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+</div>
+</sc-for>
+</div>
+<div id="absentismo" style="display: flex; flex-direction: column; gap: 12px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.10)">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 15px; font-weight: 600">Taxa de absentismo · Outubro 2026</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Dias de ausência ÷ dias úteis previstos × 100 · registos de assiduidade do SAP e do Primavera</span>
+</div>
+<div class="g3" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{abs.kpis}}" as="r" hint-placeholder-count="3">
+<div style="padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 20px; {{r.nStyle}}">{{r.n}}</span>
+<span style="{{r.noteStyle}}">{{r.note}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{abs.evoTit}}</span>
+<div style="position: relative; display: flex; align-items: flex-end; gap: 10px; height: 96px; padding-top: 4px">
+<div title="{{abs.metaTip}}" style="{{abs.metaLinha}}"></div>
+<sc-for list="{{abs.meses}}" as="m" hint-placeholder-count="6">
+<div title="{{m.tip}}" style="flex: 1 1 0; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px">
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.78)">{{m.v}}</span>
+<div style="{{m.bar}}"></div>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6)">{{m.mes}}</span>
+</div>
+</sc-for>
+</div>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6)">{{abs.metaLeg}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{abs.motTit}}</span>
+<div style="display: flex; gap: 2px; height: 24px">
+<sc-for list="{{abs.motivos}}" as="g" hint-placeholder-count="5">
+<div title="{{g.tip}}" style="{{g.style}}"></div>
+</sc-for>
+</div>
+<sc-for list="{{abs.motivos}}" as="g" hint-placeholder-count="5">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="{{g.dot}}"></span>{{g.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{g.v}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{abs.empTit}}</span>
+<sc-for list="{{abs.empresas}}" as="e" hint-placeholder-count="6">
+<div title="{{e.tip}}" style="display: grid; grid-template-columns: 172px minmax(0, 1fr) 48px; align-items: center; gap: 10px">
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
+<div style="height: 12px; position: relative"><div style="{{e.bar}}"></div><div style="{{e.meta}}"></div></div>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+</div>
+</sc-for>
+<span style="display: flex; align-items: center; gap: 14px; font-size: 11px; color: rgba(235,235,245,0.6)"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #C9822A"></span>Acima do objectivo</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Dentro do objectivo</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 2px; height: 10px; background: #FFFFFF"></span>Objectivo 3,5%</span></span>
+</div>
+</div>
+</section>
+<section id="housekeeping" style="flex: 1 1 420px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Housekeeping · custos das instalações</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Limpeza, segurança, energia, água e manutenção das instalações</span>
+</div>
+<div class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{hk.kpis}}" as="r" hint-placeholder-count="4">
+<div style="padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 20px">{{r.n}}</span>
+<span style="{{r.noteStyle}}">{{r.note}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{hk.tipoTit}}</span>
+<div style="display: flex; gap: 2px; height: 24px">
+<sc-for list="{{hk.tipos}}" as="g" hint-placeholder-count="6">
+<div title="{{g.tip}}" style="{{g.style}}"></div>
+</sc-for>
+</div>
+<sc-for list="{{hk.tipos}}" as="g" hint-placeholder-count="6">
+<div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
+<span style="display: flex; align-items: center; gap: 8px"><span style="{{g.dot}}"></span>{{g.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{g.v}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{hk.barTit}}</span>
+<sc-for list="{{hk.barras}}" as="e" hint-placeholder-count="5">
+<div title="{{e.tip}}" style="display: grid; grid-template-columns: 172px minmax(0, 1fr) 40px; align-items: center; gap: 10px">
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
+<div style="height: 12px"><div style="{{e.bar}}"></div></div>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+</div>
+<section style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Canais de Venda Direta · vendas face ao objectivo do mês</h2>
+<div style="display: flex; gap: 16px; font-size: 12px; color: rgba(235,235,245,0.78)">
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Vendas</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 2px; height: 14px; background: #F5F5F7"></span>Objectivo</span>
+</div>
+</div>
+<sc-for list="{{canais}}" as="c" hint-placeholder-count="5">
+<div title="{{c.tip}}" style="display: grid; grid-template-columns: 170px minmax(0, 1fr) 64px; align-items: center; gap: 12px">
+<span style="font-size: 13px">{{c.nome}}</span>
+<div style="position: relative; height: 18px; background: rgba(255,255,255,0.10); border-radius: 4px">
+<div style="{{c.bar}}"></div>
+<div style="{{c.meta}}"></div>
+</div>
+<span style="{{c.pctStyle}}">{{c.pct}}</span>
+</div>
+</sc-for>
+</section>
+</main>
+
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+renderVals() {
+var A = '#2397D4', B = '#C9822A';
+var nota = 'font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: ';
+var kpis = [
+['Vendas do mês', '1 284,6 M', '▲ 6,4% vs Set.', '#30D158'],
+['Margem bruta', '22,8%', '▼ 0,6 p.p.', '#C9822A'],
+['A receber', '842,3 M', '213,7 M vencido', '#C9822A'],
+['A pagar', '615,9 M', '74,1 M em 7 dias', 'rgba(235,235,245,0.78)'],
+['Valor em stock', '2 731,5 M', '146 em ruptura', '#FF6961'],
+['Requisições por aprovar', '31', '14 há mais de 48 h', '#C9822A']
+].map(function (k) { return { label: k[0], value: k[1], note: k[2], noteStyle: nota + k[3] }; });
+var mv = [['NOV', 610], ['DEZ', 742], ['JAN', 655], ['FEV', 820], ['MAR', 880], ['ABR', 845], ['MAI', 960], ['JUN', 1035], ['JUL', 1002], ['AGO', 1150], ['SET', 1207], ['OUT', 1285]];
+var meses = mv.map(function (m, i) {
+var ult = i === mv.length - 1;
+return {
+label: m[0], v: ult ? String(m[1]) : '', tip: m[0] + ': ' + m[1] + ' M Kz',
+valStyle: 'font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; color: #F5F5F7; min-height: 14px',
+bar: 'width: 70%; border-radius: 4px 4px 0 0; background: ' + (ult ? '#7CC6EE' : A) + '; height: ' + Math.round(m[1] / 1285 * 88) + '%'
+};
+});
+var ev = [['OCEANO', 286], ['CAZENGO', 214], ['YAWABA', 178], ['INOVAGATE', 151], ['VISTAR', 132], ['PAKTEC', 98], ['EMBALTEC', 74], ['Outras 16', 152]];
+var empresas = ev.map(function (e) {
+return { nome: e[0], v: String(e[1]), tip: e[0] + ': ' + e[1] + ' M Kz', bar: 'height: 100%; border-radius: 0 4px 4px 0; background: ' + (e[0] === 'Outras 16' ? '#4A5A8F' : A) + '; width: ' + Math.round(e[1] / 286 * 100) + '%' };
+});
+var sv = [['S42', 210, 168], ['S43', 185, 240], ['S44', 232, 175], ['S45', 198, 205], ['S46', 260, 190], ['S47', 175, 228], ['S48', 240, 160], ['S49', 220, 210]];
+var semanas = sv.map(function (s) {
+var saldo = s[1] - s[2];
+return {
+label: s[0], tip: s[0] + ': recebimentos ' + s[1] + ' M, pagamentos ' + s[2] + ' M',
+rec: 'width: 38%; border-radius: 4px 4px 0 0; background: ' + A + '; height: ' + Math.round(s[1] / 260 * 92) + '%',
+pag: 'width: 38%; border-radius: 4px 4px 0 0; background: ' + B + '; height: ' + Math.round(s[2] / 260 * 92) + '%',
+saldo: (saldo > 0 ? '+' : '') + saldo,
+saldoStyle: 'font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; color: ' + (saldo < 0 ? '#FF6961' : 'rgba(235,235,245,0.78)')
+};
+});
+var cores = ['#2397D4', '#8A6A3A', '#B07428', '#D9902E', '#F2B866'];
+var nomesAge = ['A vencer', '1–30 dias', '31–60 dias', '61–90 dias', '> 90 dias'];
+var age = [['Clientes', [628.6, 92.4, 54.1, 31.8, 35.4]], ['Fornecedores', [517.5, 61.2, 21.7, 9.3, 6.2]]];
+var ageing = age.map(function (a) {
+var tot = a[1].reduce(function (x, y) { return x + y; }, 0);
+return {
+nome: a[0], total: tot.toFixed(1).replace('.', ',') + ' M',
+seg: a[1].map(function (v, i) { return { tip: a[0] + ' · ' + nomesAge[i] + ': ' + v.toFixed(1).replace('.', ',') + ' M', style: 'height: 100%; border-radius: ' + (i === 0 ? '4px 0 0 4px' : (i === 4 ? '0 4px 4px 0' : '0')) + '; background: ' + cores[i] + '; flex: ' + v + ' 1 0; min-width: 3px' }; })
+};
+});
+var ageLeg = nomesAge.map(function (n, i) { return { label: n, dot: 'width: 10px; height: 10px; border-radius: 2px; background: ' + cores[i] }; });
+var stockCores = [['Ruptura (< 7 dias)', 4, '#FF453A'], ['Baixo (7–15 dias)', 11, '#C9822A'], ['Normal (15–60 dias)', 62, '#2397D4'], ['Excesso (> 60 dias)', 23, '#8E8E93']];
+var stock = stockCores.map(function (s, i) {
+return { label: s[0], pct: s[1] + '%', tip: s[0] + ': ' + s[1] + '% do valor', dot: 'width: 10px; height: 10px; border-radius: 2px; background: ' + s[2], style: 'height: 100%; background: ' + s[2] + '; flex: ' + s[1] + ' 1 0; border-radius: ' + (i === 0 ? '4px 0 0 4px' : (i === 3 ? '0 4px 4px 0' : '0')) };
+});
+var fv = [['Requisições', 186], ['Aprovadas', 162], ['Cotações pedidas', 94], ['Encomendas', 88], ['Recebidas', 71], ['V/ Facturas registadas', 68], ['V/ Facturas aprovadas', 63]];
+var funil = fv.map(function (f) { return { label: f[0], n: String(f[1]), tip: f[0] + ': ' + f[1], bar: 'height: 100%; border-radius: 0 4px 4px 0; background: ' + A + '; width: ' + Math.round(f[1] / 186 * 100) + '%' }; });
+var cv = [['Classe A', 58, '#2397D4'], ['Classe B', 104, '#2397D4'], ['Classe C', 37, '#C9822A'], ['Sem class.', 13, '#8E8E93']];
+var classes = cv.map(function (c) { return { label: c[0], n: String(c[1]), tip: c[0] + ': ' + c[1] + ' fornecedores', bar: 'width: 60%; border-radius: 4px 4px 0 0; background: ' + c[2] + '; height: ' + Math.round(c[1] / 104 * 80) + '%' }; });
+var cnv = [['Canal 01 · Viana', 18.5, 17], ['Canal 02 · Talatona', 15.1, 16], ['Canal 03 · Kilamba', 13.0, 15], ['Canal 04 · Cacuaco', 9.7, 9], ['Canal 05 · Benfica', 7.5, 10]];
+var canais = cnv.map(function (c) {
+var p = Math.round(c[1] / c[2] * 100);
+return {
+nome: c[0], pct: p + '%', tip: c[0] + ': ' + String(c[1]).replace('.', ',') + ' M de ' + c[2] + ' M de objectivo',
+bar: 'position: absolute; left: 0; top: 3px; bottom: 3px; border-radius: 0 4px 4px 0; background: ' + A + '; width: ' + Math.min(100, Math.round(c[1] / 20 * 100)) + '%',
+meta: 'position: absolute; top: -3px; bottom: -3px; width: 2px; background: #F5F5F7; left: ' + Math.round(c[2] / 20 * 100) + '%',
+pctStyle: 'font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, sans-serif; font-variant-numeric: tabular-nums; font-size: 13px; text-align: right; color: ' + (p >= 100 ? '#30D158' : (p >= 90 ? '#F5F5F7' : '#C9822A'))
+};
+});
+var reqKpis = [
+{ label: 'Efectuadas', n: '186', note: '▲ 12 vs Setembro' },
+{ label: 'Satisfeitas', n: '139', note: '75% do total' },
+{ label: 'Pelo armazém', n: '76', note: 'com stock disponível' },
+{ label: 'Via compra', n: '63', note: 'encomenda recebida' },
+{ label: 'Rejeitadas', n: '9', note: '5% do total' }
+];
+var rs = [['Satisfeitas pelo armazém', 76, '#2397D4'], ['Satisfeitas via compra', 63, '#4A5BB0'], ['Em curso (compra)', 24, '#7B87E0'], ['Aguardam aprovação', 14, '#C9822A'], ['Rejeitadas', 9, '#8E8E93']];
+var reqSeg = rs.map(function (r, i) {
+return { label: r[0], n: String(r[1]), tip: r[0] + ': ' + r[1], dot: 'width: 10px; height: 10px; border-radius: 2px; background: ' + r[2], style: 'height: 100%; background: ' + r[2] + '; flex: ' + r[1] + ' 1 0; border-radius: ' + (i === 0 ? '4px 0 0 4px' : (i === rs.length - 1 ? '0 4px 4px 0' : '0')) };
+});
+var nf = 'font-size: 12px; color: ';
+var frotaKpis = [
+{ label: 'Custo total', n: '96,4 M', note: '▲ 4,8% vs Setembro', noteStyle: nf + '#C9822A' },
+{ label: 'Custo por km', n: '412 Kz', note: 'objectivo: 380 Kz', noteStyle: nf + '#C9822A' },
+{ label: 'Consumo médio', n: '14,2 L', note: 'aos 100 km', noteStyle: nf + 'rgba(235,235,245,0.78)' },
+{ label: 'Viaturas activas', n: '148', note: '9 paradas na oficina', noteStyle: nf + 'rgba(235,235,245,0.78)' },
+{ label: 'Alertas', n: '17', note: 'seguros e inspecções a vencer', noteStyle: nf + '#FF6961' }
+];
+var ft = [['Combustível', 44.1, '#2397D4'], ['Manutenção e peças', 21.6, '#4A5BB0'], ['Pneus', 7.9, '#7B87E0'], ['Aluguer e leasing', 10.4, '#C9822A'], ['Seguros e inspecções', 6.8, '#8A6A3A'], ['Outros (multas, telemática, lavagens)', 5.6, '#8E8E93']];
+var frotaTipos = ft.map(function (t, i) {
+return { label: t[0], v: String(t[1]).replace('.', ',') + ' M', tip: t[0] + ': ' + String(t[1]).replace('.', ',') + ' M Kz', dot: 'width: 10px; height: 10px; border-radius: 2px; background: ' + t[2], style: 'height: 100%; background: ' + t[2] + '; flex: ' + t[1] + ' 1 0; border-radius: ' + (i === 0 ? '4px 0 0 4px' : (i === ft.length - 1 ? '0 4px 4px 0' : '0')) };
+});
+var fe = [['VeloTrans · SAP', 38.2], ['Foodtec · SAP', 19.7], ['Everywhere Grãos · SAP', 11.3], ['Refitec · SAP', 7.4], ['Higitec · SAP', 5.9], ['Naval Trading · SAP', 6.1], ['Guarda Oceânica · SAP', 3.4], ['Empresas Primavera', 4.4]];
+var frotaEmp = fe.map(function (e) {
+return { nome: e[0], v: String(e[1]).replace('.', ','), tip: e[0] + ': ' + String(e[1]).replace('.', ',') + ' M Kz', bar: 'height: 100%; border-radius: 0 4px 4px 0; background: ' + (e[0] === 'Empresas Primavera' ? '#8E8E93' : '#2397D4') + '; width: ' + Math.round(e[1] / 38.2 * 100) + '%' };
+});
+var pl = 'display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 500; ';
+var viaturas = [
+['LD-XX-XX-01', 'Camião 18 t', 'VeloTrans', '3 210', '2 455 000', '765', '38,9', 'Consumo acima do normal', 'w'],
+['LD-XX-XX-02', 'Furgão', 'Foodtec', '1 840', '1 196 000', '650', '15,8', 'Revisão em atraso', 'w'],
+['LD-XX-XX-03', 'Camião 10 t', 'Everywhere Grãos', '2 470', '1 383 000', '560', '27,4', '', 'n'],
+['LD-XX-XX-04', 'Pick-up', 'Refitec', '1 120', '582 000', '520', '13,1', 'Seguro vence em 9 dias', 'c'],
+['LD-XX-XX-05', 'Ligeiro', 'Higitec', '980', '470 000', '480', '9,6', '', 'n']
+];
+var viaturasOut = viaturas.map(function (v) {
+var st = v[8] === 'c' ? 'background: rgba(255,69,58,0.16); color: #FF6961' : (v[8] === 'w' ? 'background: rgba(201,130,42,0.14); color: #C9822A' : '');
+return { mat: v[0], tipo: v[1], emp: v[2], km: v[3], custo: v[4], ckm: v[5], cons: v[6], al: v[7] || '—', alStyle: v[7] ? pl + st : 'color: rgba(235,235,245,0.3)' };
+});
+var mk = function (lista, max, corBarra) {
+return {
+tipos: null, barras: lista.map(function (e) { return { nome: e[0], v: String(e[1]).replace('.', ','), tip: e[0] + ': ' + String(e[1]).replace('.', ',') + ' M Kz', bar: 'height: 100%; border-radius: 0 4px 4px 0; background: ' + (e[2] || corBarra) + '; width: ' + Math.round(e[1] / max * 100) + '%' }; })
+};
+};
+var segs = function (lista) {
+return lista.map(function (t, i) { return { label: t[0], v: String(t[1]).replace('.', ',') + ' M', tip: t[0] + ': ' + String(t[1]).replace('.', ',') + ' M Kz', dot: 'width: 10px; height: 10px; border-radius: 2px; background: ' + t[2], style: 'height: 100%; background: ' + t[2] + '; flex: ' + t[1] + ' 1 0; border-radius: ' + (i === 0 ? '4px 0 0 4px' : (i === lista.length - 1 ? '0 4px 4px 0' : '0')) }; });
+};
+var nk = 'font-size: 12px; color: ';
+var pes = mk([['VeloTrans · SAP', 41.8], ['OCEANO', 36.5], ['Foodtec · SAP', 33.2], ['CAZENGO', 22.7], ['VISTAR', 19.4], ['Outras empresas', 58.1, '#8E8E93']], 58.1, '#2397D4');
+pes.kpis = [
+{ label: 'Custo do mês', n: '211,7 M', note: '▲ 1,9% vs Setembro', noteStyle: nk + 'rgba(235,235,245,0.78)' },
+{ label: 'Colaboradores', n: '1 284', note: '+14 no mês', noteStyle: nk + 'rgba(235,235,245,0.78)' },
+{ label: 'Custo médio', n: '164 900', note: 'Kz por colaborador', noteStyle: nk + 'rgba(235,235,245,0.78)' },
+{ label: 'Peso nas vendas', n: '16,5%', note: 'objectivo: 15%', noteStyle: nk + '#C9822A' }
+];
+pes.tipoTit = 'Por natureza · 211,7 M Kz';
+pes.tipos = segs([['Salários base', 132.4, '#2397D4'], ['Subsídios', 31.6, '#4A5BB0'], ['Horas extraordinárias', 14.9, '#C9822A'], ['Encargos sociais (INSS)', 23.8, '#7B87E0'], ['Formação e outros', 9.0, '#8E8E93']]);
+pes.barTit = 'Por empresa · milhões Kz';
+var abs = {};
+var __fmt = function (x) { return String(x.toFixed(1)).replace('.', ','); };
+var __meta = 3.5, __maxT = 6;
+abs.kpis = [
+{ label: 'Taxa do mês', n: '4,2%', nStyle: 'color: #C9822A', note: '▲ 0,4 pp vs Setembro · objectivo 3,5%', noteStyle: nk + '#C9822A' },
+{ label: 'Dias perdidos', n: '1 186', nStyle: '', note: 'em 28 248 dias úteis previstos', noteStyle: nk + 'rgba(235,235,245,0.78)' },
+{ label: 'Custo estimado', n: '8,9 M', nStyle: '', note: 'Kz em salários sem prestação', noteStyle: nk + 'rgba(235,235,245,0.78)' }
+];
+abs.evoTit = 'Evolução nos últimos 6 meses · %';
+abs.metaLeg = 'Linha branca: objectivo do grupo (3,5%)';
+abs.metaTip = 'Objectivo: 3,5%';
+abs.metaLinha = 'position: absolute; left: 0; right: 0; bottom: ' + (19 + Math.round(__meta / 4.5 * 58)) + 'px; border-top: 1px dashed rgba(255,255,255,0.55); pointer-events: none';
+abs.meses = [['Mai', 3.6], ['Jun', 3.4], ['Jul', 3.9], ['Ago', 3.7], ['Set', 3.8], ['Out', 4.2]].map(function (m, i) {
+return { mes: m[0], v: __fmt(m[1]), tip: m[0] + ': ' + __fmt(m[1]) + '%', bar: 'width: 100%; max-width: 44px; border-radius: 4px 4px 0 0; height: ' + Math.round(m[1] / 4.5 * 58) + 'px; background: ' + (m[1] > __meta ? '#C9822A' : '#2397D4') + (i === 5 ? '' : '; opacity: 0.75') };
+});
+abs.motTit = 'Por motivo · 1 186 dias';
+abs.motivos = [['Doença', 512, '#2397D4'], ['Faltas justificadas', 268, '#4A5BB0'], ['Faltas injustificadas', 174, '#C9822A'], ['Licença parental', 136, '#7B87E0'], ['Acidentes de trabalho', 96, '#8E8E93']].map(function (t, i, l) {
+return { label: t[0], v: t[1] + ' dias', tip: t[0] + ': ' + t[1] + ' dias', dot: 'width: 10px; height: 10px; border-radius: 2px; background: ' + t[2], style: 'height: 100%; background: ' + t[2] + '; flex: ' + t[1] + ' 1 0; border-radius: ' + (i === 0 ? '4px 0 0 4px' : (i === l.length - 1 ? '0 4px 4px 0' : '0')) };
+});
+abs.empTit = 'Por empresa · taxa do mês';
+abs.empresas = [['VeloTrans · SAP', 5.8], ['OCEANO', 4.6], ['Foodtec · SAP', 4.1], ['Guarda Oceânica · SAP', 3.9], ['CAZENGO', 3.2], ['VISTAR', 2.9], ['Outras empresas', 3.6]].map(function (e) {
+return { nome: e[0], v: __fmt(e[1]) + '%', tip: e[0] + ': ' + __fmt(e[1]) + '%', bar: 'height: 100%; border-radius: 0 4px 4px 0; background: ' + (e[1] > __meta ? '#C9822A' : '#2397D4') + '; width: ' + Math.round(e[1] / __maxT * 100) + '%', meta: 'position: absolute; top: -3px; bottom: -3px; width: 2px; background: #FFFFFF; left: ' + Math.round(__meta / __maxT * 100) + '%' };
+});
+var hk = mk([['Sede', 9.8], ['Armazéns', 12.6], ['Canais de Venda Direta', 8.4], ['Instalações industriais', 15.1], ['Outros locais', 3.5, '#8E8E93']], 15.1, '#2397D4');
+hk.kpis = [
+{ label: 'Custo do mês', n: '49,4 M', note: '▲ 3,2% vs Setembro', noteStyle: nk + '#C9822A' },
+{ label: 'Instalações', n: '38', note: 'sede, armazéns e canais', noteStyle: nk + 'rgba(235,235,245,0.78)' },
+{ label: 'Custo por m²', n: '1 870', note: 'Kz por mês', noteStyle: nk + 'rgba(235,235,245,0.78)' },
+{ label: 'Contratos a renovar', n: '4', note: 'nos próximos 60 dias', noteStyle: nk + '#FF6961' }
+];
+hk.tipoTit = 'Por natureza · 49,4 M Kz';
+hk.tipos = segs([['Energia e água', 17.3, '#2397D4'], ['Segurança', 12.1, '#4A5BB0'], ['Limpeza', 9.6, '#7B87E0'], ['Manutenção das instalações', 6.2, '#C9822A'], ['Consumíveis de higiene', 4.2, '#8E8E93']]);
+hk.barTit = 'Por local · milhões Kz';
+var __me = this;
+var __pill = 'display: inline-flex; align-items: center; justify-content: center; text-decoration: none; height: 36px; width: 38px; border: none; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+var __en = false;
+return { dkPThref: 'Executivo.dc.html', dkENhref: 'Executivo_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'},  pes: pes, abs: abs, hk: hk, frotaKpis: frotaKpis, frotaTipos: frotaTipos, frotaEmp: frotaEmp, viaturas: viaturasOut, reqKpis: reqKpis, reqSeg: reqSeg, kpis: kpis, meses: meses, empresas: empresas, semanas: semanas, ageing: ageing, ageLeg: ageLeg, stock: stock, funil: funil, classes: classes, canais: canais };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>

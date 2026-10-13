@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My bookings</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+button:focus-visible,a:focus-visible{outline:2px solid #7CC6EE;outline-offset:2px}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side" aria-label="Customer menu" style="flex: 1 1 240px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 17px; letter-spacing: 0.5px">OCEANO</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Customer portal</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="OceanoAgendar_en.dc.html" style="display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Book a service</a>
+<a href="OceanoMarcacoes_en.dc.html" style="display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500">My bookings</a>
+<a href="#equipamentos" style="display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">My equipment</a>
+<a href="#historico" style="display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">History and invoices</a>
+</div>
+<div style="margin-top: auto; padding: 14px; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; font-weight: 500">[CUSTOMER A], Lda</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Customer no. C000123</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Support: [OCEANO PHONE]</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<header style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">OCEANO · TECHNICAL SERVICE</span>
+<span class="fase2" title="Phase 2" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 99px; background: rgba(201,130,42,0.16); color: #E0A458; border: 1px solid rgba(201,130,42,0.35)">Phase 2 · process prototype, does not post to the ERP yet</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">My bookings</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">Track booked services and the status of each job · <span style="color: #C9822A">sample data</span></span>
+</div>
+<a href="OceanoAgendar_en.dc.html" style="height: 44px; padding: 0 20px; border-radius: 12px; background: #2397D4; color: #FFFFFF; display: flex; align-items: center; font-weight: 600; font-size: 14px; text-decoration: none">Book a new service</a>
+</header>
+<section style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Upcoming and in progress</h2>
+<sc-for list="{{marcacoes}}" as="m" hint-placeholder-count="2">
+<div style="border: 1px solid rgba(255,255,255,0.10); border-radius: 18px; padding: 16px; background: rgba(255,255,255,0.03); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 16px; font-weight: 600">{{m.eq}}</span>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">{{m.serv}} · {{m.ref}}</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 3px">
+<span style="font-size: 15px; font-variant-numeric: tabular-nums">{{m.quando}}</span>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">{{m.onde}}</span>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{m.passos}}" as="s" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 6px"><div style="{{s.barra}}"></div><span style="{{s.txt}}">{{s.label}}</span></div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{m.nota}}</span>
+<div style="display: flex; gap: 8px">
+<sc-if value="{{m.alteravel}}" hint-placeholder-val="{{ true }}">
+<a href="OceanoAgendar_en.dc.html" style="height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); color: rgba(235,235,245,0.85); display: flex; align-items: center; font-size: 13px; text-decoration: none">Reschedule</a>
+<button type="button" style="height: 38px; padding: 0 14px; border-radius: 10px; border: 1px solid rgba(255,69,58,0.4); background: transparent; color: #FF6961; font-family: inherit; font-size: 13px">Cancel</button>
+</sc-if>
+</div>
+</div>
+</div>
+</sc-for>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 14px">
+<section id="equipamentos" style="flex: 1 1 380px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">My equipment</h2>
+<sc-for list="{{equip}}" as="e" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08)">
+<div style="display: flex; justify-content: space-between; gap: 10px"><span style="font-size: 14px; font-weight: 500">{{e.nome}}</span><span style="{{e.alertStyle}}">{{e.alerta}}</span></div>
+<div style="height: 8px; border-radius: 99px; background: rgba(255,255,255,0.10); overflow: hidden"><div style="{{e.bar}}"></div></div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{e.prox}}</span>
+</div>
+</sc-for>
+</section>
+<section id="historico" style="flex: 1 1 380px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">History and invoices</h2>
+<sc-for list="{{hist}}" as="h" hint-placeholder-count="4">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.08)">
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">{{h.desc}}</span><span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{h.data}} · {{h.doc}}</span></div>
+<div style="display: flex; align-items: center; gap: 10px"><span style="font-size: 14px; font-variant-numeric: tabular-nums">{{h.valor}}</span><button type="button" style="height: 34px; padding: 0 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: rgba(235,235,245,0.85); font-family: inherit; font-size: 12px">PDF</button></div>
+</div>
+</sc-for>
+</section>
+</div>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+renderVals() {
+var nomes = ['Booked', 'Confirmed', 'In the workshop', 'Ready', 'Delivered'];
+var mk = function (n) {
+return nomes.map(function (l, i) {
+var feito = i <= n, act = i === n;
+return { label: l, barra: 'height: 6px; border-radius: 99px; background: ' + (act ? '#7CC6EE' : (feito ? '#2397D4' : 'rgba(255,255,255,0.10)')), txt: 'font-size: 12px; color: ' + (act ? '#7CC6EE; font-weight: 500' : (feito ? 'rgba(235,235,245,0.78)' : 'rgba(235,235,245,0.4)')) };
+});
+};
+var marcacoes = [
+{ eq: '350 hp marine engine', serv: 'Scheduled service', ref: 'REV-2026-1184', quando: '18 Nov 2026 · 09:30', onde: 'Oceano workshop · Viana', passos: mk(1), nota: 'Confirmed by Oceano. A technician will call you the day before.', alteravel: true },
+{ eq: '250 kVA generator', serv: 'Fault diagnosis', ref: 'REV-2026-1121', quando: '08 Oct 2026 · 14:00', onde: 'At the customer\'s site', passos: mk(2), nota: 'Quote sent on 09/10 · awaiting your approval.', alteravel: false }
+];
+var pl = 'flex: none; padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 500; ';
+var equip = [
+['250 kVA generator', 96, '5,000 h service due soon', 'w', 'About 180 hours left until the next service'],
+['350 hp marine engine', 100, 'Annual service overdue', 'c', 'Annual service due 30/09/2026 · already booked for 18/11'],
+['Industrial compressor', 46, 'Up to date', 'n', 'Next service at 5,000 hours (2,700 to go)']
+].map(function (e) {
+var cor = e[3] === 'c' ? '#FF453A' : (e[3] === 'w' ? '#C9822A' : '#2397D4');
+var al = e[3] === 'c' ? 'background: rgba(255,69,58,0.16); color: #FF6961' : (e[3] === 'w' ? 'background: rgba(201,130,42,0.16); color: #E0A04A' : 'background: rgba(48,209,88,0.12); color: #30D158');
+return { nome: e[0], alerta: e[2], alertStyle: pl + al, prox: e[4], bar: 'height: 100%; border-radius: 99px; background: ' + cor + '; width: ' + e[1] + '%' };
+});
+var hist = [
+['Scheduled service · 250 kVA generator', '12/05/2026', 'FT 2026/0841', '485,000 Kz'],
+['Water pump replacement · Marine engine', '03/03/2026', 'FT 2026/0352', '1,120,000 Kz'],
+['Scheduled service · Industrial compressor', '20/01/2026', 'FT 2026/0098', '312,500 Kz'],
+['Annual service · 350 hp marine engine', '28/09/2025', 'FT 2025/2210', '640,000 Kz']
+].map(function (h) { return { desc: h[0], data: h[1], doc: h[2], valor: h[3] }; });
+return { marcacoes: marcacoes, equip: equip, hist: hist };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sales on mobile</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; background: #070B1F; overflow: hidden">
+<header style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 18px 12px; border-bottom: 1px solid rgba(255,255,255,0.08)">
+<div style="display: flex; align-items: center; gap: 10px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 30px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 18px">Sales</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 10px; color: rgba(235,235,245,0.6); display: flex; align-items: center; gap: 6px"><span style="width: 6px; height: 6px; border-radius: 99px; background: #30D158; box-shadow: 0 0 6px #30D158"></span>23 companies · 2 min ago</span>
+</div>
+</div>
+<button type="button" aria-label="Profile" style="width: 44px; height: 44px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: #F5F5F7; font-family: inherit; font-weight: 600; font-size: 13px">GL</button>
+</header>
+<div style="flex: 1 1 auto; overflow-y: auto; padding: 14px 16px 20px; display: flex; flex-direction: column; gap: 14px">
+<div role="tablist" aria-label="Period" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; background: rgba(255,255,255,0.05)">
+<sc-for list="{{periodos}}" as="p" hint-placeholder-count="3">
+<button type="button" role="tab" onClick="{{p.pick}}" style="{{p.style}}">{{p.label}}</button>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12)">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">Sales · {{periodoNome}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 34px; font-weight: 500; letter-spacing: -1px">{{total}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: #30D158">{{variacao}}</span>
+<svg role="img" aria-label="Sales trend, growing" viewBox="0 0 320 70" style="width: 100%; height: auto; display: block; margin-top: 8px">
+<polygon points="0,70 0,52 32,48 64,55 96,40 128,37 160,42 192,30 224,24 256,27 288,14 320,8 320,70" fill="rgba(35,151,212,0.18)"></polygon>
+<polyline points="0,52 32,48 64,55 96,40 128,37 160,42 192,30 224,24 256,27 288,14 320,8" fill="none" stroke="#7CC6EE" stroke-width="2.5"></polyline>
+</svg>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="padding: 14px; border-radius: 22px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); line-height: 1.3">{{k.label}}</span>
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 20px; font-weight: 500">{{k.value}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span>
+</div>
+</sc-for>
+</div>
+<section style="padding: 16px; border-radius: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; justify-content: space-between; align-items: baseline">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">By company</h2>
+<a href="Painel_en.dc.html" style="font-size: 13px">See all</a>
+</div>
+<sc-for list="{{empresas}}" as="e" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: space-between; font-size: 13px"><span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums">{{e.nome}}</span><span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{e.valor}}</span></div>
+<div style="height: 8px; background: rgba(255,255,255,0.10); border-radius: 99px; overflow: hidden"><div style="{{e.bar}}"></div></div>
+</div>
+</sc-for>
+</section>
+<section style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-size: 15px; font-weight: 600">Direct Sales Channels</h2>
+<sc-for list="{{canais}}" as="c" hint-placeholder-count="4">
+<div style="padding: 14px; border-radius: 22px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); display: flex; justify-content: space-between; align-items: center; gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<span style="font-weight: 500; font-size: 14px">{{c.canal}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{c.empresa}}</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px">
+<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 14px">{{c.vendas}}</span>
+<span style="{{c.trfStyle}}">{{c.trf}}</span>
+</div>
+</div>
+</sc-for>
+</section>
+</div>
+<nav aria-label="Navigation" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.05); padding: 6px 6px 22px">
+<a href="VendasMovel_en.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 0; font-size: 11px; color: #7CC6EE; text-decoration: none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg>Sales</a>
+<a href="ContasCorrentes_en.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 0; font-size: 11px; color: rgba(235,235,245,0.6); text-decoration: none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg>Accounts</a>
+<a href="Stock_en.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 0; font-size: 11px; color: rgba(235,235,245,0.6); text-decoration: none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg>Inventory</a>
+<a href="Executivo_en.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 0; font-size: 11px; color: rgba(235,235,245,0.6); text-decoration: none">
+<svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"></path><path d="M21 7H8"></path><path d="M7 21l-4-4 4-4"></path><path d="M3 17h13"></path></svg>Transfers</a>
+</nav>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { periodo: 1 };
+}
+renderVals() {
+var self = this;
+var dados = [
+{ label: 'Today', nome: 'today', total: '41.2 M Kz', variacao: '▲ 8.1% vs yesterday', docs: '1,604', medio: '25,690', margem: '23.4%', trf: '9' },
+{ label: 'Month', nome: 'Outubro', total: '1,284.6 M Kz', variacao: '▲ 6.4% vs September', docs: '48,210', medio: '26,646', margem: '22.8%', trf: '37' },
+{ label: 'Year', nome: '2026', total: '11,902 M Kz', variacao: '▲ 14.2% vs 2025', docs: '452,870', medio: '26,281', margem: '22.1%', trf: '37' }
+];
+var d = dados[this.state.periodo];
+var periodos = dados.map(function (p, i) {
+var on = i === self.state.periodo;
+return {
+label: p.label,
+pick: function () { self.setState({ periodo: i }); },
+style: 'height: 40px; border-radius: 9px; border: none; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer; ' + (on ? 'background: #2397D4; color: #FFFFFF; box-shadow: 0 6px 20px rgba(35,151,212,0.35)' : 'background: transparent; color: rgba(235,235,245,0.78)')
+};
+});
+var nota = 'font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; color: ';
+var kpis = [
+{ label: 'Documents', value: d.docs, note: '▲ 3.1%', noteStyle: nota + '#30D158' },
+{ label: 'Average value (Kz)', value: d.medio, note: '▼ 0.8%', noteStyle: nota + '#C9822A' },
+{ label: 'Gross margin', value: d.margem, note: '▼ 0.6 pp', noteStyle: nota + '#C9822A' },
+{ label: 'Transfers to reconcile', value: d.trf, note: '12 > 3 days', noteStyle: nota + '#FF6961' }
+];
+var lista = [['OCEANO', 286], ['CAZENGO', 214], ['YAWABA', 178], ['INOVAGATE', 151], ['VISTAR', 132]];
+var empresas = lista.map(function (e) {
+return { nome: e[0], valor: e[1] + ' M', bar: 'height: 100%; border-radius: 99px; background: #2397D4; box-shadow: 0 0 8px rgba(124,198,238,0.6); width: ' + Math.round(e[1] / 286 * 100) + '%' };
+});
+var canais = [
+['Channel 01 · Viana', 'Cazengo Kalandula', '18.5 M', 3],
+['Channel 02 · Talatona', 'Inova Gate', '15.1 M', 0],
+['Channel 03 · Kilamba', 'Yawaba', '13.0 M', 5],
+['Channel 04 · Cacuaco', 'Cazengo Kalandula', '9.7 M', 1]
+].map(function (c) {
+return {
+canal: c[0], empresa: c[1], vendas: c[2],
+trf: c[3] === 0 ? 'all reconciled' : c[3] + ' transfers to reconcile',
+trfStyle: 'font-size: 11px; padding: 2px 8px; border-radius: 99px; ' + (c[3] > 2 ? 'background: rgba(201,130,42,0.14); color: #C9822A' : 'color: rgba(235,235,245,0.6)')
+};
+});
+return { periodos: periodos, periodoNome: d.nome, total: d.total, variacao: d.variacao, kpis: kpis, empresas: empresas, canais: canais };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>

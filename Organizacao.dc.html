@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grupos e acessos</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F;padding-bottom:0}@media (max-width: 1100px){.g6{grid-template-columns:repeat(3,minmax(0,1fr)) !important}.g5{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}@media (max-width: 900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 620px){.g6,.g5{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 760px){.dock-l{display:none}.dock-i{min-width:42px !important;height:44px !important}}.dock-i:hover{background:rgba(255,255,255,0.12) !important;color:#FFFFFF !important}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}.side-g details>summary::-webkit-details-marker{display:none}.side-g details>summary:hover{background:rgba(255,255,255,0.06)}.side-g details[open]>summary .chev{transform:rotate(90deg)}.side-g details[open]>summary{color:#FFFFFF;font-weight:500}.side-g a:hover{background:rgba(255,255,255,0.06)}@media (min-width: 820px){.side-g summary{padding-top:clamp(4px,0.9vh,8px) !important;padding-bottom:clamp(4px,0.9vh,8px) !important}.side-g details a{padding-top:clamp(4px,0.8vh,8px) !important;padding-bottom:clamp(4px,0.8vh,8px) !important}}@media (max-width: 819px){.side-g{display:none !important}}</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side side-g" aria-label="Menu principal" style="flex: 1 1 250px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 15px">Grupo Naval Angola</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Portal do grupo</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="Inicio.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.9)"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 11l9-7 9 7M5 10v10h14V10"></path></svg>Início</a>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"></path></svg><span>Direção</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Painel executivo</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span>Comercial</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Painel.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Vendas consolidadas</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 6h18v13H3zM3 10h18M16 15h2"></path></svg><span>Finanças</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ContasCorrentes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Contas correntes</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 7a5 5 0 1 0 0 10a5 5 0 1 0 0-10M12 11v2"></path></svg><span>Contabilidade de gestão</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="CentrosCusto.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Centros de custo</a>
+<a href="Orcamento.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Orçamento e desvios</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 2l9 5v10l-9 5-9-5V7zM12 22V12M21 7l-9 5-9-5"></path></svg><span>Logística e Compras</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Stock.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Stock do grupo</a>
+<a href="Requisicoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Requisições internas</a>
+<a href="Cotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Comparação de cotações</a>
+<a href="Rececao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Receção e conferência</a>
+<a href="Executivo.dc.html#fornecedores" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Fornecedores</a>
+<a href="FornCotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal de fornecedores</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14"></path></svg><span>Frota</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#frota" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos da frota</a>
+<a href="VeloTransAgendar.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Agendar revisão de viatura</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 4.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7"></path></svg><span>Recursos Humanos</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#rh" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos com pessoal</a>
+<a href="Executivo.dc.html#absentismo" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Taxa de absentismo</a>
+<a href="ColabFerias.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal do colaborador</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"></path></svg><span>Serviços Gerais</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#housekeeping" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Housekeeping</a>
+</details>
+<details name="menu" open>
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 3h6v5H9zM2.5 16h6v5h-6zM15.5 16h6v5h-6zM12 8v4M5.5 16v-4h13v4"></path></svg><span>Organização</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Organizacao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500" aria-current="page">Grupos e acessos</a>
+<a href="MatrizLOA.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Matriz de aprovação (LOA)</a>
+</details>
+</div>
+<div style="margin-top: auto; padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6)">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 99px; background: #30D158"></span>23 empresas · 16 Primavera · 7 SAP</span>
+<span>consulta directa · há 1 min</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Navegação rápida" style="align-self: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 6px 8px; border-radius: 22px; background: rgba(16,24,58,0.55); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); max-width: 100%; box-sizing: border-box">
+<a href="Inicio.dc.html" title="{{dk.home}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.home}}</span></a>
+<a href="Painel.dc.html" title="{{dk.sales}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.sales}}</span></a>
+<a href="ContasCorrentes.dc.html" title="{{dk.cc}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><path d="M16 15h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.cc}}</span></a>
+<a href="Stock.dc.html" title="{{dk.stock}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.stock}}</span></a>
+<a href="Executivo.dc.html" title="{{dk.exec}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.exec}}</span></a>
+<a href="CentrosCusto.dc.html" title="{{dk.ccu}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.ccu}}</span></a>
+<a href="FornCotacoes.dc.html" title="{{dk.forn}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"></path><path d="M13 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.forn}}</span></a>
+<a href="VeloTransAgendar.dc.html" title="{{dk.frota}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.6"></circle><circle cx="16" cy="17" r="1.6"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.frota}}</span></a>
+<a href="ColabFerias.dc.html" title="{{dk.colab}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.colab}}</span></a>
+<a href="Organizacao.dc.html" title="{{dk.org}}" aria-current="page" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: rgba(35,151,212,0.28); color: #FFFFFF"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1.2"></rect><rect x="2.5" y="16" width="6" height="5" rx="1.2"></rect><rect x="15.5" y="16" width="6" height="5" rx="1.2"></rect><path d="M12 8v4M5.5 16v-4h13v4"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.org}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<a href="VendasMovel.dc.html" title="{{dk.phone}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.phone}}</span></a>
+<a href="Main.dc.html" title="{{dk.out}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4"></path><path d="M10 8l-4 4 4 4"></path><path d="M6 12h10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.out}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; padding: 2px; border-radius: 12px; background: rgba(255,255,255,0.06)">
+<a href="{{dkPThref}}" onClick="{{dkPT}}" style="{{dkPTs}}">PT</a>
+<a href="{{dkENhref}}" onClick="{{dkEN}}" style="{{dkENs}}">EN</a>
+</div>
+</nav>
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">ORGANIZAÇÃO E ACESSOS</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">Grupos organizacionais</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">Cada acesso resulta de três regras: grupo, nível e empresas · <span style="color: #C9822A">dados de exemplo</span></span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="MatrizLOA.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 12px; background: #2397D4; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px">Matriz de aprovação (LOA) →</a>
+<button type="button" style="height: 40px; padding: 0 16px; border-radius: 12px; border: 1px solid #2397D4; background: transparent; color: #7CC6EE; font-family: inherit; font-weight: 500; font-size: 14px">Exportar matriz</button>
+</div>
+</header>
+<section aria-label="Indicadores" class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
+<span style="{{k.valStyle}}">{{k.value}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span>
+</div>
+</sc-for>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
+<section aria-label="Grupos" style="flex: 2 1 340px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Grupos</h2>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{grupos}}" as="g" hint-placeholder-count="11">
+<button type="button" onClick="{{g.pick}}" aria-pressed="{{g.on}}" style="{{g.rowStyle}}">
+<span style="{{g.dot}}"></span>
+<span style="display: flex; flex-direction: column; gap: 2px; min-width: 0; text-align: left"><span style="font-size: 14px; font-weight: 500; color: #F5F5F7">{{g.nome}}</span><span style="font-size: 11px; color: rgba(235,235,245,0.6)">{{g.cc}}</span></span>
+<span style="font-size: 13px; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78); text-align: right; white-space: nowrap">{{g.users}}</span>
+</button>
+</sc-for>
+</div>
+</section>
+<section aria-label="Detalhe do grupo" style="flex: 3 1 480px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{det.cc}}</span>
+<h2 style="margin: 0; font-size: 22px; font-weight: 600">{{det.nome}}</h2>
+<span style="font-size: 14px; color: rgba(235,235,245,0.78); line-height: 1.5">{{det.desc}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">Empresas que vê</span><span style="font-size: 15px">{{det.emp}}</span></div>
+<div style="padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">Papel no fluxo</span><span style="font-size: 15px">{{det.papel}}</span></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Utilizadores por nível</span>
+<sc-for list="{{det.niveis}}" as="n" hint-placeholder-count="4">
+<div title="{{n.tip}}" style="display: grid; grid-template-columns: 150px minmax(0, 1fr) 40px; align-items: center; gap: 10px">
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{n.nome}}</span>
+<div style="height: 10px"><div style="{{n.bar}}"></div></div>
+<span style="font-size: 12px; text-align: right; font-variant-numeric: tabular-nums">{{n.v}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Áreas do portal a que tem acesso</span>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{det.perms}}" as="p" hint-placeholder-count="6">
+<span style="{{p.style}}">{{p.label}} · {{p.nivel}}</span>
+</sc-for>
+</div>
+</div>
+</section>
+</div>
+<section aria-label="Matriz de permissões" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Matriz de permissões · grupo × área do portal</h2>
+<span style="display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; color: rgba(235,235,245,0.78)">
+<span style="display: flex; align-items: center; gap: 6px"><span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 7px; background: #2397D4; color: #FFFFFF; font-size: 11px; font-weight: 600">A</span>Aprova</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 7px; background: rgba(123,135,224,0.35); color: #FFFFFF; font-size: 11px; font-weight: 600">R</span>Regista</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 7px; border: 1px solid rgba(124,198,238,0.6); color: #7CC6EE; font-size: 11px; font-weight: 600; box-sizing: border-box">V</span>Consulta</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; color: rgba(235,235,245,0.3); font-size: 13px">—</span>Sem acesso</span>
+</span>
+</div>
+<div style="overflow-x: auto">
+<div style="min-width: 980px; display: flex; flex-direction: column; gap: 2px">
+<div style="display: grid; grid-template-columns: 200px repeat(12, minmax(0, 1fr)); gap: 4px; padding: 0 8px 6px; font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">
+<span>Grupo</span>
+<sc-for list="{{colunas}}" as="c" hint-placeholder-count="12">
+<span style="text-align: center">{{c}}</span>
+</sc-for>
+</div>
+<sc-for list="{{matriz}}" as="m" hint-placeholder-count="11">
+<button type="button" onClick="{{m.pick}}" style="{{m.rowStyle}}">
+<span style="font-size: 13px; color: #F5F5F7; text-align: left">{{m.nome}}</span>
+<sc-for list="{{m.cel}}" as="x" hint-placeholder-count="12">
+<span style="display: flex; justify-content: center"><span title="{{x.tip}}" style="{{x.style}}">{{x.t}}</span></span>
+</sc-for>
+</button>
+</sc-for>
+</div>
+</div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">A matriz mostra o máximo que cada grupo pode fazer. Dentro do grupo, o nível decide até onde aprova (ver a matriz LOA). Toque numa linha para ver o detalhe do grupo.</span>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
+<section aria-label="Pré-visualizar o portal" style="flex: 1 1 380px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Ver o portal como…</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">O menu de cada utilizador é montado a partir do grupo e do nível</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: rgba(235,235,245,0.6); flex: 1 1 160px">Grupo
+<select value="{{prevGrupo}}" onChange="{{setPrevGrupo}}" style="height: 40px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: #10183A; color: #F5F5F7">
+<sc-for list="{{opcGrupos}}" as="o" hint-placeholder-count="11">
+<option value="{{o.v}}">{{o.label}}</option>
+</sc-for>
+</select>
+</label>
+<label style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: rgba(235,235,245,0.6); flex: 1 1 160px">Nível
+<select value="{{prevNivel}}" onChange="{{setPrevNivel}}" style="height: 40px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: #10183A; color: #F5F5F7">
+<sc-for list="{{opcNiveis}}" as="o" hint-placeholder-count="4">
+<option value="{{o.v}}">{{o.label}}</option>
+</sc-for>
+</select>
+</label>
+</div>
+<div style="display: flex; gap: 12px; flex-wrap: wrap">
+<div style="flex: 1 1 190px; padding: 12px; border-radius: 18px; background: rgba(7,11,31,0.6); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase; padding: 0 8px 6px">Menu deste utilizador</span>
+<sc-for list="{{prevMenu}}" as="i" hint-placeholder-count="6">
+<span style="{{i.style}}"><span>{{i.label}}</span><span style="{{i.tagStyle}}">{{i.tag}}</span></span>
+</sc-for>
+</div>
+<div style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 10px">
+<div style="padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">Áreas visíveis</span><span style="font-size: 22px; font-variant-numeric: tabular-nums">{{prevN}}</span></div>
+<div style="padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">Pode aprovar</span><span style="font-size: 14px; line-height: 1.4">{{prevAprova}}</span></div>
+</div>
+</div>
+</section>
+<section aria-label="Segregação de funções" style="flex: 1 1 420px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Segregação de funções</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Quem pede não aprova · quem compra não recebe · quem recebe não paga</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px">
+<sc-for list="{{fluxo}}" as="f" hint-placeholder-count="5">
+<span style="{{f.style}}">{{f.t}}</span>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{conflitos}}" as="c" hint-placeholder-count="3">
+<div style="{{c.boxStyle}}">
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1 1 220px">
+<span style="font-size: 14px; font-weight: 500">{{c.quem}} · {{c.grupos}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6); line-height: 1.4">{{c.risco}}</span>
+</div>
+<span style="{{c.sevStyle}}">{{c.sev}}</span>
+<button type="button" onClick="{{c.fix}}" style="{{c.btnStyle}}">{{c.btn}}</button>
+</div>
+</sc-for>
+</div>
+</section>
+</div>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { sel: 3, prevGrupo: 'COMP', prevNivel: '2', resolvidos: {} };
+}
+renderVals() {
+var self = this;
+var COLS = [['exec', 'Executivo', 'Painel executivo'], ['ccu', 'C. custo', 'Centros de custo'], ['vend', 'Vendas', 'Vendas consolidadas'], ['cc', 'Contas', 'Contas correntes'], ['stock', 'Stock', 'Stock do grupo'], ['comp', 'Compras', 'Compras e requisições'], ['forn', 'Fornec.', 'Fornecedores'], ['frota', 'Frota', 'Frota'], ['rh', 'RH', 'Recursos Humanos'], ['hk', 'Housek.', 'Housekeeping'], ['ofi', 'Oficina', 'Marcações de clientes'], ['sis', 'Sistemas', 'Administração do portal']];
+var G = [
+['ADM', 'Administração', '1.01 · Administração', 'Visão do grupo e decisões estratégicas. Aprova o que ultrapassa os limites das direções.', 'Todas (23)', 'Aprova acima dos limites LOA', [0, 0, 0, 4], { exec: 'V', ccu: 'V', vend: 'V', cc: 'V', stock: 'V', comp: 'A', forn: 'V', frota: 'A', rh: 'A', hk: 'V', ofi: 'V' }, '#2397D4'],
+['FIN', 'Finanças e Contabilidade', '1.02 · Financeiro', 'Tesouraria, contas correntes, recibos e notas de pagamento, plano de contas único.', 'Todas (23)', 'Aprova e executa pagamentos', [11, 4, 2, 1], { exec: 'V', ccu: 'V', vend: 'V', cc: 'A', stock: 'V', comp: 'V', forn: 'R', frota: 'V', rh: 'V', hk: 'V' }, '#2397D4'],
+['CG', 'Controlo de Gestão', '1.06 · Controlo de Gestão (a criar)', 'Orçamento, centros de custo e relatórios de gestão.', 'Todas (23)', 'Valida o orçamento antes da compra', [3, 1, 1, 0], { exec: 'V', ccu: 'A', vend: 'V', cc: 'V', stock: 'V', comp: 'V', frota: 'V', rh: 'V', hk: 'V' }, '#4A5BB0'],
+['COMP', 'Compras', '1.05 · Compras (a criar)', 'Pedidos de cotação, escolha do fornecedor e encomendas.', 'Todas (23) · por família de artigos', 'Escolhe o fornecedor e gera a encomenda', [6, 2, 1, 0], { ccu: 'V', stock: 'V', comp: 'A', forn: 'R' }, '#4A5BB0'],
+['LOG', 'Logística e Armazém', '2.02 · Logística', 'Stock, receção de mercadoria, guias de remessa e inventários.', 'Por armazém', 'Satisfaz requisições e confere entregas', [26, 6, 2, 0], { ccu: 'V', stock: 'A', comp: 'R', forn: 'V' }, '#7B87E0'],
+['COM', 'Comercial', '2.01 · Comercial', 'Vendas, clientes, canais de venda direta e POS.', 'Por empresa', 'Aprova descontos e crédito a clientes', [41, 8, 3, 0], { ccu: 'V', vend: 'A', cc: 'V', stock: 'V' }, '#7B87E0'],
+['RH', 'Recursos Humanos', '1.03 · Recursos Humanos', 'Pessoal, absentismo, férias, avaliações e recibos (SAP).', 'Todas (23)', 'Aprova férias, horas extra e contratações', [7, 3, 1, 0], { ccu: 'V', rh: 'A' }, '#7B87E0'],
+['FROTA', 'Frota', '2.04 · Frota (a criar)', 'Viaturas, revisões na VeloTrans, seguros e custos da frota.', 'Todas (23)', 'Aprova reparações e substituições', [4, 2, 1, 0], { ccu: 'V', comp: 'R', frota: 'A' }, '#C9822A'],
+['SG', 'Serviços Gerais', '1.07 · Serviços Gerais (a criar)', 'Instalações, limpeza, energia e segurança (Guarda Oceânica).', 'Por instalação', 'Aprova contratos de manutenção e serviços', [10, 3, 1, 0], { ccu: 'V', comp: 'R', hk: 'A' }, '#C9822A'],
+['OPS', 'Operações / Oficina', '2.05 · Oficina (a criar)', 'Serviços técnicos a clientes da Oceano e marcações.', 'OCEANO', 'Confirma marcações e capacidade da oficina', [20, 5, 1, 0], { vend: 'V', stock: 'V', comp: 'R', ofi: 'A' }, '#C9822A'],
+['SIS', 'Sistemas de Informação', '1.04 · Informática', 'Utilizadores, permissões, ERP e portal. Cria acessos, mas não aprova despesas.', 'Todas (23)', 'Cria e revê acessos', [4, 1, 1, 0], { sis: 'A' }, '#8E8E93']
+];
+var NIV = ['Operador', 'Responsável', 'Diretor de área', 'Administração'];
+var NOMEP = { A: 'aprova', R: 'regista', V: 'consulta' };
+var sel = this.state.sel;
+var tot = 0;
+G.forEach(function (g) { g[6].forEach(function (n) { tot += n; }); });
+var soma = function (g) { return g[6][0] + g[6][1] + g[6][2] + g[6][3]; };
+var grupos = G.map(function (g, i) {
+var on = i === sel;
+return {
+nome: g[1], cc: g[2], users: soma(g) + ' utiliz.', on: on ? 'true' : 'false',
+dot: 'width: 10px; height: 10px; border-radius: 3px; background: ' + g[8],
+pick: function () { self.setState({ sel: i, prevGrupo: g[0] }); },
+rowStyle: 'width: 100%; display: grid; grid-template-columns: 10px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 9px 12px; border-radius: 14px; font-family: inherit; cursor: pointer; ' + (on ? 'background: rgba(35,151,212,0.16); border: 1px solid #2397D4' : 'background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06)')
+};
+});
+var g = G[sel];
+var mx = Math.max(g[6][0], g[6][1], g[6][2], g[6][3], 1);
+var chip = 'display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 99px; font-size: 12px; ';
+var cst = { A: 'background: #2397D4; color: #FFFFFF', R: 'background: rgba(123,135,224,0.35); color: #FFFFFF', V: 'border: 1px solid rgba(124,198,238,0.6); color: #7CC6EE; box-sizing: border-box' };
+var perms = [];
+COLS.forEach(function (c) { var p = g[7][c[0]]; if (p) perms.push({ label: c[2], nivel: NOMEP[p], style: chip + cst[p] }); });
+var det = {
+nome: g[1], cc: 'Centro de custo ' + g[2], desc: g[3], emp: g[4], papel: g[5], perms: perms,
+niveis: NIV.map(function (n, k) { return { nome: n, v: String(g[6][k]), tip: n + ': ' + g[6][k], bar: 'height: 100%; border-radius: 0 4px 4px 0; background: #2397D4; width: ' + Math.round(g[6][k] / mx * 100) + '%' + (g[6][k] ? '' : '; min-width: 0') }; })
+};
+var cel = 'display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 7px; font-size: 11px; font-weight: 600; ';
+var matriz = G.map(function (r, i) {
+var on = i === sel;
+return {
+nome: r[1], pick: function () { self.setState({ sel: i, prevGrupo: r[0] }); },
+rowStyle: 'width: 100%; display: grid; grid-template-columns: 200px repeat(12, minmax(0, 1fr)); gap: 4px; align-items: center; padding: 6px 8px; border-radius: 12px; font-family: inherit; cursor: pointer; ' + (on ? 'background: rgba(35,151,212,0.16); border: 1px solid #2397D4' : 'background: transparent; border: 1px solid transparent'),
+cel: COLS.map(function (c) { var p = r[7][c[0]]; return { t: p || '—', tip: r[1] + ' · ' + c[2] + ': ' + (p ? NOMEP[p] : 'sem acesso'), style: p ? cel + cst[p] : cel + 'color: rgba(235,235,245,0.3); font-size: 13px; font-weight: 400' }; })
+};
+});
+var pg = G[0];
+G.forEach(function (x) { if (x[0] === self.state.prevGrupo) pg = x; });
+var pn = parseInt(this.state.prevNivel, 10);
+var item = 'display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; font-size: 13px; ';
+var prevMenu = [{ label: 'Início', tag: '', tagStyle: 'display: none', style: item + 'background: rgba(35,151,212,0.16); color: #FFFFFF' }];
+var aprova = [];
+COLS.forEach(function (c) {
+var p = pg[7][c[0]];
+if (!p) return;
+var ef = p;
+if (p === 'A' && pn === 0) ef = 'R';
+if (pg[0] === 'ADM') ef = p;
+if (ef === 'A') aprova.push(c[2]);
+prevMenu.push({ label: c[2], tag: NOMEP[ef], tagStyle: 'font-size: 11px; padding: 2px 8px; border-radius: 99px; ' + cst[ef], style: item + 'color: rgba(235,235,245,0.78)' });
+});
+prevMenu.push({ label: 'O meu portal do colaborador', tag: '', tagStyle: 'display: none', style: item + 'color: rgba(235,235,245,0.6)' });
+var limites = ['sem aprovação, só regista', 'até 500 000 Kz', 'até 5 000 000 Kz', 'acima de 5 000 000 Kz'];
+var prevAprova = aprova.length ? aprova.join(', ') + ' · ' + limites[pg[0] === 'ADM' ? 3 : pn] : 'Nada: este nível só consulta e regista';
+var opcGrupos = G.map(function (x) { return { v: x[0], label: x[1] }; });
+var opcNiveis = NIV.map(function (n, k) { return { v: String(k), label: (k + 1) + ' · ' + n }; });
+var C = [
+['c1', '[UTILIZADOR A]', 'Compras + Finanças', 'Pode encomendar a um fornecedor e aprovar o pagamento a esse mesmo fornecedor.', 'Alta'],
+['c2', '[UTILIZADOR B]', 'Logística + Compras', 'Dá entrada da mercadoria que ele próprio encomendou.', 'Alta'],
+['c3', '[UTILIZADOR C]', 'Sistemas de Informação', 'Tem permissão para aprovar requisições, além de gerir acessos.', 'Média']
+];
+var res = this.state.resolvidos;
+var abertos = 0;
+var conflitos = C.map(function (c) {
+var ok = !!res[c[0]];
+if (!ok) abertos++;
+var alta = c[4] === 'Alta';
+return {
+quem: c[1], grupos: c[2], risco: ok ? 'Acesso corrigido: o utilizador ficou só com o grupo principal.' : c[3],
+sev: ok ? 'Resolvido' : c[4],
+sevStyle: 'font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; ' + (ok ? 'background: rgba(48,209,88,0.14); color: #30D158' : (alta ? 'background: rgba(255,69,58,0.16); color: #FF6961' : 'background: rgba(201,130,42,0.16); color: #C9822A')),
+btn: ok ? 'Desfazer' : 'Retirar acesso', fix: function () { var r = Object.assign({}, self.state.resolvidos); r[c[0]] = !ok; self.setState({ resolvidos: r }); },
+btnStyle: 'height: 32px; padding: 0 12px; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer; ' + (ok ? 'border: 1px solid rgba(255,255,255,0.18); background: transparent; color: rgba(235,235,245,0.78)' : 'border: none; background: #2397D4; color: #FFFFFF'),
+boxStyle: 'display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.04); border: 1px solid ' + (ok ? 'rgba(48,209,88,0.3)' : (alta ? 'rgba(255,69,58,0.35)' : 'rgba(201,130,42,0.35)'))
+};
+});
+var pas = 'padding: 5px 10px; border-radius: 99px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); color: #F5F5F7';
+var seta = 'color: rgba(235,235,245,0.4)';
+var fluxo = [['Requisitante', pas], ['→', seta], ['Logística', pas], ['→', seta], ['Compras', pas], ['→', seta], ['Logística · receção', pas], ['→', seta], ['Finanças · pagamento', pas]].map(function (f) { return { t: f[0], style: f[1] }; });
+var nota = 'font-size: 12px; color: ';
+var vs = 'font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums; color: ';
+var kpis = [
+{ label: 'Grupos', value: String(G.length), valStyle: vs + '#F5F5F7', note: '6 de suporte · 5 operacionais', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Utilizadores', value: String(tot), valStyle: vs + '#F5F5F7', note: 'do Primavera e do SAP', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Níveis de aprovação', value: '4', valStyle: vs + '#F5F5F7', note: 'Operador → Administração', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Conflitos de segregação', value: String(abertos), valStyle: vs + (abertos ? '#FF6961' : '#30D158'), note: abertos ? 'a resolver antes do arranque' : 'nenhum conflito em aberto', noteStyle: nota + (abertos ? '#FF6961' : '#30D158') }
+];
+var __me = this;
+var __pill = 'display: inline-flex; align-items: center; justify-content: center; text-decoration: none; height: 36px; width: 38px; border: none; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+var __en = false;
+return { dkPThref: 'Organizacao.dc.html', dkENhref: 'Organizacao_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'}, kpis: kpis, grupos: grupos, det: det, colunas: COLS.map(function (c) { return c[1]; }), matriz: matriz, prevMenu: prevMenu, prevN: (prevMenu.length - 2) + ' de 12', prevAprova: prevAprova, opcGrupos: opcGrupos, opcNiveis: opcNiveis, prevGrupo: this.state.prevGrupo, prevNivel: this.state.prevNivel, setPrevGrupo: function (e) { self.setState({ prevGrupo: e.target.value }); }, setPrevNivel: function (e) { self.setState({ prevNivel: e.target.value }); }, conflitos: conflitos, fluxo: fluxo };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iniciar sessão · Sign in</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+input:focus,select:focus{outline:2px solid #2397D4;outline-offset:1px}
+</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="height: 100vh; height: 100dvh; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 16px; box-sizing: border-box; position: relative; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 50% -20%, rgba(35,151,212,0.30), transparent 62%), radial-gradient(800px 560px at 50% 120%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<div role="group" aria-label="{{t.idioma}}" style="position: absolute; top: 20px; right: 20px; display: flex; gap: 2px; padding: 3px; border-radius: 99px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12)">
+<button type="button" aria-pressed="{{ptOn}}" onClick="{{setPT}}" style="{{ptStyle}}">PT</button>
+<button type="button" aria-pressed="{{enOn}}" onClick="{{setEN}}" style="{{enStyle}}">EN</button>
+</div>
+<div style="width: 100%; max-width: 400px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 30px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); padding: 40px 32px 32px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center; box-shadow: 0 0 0 1px rgba(35,151,212,0.15), 0 30px 80px rgba(0,0,0,0.45)">
+<img src="assets/naval-logo.png" alt="Naval" style="height: 84px; width: auto">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h1 style="margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.3px">{{t.titulo}}</h1>
+<p style="margin: 0; font-size: 14px; color: rgba(235,235,245,0.6)">{{t.sub}}</p>
+</div>
+<a href="{{entrarHref}}" style="width: 100%; height: 50px; border-radius: 14px; background: #2397D4; color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 15px; text-decoration: none; box-shadow: 0 6px 20px rgba(35,151,212,0.35)">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>{{t.entrar}}</a>
+<p style="margin: 0; font-size: 12px; color: rgba(235,235,245,0.6); line-height: 1.5">{{t.nota}}</p>
+</div>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+var l = 'pt';
+try { l = window.localStorage.getItem('naval-lang') || 'pt'; } catch (e) {}
+this.state = { lang: l };
+}
+setLang(l) {
+try { window.localStorage.setItem('naval-lang', l); } catch (e) {}
+this.setState({ lang: l });
+}
+renderVals() {
+var self = this;
+var en = this.state.lang === 'en';
+var t = en ? {
+titulo: 'Naval Group Portal', sub: 'Sign in with your company account', entrar: 'Sign in with Microsoft 365',
+nota: 'Same account as Outlook and Teams. You only see what your role allows.', idioma: 'Language'
+} : {
+titulo: 'Portal do Grupo Naval', sub: 'Entre com a conta da empresa', entrar: 'Entrar com Microsoft 365',
+nota: 'A mesma conta do Outlook e do Teams. Vê apenas o que a sua função permite.', idioma: 'Idioma'
+};
+var pill = 'height: 30px; min-width: 40px; padding: 0 10px; border-radius: 99px; border: none; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+return {
+entrarHref: en ? 'Inicio_en.dc.html' : 'Inicio.dc.html',
+t: t,
+ptOn: en ? 'false' : 'true', enOn: en ? 'true' : 'false',
+ptStyle: pill + (en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'),
+enStyle: pill + (en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'),
+setPT: function () { self.setLang('pt'); },
+setEN: function () { self.setLang('en'); }
+};
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>

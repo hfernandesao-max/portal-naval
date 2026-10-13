@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matriz de aprovação (LOA)</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F;padding-bottom:0}@media (max-width: 1100px){.g6{grid-template-columns:repeat(3,minmax(0,1fr)) !important}.g5{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}@media (max-width: 900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 620px){.g6,.g5{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 760px){.dock-l{display:none}.dock-i{min-width:42px !important;height:44px !important}}.dock-i:hover{background:rgba(255,255,255,0.12) !important;color:#FFFFFF !important}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}.side-g details>summary::-webkit-details-marker{display:none}.side-g details>summary:hover{background:rgba(255,255,255,0.06)}.side-g details[open]>summary .chev{transform:rotate(90deg)}.side-g details[open]>summary{color:#FFFFFF;font-weight:500}.side-g a:hover{background:rgba(255,255,255,0.06)}@media (min-width: 820px){.side-g summary{padding-top:clamp(4px,0.9vh,8px) !important;padding-bottom:clamp(4px,0.9vh,8px) !important}.side-g details a{padding-top:clamp(4px,0.8vh,8px) !important;padding-bottom:clamp(4px,0.8vh,8px) !important}}@media (max-width: 819px){.side-g{display:none !important}}</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side side-g" aria-label="Menu principal" style="flex: 1 1 250px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 15px">Grupo Naval Angola</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Portal do grupo</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="Inicio.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.9)"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 11l9-7 9 7M5 10v10h14V10"></path></svg>Início</a>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"></path></svg><span>Direção</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Painel executivo</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span>Comercial</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Painel.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Vendas consolidadas</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 6h18v13H3zM3 10h18M16 15h2"></path></svg><span>Finanças</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ContasCorrentes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Contas correntes</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 7a5 5 0 1 0 0 10a5 5 0 1 0 0-10M12 11v2"></path></svg><span>Contabilidade de gestão</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="CentrosCusto.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Centros de custo</a>
+<a href="Orcamento.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Orçamento e desvios</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 2l9 5v10l-9 5-9-5V7zM12 22V12M21 7l-9 5-9-5"></path></svg><span>Logística e Compras</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Stock.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Stock do grupo</a>
+<a href="Requisicoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Requisições internas</a>
+<a href="Cotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Comparação de cotações</a>
+<a href="Rececao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Receção e conferência</a>
+<a href="Executivo.dc.html#fornecedores" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Fornecedores</a>
+<a href="FornCotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal de fornecedores</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14"></path></svg><span>Frota</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#frota" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos da frota</a>
+<a href="VeloTransAgendar.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Agendar revisão de viatura</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 4.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7"></path></svg><span>Recursos Humanos</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#rh" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos com pessoal</a>
+<a href="Executivo.dc.html#absentismo" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Taxa de absentismo</a>
+<a href="ColabFerias.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal do colaborador</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"></path></svg><span>Serviços Gerais</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#housekeeping" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Housekeeping</a>
+</details>
+<details name="menu" open>
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 3h6v5H9zM2.5 16h6v5h-6zM15.5 16h6v5h-6zM12 8v4M5.5 16v-4h13v4"></path></svg><span>Organização</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Organizacao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Grupos e acessos</a>
+<a href="MatrizLOA.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500" aria-current="page">Matriz de aprovação (LOA)</a>
+</details>
+</div>
+<div style="margin-top: auto; padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6)">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 99px; background: #30D158"></span>23 empresas · 16 Primavera · 7 SAP</span>
+<span>consulta directa · há 1 min</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Navegação rápida" style="align-self: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 6px 8px; border-radius: 22px; background: rgba(16,24,58,0.55); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); max-width: 100%; box-sizing: border-box">
+<a href="Inicio.dc.html" title="{{dk.home}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.home}}</span></a>
+<a href="Painel.dc.html" title="{{dk.sales}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.sales}}</span></a>
+<a href="ContasCorrentes.dc.html" title="{{dk.cc}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><path d="M16 15h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.cc}}</span></a>
+<a href="Stock.dc.html" title="{{dk.stock}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.stock}}</span></a>
+<a href="Executivo.dc.html" title="{{dk.exec}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.exec}}</span></a>
+<a href="CentrosCusto.dc.html" title="{{dk.ccu}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.ccu}}</span></a>
+<a href="FornCotacoes.dc.html" title="{{dk.forn}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"></path><path d="M13 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.forn}}</span></a>
+<a href="VeloTransAgendar.dc.html" title="{{dk.frota}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.6"></circle><circle cx="16" cy="17" r="1.6"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.frota}}</span></a>
+<a href="ColabFerias.dc.html" title="{{dk.colab}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.colab}}</span></a>
+<a href="Organizacao.dc.html" title="{{dk.org}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1.2"></rect><rect x="2.5" y="16" width="6" height="5" rx="1.2"></rect><rect x="15.5" y="16" width="6" height="5" rx="1.2"></rect><path d="M12 8v4M5.5 16v-4h13v4"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.org}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<a href="VendasMovel.dc.html" title="{{dk.phone}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.phone}}</span></a>
+<a href="Main.dc.html" title="{{dk.out}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4"></path><path d="M10 8l-4 4 4 4"></path><path d="M6 12h10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.out}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; padding: 2px; border-radius: 12px; background: rgba(255,255,255,0.06)">
+<a href="{{dkPThref}}" onClick="{{dkPT}}" style="{{dkPTs}}">PT</a>
+<a href="{{dkENhref}}" onClick="{{dkEN}}" style="{{dkENs}}">EN</a>
+</div>
+</nav>
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">ORGANIZAÇÃO E ACESSOS</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">Matriz de aprovação (LOA)</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">Quem aprova o quê, até que valor · <span style="color: #C9822A">valores de exemplo, a aprovar pela Administração</span></span>
+</div>
+<a href="Organizacao.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 12px; border: 1px solid #2397D4; color: #7CC6EE; text-decoration: none; font-weight: 500; font-size: 14px; box-sizing: border-box">← Grupos e acessos</a>
+</header>
+<section aria-label="Indicadores" class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
+<span style="{{k.valStyle}}">{{k.value}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span>
+</div>
+</sc-for>
+</section>
+<div role="tablist" aria-label="Tipo de pedido" style="align-self: flex-start; display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; background: rgba(255,255,255,0.05); max-width: 100%; box-sizing: border-box">
+<sc-for list="{{tipos}}" as="t" hint-placeholder-count="6">
+<button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
+<section aria-label="Níveis" style="flex: 3 1 560px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">{{tipo.nome}}</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{tipo.desc}}</span>
+</div>
+<div style="display: grid; grid-template-columns: 44px minmax(0, 1.6fr) minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; padding: 0 12px; font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">
+<span>Nível</span><span>Quem aprova</span><span>Limite</span><span>Prazo de resposta</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{tipo.niveis}}" as="n" hint-placeholder-count="4">
+<div style="{{n.rowStyle}}">
+<span style="{{n.badge}}">{{n.k}}</span>
+<span style="font-size: 14px; color: #F5F5F7">{{n.quem}}</span>
+<span style="font-size: 14px; font-variant-numeric: tabular-nums; color: #F5F5F7">{{n.lim}}</span>
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{n.prazo}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08)">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">Validações sempre obrigatórias</span>
+<sc-for list="{{tipo.sempre}}" as="v" hint-placeholder-count="2">
+<span style="display: flex; gap: 8px; font-size: 13px; color: rgba(235,235,245,0.78); line-height: 1.45"><span style="color: #30D158">✓</span>{{v}}</span>
+</sc-for>
+</div>
+</section>
+<section aria-label="Simulador" style="flex: 2 1 340px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Simular um pedido</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Indique o valor e veja o circuito de aprovação</span>
+</div>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: rgba(235,235,245,0.78)">{{sim.rotulo}}
+<input type="number" min="0" value="{{sim.valor}}" onInput="{{setValor}}" style="height: 46px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 14px; font-size: 18px; font-family: inherit; font-variant-numeric: tabular-nums; background: rgba(255,255,255,0.05); color: #F5F5F7">
+</label>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{sim.atalhos}}" as="a" hint-placeholder-count="4">
+<button type="button" onClick="{{a.pick}}" style="height: 30px; padding: 0 12px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.04); color: rgba(235,235,245,0.85); font-family: inherit; font-size: 12px; cursor: pointer">{{a.label}}</button>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0">
+<sc-for list="{{sim.passos}}" as="p" hint-placeholder-count="4">
+<div style="display: flex; gap: 12px">
+<div style="display: flex; flex-direction: column; align-items: center; width: 22px">
+<span style="{{p.dot}}">{{p.n}}</span>
+<span style="{{p.linha}}"></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 14px; min-width: 0">
+<span style="font-size: 14px; font-weight: 500">{{p.quem}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{p.nota}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+<span style="{{sim.resumoStyle}}">{{sim.resumo}}</span>
+</section>
+</div>
+<section aria-label="Regras gerais" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Regras gerais</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px">
+<sc-for list="{{regras}}" as="r" hint-placeholder-count="5">
+<div style="padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 14px; font-weight: 500">{{r.t}}</span>
+<span style="font-size: 13px; color: rgba(235,235,245,0.7); line-height: 1.45">{{r.d}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { tipo: 'comp', valor: 2000000 };
+}
+renderVals() {
+var self = this;
+var T = {
+comp: { nome: 'Compras e requisições', desc: 'Requisições internas e encomendas a fornecedores', u: 'Kz', rot: 'Valor do pedido (Kz)', ini: 2000000, at: [300000, 2000000, 12000000, 40000000], pedido: 'Requisitante · cria o pedido',
+niveis: [['Responsável da área', 500000, '24 horas'], ['Diretor de área', 5000000, '48 horas'], ['Administração · 1 administrador', 25000000, '3 dias úteis'], ['Administração · 2 administradores', null, '5 dias úteis']],
+sempre: ['Controlo de Gestão confirma que há orçamento no centro de custo', 'Acima de 250 000 Kz, Compras pede 3 cotações antes de encomendar'] },
+pag: { nome: 'Aprovação de V/ Facturas', desc: 'No Primavera e no SAP a V/ Factura entra no estado «Aguarda aprovação»; só depois de aprovada fica pendente para pagamento', u: 'Kz', rot: 'Valor da V/ Factura (Kz)', ini: 4000000, at: [800000, 4000000, 18000000], pedido: 'Logística · V/ Factura registada no ERP em «Aguarda aprovação»',
+niveis: [['Responsável financeiro', 2000000, '24 horas'], ['Diretor financeiro', 10000000, '48 horas'], ['Diretor financeiro + administrador', null, '3 dias úteis']],
+sempre: ['A V/ Factura só pode ser aprovada depois de conferida com a encomenda e a guia de remessa', 'Enquanto aguarda aprovação não entra nos pendentes nem na previsão de pagamentos', 'Depois de aprovada fica pendente para pagamento e só se paga para o IBAN validado no portal de fornecedores'] },
+cont: { nome: 'Contratos e serviços', desc: 'Contratos de manutenção, limpeza, segurança e outros serviços', u: 'Kz', rot: 'Valor anual do contrato (Kz)', ini: 6000000, at: [1500000, 6000000, 30000000], pedido: 'Área requisitante · propõe o contrato',
+niveis: [['Diretor de área', 3000000, '3 dias úteis'], ['Diretor financeiro', 15000000, '5 dias úteis'], ['Administração', null, '10 dias úteis']],
+sempre: ['Finanças revê as condições de pagamento', 'A renovação é aprovada até 60 dias antes do fim do contrato'] },
+rh: { nome: 'Recursos Humanos · horas extraordinárias', desc: 'Horas extraordinárias por colaborador, por mês', u: 'h', rot: 'Horas extraordinárias no mês', ini: 20, at: [8, 20, 40], pedido: 'Chefia · regista as horas',
+niveis: [['Chefia direta', 10, '24 horas'], ['Diretor de área', 30, '48 horas'], ['Recursos Humanos + Administração', null, '3 dias úteis']],
+sempre: ['Férias: aprovadas pela chefia direta no portal do colaborador', 'Contratações: sempre Diretor de área, Recursos Humanos e Administração'] },
+desc: { nome: 'Descontos a clientes', desc: 'Desconto sobre o preço de tabela numa venda', u: '%', rot: 'Desconto pedido (%)', ini: 6, at: [2, 6, 12, 20], pedido: 'Vendedor · propõe o desconto',
+niveis: [['Vendedor · sem aprovação', 3, 'imediato'], ['Responsável comercial', 8, '4 horas'], ['Diretor comercial', 15, '24 horas'], ['Administração', null, '48 horas']],
+sempre: ['O limite de crédito de cada cliente é aprovado por Finanças', 'Um desconto acima do limite bloqueia a fatura até ser aprovado'] },
+frota: { nome: 'Frota', desc: 'Reparações, pneus e outras despesas com viaturas', u: 'Kz', rot: 'Valor da reparação (Kz)', ini: 1200000, at: [400000, 1200000, 5000000], pedido: 'Gestor de frota · pede orçamento à VeloTrans',
+niveis: [['Gestor de frota', 750000, '24 horas'], ['Diretor de área', 3000000, '48 horas'], ['Administração', null, '3 dias úteis']],
+sempre: ['Reparações fora da VeloTrans só depois de um orçamento da VeloTrans', 'Substituição ou compra de viatura: sempre Administração'] }
+};
+var ORD = ['comp', 'pag', 'cont', 'rh', 'desc', 'frota'];
+var CUR = { comp: 'Compras', pag: 'V/ Facturas', cont: 'Contratos', rh: 'Recursos Humanos', desc: 'Descontos', frota: 'Frota' };
+var fmt = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); };
+var tk = this.state.tipo;
+var t = T[tk];
+var un = function (n) { return t.u === 'Kz' ? fmt(n) + ' Kz' : (t.u === '%' ? n + '%' : n + ' h'); };
+var tab = 'height: 34px; padding: 0 12px; border-radius: 10px; border: none; font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; ';
+var tipos = ORD.map(function (k) {
+var on = k === tk;
+return { label: CUR[k], on: on ? 'true' : 'false', pick: function () { self.setState({ tipo: k, valor: T[k].ini }); }, style: tab + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.78)') };
+});
+var v = Number(this.state.valor) || 0;
+var alvo = t.niveis.length - 1;
+for (var i = 0; i < t.niveis.length; i++) { if (t.niveis[i][1] === null || v <= t.niveis[i][1]) { alvo = i; break; } }
+var niveis = t.niveis.map(function (n, i) {
+var lim = n[1] === null ? 'acima de ' + un(t.niveis[i - 1][1]) : 'até ' + un(n[1]);
+var on = i === alvo && v > 0;
+return {
+k: String(i + 1), quem: n[0], lim: lim, prazo: n[2],
+badge: 'display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 9px; font-size: 13px; font-weight: 600; ' + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: rgba(255,255,255,0.08); color: rgba(235,235,245,0.78)'),
+rowStyle: 'display: grid; grid-template-columns: 44px minmax(0, 1.6fr) minmax(0, 1.3fr) minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px 12px; border-radius: 14px; ' + (on ? 'background: rgba(35,151,212,0.16); border: 1px solid #2397D4' : 'background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06)')
+};
+});
+var dot = 'display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 99px; font-size: 11px; font-weight: 600; flex: 0 0 auto; ';
+var P = [[t.pedido, 'não pode aprovar o próprio pedido', 'p']];
+if (tk === 'comp') {
+P.push(['Controlo de Gestão', 'confirma o orçamento do centro de custo', 'v']);
+if (v > 250000) P.push(['Compras', 'pede 3 cotações e propõe o fornecedor', 'v']);
+}
+if (v > 0) {
+P.push([t.niveis[alvo][0], (tk === 'desc' && alvo === 0) ? 'aplica o desconto diretamente' : (tk === 'pag' ? 'aprova · a V/ Factura passa a pendente para pagamento · prazo ' : 'aprova · prazo ') + t.niveis[alvo][2], 'a']);
+}
+var passos = P.map(function (p, i) {
+var cor = p[2] === 'a' ? 'background: #2397D4; color: #FFFFFF' : (p[2] === 'p' ? 'background: rgba(255,255,255,0.12); color: #F5F5F7' : 'background: rgba(123,135,224,0.35); color: #FFFFFF');
+return { n: String(i + 1), quem: p[0], nota: p[1], dot: dot + cor, linha: 'flex: 1 1 auto; width: 2px; min-height: 14px; background: ' + (i === P.length - 1 ? 'transparent' : 'rgba(255,255,255,0.14)') };
+});
+var resumo = v > 0 ? 'Aprovação final: ' + t.niveis[alvo][0] : 'Indique um valor maior que zero';
+var sim = {
+rotulo: t.rot, valor: String(v), passos: passos, resumo: resumo,
+resumoStyle: 'font-size: 13px; font-weight: 500; padding: 10px 14px; border-radius: 12px; ' + (v > 0 ? 'background: rgba(35,151,212,0.14); color: #7CC6EE' : 'background: rgba(201,130,42,0.14); color: #C9822A'),
+atalhos: t.at.map(function (a) { return { label: un(a), pick: function () { self.setState({ valor: a }); } }; })
+};
+var regras = [
+{ t: 'Quem pede não aprova', d: 'Se o requisitante for também o aprovador do nível, o pedido sobe automaticamente ao nível seguinte.' },
+{ t: 'Escalamento em 48 horas', d: 'Sem resposta dentro do prazo, o pedido passa ao nível seguinte e o aprovador recebe um aviso no Outlook e no Teams.' },
+{ t: 'Substitutos nas ausências', d: 'Cada aprovador indica um substituto do mesmo nível ou superior. As férias marcadas no portal ativam o substituto.' },
+{ t: 'Sem divisão de pedidos', d: 'O sistema junta os pedidos ao mesmo fornecedor no mesmo mês para impedir que se fique abaixo do limite.' },
+{ t: 'Tudo fica registado', d: 'Quem aprovou, quando, com que valor e a partir de que dispositivo. Os auditores consultam o histórico no portal.' }
+];
+var nota = 'font-size: 12px; color: ';
+var vs = 'font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums; color: ';
+var kpis = [
+{ label: 'A aguardar aprovação', value: '37', valStyle: vs + '#F5F5F7', note: '12 há mais de 48 horas', noteStyle: nota + '#C9822A' },
+{ label: 'Tempo médio de aprovação', value: '1,6 dias', valStyle: vs + '#F5F5F7', note: 'objetivo: 1 dia', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Escalados por atraso', value: '5', valStyle: vs + '#F5F5F7', note: 'este mês', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Pedidos divididos', value: '2', valStyle: vs + '#FF6961', note: 'mesmo fornecedor, mesmo mês', noteStyle: nota + '#FF6961' }
+];
+var __me = this;
+var __pill = 'display: inline-flex; align-items: center; justify-content: center; text-decoration: none; height: 36px; width: 38px; border: none; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+var __en = false;
+return { dkPThref: 'MatrizLOA.dc.html', dkENhref: 'MatrizLOA_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'}, kpis: kpis, tipos: tipos, tipo: { nome: t.nome, desc: t.desc, niveis: niveis, sempre: t.sempre }, sim: sim, regras: regras, setValor: function (e) { self.setState({ valor: e.target.value }); } };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>

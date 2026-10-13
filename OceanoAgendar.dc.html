@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agendar revisão</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+button:focus-visible,a:focus-visible,input:focus,textarea:focus{outline:2px solid #7CC6EE;outline-offset:2px}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side" aria-label="Menu do cliente" style="flex: 1 1 240px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 17px; letter-spacing: 0.5px">OCEANO</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Portal do cliente</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<a href="OceanoAgendar.dc.html" style="display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500">Agendar revisão</a>
+<a href="OceanoMarcacoes.dc.html" style="display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">As minhas marcações</a>
+<a href="OceanoMarcacoes.dc.html#equipamentos" style="display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Os meus equipamentos</a>
+<a href="OceanoMarcacoes.dc.html#historico" style="display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Histórico e facturas</a>
+</div>
+<div style="margin-top: auto; padding: 14px; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; font-weight: 500">[CLIENTE A], Lda</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Cliente n.º C000123</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Apoio: [TELEFONE OCEANO]</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<header style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">OCEANO · ASSISTÊNCIA TÉCNICA</span>
+<span class="fase2" title="Fase 2" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 99px; background: rgba(201,130,42,0.16); color: #E0A458; border: 1px solid rgba(201,130,42,0.35)">Fase 2 · protótipo do circuito, ainda não grava no ERP</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">Agendar revisão</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">Escolha o equipamento, o serviço e a hora que lhe dá jeito · recebe a confirmação por e-mail e SMS · <span style="color: #C9822A">dados de exemplo</span></span>
+</header>
+<ol aria-label="Passos" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px">
+<sc-for list="{{passos}}" as="p" hint-placeholder-count="4">
+<li style="display: flex; flex-direction: column; gap: 8px">
+<div style="{{p.barra}}"></div>
+<span style="{{p.txtStyle}}">{{p.label}}</span>
+</li>
+</sc-for>
+</ol>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
+<section style="flex: 3 1 520px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 22px; display: flex; flex-direction: column; gap: 16px">
+
+<sc-if value="{{p0}}" hint-placeholder-val="{{ true }}">
+<h2 style="margin: 0; font-size: 19px; font-weight: 600">Que equipamento quer rever?</h2>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{equip}}" as="e" hint-placeholder-count="3">
+<button type="button" onClick="{{e.pick}}" aria-pressed="{{e.on}}" style="{{e.style}}">
+<span style="display: flex; flex-direction: column; gap: 3px; text-align: left; min-width: 0">
+<span style="font-size: 15px; font-weight: 500; color: #F5F5F7">{{e.nome}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{e.serie}}</span>
+</span>
+<span style="{{e.alertStyle}}">{{e.alerta}}</span>
+</button>
+</sc-for>
+</div>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">O equipamento não aparece? Contacte a Oceano para o associarmos à sua conta.</span>
+</sc-if>
+
+<sc-if value="{{p1}}" hint-placeholder-val="{{ false }}">
+<h2 style="margin: 0; font-size: 19px; font-weight: 600">Que serviço precisa?</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px">
+<sc-for list="{{servicos}}" as="s" hint-placeholder-count="4">
+<button type="button" onClick="{{s.pick}}" aria-pressed="{{s.on}}" style="{{s.style}}">
+<span style="font-size: 15px; font-weight: 500; color: #F5F5F7; text-align: left">{{s.nome}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6); text-align: left; line-height: 1.4">{{s.desc}}</span>
+<span style="font-size: 12px; color: #7CC6EE; text-align: left">{{s.dur}}</span>
+</button>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="obs" style="font-size: 13px; color: rgba(235,235,245,0.78)">Descreva o problema ou o que notou (opcional)</label>
+<textarea id="obs" rows="3" placeholder="Ex.: ruído anormal, perda de potência, alarme no painel…" style="border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 10px 12px; font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.05); color: #F5F5F7; resize: vertical"></textarea>
+</div>
+</sc-if>
+
+<sc-if value="{{p2}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+<h2 style="margin: 0; font-size: 19px; font-weight: 600">Escolha o dia e a hora</h2>
+<span style="font-size: 14px; color: rgba(235,235,245,0.78)">Novembro 2026</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 18px">
+<div style="flex: 1 1 320px; min-width: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px">
+<sc-for list="{{semana}}" as="w" hint-placeholder-count="7">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-align: center; text-transform: uppercase; letter-spacing: 1px">{{w}}</span>
+</sc-for>
+<sc-for list="{{dias}}" as="d" hint-placeholder-count="35">
+<button type="button" onClick="{{d.pick}}" aria-label="{{d.aria}}" aria-pressed="{{d.on}}" style="{{d.style}}">{{d.n}}</button>
+</sc-for>
+</div>
+<div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{diaTxt}}</span>
+<sc-for list="{{horas}}" as="h" hint-placeholder-count="5">
+<button type="button" onClick="{{h.pick}}" aria-pressed="{{h.on}}" style="{{h.style}}">{{h.label}}</button>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<label for="local" style="font-size: 13px; color: rgba(235,235,245,0.78)">Onde</label>
+<select id="local" style="height: 44px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: #10183A; color: #F5F5F7"><option>Oficina Oceano · Viana</option><option>No local do cliente (deslocação)</option></select>
+</div>
+</sc-if>
+
+<sc-if value="{{p3}}" hint-placeholder-val="{{ false }}">
+<h2 style="margin: 0; font-size: 19px; font-weight: 600">Confirme a marcação</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{resumo}}" as="r" hint-placeholder-count="4">
+<div style="padding: 14px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10); display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.k}}</span>
+<span style="font-size: 15px; font-weight: 500">{{r.v}}</span>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="cp" style="font-size: 13px; color: rgba(235,235,245,0.78)">Pessoa de contacto</label><input id="cp" type="text" value="[NOME DO CONTACTO]" style="height: 44px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.05); color: #F5F5F7"></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><label for="tl" style="font-size: 13px; color: rgba(235,235,245,0.78)">Telefone</label><input id="tl" type="tel" value="+244 9XX XXX XXX" style="height: 44px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.05); color: #F5F5F7"></div>
+</div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6); line-height: 1.5">Pode reagendar ou cancelar sem custos até 24 horas antes. O orçamento final é confirmado consigo antes de qualquer trabalho adicional.</span>
+</sc-if>
+
+<sc-if value="{{p4}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 8px 0">
+<h2 style="margin: 0; font-size: 22px; font-weight: 600; color: #30D158">Revisão marcada</h2>
+<p style="margin: 0; font-size: 15px; color: rgba(235,235,245,0.78); line-height: 1.55">{{confirmTxt}}</p>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">Referência: REV-2026-1184</span>
+<a href="OceanoMarcacoes.dc.html" style="align-self: flex-start; margin-top: 6px; height: 44px; padding: 0 20px; border-radius: 12px; background: #2397D4; color: #FFFFFF; display: flex; align-items: center; font-weight: 600; font-size: 14px; text-decoration: none">Ver as minhas marcações</a>
+</div>
+</sc-if>
+
+<sc-if value="{{botoes}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.10)">
+<button type="button" onClick="{{voltar}}" style="{{voltarStyle}}">Voltar</button>
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="font-size: 13px; color: #FF6961">{{erro}}</span>
+<button type="button" onClick="{{seguinte}}" style="height: 48px; padding: 0 26px; border-radius: 12px; border: none; background: #2397D4; color: #FFFFFF; font-family: inherit; font-weight: 600; font-size: 15px; cursor: pointer">{{seguinteTxt}}</button>
+</div>
+</div>
+</sc-if>
+</section>
+
+<aside aria-label="Resumo" style="flex: 1 1 260px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">A sua marcação</h2>
+<sc-for list="{{lateral}}" as="r" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08)">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.k}}</span>
+<span style="{{r.style}}">{{r.v}}</span>
+</div>
+</sc-for>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6); line-height: 1.5">Preço indicativo da revisão programada: [PREÇO] Kz, peças incluídas segundo o plano do fabricante.</span>
+</aside>
+</div>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { passo: 0, eq: 0, sv: 0, dia: 0, hora: '', erro: '' };
+}
+renderVals() {
+var self = this;
+var p = this.state.passo;
+var nomes = ['Equipamento', 'Serviço', 'Dia e hora', 'Confirmar'];
+var passos = nomes.map(function (n, i) {
+var feito = i <= p;
+return { label: (i + 1) + '. ' + n, barra: 'height: 6px; border-radius: 99px; background: ' + (i === p ? '#7CC6EE' : (feito ? '#2397D4' : 'rgba(255,255,255,0.10)')), txtStyle: 'font-size: 13px; color: ' + (i === p ? '#7CC6EE; font-weight: 500' : (feito ? 'rgba(235,235,245,0.78)' : 'rgba(235,235,245,0.45)')) };
+});
+var card = 'width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; font-family: inherit; cursor: pointer; ';
+var eqs = [
+['Gerador 250 kVA', 'N.º de série [XXXXXX] · 4 820 horas', 'Revisão das 5 000 h em breve', 'w'],
+['Motor marítimo 350 cv', 'N.º de série [XXXXXX] · 1 960 horas', 'Revisão anual em atraso', 'c'],
+['Compressor industrial', 'N.º de série [XXXXXX] · 2 300 horas', 'Em dia', 'n']
+];
+var equip = eqs.map(function (e, i) {
+var on = self.state.eq === i;
+var al = e[3] === 'c' ? 'background: rgba(255,69,58,0.16); color: #FF6961' : (e[3] === 'w' ? 'background: rgba(201,130,42,0.16); color: #E0A04A' : 'background: rgba(48,209,88,0.12); color: #30D158');
+return { nome: e[0], serie: e[1], alerta: e[2], on: on ? 'true' : 'false', alertStyle: 'flex: none; padding: 3px 10px; border-radius: 99px; font-size: 12px; font-weight: 500; ' + al, style: card + (on ? 'background: rgba(35,151,212,0.16); border: 1px solid #2397D4' : 'background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12)'), pick: function () { self.setState({ eq: i, erro: '' }); } };
+});
+var svs = [
+['Revisão programada', 'Manutenção segundo o plano do fabricante: óleos, filtros e verificação geral.', 'Cerca de 4 horas'],
+['Diagnóstico de avaria', 'Identificação do problema e orçamento antes de qualquer reparação.', 'Cerca de 2 horas'],
+['Reparação', 'Reparação de uma avaria já diagnosticada.', 'Duração conforme orçamento'],
+['Inspecção antes de época', 'Verificação completa antes de um período de uso intenso.', 'Cerca de 3 horas']
+];
+var servicos = svs.map(function (s, i) {
+var on = self.state.sv === i;
+return { nome: s[0], desc: s[1], dur: s[2], on: on ? 'true' : 'false', style: 'display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 16px; font-family: inherit; cursor: pointer; ' + (on ? 'background: rgba(35,151,212,0.16); border: 1px solid #2397D4' : 'background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.12)'), pick: function () { self.setState({ sv: i, erro: '' }); } };
+});
+var offset = 6;
+var dias = [];
+for (var b = 0; b < offset; b++) dias.push({ n: '', aria: 'vazio', on: 'false', pick: null, style: 'height: 46px; border: none; background: transparent' });
+var cheios = { 3: 1, 4: 1, 17: 1, 24: 1 };
+for (var d = 1; d <= 30; d++) {
+(function (d) {
+var dow = (offset + d - 1) % 7;
+var fechado = dow >= 5 || d === 2 || d === 11;
+var on = self.state.dia === d;
+var base = 'height: 46px; border-radius: 12px; font-family: inherit; font-size: 14px; font-variant-numeric: tabular-nums; ';
+var st = fechado ? base + 'border: none; background: transparent; color: rgba(235,235,245,0.28); cursor: default' : (on ? base + 'border: none; background: #2397D4; color: #FFFFFF; font-weight: 600; cursor: pointer' : base + 'border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: #F5F5F7; cursor: pointer');
+dias.push({ n: String(d), on: on ? 'true' : 'false', aria: d + ' de Novembro' + (fechado ? ', indisponível' : ''), style: st, pick: fechado ? null : function () { self.setState({ dia: d, hora: '', erro: '' }); } });
+})(d);
+}
+var slots = ['08:00', '09:30', '11:00', '14:00', '15:30'];
+var dia = this.state.dia;
+var horas = dia ? slots.map(function (h, i) {
+var ocupado = (dia + i) % 4 === 0;
+var on = self.state.hora === h;
+var base = 'height: 44px; border-radius: 12px; font-family: inherit; font-size: 14px; font-variant-numeric: tabular-nums; ';
+return { label: ocupado ? h + ' · ocupado' : h, on: on ? 'true' : 'false', style: ocupado ? base + 'border: 1px dashed rgba(255,255,255,0.12); background: transparent; color: rgba(235,235,245,0.35); cursor: default' : (on ? base + 'border: none; background: #2397D4; color: #FFFFFF; font-weight: 600; cursor: pointer' : base + 'border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.05); color: #F5F5F7; cursor: pointer'), pick: ocupado ? null : function () { self.setState({ hora: h, erro: '' }); } };
+}) : [];
+var diaTxt = dia ? 'Horas livres a ' + dia + ' de Novembro' : 'Escolha primeiro um dia';
+var quando = dia && this.state.hora ? dia + ' de Novembro de 2026, às ' + this.state.hora : '—';
+var resumo = [
+{ k: 'Equipamento', v: eqs[this.state.eq][0] },
+{ k: 'Serviço', v: svs[this.state.sv][0] },
+{ k: 'Quando', v: quando },
+{ k: 'Onde', v: 'Oficina Oceano · Viana' }
+];
+var lateral = resumo.map(function (r) { return { k: r.k, v: r.v, style: 'font-size: 14px; color: ' + (r.v === '—' ? 'rgba(235,235,245,0.45)' : '#F5F5F7') }; });
+return {
+passos: passos, equip: equip, servicos: servicos, dias: dias, horas: horas, diaTxt: diaTxt, resumo: resumo, lateral: lateral,
+semana: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+p0: p === 0, p1: p === 1, p2: p === 2, p3: p === 3, p4: p === 4, botoes: p < 4,
+erro: this.state.erro,
+confirmTxt: 'A revisão do equipamento ' + eqs[this.state.eq][0] + ' ficou marcada para ' + quando + '. Enviámos a confirmação por e-mail e SMS, e um técnico da Oceano vai contactá-lo na véspera.',
+seguinteTxt: p === 3 ? 'Confirmar marcação' : 'Seguinte',
+voltarStyle: 'height: 48px; padding: 0 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: rgba(235,235,245,0.78); font-family: inherit; font-size: 15px; cursor: pointer; visibility: ' + (p === 0 ? 'hidden' : 'visible'),
+voltar: function () { self.setState({ passo: Math.max(0, p - 1), erro: '' }); },
+seguinte: function () {
+if (p === 2 && !(self.state.dia && self.state.hora)) { self.setState({ erro: 'Escolha um dia e uma hora livre.' }); return; }
+self.setState({ passo: Math.min(4, p + 1), erro: '' });
+}
+};
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>

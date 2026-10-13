@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comparação de cotações</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F;padding-bottom:0}@media (max-width: 1100px){.g6{grid-template-columns:repeat(3,minmax(0,1fr)) !important}.g5{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}@media (max-width: 900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 620px){.g6,.g5{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width: 760px){.dock-l{display:none}.dock-i{min-width:42px !important;height:44px !important}}.dock-i:hover{background:rgba(255,255,255,0.12) !important;color:#FFFFFF !important}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}.side-g details>summary::-webkit-details-marker{display:none}.side-g details>summary:hover{background:rgba(255,255,255,0.06)}.side-g details[open]>summary .chev{transform:rotate(90deg)}.side-g details[open]>summary{color:#FFFFFF;font-weight:500}.side-g a:hover{background:rgba(255,255,255,0.06)}@media (min-width: 820px){.side-g summary{padding-top:clamp(4px,0.9vh,8px) !important;padding-bottom:clamp(4px,0.9vh,8px) !important}.side-g details a{padding-top:clamp(4px,0.8vh,8px) !important;padding-bottom:clamp(4px,0.8vh,8px) !important}}@media (max-width: 819px){.side-g{display:none !important}}</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side side-g" aria-label="Menu principal" style="flex: 1 1 250px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 15px">Grupo Naval Angola</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Portal do grupo</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="Inicio.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.9)"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 11l9-7 9 7M5 10v10h14V10"></path></svg>Início</a>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"></path></svg><span>Direção</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Painel executivo</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span>Comercial</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Painel.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Vendas consolidadas</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 6h18v13H3zM3 10h18M16 15h2"></path></svg><span>Finanças</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ContasCorrentes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Contas correntes</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 7a5 5 0 1 0 0 10a5 5 0 1 0 0-10M12 11v2"></path></svg><span>Contabilidade de gestão</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="CentrosCusto.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Centros de custo</a>
+<a href="Orcamento.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Orçamento e desvios</a>
+</details>
+<details name="menu" open>
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 2l9 5v10l-9 5-9-5V7zM12 22V12M21 7l-9 5-9-5"></path></svg><span>Logística e Compras</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Stock.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Stock do grupo</a>
+<a href="Requisicoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Requisições internas</a>
+<a href="Cotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500" aria-current="page">Comparação de cotações</a>
+<a href="Rececao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Receção e conferência</a>
+<a href="Executivo.dc.html#fornecedores" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Fornecedores</a>
+<a href="FornCotacoes.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal de fornecedores</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14"></path></svg><span>Frota</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#frota" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos da frota</a>
+<a href="VeloTransAgendar.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Agendar revisão de viatura</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 4.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7"></path></svg><span>Recursos Humanos</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#rh" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Custos com pessoal</a>
+<a href="Executivo.dc.html#absentismo" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Taxa de absentismo</a>
+<a href="ColabFerias.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Portal do colaborador</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"></path></svg><span>Serviços Gerais</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo.dc.html#housekeeping" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Housekeeping</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 3h6v5H9zM2.5 16h6v5h-6zM15.5 16h6v5h-6zM12 8v4M5.5 16v-4h13v4"></path></svg><span>Organização</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Organizacao.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Grupos e acessos</a>
+<a href="MatrizLOA.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Matriz de aprovação (LOA)</a>
+</details>
+</div>
+<div style="margin-top: auto; padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6)">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 99px; background: #30D158"></span>23 empresas · 16 Primavera · 7 SAP</span>
+<span>consulta directa · há 1 min</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Navegação rápida" style="align-self: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 6px 8px; border-radius: 22px; background: rgba(16,24,58,0.55); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); max-width: 100%; box-sizing: border-box">
+<a href="Inicio.dc.html" title="{{dk.home}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.home}}</span></a>
+<a href="Painel.dc.html" title="{{dk.sales}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.sales}}</span></a>
+<a href="ContasCorrentes.dc.html" title="{{dk.cc}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><path d="M16 15h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.cc}}</span></a>
+<a href="Stock.dc.html" title="{{dk.stock}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.stock}}</span></a>
+<a href="Executivo.dc.html" title="{{dk.exec}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.exec}}</span></a>
+<a href="CentrosCusto.dc.html" title="{{dk.ccu}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.ccu}}</span></a>
+<a href="FornCotacoes.dc.html" title="{{dk.forn}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"></path><path d="M13 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.forn}}</span></a>
+<a href="VeloTransAgendar.dc.html" title="{{dk.frota}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.6"></circle><circle cx="16" cy="17" r="1.6"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.frota}}</span></a>
+<a href="ColabFerias.dc.html" title="{{dk.colab}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.colab}}</span></a>
+<a href="Organizacao.dc.html" title="{{dk.org}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1.2"></rect><rect x="2.5" y="16" width="6" height="5" rx="1.2"></rect><rect x="15.5" y="16" width="6" height="5" rx="1.2"></rect><path d="M12 8v4M5.5 16v-4h13v4"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.org}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<a href="VendasMovel.dc.html" title="{{dk.phone}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.phone}}</span></a>
+<a href="Main.dc.html" title="{{dk.out}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4"></path><path d="M10 8l-4 4 4 4"></path><path d="M6 12h10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.out}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; padding: 2px; border-radius: 12px; background: rgba(255,255,255,0.06)">
+<a href="{{dkPThref}}" onClick="{{dkPT}}" style="{{dkPTs}}">PT</a>
+<a href="{{dkENhref}}" onClick="{{dkEN}}" style="{{dkENs}}">EN</a>
+</div>
+</nav>
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">LOGÍSTICA E COMPRAS</span>
+<span class="fase2" title="Fase 2" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 99px; background: rgba(201,130,42,0.16); color: #E0A458; border: 1px solid rgba(201,130,42,0.35)">Fase 2 · protótipo do circuito, ainda não grava no ERP</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">Comparação de cotações</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">3 cotações por pedido · escolha automática por preço, prazo e classificação · <span style="color: #C9822A">dados de exemplo</span></span>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px"><a href="Requisicoes.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 12px; border: 1px solid #2397D4; color: #7CC6EE; text-decoration: none; font-weight: 500; font-size: 14px; box-sizing: border-box">← Requisições internas</a><a href="Rececao.dc.html" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 12px; background: #2397D4; color: #FFFFFF; text-decoration: none; font-weight: 500; font-size: 14px; box-sizing: border-box">Receção e conferência →</a></div>
+</header>
+<section aria-label="Indicadores" class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
+<span style="font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums">{{k.value}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span>
+</div>
+</sc-for>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-start">
+<section aria-label="Pedidos de cotação" style="flex: 1 1 260px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0 0 4px; font-size: 17px; font-weight: 600">Pedidos de cotação</h2>
+<sc-for list="{{pedidos}}" as="p" hint-placeholder-count="3">
+<button type="button" onClick="{{p.pick}}" aria-pressed="{{p.on}}" style="{{p.style}}">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 0.5px">{{p.ref}}</span>
+<span style="font-size: 14px; font-weight: 500; color: #F5F5F7">{{p.titulo}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{p.info}}</span>
+<span style="{{p.estStyle}}">{{p.estado}}</span>
+</button>
+</sc-for>
+</section>
+<section aria-label="Comparação" style="flex: 4 1 640px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px">{{sel.ref}}</span>
+<h2 style="margin: 0; font-size: 20px; font-weight: 600">{{sel.titulo}}</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{sel.info}}</span>
+</div>
+<sc-if value="{{sel.pronto}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">Critério</span>
+<div role="group" aria-label="Critério" style="display: flex; gap: 4px; padding: 4px; border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; background: rgba(255,255,255,0.05)">
+<sc-for list="{{pesos}}" as="w" hint-placeholder-count="3">
+<button type="button" aria-pressed="{{w.on}}" onClick="{{w.pick}}" title="{{w.tip}}" style="{{w.style}}">{{w.label}}</button>
+</sc-for>
+</div>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6)">{{pesoTxt}}</span>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{sel.aguarda}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 18px; border-radius: 18px; background: rgba(201,130,42,0.10); border: 1px solid rgba(201,130,42,0.35); display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 15px; font-weight: 500; color: #E0A458">{{sel.aguardaTit}}</span>
+<span style="font-size: 13px; color: rgba(235,235,245,0.78); line-height: 1.5">{{sel.aguardaTxt}}</span>
+</div>
+</sc-if>
+<sc-if value="{{sel.pronto}}" hint-placeholder-val="{{ true }}">
+<div style="overflow-x: auto">
+<div style="min-width: 640px; display: flex; flex-direction: column; gap: 2px">
+<div style="display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 8px; align-items: end; padding: 0 10px 8px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">Artigo</span>
+<sc-for list="{{fornec}}" as="f" hint-placeholder-count="3">
+<span style="{{f.headStyle}}"><span style="font-size: 14px; font-weight: 600; color: #F5F5F7">{{f.nome}}</span><span style="{{f.tagStyle}}">{{f.tag}}</span></span>
+</sc-for>
+</div>
+<sc-for list="{{linhas}}" as="l" hint-placeholder-count="4">
+<div style="display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 8px; align-items: center; padding: 9px 10px; border-radius: 12px; background: rgba(255,255,255,0.03)">
+<span style="display: flex; flex-direction: column; gap: 1px; min-width: 0"><span style="font-size: 13px; color: #F5F5F7">{{l.nome}}</span><span style="font-size: 11px; color: rgba(235,235,245,0.55)">{{l.qtd}}</span></span>
+<sc-for list="{{l.precos}}" as="x" hint-placeholder-count="3">
+<span style="{{x.style}}">{{x.v}}</span>
+</sc-for>
+</div>
+</sc-for>
+<sc-for list="{{resumo}}" as="r" hint-placeholder-count="6">
+<div style="{{r.rowStyle}}">
+<span style="font-size: 12px; color: rgba(235,235,245,0.7)">{{r.label}}</span>
+<sc-for list="{{r.cel}}" as="x" hint-placeholder-count="3">
+<span style="{{x.style}}">{{x.v}}</span>
+</sc-for>
+</div>
+</sc-for>
+<div style="display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 8px; align-items: center; padding: 12px 10px 4px">
+<span style="font-size: 12px; color: rgba(235,235,245,0.7)">Pontuação</span>
+<sc-for list="{{pont}}" as="x" hint-placeholder-count="3">
+<span style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px"><span style="{{x.vStyle}}">{{x.v}}</span><span style="display: block; width: 100%; height: 6px; border-radius: 99px; background: rgba(255,255,255,0.08)"><span style="{{x.bar}}"></span></span></span>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 8px; align-items: center; padding: 8px 10px 0">
+<span></span>
+<sc-for list="{{escolher}}" as="x" hint-placeholder-count="3">
+<span style="display: flex; justify-content: flex-end"><button type="button" onClick="{{x.pick}}" aria-pressed="{{x.on}}" style="{{x.style}}">{{x.label}}</button></span>
+</sc-for>
+</div>
+</div>
+</div>
+<div style="{{decisao.boxStyle}}">
+<div style="display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 300px">
+<span style="font-size: 15px; font-weight: 600">{{decisao.tit}}</span>
+<span style="font-size: 13px; color: rgba(235,235,245,0.78); line-height: 1.5">{{decisao.txt}}</span>
+</div>
+<button type="button" onClick="{{decisao.acao}}" style="{{decisao.btnStyle}}">{{decisao.btn}}</button>
+</div>
+</sc-if>
+</section>
+</div>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { sel: 0, peso: 'eq', escolha: {}, encomendas: {} };
+}
+renderVals() {
+var self = this;
+var fmt = function (n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); };
+var f1 = function (v) { return v.toFixed(1).replace('.', ','); };
+var P = [
+{ ref: 'PC-2026-0188', titulo: 'EPI para a equipa do armazém', info: 'REQ-2026-0403 · 2.02 · Logística · CAZENGO', resp: 3, ec: 'EC-2026-0921',
+linhas: [['Botas de segurança (par)', 24, [24500, 24900, 23800]], ['Luvas de nitrilo (caixa de 100)', 40, [4100, 4350, 3900]], ['Coletes refletores', 24, [3200, 2900, 2700]], ['Capacetes de proteção', 12, [9800, 10400, 9100]]],
+forn: [['[FORNECEDOR A]', 'A', 4.6, 5, '30 dias', ''], ['[FORNECEDOR B]', 'B', 3.9, 2, '60 dias', ''], ['[FORNECEDOR C]', 'A', 4.4, 10, '30 dias', 'Certidão de não dívida (AGT) expirada a 30 Set']] },
+{ ref: 'PC-2026-0191', titulo: 'Pneus para 2 viaturas de distribuição', info: 'REQ-2026-0411 · 2.02 · Logística · Foodtec', resp: 3, ec: 'EC-2026-0922',
+linhas: [['Pneus 215/75 R16', 8, [61000, 58500, 63500]], ['Montagem e alinhamento', 2, [22000, 30000, 18000]]],
+forn: [['[FORNECEDOR D]', 'A', 4.7, 3, '30 dias', ''], ['[FORNECEDOR E]', 'B', 4.0, 1, '30 dias', ''], ['[FORNECEDOR F]', 'C', 3.1, 4, 'pronto pagamento', '']] },
+{ ref: 'PC-2026-0193', titulo: 'Ferramentas de diagnóstico para a oficina', info: 'REQ-2026-0412 · 2.05 · Oficina · OCEANO', resp: 2, ec: '', linhas: [], forn: [] }
+];
+var sel = this.state.sel;
+var enc = this.state.encomendas;
+var pedidos = P.map(function (p, i) {
+var on = i === sel;
+var feito = !!enc[i];
+var pronto = p.resp === 3;
+return { ref: p.ref, titulo: p.titulo, info: p.resp + ' de 3 cotações recebidas', on: on ? 'true' : 'false', pick: function () { self.setState({ sel: i }); },
+estado: feito ? 'Encomenda gerada' : (pronto ? 'Pronto a decidir' : 'A aguardar 1 resposta'),
+estStyle: 'align-self: flex-start; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; ' + (feito ? 'background: rgba(48,209,88,0.12); color: #30D158' : (pronto ? 'background: rgba(35,151,212,0.2); color: #7CC6EE' : 'background: rgba(201,130,42,0.16); color: #E0A458')),
+style: 'width: 100%; display: flex; flex-direction: column; gap: 4px; text-align: left; padding: 12px 14px; border-radius: 16px; font-family: inherit; cursor: pointer; ' + (on ? 'background: rgba(35,151,212,0.16); border: 1px solid #2397D4' : 'background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08)') };
+});
+var p = P[sel];
+var pronto = p.resp === 3;
+var W = { eq: [60, 25, 15], preco: [80, 10, 10], urg: [40, 50, 10] };
+var w = W[this.state.peso];
+var pb = 'height: 30px; padding: 0 12px; border-radius: 9px; border: none; font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer; ';
+var pesos = [['eq', 'Equilibrado'], ['preco', 'Preço primeiro'], ['urg', 'Urgente']].map(function (x) { var on = x[0] === self.state.peso; return { label: x[1], tip: W[x[0]].join(' / '), on: on ? 'true' : 'false', pick: function () { self.setState({ peso: x[0] }); }, style: pb + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.78)') }; });
+var pesoTxt = 'Preço ' + w[0] + '% · prazo ' + w[1] + '% · classificação ' + w[2] + '%';
+var tot = [0, 0, 0];
+p.linhas.forEach(function (l) { l[2].forEach(function (pr, j) { tot[j] += pr * l[1]; }); });
+var valido = p.forn.map(function (f) { return !f[5]; });
+var minT = Infinity, minD = Infinity;
+p.forn.forEach(function (f, j) { if (valido[j]) { if (tot[j] < minT) minT = tot[j]; if (f[3] < minD) minD = f[3]; } });
+var score = p.forn.map(function (f, j) {
+if (!valido[j]) return null;
+var sp = minT / tot[j] * 100;
+var sd = Math.max(0, 100 - (f[3] - minD) * 8);
+var sr = f[2] / 5 * 100;
+return (sp * w[0] + sd * w[1] + sr * w[2]) / 100;
+});
+var rec = -1, best = -1;
+score.forEach(function (s, j) { if (s !== null && s > best) { best = s; rec = j; } });
+var esc = this.state.escolha[sel];
+var chosen = (esc === undefined || esc === null) ? rec : esc;
+var feito = enc[sel];
+var head = 'display: flex; flex-direction: column; align-items: flex-end; gap: 4px; text-align: right; padding: 8px; border-radius: 12px; ';
+var fornec = p.forn.map(function (f, j) {
+var isRec = j === rec;
+return { nome: f[0], tag: !valido[j] ? 'Excluído' : (isRec ? 'Recomendado' : ''),
+tagStyle: !valido[j] ? 'font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; background: rgba(255,69,58,0.16); color: #FF6961' : (isRec ? 'font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px; background: rgba(48,209,88,0.14); color: #30D158' : 'display: none'),
+headStyle: head + (j === chosen ? 'background: rgba(35,151,212,0.16); box-shadow: inset 0 0 0 1px #2397D4' : '') };
+});
+var cel = 'font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; padding: 0 8px; ';
+var linhas = p.linhas.map(function (l) {
+var mn = Infinity;
+l[2].forEach(function (pr, j) { if (valido[j] && pr < mn) mn = pr; });
+return { nome: l[0], qtd: l[1] + ' × preço unitário', precos: l[2].map(function (pr, j) { return { v: fmt(pr), style: cel + (!valido[j] ? 'color: rgba(235,235,245,0.35); text-decoration: line-through' : (pr === mn ? 'color: #30D158; font-weight: 600' : 'color: #F5F5F7')) }; }) };
+});
+var row = function (label, cells, strong) { return { label: label, cel: cells, rowStyle: 'display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: 8px; align-items: center; padding: 9px 10px; ' + (strong ? 'margin-top: 6px; border-top: 1px solid rgba(255,255,255,0.12)' : 'border-top: 1px solid rgba(255,255,255,0.05)') }; };
+var dim = function (j) { return !valido[j] ? 'color: rgba(235,235,245,0.35)' : 'color: #F5F5F7'; };
+var resumo = !pronto ? [] : [
+row('Total', tot.map(function (t, j) { return { v: fmt(t) + ' Kz', style: cel + 'font-size: 15px; font-weight: 600; ' + (!valido[j] ? 'color: rgba(235,235,245,0.35); text-decoration: line-through' : (t === minT ? 'color: #30D158' : 'color: #F5F5F7')) }; }), true),
+row('Prazo de entrega', p.forn.map(function (f, j) { return { v: f[3] + (f[3] === 1 ? ' dia' : ' dias'), style: cel + dim(j) }; })),
+row('Pagamento', p.forn.map(function (f, j) { return { v: f[4], style: cel + dim(j) }; })),
+row('Classificação', p.forn.map(function (f, j) { return { v: f[1] + ' · ' + f1(f[2]), style: cel + dim(j) }; })),
+row('Documentos', p.forn.map(function (f, j) { return { v: f[5] ? f[5] : 'Todos válidos', style: cel + 'font-size: 12px; line-height: 1.35; ' + (f[5] ? 'color: #FF6961' : 'color: #30D158') }; }))
+];
+var pont = score.map(function (s, j) { return { v: s === null ? '—' : f1(s), vStyle: 'font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; color: ' + (s === null ? 'rgba(235,235,245,0.35)' : (j === rec ? '#30D158' : '#F5F5F7')), bar: 'display: block; height: 100%; border-radius: 99px; background: ' + (j === rec ? '#30D158' : '#2397D4') + '; width: ' + (s === null ? 0 : Math.round(s)) + '%' }; });
+var bb = 'height: 32px; padding: 0 12px; border-radius: 9px; font-family: inherit; font-size: 12px; font-weight: 500; ';
+var escolher = p.forn.map(function (f, j) {
+var on = j === chosen;
+if (!valido[j]) return { label: 'Excluído', on: 'false', pick: function () {}, style: bb + 'border: 1px solid rgba(255,255,255,0.08); background: transparent; color: rgba(235,235,245,0.35); cursor: not-allowed' };
+return { label: on ? 'Escolhido' : 'Escolher', on: on ? 'true' : 'false', pick: function () { if (feito) return; var e = Object.assign({}, self.state.escolha); e[sel] = j; self.setState({ escolha: e }); }, style: bb + (on ? 'border: none; background: #2397D4; color: #FFFFFF; cursor: default' : 'border: 1px solid rgba(255,255,255,0.18); background: transparent; color: rgba(235,235,245,0.85); cursor: pointer') };
+});
+var decisao = { tit: '', txt: '', btn: '', acao: function () {}, btnStyle: 'display: none', boxStyle: 'display: none' };
+if (pronto) {
+var cf = p.forn[chosen];
+var excl = [];
+p.forn.forEach(function (f, j) { if (!valido[j]) excl.push(f[0] + ' foi excluído: ' + f[5].charAt(0).toLowerCase() + f[5].slice(1) + '.'); });
+var box = 'display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 18px; ';
+var btn = 'height: 44px; padding: 0 18px; border-radius: 12px; border: none; font-family: inherit; font-weight: 600; font-size: 14px; cursor: pointer; ';
+if (feito) {
+decisao = { tit: 'Encomenda ' + p.ec + ' gerada e enviada a ' + cf[0], txt: 'Total ' + fmt(tot[chosen]) + ' Kz · entrega prevista em ' + cf[3] + (cf[3] === 1 ? ' dia' : ' dias') + '. Seguiu por e-mail e pelo portal de fornecedores. Na receção, a guia de remessa dá entrada no stock. A V/ Factura é registada no ERP (Primavera ou SAP) no estado «Aguarda aprovação» e só depois de aprovada fica pendente para pagamento.',
+btn: 'Anular encomenda', acao: function () { var e = Object.assign({}, self.state.encomendas); delete e[sel]; self.setState({ encomendas: e }); },
+btnStyle: btn + 'background: transparent; border: 1px solid rgba(255,255,255,0.18); color: rgba(235,235,245,0.78)', boxStyle: box + 'background: rgba(48,209,88,0.10); border: 1px solid rgba(48,209,88,0.35)' };
+} else if (chosen === rec) {
+decisao = { tit: 'Recomendado: ' + cf[0] + ' · ' + f1(best) + ' pontos', txt: 'Total ' + fmt(tot[chosen]) + ' Kz, entrega em ' + cf[3] + (cf[3] === 1 ? ' dia' : ' dias') + ', pagamento a ' + cf[4] + ', classificação ' + cf[1] + '. ' + excl.join(' '),
+btn: 'Gerar encomenda a ' + cf[0], acao: function () { var e = Object.assign({}, self.state.encomendas); e[sel] = true; self.setState({ encomendas: e }); },
+btnStyle: btn + 'background: #2397D4; color: #FFFFFF; box-shadow: 0 6px 20px rgba(35,151,212,0.35)', boxStyle: box + 'background: rgba(35,151,212,0.10); border: 1px solid rgba(35,151,212,0.35)' };
+} else {
+decisao = { tit: 'Escolha manual: ' + cf[0], txt: 'Diferente da recomendação (' + p.forn[rec][0] + '). A justificação fica registada e a encomenda passa pela aprovação do Diretor de área antes de seguir.',
+btn: 'Gerar encomenda a ' + cf[0], acao: function () { var e = Object.assign({}, self.state.encomendas); e[sel] = true; self.setState({ encomendas: e }); },
+btnStyle: btn + 'background: #C9822A; color: #FFFFFF', boxStyle: box + 'background: rgba(201,130,42,0.10); border: 1px solid rgba(201,130,42,0.35)' };
+}
+}
+var nGer = Object.keys(enc).length;
+var nota = 'font-size: 12px; color: ';
+var kpis = [
+{ label: 'Pedidos de cotação abertos', value: String(3 - nGer), note: '1 a aguardar resposta', noteStyle: nota + '#E0A458' },
+{ label: 'Prontos a decidir', value: String(Math.max(0, 2 - nGer)), note: 'com as 3 cotações recebidas', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Poupança do mês', value: '4,8 M Kz', note: 'face à cotação mais alta', noteStyle: nota + '#30D158' },
+{ label: 'Escolha automática', value: '86%', note: 'das encomendas seguem a recomendação', noteStyle: nota + 'rgba(235,235,245,0.6)' }
+];
+var __me = this;
+var __pill = 'display: inline-flex; align-items: center; justify-content: center; text-decoration: none; height: 36px; width: 38px; border: none; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+var __en = false;
+return { dkPThref: 'Cotacoes.dc.html', dkENhref: 'Cotacoes_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'}, 
+kpis: kpis, pedidos: pedidos, pesos: pesos, pesoTxt: pesoTxt,
+sel: { ref: p.ref, titulo: p.titulo, info: p.info, pronto: pronto, aguarda: !pronto, aguardaTit: 'Falta 1 de 3 cotações', aguardaTxt: 'Ainda não respondeu: [FORNECEDOR H] · prazo até 24 Out às 17:00. A comparação é feita automaticamente quando chegarem as 3 cotações ou quando o prazo terminar.' },
+fornec: fornec, linhas: linhas, resumo: resumo, pont: pont, escolher: escolher, decisao: decisao
+};
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>
