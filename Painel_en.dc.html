@@ -146,7 +146,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 12px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
 <span style="font-size: 28px; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.5px">{{k.value}}</span>
-<span style="{{k.noteStyle}}">{{k.note}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span><span style="{{k.yoyStyle}}">{{k.yoy}}</span>
 </div>
 </sc-for>
 </section>
@@ -156,13 +156,15 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <h2 style="margin: 0; font-size: 17px; font-weight: 600">Monthly trend</h2>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: rgba(235,235,245,0.6)">million Kz</span>
 </div>
-<svg role="img" aria-label="Group monthly sales, November 2025 to October 2026, growing" viewBox="0 0 640 220" style="width: 100%; height: auto; display: block">
+<svg role="img" aria-label="Group monthly sales, November 2025 to October 2026, rising, with the previous year dashed" viewBox="0 0 640 220" style="width: 100%; height: auto; display: block">
 <g stroke="rgba(255,255,255,0.08)" stroke-width="1"><line x1="0" y1="40" x2="640" y2="40"></line><line x1="0" y1="100" x2="640" y2="100"></line><line x1="0" y1="160" x2="640" y2="160"></line></g>
 <polygon points="0,200 0,150 58,142 116,155 174,130 232,124 290,132 348,110 406,98 464,104 522,80 580,72 640,58 640,200" fill="rgba(35,151,212,0.16)"></polygon>
 <polyline points="0,150 58,142 116,155 174,130 232,124 290,132 348,110 406,98 464,104 522,80 580,72 640,58" fill="none" stroke="#7CC6EE" stroke-width="2.5"></polyline>
+<polyline class="hom-line" points="0,170.5 58,154.0 116,166.0 174,145.0 232,138.2 290,142.3 348,130.0 406,119.5 464,123.2 522,106.0 580,97.8 640,87.7" fill="none" stroke="#B3BBF0" stroke-width="2" stroke-dasharray="5 5" opacity="0.85"></polyline>
 <circle cx="640" cy="58" r="5" fill="#7CC6EE"></circle>
 <g fill="rgba(235,235,245,0.6)" font-family="-apple-system, sans-serif" font-size="11"><text x="0" y="216">NOV</text><text x="290" y="216">APR</text><text x="606" y="216">OCT</text><text x="4" y="34">1,400</text><text x="4" y="94">1,000</text><text x="4" y="154">600</text></g>
 </svg>
+<div class="hom-leg" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 12px; color: rgba(235,235,245,0.7)"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 3px; border-radius: 2px; background: #7CC6EE"></span>Nov 2025 to Oct 2026</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 16px; height: 0; border-top: 2px dashed #B3BBF0"></span>Previous year (same period)</span><span style="margin-left: auto; font-variant-numeric: tabular-nums">Year to date Jan–Oct: <b style="font-weight: 600; color: #F5F5F7">9.839 M</b> · <span style="color: #30D158">▲ 18.6% vs Jan–Oct 2025</span></span></div>
 </section>
 <section style="flex: 2 1 320px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
@@ -175,8 +177,9 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </div>
 <div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
 <sc-for list="{{empresasRings}}" as="rg" hint-placeholder-count="6">
-<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="display: flex; align-items: baseline; gap: 10px"><span style="{{rg.yoyStyle}}">{{rg.yoy}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></span></div>
 </sc-for>
+<span class="hom-cap" style="font-size: 11px; color: rgba(235,235,245,0.55)">▲▼ change vs Oct 2025</span>
 </div>
 </div>
 </section>
@@ -195,7 +198,8 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <th style="padding: 8px 10px; font-weight: 500; text-align: right">Sales (Kz)</th>
 <th style="padding: 8px 10px; font-weight: 500; text-align: right">Receipts</th>
 <th style="padding: 8px 10px; font-weight: 500; text-align: right">Transfers to reconcile</th>
-<th style="padding: 8px 10px; font-weight: 500">Trend</th>
+<th style="padding: 8px 10px; font-weight: 500">vs September</th>
+<th class="hom-th" style="padding: 8px 10px; font-weight: 500">vs Oct 2025</th>
 </tr>
 </thead>
 <tbody>
@@ -207,6 +211,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <td style="padding: 12px 10px; text-align: right; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums">{{c.taloes}}</td>
 <td style="padding: 12px 10px; text-align: right; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums"><span style="{{c.trfStyle}}">{{c.trf}}</span></td>
 <td style="padding: 12px 10px"><span style="{{c.tendStyle}}">{{c.tend}}</span></td>
+<td style="padding: 12px 10px"><span style="{{c.yoyStyle}}">{{c.yoy}}</span></td>
 </tr>
 </sc-for>
 </tbody>
@@ -266,6 +271,36 @@ v.forEach(function (it) { walk(it, depth + 1); });
 }
 return { wrap: function (C) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, 0); return o; }; } };
 })();
+/*YOY*/
+var __Y = (function () {
+var GOOD = '#30D158', BAD = '#E0A458', NEU = 'rgba(235,235,245,0.6)';
+var fmt = function (h) {
+var x = h[0], v = Math.abs(x), s = (v % 1 === 0) ? String(v) : String(v.toFixed(1)).replace('.', '.');
+return (x > 0 ? '▲ ' : (x < 0 ? '▼ ' : '= ')) + s + (h[1] || '');
+};
+var tone = function (h) { var d = h[2] || 0; if (!d || !h[0]) return NEU; return h[0] * d > 0 ? GOOD : BAD; };
+function walk(o, path, H, per, depth) {
+if (!o || typeof o !== 'object' || depth > 4) return;
+Object.keys(o).forEach(function (k) {
+var v = o[k], p = path ? path + '.' + k : k;
+if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object') {
+var T = H[p] || {};
+v.forEach(function (it) {
+if (!it || typeof it !== 'object') return;
+var kpi = ('note' in it), lst = ('ring' in it) || ('canal' in it);
+if (!kpi && !lst) return;
+var h = it.hom || T[it.label] || T[it.nome] || T[it.canal];
+if (h) {
+it.yoy = fmt(h) + (kpi ? ' ' + per : '');
+it.yoyStyle = 'font-size: ' + (kpi ? 12 : (lst && it.canal ? 13 : 11)) + 'px; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + tone(h);
+} else { it.yoy = ''; it.yoyStyle = 'display: none'; }
+});
+} else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, p, H, per, depth + 1);
+});
+}
+return { wrap: function (C, H, per) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, '', H, per, 0); return o; }; } };
+})();
+/*YOY-END*/
 class Component extends DCLogic {
 renderVals() {
 var base = 'display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; ';
@@ -274,8 +309,8 @@ return { label: m[0], href: m[1], style: base + (i === 1 ? 'background: rgba(35,
 });
 var kpis = [
 { label: 'Sales this month', value: '1,284.6 M', note: '▲ 6.4% vs September', up: true },
-{ label: 'Documents issued', value: '48,210', note: '▲ 3.1% vs Setembro', up: true },
-{ label: 'Gross margin', value: '22.8%', note: '▼ 0.6 p.p. vs Setembro', up: false },
+{ label: 'Documents issued', value: '48,210', note: '▲ 3.1% vs September', up: true },
+{ label: 'Gross margin', value: '22.8%', note: '▼ 0.6 p.p. vs September', up: false },
 { label: 'Transfers to reconcile', value: '37', note: '12 older than 3 days', up: false }
 ].map(function (k) {
 return Object.assign({}, k, { noteStyle: 'font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: ' + (k.up ? '#30D158' : '#C9822A') });
@@ -306,6 +341,7 @@ return { dkPThref: 'Painel.dc.html', dkENhref: 'Painel_en.dc.html', dkPT: functi
 }
 }
 __C.wrap(Component);
+__Y.wrap(Component, {'kpis': {'Sales this month': [18.7, '%', 1], 'Documents issued': [9.4, '%', 1], 'Gross margin': [0.9, ' p.p.', 1], 'Transfers to reconcile': [-15, '', -1]}, 'empresasRings': {'OCEANO': [14.2, '%', 1], 'CAZENGO': [22.5, '%', 1], 'YAWABA': [8.6, '%', 1], 'INOVAGATE': [-3.1, '%', 1], 'VISTAR': [31.4, '%', 1], 'PAKTEC': [5.8, '%', 1], 'EMBALTEC': [-7.9, '%', 1]}, 'canais': {'Channel 01 · Viana': [16, '%', 1], 'Channel 02 · Talatona': [11, '%', 1], 'Channel 03 · Kilamba': [-4, '%', 1], 'Channel 04 · Cacuaco': [7, '%', 1], 'Channel 05 · Benfica': [3, '%', 1]}}, 'vs Oct 2025');
 DC.mount(Component);
 </script>
 </body>

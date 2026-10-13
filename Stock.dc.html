@@ -146,7 +146,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 12px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
 <span style="font-size: 28px; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.5px">{{k.value}}</span>
-<span style="{{k.noteStyle}}">{{k.note}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span><span style="{{k.yoyStyle}}">{{k.yoy}}</span>
 </div>
 </sc-for>
 </section>
@@ -212,6 +212,36 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </script>
 <div id="dc-app"></div>
 <script>
+/*YOY*/
+var __Y = (function () {
+var GOOD = '#30D158', BAD = '#E0A458', NEU = 'rgba(235,235,245,0.6)';
+var fmt = function (h) {
+var x = h[0], v = Math.abs(x), s = (v % 1 === 0) ? String(v) : String(v.toFixed(1)).replace('.', ',');
+return (x > 0 ? '▲ ' : (x < 0 ? '▼ ' : '= ')) + s + (h[1] || '');
+};
+var tone = function (h) { var d = h[2] || 0; if (!d || !h[0]) return NEU; return h[0] * d > 0 ? GOOD : BAD; };
+function walk(o, path, H, per, depth) {
+if (!o || typeof o !== 'object' || depth > 4) return;
+Object.keys(o).forEach(function (k) {
+var v = o[k], p = path ? path + '.' + k : k;
+if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object') {
+var T = H[p] || {};
+v.forEach(function (it) {
+if (!it || typeof it !== 'object') return;
+var kpi = ('note' in it), lst = ('ring' in it) || ('canal' in it);
+if (!kpi && !lst) return;
+var h = it.hom || T[it.label] || T[it.nome] || T[it.canal];
+if (h) {
+it.yoy = fmt(h) + (kpi ? ' ' + per : '');
+it.yoyStyle = 'font-size: ' + (kpi ? 12 : (lst && it.canal ? 13 : 11)) + 'px; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + tone(h);
+} else { it.yoy = ''; it.yoyStyle = 'display: none'; }
+});
+} else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, p, H, per, depth + 1);
+});
+}
+return { wrap: function (C, H, per) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, '', H, per, 0); return o; }; } };
+})();
+/*YOY-END*/
 class Component extends DCLogic {
 renderVals() {
 var base = 'display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; ';
@@ -276,6 +306,7 @@ var __en = false;
 return { dkPThref: 'Stock.dc.html', dkENhref: 'Stock_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'},  menu: menu, kpis: kpis, legenda: legenda, familias: familias, celulas: celulas, artigos: artigos };
 }
 }
+__Y.wrap(Component, {'kpis': {'Valor em stock': [-3.6, '%', -1], 'Artigos em ruptura': [-38, '', -1], 'Cobertura média': [-6, ' dias', -1], 'Stock parado > 180 dias': [-14.2, '%', -1]}}, 'vs Out 2025');
 DC.mount(Component);
 </script>
 </body>

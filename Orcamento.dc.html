@@ -150,7 +150,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
 <span style="{{k.valStyle}}">{{k.value}}</span>
-<span style="{{k.noteStyle}}">{{k.note}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span><span style="{{k.yoyStyle}}">{{k.yoy}}</span>
 </div>
 </sc-for>
 </section>
@@ -161,6 +161,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Real</span>
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #C9822A"></span>Real acima do orçamento</span>
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: rgba(35,151,212,0.35)"></span>Previsão</span>
+<span class="hom-leg" style="display: flex; align-items: center; gap: 6px"><span style="width: 9px; height: 9px; border-radius: 99px; background: #B3BBF0; box-shadow: 0 0 6px #B3BBF0"></span>Real 2025 (homólogo)</span>
 <span style="display: flex; align-items: center; gap: 6px"><span style="width: 14px; height: 0; border-top: 2px solid #F5F5F7"></span>Orçamento</span>
 </span>
 </div>
@@ -171,6 +172,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="position: relative; width: 100%; max-width: 46px; height: 150px; display: flex; align-items: flex-end">
 <div style="{{m.bar}}"></div>
 <div style="{{m.meta}}"></div>
+<div style="{{m.ant}}"></div>
 </div>
 <span style="font-size: 11px; color: rgba(235,235,245,0.6)">{{m.mes}}</span>
 </div>
@@ -237,6 +239,36 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </script>
 <div id="dc-app"></div>
 <script>
+/*YOY*/
+var __Y = (function () {
+var GOOD = '#30D158', BAD = '#E0A458', NEU = 'rgba(235,235,245,0.6)';
+var fmt = function (h) {
+var x = h[0], v = Math.abs(x), s = (v % 1 === 0) ? String(v) : String(v.toFixed(1)).replace('.', ',');
+return (x > 0 ? '▲ ' : (x < 0 ? '▼ ' : '= ')) + s + (h[1] || '');
+};
+var tone = function (h) { var d = h[2] || 0; if (!d || !h[0]) return NEU; return h[0] * d > 0 ? GOOD : BAD; };
+function walk(o, path, H, per, depth) {
+if (!o || typeof o !== 'object' || depth > 4) return;
+Object.keys(o).forEach(function (k) {
+var v = o[k], p = path ? path + '.' + k : k;
+if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object') {
+var T = H[p] || {};
+v.forEach(function (it) {
+if (!it || typeof it !== 'object') return;
+var kpi = ('note' in it), lst = ('ring' in it) || ('canal' in it);
+if (!kpi && !lst) return;
+var h = it.hom || T[it.label] || T[it.nome] || T[it.canal];
+if (h) {
+it.yoy = fmt(h) + (kpi ? ' ' + per : '');
+it.yoyStyle = 'font-size: ' + (kpi ? 12 : (lst && it.canal ? 13 : 11)) + 'px; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + tone(h);
+} else { it.yoy = ''; it.yoyStyle = 'display: none'; }
+});
+} else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, p, H, per, depth + 1);
+});
+}
+return { wrap: function (C, H, per) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, '', H, per, 0); return o; }; } };
+})();
+/*YOY-END*/
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -326,13 +358,15 @@ var sz = 0; saz.forEach(function (x) { sz += x; });
 var orcM = tA / 12;
 var MES = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 var vals = MES.map(function (m, i) { return i < 10 ? tR * saz[i] / sz : tR / 10; });
+var valsA = vals.map(function (v, i) { return i < 10 ? v / (1.09 + (i % 3) * 0.02) : null; });
 var top = Math.max.apply(null, vals.concat([orcM])) * 1.08;
 var meses = MES.map(function (m, i) {
 var v = vals[i];
 var prev = i >= 10;
 var cor = prev ? 'rgba(35,151,212,0.35)' : (v > orcM ? '#C9822A' : '#2397D4');
 return {
-mes: m, v: f1(v), tip: m + (prev ? ' (previsão)' : '') + ': ' + f1(v) + ' M · orçamento ' + f1(orcM) + ' M',
+mes: m, v: f1(v), tip: m + (prev ? ' (previsão)' : '') + ': ' + f1(v) + ' M · orçamento ' + f1(orcM) + ' M' + (valsA[i] ? ' · ' + m + ' 2025: ' + f1(valsA[i]) + ' M' : ''),
+ant: valsA[i] ? 'position: absolute; left: 50%; width: 9px; height: 9px; margin: 0 0 -4px -4.5px; border-radius: 99px; background: #B3BBF0; box-shadow: 0 0 8px #B3BBF0; bottom: ' + Math.round(valsA[i] / top * 100) + '%' : 'display: none',
 bar: 'width: 100%; border-radius: 6px 6px 2px 2px; background: ' + cor + '; height: ' + Math.round(v / top * 100) + '%',
 meta: 'position: absolute; left: -4px; right: -4px; height: 0; border-top: 2px solid #F5F5F7; bottom: ' + Math.round(orcM / top * 100) + '%'
 };
@@ -368,6 +402,7 @@ var __en = false;
 return { dkPThref: 'Orcamento.dc.html', dkENhref: 'Orcamento_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'}, kpis: kpis, meses: meses, linhas: linhas, filtros: filtros, det: det, empresas: empresas, empresa: emp, vista: vista, setEmpresa: function (e) { self.setState({ empresa: e.target.value }); } };
 }
 }
+__Y.wrap(Component, {'kpis': {'Orçamento anual': [9.8, '%', 0], 'Real até Outubro': [12.4, '%', 0]}}, 'vs 2025');
 DC.mount(Component);
 </script>
 </body>

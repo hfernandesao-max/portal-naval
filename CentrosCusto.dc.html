@@ -152,7 +152,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
 <span style="font-size: 24px; font-weight: 500; font-variant-numeric: tabular-nums">{{k.value}}</span>
-<span style="{{k.noteStyle}}">{{k.note}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span><span style="{{k.yoyStyle}}">{{k.yoy}}</span>
 </div>
 </sc-for>
 </section>
@@ -200,7 +200,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </div>
 <div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
 <sc-for list="{{det.natRings}}" as="rg" hint-placeholder-count="6">
-<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="display: flex; align-items: baseline; gap: 10px"><span style="{{rg.yoyStyle}}">{{rg.yoy}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></span></div>
 </sc-for>
 </div>
 </div>
@@ -279,6 +279,36 @@ v.forEach(function (it) { walk(it, depth + 1); });
 }
 return { wrap: function (C) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, 0); return o; }; } };
 })();
+/*YOY*/
+var __Y = (function () {
+var GOOD = '#30D158', BAD = '#E0A458', NEU = 'rgba(235,235,245,0.6)';
+var fmt = function (h) {
+var x = h[0], v = Math.abs(x), s = (v % 1 === 0) ? String(v) : String(v.toFixed(1)).replace('.', ',');
+return (x > 0 ? '▲ ' : (x < 0 ? '▼ ' : '= ')) + s + (h[1] || '');
+};
+var tone = function (h) { var d = h[2] || 0; if (!d || !h[0]) return NEU; return h[0] * d > 0 ? GOOD : BAD; };
+function walk(o, path, H, per, depth) {
+if (!o || typeof o !== 'object' || depth > 4) return;
+Object.keys(o).forEach(function (k) {
+var v = o[k], p = path ? path + '.' + k : k;
+if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object') {
+var T = H[p] || {};
+v.forEach(function (it) {
+if (!it || typeof it !== 'object') return;
+var kpi = ('note' in it), lst = ('ring' in it) || ('canal' in it);
+if (!kpi && !lst) return;
+var h = it.hom || T[it.label] || T[it.nome] || T[it.canal];
+if (h) {
+it.yoy = fmt(h) + (kpi ? ' ' + per : '');
+it.yoyStyle = 'font-size: ' + (kpi ? 12 : (lst && it.canal ? 13 : 11)) + 'px; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + tone(h);
+} else { it.yoy = ''; it.yoyStyle = 'display: none'; }
+});
+} else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, p, H, per, depth + 1);
+});
+}
+return { wrap: function (C, H, per) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, '', H, per, 0); return o; }; } };
+})();
+/*YOY-END*/
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -395,6 +425,7 @@ return { dkPThref: 'CentrosCusto.dc.html', dkENhref: 'CentrosCusto_en.dc.html', 
 }
 }
 __C.wrap(Component);
+__Y.wrap(Component, {'kpis': {'Gastos do mês': [7.8, '%', -1], 'Rendimentos do mês': [15.2, '%', 1], 'Resultado': [24.6, '%', 1], 'Lançamentos sem centro': [-3.1, ' p.p.', -1]}}, 'vs Out 2025');
 DC.mount(Component);
 </script>
 </body>

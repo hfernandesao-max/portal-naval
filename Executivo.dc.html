@@ -145,7 +145,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 16px 18px; display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
 <span style="font-size: 24px; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.5px">{{k.value}}</span>
-<span style="{{k.noteStyle}}">{{k.note}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span><span style="{{k.yoyStyle}}">{{k.yoy}}</span>
 </div>
 </sc-for>
 </section>
@@ -155,11 +155,11 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <h2 style="margin: 0; font-size: 16px; font-weight: 600">Vendas mensais do grupo</h2>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: rgba(235,235,245,0.6)">milhões Kz</span>
 </div>
-<div role="img" aria-label="Vendas mensais de Novembro 2025 a Outubro 2026, a crescer de 610 para 1285 milhões" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px; align-items: end; height: 220px; border-bottom: 1px solid rgba(255,255,255,0.12)">
+<div role="img" aria-label="Vendas mensais de Novembro 2025 a Outubro 2026, a crescer de 610 para 1285 milhões, com o ano anterior ao lado" style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px; align-items: end; height: 220px; border-bottom: 1px solid rgba(255,255,255,0.12)">
 <sc-for list="{{meses}}" as="m" hint-placeholder-count="12">
 <div title="{{m.tip}}" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%">
 <span style="{{m.valStyle}}">{{m.v}}</span>
-<div style="{{m.bar}}"></div>
+<div style="display: flex; align-items: flex-end; justify-content: center; gap: 2px; width: 100%; flex: 1 1 auto; min-height: 0"><div style="{{m.ant}}"></div><div style="{{m.bar}}"></div></div>
 </div>
 </sc-for>
 </div>
@@ -168,6 +168,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6); text-align: center">{{m.label}}</span>
 </sc-for>
 </div>
+<div class="hom-leg" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font-size: 12px; color: rgba(235,235,245,0.7)"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Nov 2025 a Out 2026</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: rgba(179,187,240,0.30); box-shadow: inset 0 0 0 1px rgba(179,187,240,0.55)"></span>Ano anterior (homólogo)</span><span style="margin-left: auto; font-variant-numeric: tabular-nums">Acumulado Jan–Out: <b style="font-weight: 600; color: #F5F5F7">9 839 M</b> · <span style="color: #30D158">▲ 18,6% vs Jan–Out 2025</span></span></div>
 </section>
 <section style="flex: 2 1 320px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
 <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
@@ -180,8 +181,9 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </div>
 <div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
 <sc-for list="{{empresasRings}}" as="rg" hint-placeholder-count="6">
-<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="display: flex; align-items: baseline; gap: 10px"><span style="{{rg.yoyStyle}}">{{rg.yoy}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></span></div>
 </sc-for>
+<span class="hom-cap" style="font-size: 11px; color: rgba(235,235,245,0.55)">▲▼ variação face a Out 2025</span>
 </div>
 </div>
 </section>
@@ -267,7 +269,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </div>
 <div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
 <sc-for list="{{funilRings}}" as="rg" hint-placeholder-count="6">
-<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="display: flex; align-items: baseline; gap: 10px"><span style="{{rg.yoyStyle}}">{{rg.yoy}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></span></div>
 </sc-for>
 </div>
 </div>
@@ -309,7 +311,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 22px">{{r.n}}</span>
-<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{r.note}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{r.note}}</span><span style="{{r.yoyStyle}}">{{r.yoy}}</span>
 </div>
 </sc-for>
 </div>
@@ -351,7 +353,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 22px">{{r.n}}</span>
-<span style="{{r.noteStyle}}">{{r.note}}</span>
+<span style="{{r.noteStyle}}">{{r.note}}</span><span style="{{r.yoyStyle}}">{{r.yoy}}</span>
 </div>
 </sc-for>
 </div>
@@ -384,7 +386,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </div>
 <div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
 <sc-for list="{{frotaEmpRings}}" as="rg" hint-placeholder-count="6">
-<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="display: flex; align-items: baseline; gap: 10px"><span style="{{rg.yoyStyle}}">{{rg.yoy}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></span></div>
 </sc-for>
 </div>
 </div>
@@ -434,7 +436,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 20px">{{r.n}}</span>
-<span style="{{r.noteStyle}}">{{r.note}}</span>
+<span style="{{r.noteStyle}}">{{r.note}}</span><span style="{{r.yoyStyle}}">{{r.yoy}}</span>
 </div>
 </sc-for>
 </div>
@@ -466,7 +468,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </div>
 <div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
 <sc-for list="{{pes.barrasRings}}" as="rg" hint-placeholder-count="6">
-<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="display: flex; align-items: baseline; gap: 10px"><span style="{{rg.yoyStyle}}">{{rg.yoy}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></span></div>
 </sc-for>
 </div>
 </div>
@@ -482,7 +484,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 20px; {{r.nStyle}}">{{r.n}}</span>
-<span style="{{r.noteStyle}}">{{r.note}}</span>
+<span style="{{r.noteStyle}}">{{r.note}}</span><span style="{{r.yoyStyle}}">{{r.yoy}}</span>
 </div>
 </sc-for>
 </div>
@@ -528,7 +530,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </div>
 <div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
 <sc-for list="{{abs.empresasRings}}" as="rg" hint-placeholder-count="6">
-<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="display: flex; align-items: baseline; gap: 10px"><span style="{{rg.yoyStyle}}">{{rg.yoy}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></span></div>
 </sc-for>
 </div>
 </div>
@@ -546,7 +548,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="padding: 12px 14px; border-radius: 18px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); display: flex; flex-direction: column; gap: 4px">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 1px">{{r.label}}</span>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 20px">{{r.n}}</span>
-<span style="{{r.noteStyle}}">{{r.note}}</span>
+<span style="{{r.noteStyle}}">{{r.note}}</span><span style="{{r.yoyStyle}}">{{r.yoy}}</span>
 </div>
 </sc-for>
 </div>
@@ -578,7 +580,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </div>
 <div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
 <sc-for list="{{hk.barrasRings}}" as="rg" hint-placeholder-count="6">
-<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="display: flex; align-items: baseline; gap: 10px"><span style="{{rg.yoyStyle}}">{{rg.yoy}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></span></div>
 </sc-for>
 </div>
 </div>
@@ -656,6 +658,36 @@ v.forEach(function (it) { walk(it, depth + 1); });
 }
 return { wrap: function (C) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, 0); return o; }; } };
 })();
+/*YOY*/
+var __Y = (function () {
+var GOOD = '#30D158', BAD = '#E0A458', NEU = 'rgba(235,235,245,0.6)';
+var fmt = function (h) {
+var x = h[0], v = Math.abs(x), s = (v % 1 === 0) ? String(v) : String(v.toFixed(1)).replace('.', ',');
+return (x > 0 ? '▲ ' : (x < 0 ? '▼ ' : '= ')) + s + (h[1] || '');
+};
+var tone = function (h) { var d = h[2] || 0; if (!d || !h[0]) return NEU; return h[0] * d > 0 ? GOOD : BAD; };
+function walk(o, path, H, per, depth) {
+if (!o || typeof o !== 'object' || depth > 4) return;
+Object.keys(o).forEach(function (k) {
+var v = o[k], p = path ? path + '.' + k : k;
+if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object') {
+var T = H[p] || {};
+v.forEach(function (it) {
+if (!it || typeof it !== 'object') return;
+var kpi = ('note' in it), lst = ('ring' in it) || ('canal' in it);
+if (!kpi && !lst) return;
+var h = it.hom || T[it.label] || T[it.nome] || T[it.canal];
+if (h) {
+it.yoy = fmt(h) + (kpi ? ' ' + per : '');
+it.yoyStyle = 'font-size: ' + (kpi ? 12 : (lst && it.canal ? 13 : 11)) + 'px; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + tone(h);
+} else { it.yoy = ''; it.yoyStyle = 'display: none'; }
+});
+} else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, p, H, per, depth + 1);
+});
+}
+return { wrap: function (C, H, per) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, '', H, per, 0); return o; }; } };
+})();
+/*YOY-END*/
 class Component extends DCLogic {
 renderVals() {
 var A = '#2397D4', B = '#C9822A';
@@ -668,13 +700,15 @@ var kpis = [
 ['Valor em stock', '2 731,5 M', '146 em ruptura', '#FF6961'],
 ['Requisições por aprovar', '31', '14 há mais de 48 h', '#C9822A']
 ].map(function (k) { return { label: k[0], value: k[1], note: k[2], noteStyle: nota + k[3] }; });
+var mvA = [530, 640, 560, 700, 745, 718, 800, 870, 845, 960, 1015, 1082];
 var mv = [['NOV', 610], ['DEZ', 742], ['JAN', 655], ['FEV', 820], ['MAR', 880], ['ABR', 845], ['MAI', 960], ['JUN', 1035], ['JUL', 1002], ['AGO', 1150], ['SET', 1207], ['OUT', 1285]];
 var meses = mv.map(function (m, i) {
 var ult = i === mv.length - 1;
 return {
-label: m[0], v: ult ? String(m[1]) : '', tip: m[0] + ': ' + m[1] + ' M Kz',
+label: m[0], v: ult ? String(m[1]) : '', tip: m[0] + ': ' + m[1] + ' M Kz · ano anterior: ' + mvA[i] + ' M (' + (m[1] >= mvA[i] ? '▲ ' : '▼ ') + String(Math.abs((m[1] / mvA[i] - 1) * 100).toFixed(1)).replace('.', ',') + '%)',
+ant: 'width: 38%; border-radius: 4px 4px 0 0; background: rgba(179,187,240,0.30); box-shadow: inset 0 0 0 1px rgba(179,187,240,0.55); height: ' + Math.round(mvA[i] / 1285 * 88) + '%',
 valStyle: 'font-family: -apple-system, BlinkMacSystemFont, SF Pro Display, sans-serif; font-variant-numeric: tabular-nums; font-size: 11px; color: #F5F5F7; min-height: 14px',
-bar: 'width: 70%; border-radius: 4px 4px 0 0; background: ' + (ult ? '#7CC6EE' : A) + '; height: ' + Math.round(m[1] / 1285 * 88) + '%'
+bar: 'width: 38%; border-radius: 4px 4px 0 0; background: ' + (ult ? '#7CC6EE' : A) + '; height: ' + Math.round(m[1] / 1285 * 88) + '%'
 };
 });
 var ev = [['OCEANO', 286], ['CAZENGO', 214], ['YAWABA', 178], ['INOVAGATE', 151], ['VISTAR', 132], ['PAKTEC', 98], ['EMBALTEC', 74], ['Outras 16', 152]];
@@ -819,6 +853,7 @@ return { dkPThref: 'Executivo.dc.html', dkENhref: 'Executivo_en.dc.html', dkPT: 
 }
 }
 __C.wrap(Component);
+__Y.wrap(Component, {'kpis': {'Vendas do mês': [18.7, '%', 1], 'Margem bruta': [0.9, ' p.p.', 1], 'A receber': [9.2, '%', 0], 'A pagar': [4.7, '%', 0], 'Valor em stock': [-3.6, '%', -1], 'Requisições por aprovar': [-13, '', -1]}, 'empresasRings': {'OCEANO': [14.2, '%', 1], 'CAZENGO': [22.5, '%', 1], 'YAWABA': [8.6, '%', 1], 'INOVAGATE': [-3.1, '%', 1], 'VISTAR': [31.4, '%', 1], 'PAKTEC': [5.8, '%', 1], 'EMBALTEC': [-7.9, '%', 1], 'Outras 16': [12.3, '%', 1]}, 'reqKpis': {'Efectuadas': [21, '', 0], 'Satisfeitas': [18, '', 1], 'Pelo armazém': [9, '', 1], 'Via compra': [9, '', 0], 'Rejeitadas': [-4, '', -1]}, 'frotaKpis': {'Custo total': [6.1, '%', -1], 'Custo por km': [-2.4, '%', -1], 'Consumo médio': [-0.6, ' L', -1], 'Viaturas activas': [11, '', 0], 'Alertas': [-5, '', -1]}, 'frotaEmpRings': {'VeloTrans · SAP': [8.4, '%', -1], 'Foodtec · SAP': [5.2, '%', -1], 'Everywhere Grãos · SAP': [-2.7, '%', -1], 'Refitec · SAP': [3.9, '%', -1], 'Higitec · SAP': [1.6, '%', -1], 'Naval Trading · SAP': [12.4, '%', -1], 'Guarda Oceânica · SAP': [-4.1, '%', -1], 'Empresas Primavera': [6.8, '%', -1]}, 'pes.kpis': {'Custo do mês': [12.6, '%', 0], 'Colaboradores': [57, '', 0], 'Custo médio': [7.4, '%', 0], 'Peso nas vendas': [-0.9, ' p.p.', -1]}, 'pes.barrasRings': {'VeloTrans · SAP': [9.1, '%', 0], 'OCEANO': [11.4, '%', 0], 'Foodtec · SAP': [6.2, '%', 0], 'CAZENGO': [14.0, '%', 0], 'VISTAR': [4.8, '%', 0], 'Outras empresas': [10.3, '%', 0]}, 'abs.kpis': {'Taxa do mês': [0.3, ' pp', -1], 'Dias perdidos': [104, '', -1], 'Custo estimado': [11.2, '%', -1]}, 'abs.empresasRings': {'VeloTrans · SAP': [0.9, ' pp', -1], 'OCEANO': [0.4, ' pp', -1], 'Foodtec · SAP': [-0.2, ' pp', -1], 'Guarda Oceânica · SAP': [0.6, ' pp', -1], 'CAZENGO': [-0.5, ' pp', -1], 'VISTAR': [-0.3, ' pp', -1], 'Outras empresas': [0.1, ' pp', -1]}, 'hk.kpis': {'Custo do mês': [5.3, '%', -1], 'Instalações': [2, '', 0], 'Custo por m²': [4.1, '%', -1]}, 'hk.barrasRings': {'Sede': [3.2, '%', -1], 'Armazéns': [7.5, '%', -1], 'Canais de Venda Direta': [12.0, '%', -1], 'Instalações industriais': [2.1, '%', -1], 'Outros locais': [-4.0, '%', -1]}}, 'vs Out 2025');
 DC.mount(Component);
 </script>
 </body>

@@ -113,7 +113,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
 <span style="font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums">{{k.value}}</span>
-<span style="{{k.noteStyle}}">{{k.note}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span><span style="{{k.yoyStyle}}">{{k.yoy}}</span>
 </div>
 </sc-for>
 </section>
@@ -256,6 +256,36 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 </script>
 <div id="dc-app"></div>
 <script>
+/*YOY*/
+var __Y = (function () {
+var GOOD = '#30D158', BAD = '#E0A458', NEU = 'rgba(235,235,245,0.6)';
+var fmt = function (h) {
+var x = h[0], v = Math.abs(x), s = (v % 1 === 0) ? String(v) : String(v.toFixed(1)).replace('.', ',');
+return (x > 0 ? '▲ ' : (x < 0 ? '▼ ' : '= ')) + s + (h[1] || '');
+};
+var tone = function (h) { var d = h[2] || 0; if (!d || !h[0]) return NEU; return h[0] * d > 0 ? GOOD : BAD; };
+function walk(o, path, H, per, depth) {
+if (!o || typeof o !== 'object' || depth > 4) return;
+Object.keys(o).forEach(function (k) {
+var v = o[k], p = path ? path + '.' + k : k;
+if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object') {
+var T = H[p] || {};
+v.forEach(function (it) {
+if (!it || typeof it !== 'object') return;
+var kpi = ('note' in it), lst = ('ring' in it) || ('canal' in it);
+if (!kpi && !lst) return;
+var h = it.hom || T[it.label] || T[it.nome] || T[it.canal];
+if (h) {
+it.yoy = fmt(h) + (kpi ? ' ' + per : '');
+it.yoyStyle = 'font-size: ' + (kpi ? 12 : (lst && it.canal ? 13 : 11)) + 'px; font-variant-numeric: tabular-nums; white-space: nowrap; color: ' + tone(h);
+} else { it.yoy = ''; it.yoyStyle = 'display: none'; }
+});
+} else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, p, H, per, depth + 1);
+});
+}
+return { wrap: function (C, H, per) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, '', H, per, 0); return o; }; } };
+})();
+/*YOY-END*/
 class Component extends DCLogic {
 constructor(props) {
 super(props);
@@ -321,7 +351,7 @@ ab.mark = 'position: absolute; left: 50%; top: 0; width: 3px; height: 18px; marg
 ab.metaTip = 'Objectivo: 3,5%';
 ab.taxa = '4,2%';
 ab.objectivo = 'objectivo 3,5%';
-ab.linhas = [{ k: 'Face a Setembro', v: '▲ 0,4 pp', vStyle: 'color: #E0A458' }, { k: 'Dias perdidos', v: '1 186', vStyle: 'color: #F5F5F7' }, { k: 'Dias úteis previstos', v: '28 248', vStyle: 'color: #F5F5F7' }, { k: 'Custo estimado', v: '8,9 M Kz', vStyle: 'color: #F5F5F7' }];
+ab.linhas = [{ k: 'Face a Setembro', v: '▲ 0,4 pp', vStyle: 'color: #E0A458' }, { k: 'Homólogo · Out 2025', v: '3,9% · ▲ 0,3 pp', vStyle: 'color: #E0A458' }, { k: 'Dias perdidos', v: '1 186', vStyle: 'color: #F5F5F7' }, { k: 'Dias úteis previstos', v: '28 248', vStyle: 'color: #F5F5F7' }, { k: 'Custo estimado', v: '8,9 M Kz', vStyle: 'color: #F5F5F7' }];
 var HM = [['Doença', 23, '#2397D4'], ['Faltas justificadas', 12, '#4A5BB0'], ['Faltas injustificadas', 8, '#C9822A'], ['Licença parental', 6, '#7B87E0'], ['Acidentes de trabalho', 5, '#8E8E93']];
 var tot = 0; HM.forEach(function (m) { tot += m[1]; });
 var acc = 0, segs = [];
@@ -349,6 +379,7 @@ var __en = false;
 return { dkPThref: 'RHPessoas.dc.html', dkENhref: 'RHPessoas_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'}, tabs: tabs, kpis: kpis, vDir: tab === 'dir', vOrg: tab === 'org', vPed: tab === 'ped', vMov: tab === 'mov', vAbs: tab === 'abs', ab: ab, hj: hj, emp: emp, alertas: alertas, busca: this.state.busca, setBusca: function (e) { self.setState({ busca: e.target.value }); }, pessoas: pessoas, dirNota: pessoas.length + ' de 1 284 · a pesquisa abrange as empresas a que tem acesso', org: org, pedidos: pedidos, entradas: entradas, saidas: saidas };
 }
 }
+__Y.wrap(Component, {'kpis': {'Colaboradores': [57, '', 0], 'Entradas no mês': [3, '', 0], 'Saídas no mês': [-2, '', -1]}}, 'vs Out 2025');
 DC.mount(Component);
 </script>
 </body>
