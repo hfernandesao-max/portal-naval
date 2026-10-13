@@ -143,13 +143,16 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 <h2 style="margin: 0; font-size: 16px; font-weight: 600">Sales by company</h2>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: rgba(235,235,245,0.6)">million Kz</span>
 </div>
-<sc-for list="{{empresas}}" as="e" hint-placeholder-count="8">
-<div title="{{e.tip}}" style="display: grid; grid-template-columns: 92px minmax(0, 1fr) 44px; align-items: center; gap: 10px">
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
-<div style="height: 12px"><div style="{{e.bar}}"></div></div>
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<div style="position: relative; width: 168px; height: 168px; flex: 0 0 auto; filter: drop-shadow(0 0 6px rgba(35,151,212,0.45))">
+<sc-for list="{{empresasRings}}" as="rg" hint-placeholder-count="6"><div title="{{rg.tip}}" style="{{rg.ring}}"></div></sc-for>
 </div>
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+<sc-for list="{{empresasRings}}" as="rg" hint-placeholder-count="6">
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
 </sc-for>
+</div>
+</div>
 </section>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 14px">
@@ -181,16 +184,19 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </section>
 <section style="flex: 2 1 320px; min-width: 0; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
 <h2 style="margin: 0; font-size: 16px; font-weight: 600">Balance ageing</h2>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 16px">
 <sc-for list="{{ageing}}" as="a" hint-placeholder-count="2">
 <div style="display: flex; flex-direction: column; gap: 6px">
 <div style="display: flex; justify-content: space-between; font-size: 13px"><span>{{a.nome}}</span><span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{a.total}}</span></div>
-<div style="display: flex; gap: 2px; height: 22px">
-<sc-for list="{{a.seg}}" as="g" hint-placeholder-count="5">
-<div title="{{g.tip}}" style="{{g.style}}"></div>
-</sc-for>
+<div style="position: relative; width: 150px; height: 150px; flex: 0 0 auto; align-self: center; margin: 4px 0">
+<div style="position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.05); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px)); mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px))"></div>
+<div style="position: absolute; inset: 0; filter: drop-shadow(0 0 7px rgba(35,151,212,0.55))"><div style="{{a.segRing.ring}}"></div></div>
+<div style="position: absolute; inset: 24px; border-radius: 50%; border: 1px dashed rgba(124,198,238,0.32)"></div>
+<div style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px"><span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(124,198,238,0.6)">{{a.segRing.centro}}</span><span style="font-size: 9px; line-height: 1.2; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">{{a.segRing.sub}}</span></div>
 </div>
 </div>
 </sc-for>
+</div>
 <div style="display: flex; flex-wrap: wrap; gap: 10px 14px; font-size: 12px; color: rgba(235,235,245,0.78)">
 <sc-for list="{{ageLeg}}" as="l" hint-placeholder-count="5">
 <span style="display: flex; align-items: center; gap: 6px"><span style="{{l.dot}}"></span>{{l.label}}</span>
@@ -202,41 +208,55 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 <section style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
 <h2 style="margin: 0; font-size: 16px; font-weight: 600">Stock cover</h2>
 <span style="font-size: 12px; color: rgba(235,235,245,0.6)">Share of stock value · 2,731.5 M Kz</span>
-<div style="display: flex; gap: 2px; height: 28px">
-<sc-for list="{{stock}}" as="s" hint-placeholder-count="4">
-<div title="{{s.tip}}" style="{{s.style}}"></div>
-</sc-for>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px">
+<div style="position: relative; width: 150px; height: 150px; flex: 0 0 auto; align-self: center; margin: 4px 0">
+<div style="position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.05); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px)); mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px))"></div>
+<div style="position: absolute; inset: 0; filter: drop-shadow(0 0 7px rgba(35,151,212,0.55))"><div style="{{stockRing.ring}}"></div></div>
+<div style="position: absolute; inset: 24px; border-radius: 50%; border: 1px dashed rgba(124,198,238,0.32)"></div>
+<div style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px"><span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(124,198,238,0.6)">{{stockRing.centro}}</span><span style="font-size: 9px; line-height: 1.2; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">{{stockRing.sub}}</span></div>
 </div>
+<div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+
 <sc-for list="{{stock}}" as="s" hint-placeholder-count="4">
 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
 <span style="display: flex; align-items: center; gap: 8px"><span style="{{s.dot}}"></span>{{s.label}}</span>
 <span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)">{{s.pct}}</span>
 </div>
 </sc-for>
+</div>
+</div>
 </section>
 <section id="compras" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 10px">
 <h2 style="margin: 0; font-size: 16px; font-weight: 600">Purchasing flow · this month</h2>
 <span style="font-size: 12px; color: rgba(235,235,245,0.6)">From requisition to approved invoice</span>
 <a href="Requisicoes_en.dc.html" style="align-self: flex-start; font-size: 13px; font-weight: 500">Open internal requisitions →</a>
-<sc-for list="{{funil}}" as="f" hint-placeholder-count="7">
-<div title="{{f.tip}}" style="display: grid; grid-template-columns: 170px minmax(0, 1fr) 36px; align-items: center; gap: 10px">
-<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{f.label}}</span>
-<div style="height: 14px"><div style="{{f.bar}}"></div></div>
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{f.n}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<div style="position: relative; width: 168px; height: 168px; flex: 0 0 auto; filter: drop-shadow(0 0 6px rgba(35,151,212,0.45))">
+<sc-for list="{{funilRings}}" as="rg" hint-placeholder-count="6"><div title="{{rg.tip}}" style="{{rg.ring}}"></div></sc-for>
 </div>
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+<sc-for list="{{funilRings}}" as="rg" hint-placeholder-count="6">
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
 </sc-for>
+</div>
+</div>
 <span style="font-size: 12px; color: #C9822A">14 requisitions awaiting approval for over 48 h</span>
 </section>
 <section id="fornecedores" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
 <h2 style="margin: 0; font-size: 16px; font-weight: 600">Suppliers</h2>
 <span style="font-size: 12px; color: rgba(235,235,245,0.6)">212 active suppliers by rating</span>
-<div role="img" aria-label="Suppliers by class: A 58, B 104, C 37, unrated 13" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; align-items: end; height: 120px; border-bottom: 1px solid rgba(255,255,255,0.12)">
-<sc-for list="{{classes}}" as="c" hint-placeholder-count="4">
-<div title="{{c.tip}}" style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 4px; height: 100%">
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px">{{c.n}}</span>
-<div style="{{c.bar}}"></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<div style="position: relative; width: 150px; height: 150px; flex: 0 0 auto; align-self: center; margin: 4px 0">
+<div style="position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.05); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px)); mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px))"></div>
+<div style="position: absolute; inset: 0; filter: drop-shadow(0 0 7px rgba(35,151,212,0.55))"><div style="{{classesRing.ring}}"></div></div>
+<div style="position: absolute; inset: 24px; border-radius: 50%; border: 1px dashed rgba(124,198,238,0.32)"></div>
+<div style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px"><span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(124,198,238,0.6)">{{classesRing.centro}}</span><span style="font-size: 9px; line-height: 1.2; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">{{classesRing.sub}}</span></div>
 </div>
+<div style="flex: 1 1 140px; display: flex; flex-direction: column; gap: 7px">
+<sc-for list="{{classes}}" as="c" hint-placeholder-count="4">
+<div title="{{c.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px"><span style="display: flex; align-items: center; gap: 8px"><span style="{{c.dot}}"></span>{{c.label}}</span><span style="font-variant-numeric: tabular-nums">{{c.n}}</span></div>
 </sc-for>
+</div>
 </div>
 <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: -4px">
 <sc-for list="{{classes}}" as="c" hint-placeholder-count="4">
@@ -264,15 +284,21 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">Status of the 186 requisitions submitted</span>
-<div style="display: flex; gap: 2px; height: 26px">
-<sc-for list="{{reqSeg}}" as="g" hint-placeholder-count="5">
-<div title="{{g.tip}}" style="{{g.style}}"></div>
-</sc-for>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px">
+<div style="position: relative; width: 150px; height: 150px; flex: 0 0 auto; align-self: center; margin: 4px 0">
+<div style="position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.05); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px)); mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px))"></div>
+<div style="position: absolute; inset: 0; filter: drop-shadow(0 0 7px rgba(35,151,212,0.55))"><div style="{{reqSegRing.ring}}"></div></div>
+<div style="position: absolute; inset: 24px; border-radius: 50%; border: 1px dashed rgba(124,198,238,0.32)"></div>
+<div style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px"><span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(124,198,238,0.6)">{{reqSegRing.centro}}</span><span style="font-size: 9px; line-height: 1.2; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">{{reqSegRing.sub}}</span></div>
 </div>
+<div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+
 <div style="display: flex; flex-wrap: wrap; gap: 10px 16px; font-size: 12px; color: rgba(235,235,245,0.78)">
 <sc-for list="{{reqSeg}}" as="g" hint-placeholder-count="5">
 <span style="display: flex; align-items: center; gap: 6px"><span style="{{g.dot}}"></span>{{g.label}} · {{g.n}}</span>
 </sc-for>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -301,11 +327,15 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 <div style="display: flex; flex-wrap: wrap; gap: 24px">
 <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">Costs by type · 96.4 M Kz</span>
-<div style="display: flex; gap: 2px; height: 26px">
-<sc-for list="{{frotaTipos}}" as="g" hint-placeholder-count="6">
-<div title="{{g.tip}}" style="{{g.style}}"></div>
-</sc-for>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px">
+<div style="position: relative; width: 150px; height: 150px; flex: 0 0 auto; align-self: center; margin: 4px 0">
+<div style="position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.05); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px)); mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px))"></div>
+<div style="position: absolute; inset: 0; filter: drop-shadow(0 0 7px rgba(35,151,212,0.55))"><div style="{{frotaTiposRing.ring}}"></div></div>
+<div style="position: absolute; inset: 24px; border-radius: 50%; border: 1px dashed rgba(124,198,238,0.32)"></div>
+<div style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px"><span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(124,198,238,0.6)">{{frotaTiposRing.centro}}</span><span style="font-size: 9px; line-height: 1.2; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">{{frotaTiposRing.sub}}</span></div>
 </div>
+<div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+
 <sc-for list="{{frotaTipos}}" as="g" hint-placeholder-count="6">
 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
 <span style="display: flex; align-items: center; gap: 8px"><span style="{{g.dot}}"></span>{{g.label}}</span>
@@ -313,15 +343,20 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </div>
 </sc-for>
 </div>
+</div>
+</div>
 <div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">Cost by company · million Kz</span>
-<sc-for list="{{frotaEmp}}" as="e" hint-placeholder-count="6">
-<div title="{{e.tip}}" style="display: grid; grid-template-columns: 172px minmax(0, 1fr) 40px; align-items: center; gap: 10px">
-<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
-<div style="height: 12px"><div style="{{e.bar}}"></div></div>
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<div style="position: relative; width: 168px; height: 168px; flex: 0 0 auto; filter: drop-shadow(0 0 6px rgba(35,151,212,0.45))">
+<sc-for list="{{frotaEmpRings}}" as="rg" hint-placeholder-count="6"><div title="{{rg.tip}}" style="{{rg.ring}}"></div></sc-for>
 </div>
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+<sc-for list="{{frotaEmpRings}}" as="rg" hint-placeholder-count="6">
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
 </sc-for>
+</div>
+</div>
 </div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
@@ -374,11 +409,15 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{pes.tipoTit}}</span>
-<div style="display: flex; gap: 2px; height: 24px">
-<sc-for list="{{pes.tipos}}" as="g" hint-placeholder-count="6">
-<div title="{{g.tip}}" style="{{g.style}}"></div>
-</sc-for>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px">
+<div style="position: relative; width: 150px; height: 150px; flex: 0 0 auto; align-self: center; margin: 4px 0">
+<div style="position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.05); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px)); mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px))"></div>
+<div style="position: absolute; inset: 0; filter: drop-shadow(0 0 7px rgba(35,151,212,0.55))"><div style="{{pes.tiposRing.ring}}"></div></div>
+<div style="position: absolute; inset: 24px; border-radius: 50%; border: 1px dashed rgba(124,198,238,0.32)"></div>
+<div style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px"><span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(124,198,238,0.6)">{{pes.tiposRing.centro}}</span><span style="font-size: 9px; line-height: 1.2; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">{{pes.tiposRing.sub}}</span></div>
 </div>
+<div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+
 <sc-for list="{{pes.tipos}}" as="g" hint-placeholder-count="6">
 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
 <span style="display: flex; align-items: center; gap: 8px"><span style="{{g.dot}}"></span>{{g.label}}</span>
@@ -386,15 +425,20 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </div>
 </sc-for>
 </div>
+</div>
+</div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{pes.barTit}}</span>
-<sc-for list="{{pes.barras}}" as="e" hint-placeholder-count="5">
-<div title="{{e.tip}}" style="display: grid; grid-template-columns: 172px minmax(0, 1fr) 40px; align-items: center; gap: 10px">
-<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
-<div style="height: 12px"><div style="{{e.bar}}"></div></div>
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<div style="position: relative; width: 168px; height: 168px; flex: 0 0 auto; filter: drop-shadow(0 0 6px rgba(35,151,212,0.45))">
+<sc-for list="{{pes.barrasRings}}" as="rg" hint-placeholder-count="6"><div title="{{rg.tip}}" style="{{rg.ring}}"></div></sc-for>
 </div>
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+<sc-for list="{{pes.barrasRings}}" as="rg" hint-placeholder-count="6">
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
 </sc-for>
+</div>
+</div>
 </div>
 <div id="absentismo" style="display: flex; flex-direction: column; gap: 12px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.10)">
 <div style="display: flex; flex-direction: column; gap: 2px">
@@ -426,11 +470,15 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{abs.motTit}}</span>
-<div style="display: flex; gap: 2px; height: 24px">
-<sc-for list="{{abs.motivos}}" as="g" hint-placeholder-count="5">
-<div title="{{g.tip}}" style="{{g.style}}"></div>
-</sc-for>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px">
+<div style="position: relative; width: 150px; height: 150px; flex: 0 0 auto; align-self: center; margin: 4px 0">
+<div style="position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.05); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px)); mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px))"></div>
+<div style="position: absolute; inset: 0; filter: drop-shadow(0 0 7px rgba(35,151,212,0.55))"><div style="{{abs.motivosRing.ring}}"></div></div>
+<div style="position: absolute; inset: 24px; border-radius: 50%; border: 1px dashed rgba(124,198,238,0.32)"></div>
+<div style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px"><span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(124,198,238,0.6)">{{abs.motivosRing.centro}}</span><span style="font-size: 9px; line-height: 1.2; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">{{abs.motivosRing.sub}}</span></div>
 </div>
+<div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+
 <sc-for list="{{abs.motivos}}" as="g" hint-placeholder-count="5">
 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
 <span style="display: flex; align-items: center; gap: 8px"><span style="{{g.dot}}"></span>{{g.label}}</span>
@@ -438,16 +486,21 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </div>
 </sc-for>
 </div>
+</div>
+</div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{abs.empTit}}</span>
-<sc-for list="{{abs.empresas}}" as="e" hint-placeholder-count="6">
-<div title="{{e.tip}}" style="display: grid; grid-template-columns: 172px minmax(0, 1fr) 48px; align-items: center; gap: 10px">
-<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
-<div style="height: 12px; position: relative"><div style="{{e.bar}}"></div><div style="{{e.meta}}"></div></div>
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<div style="position: relative; width: 168px; height: 168px; flex: 0 0 auto; filter: drop-shadow(0 0 6px rgba(35,151,212,0.45))">
+<sc-for list="{{abs.empresasRings}}" as="rg" hint-placeholder-count="6"><div title="{{rg.tip}}" style="{{rg.ring}}"></div></sc-for>
 </div>
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+<sc-for list="{{abs.empresasRings}}" as="rg" hint-placeholder-count="6">
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
 </sc-for>
-<span style="display: flex; align-items: center; gap: 14px; font-size: 11px; color: rgba(235,235,245,0.6)"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #C9822A"></span>Above target</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Within target</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 2px; height: 10px; background: #FFFFFF"></span>Target 3.5%</span></span>
+</div>
+</div>
+<span style="display: flex; align-items: center; gap: 14px; font-size: 11px; color: rgba(235,235,245,0.6)"><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #C9822A"></span>Above target</span><span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Within target</span></span>
 </div>
 </div>
 </section>
@@ -467,11 +520,15 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{hk.tipoTit}}</span>
-<div style="display: flex; gap: 2px; height: 24px">
-<sc-for list="{{hk.tipos}}" as="g" hint-placeholder-count="6">
-<div title="{{g.tip}}" style="{{g.style}}"></div>
-</sc-for>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 22px">
+<div style="position: relative; width: 150px; height: 150px; flex: 0 0 auto; align-self: center; margin: 4px 0">
+<div style="position: absolute; inset: 0; border-radius: 50%; background: rgba(255,255,255,0.05); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px)); mask: radial-gradient(farthest-side, transparent calc(100% - 16px), #000 calc(100% - 15px))"></div>
+<div style="position: absolute; inset: 0; filter: drop-shadow(0 0 7px rgba(35,151,212,0.55))"><div style="{{hk.tiposRing.ring}}"></div></div>
+<div style="position: absolute; inset: 24px; border-radius: 50%; border: 1px dashed rgba(124,198,238,0.32)"></div>
+<div style="position: absolute; inset: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 2px"><span style="font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; text-shadow: 0 0 12px rgba(124,198,238,0.6)">{{hk.tiposRing.centro}}</span><span style="font-size: 9px; line-height: 1.2; color: rgba(235,235,245,0.6); text-transform: uppercase; letter-spacing: 0.6px">{{hk.tiposRing.sub}}</span></div>
 </div>
+<div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+
 <sc-for list="{{hk.tipos}}" as="g" hint-placeholder-count="6">
 <div style="display: flex; justify-content: space-between; align-items: center; font-size: 13px">
 <span style="display: flex; align-items: center; gap: 8px"><span style="{{g.dot}}"></span>{{g.label}}</span>
@@ -479,15 +536,20 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </div>
 </sc-for>
 </div>
+</div>
+</div>
 <div style="display: flex; flex-direction: column; gap: 8px">
 <span style="font-size: 13px; color: rgba(235,235,245,0.78)">{{hk.barTit}}</span>
-<sc-for list="{{hk.barras}}" as="e" hint-placeholder-count="5">
-<div title="{{e.tip}}" style="display: grid; grid-template-columns: 172px minmax(0, 1fr) 40px; align-items: center; gap: 10px">
-<span style="font-size: 12px; color: rgba(235,235,245,0.78)">{{e.nome}}</span>
-<div style="height: 12px"><div style="{{e.bar}}"></div></div>
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right">{{e.v}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<div style="position: relative; width: 168px; height: 168px; flex: 0 0 auto; filter: drop-shadow(0 0 6px rgba(35,151,212,0.45))">
+<sc-for list="{{hk.barrasRings}}" as="rg" hint-placeholder-count="6"><div title="{{rg.tip}}" style="{{rg.ring}}"></div></sc-for>
 </div>
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+<sc-for list="{{hk.barrasRings}}" as="rg" hint-placeholder-count="6">
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
 </sc-for>
+</div>
+</div>
 </div>
 </section>
 </div>
@@ -495,20 +557,19 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px">
 <h2 style="margin: 0; font-size: 16px; font-weight: 600">Direct Sales Channels · sales vs monthly target</h2>
 <div style="display: flex; gap: 16px; font-size: 12px; color: rgba(235,235,245,0.78)">
-<span style="display: flex; align-items: center; gap: 6px"><span style="width: 10px; height: 10px; border-radius: 2px; background: #2397D4"></span>Sales</span>
-<span style="display: flex; align-items: center; gap: 6px"><span style="width: 2px; height: 14px; background: #F5F5F7"></span>Target</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 9px; height: 9px; border-radius: 99px; background: #30D158; box-shadow: 0 0 8px #30D158"></span>Target met</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 9px; height: 9px; border-radius: 99px; background: #2397D4; box-shadow: 0 0 8px #2397D4"></span>90% to 99%</span>
+<span style="display: flex; align-items: center; gap: 6px"><span style="width: 9px; height: 9px; border-radius: 99px; background: #C9822A; box-shadow: 0 0 8px #C9822A"></span>Below 90%</span>
 </div>
 </div>
-<sc-for list="{{canais}}" as="c" hint-placeholder-count="5">
-<div title="{{c.tip}}" style="display: grid; grid-template-columns: 170px minmax(0, 1fr) 64px; align-items: center; gap: 12px">
-<span style="font-size: 13px">{{c.nome}}</span>
-<div style="position: relative; height: 18px; background: rgba(255,255,255,0.10); border-radius: 4px">
-<div style="{{c.bar}}"></div>
-<div style="{{c.meta}}"></div>
-</div>
-<span style="{{c.pctStyle}}">{{c.pct}}</span>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 14px">
+<sc-for list="{{canaisGauges}}" as="gg" hint-placeholder-count="5">
+<div title="{{gg.tip}}" style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+<div style="{{gg.glow}}"><div style="position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 225deg, rgba(255,255,255,0.08) 0deg 270deg, transparent 270deg 360deg); -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px)); mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px))"></div><div style="{{gg.ring}}"></div><div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center"><span style="{{gg.cor}}">{{gg.pct}}</span></div></div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.78); text-align: center">{{gg.nome}}</span>
 </div>
 </sc-for>
+</div>
 </section>
 </main>
 
@@ -516,6 +577,53 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </script>
 <div id="dc-app"></div>
 <script>
+var __C = (function () {
+var PAL = ['#2397D4', '#7CC6EE', '#7B87E0', '#4A5BB0', '#30D158', '#B3BBF0', '#5AB4E5', '#9AA5F0'];
+var SEM = ['#8E8E93', '#C9822A', '#FF453A', '#FF6961', '#30D158', '#E0A458', '#FF9A6B'];
+var mask = function (t) { var g = 'radial-gradient(farthest-side, transparent calc(100% - ' + t + 'px), #000 calc(100% - ' + (t - 1) + 'px))'; return '-webkit-mask: ' + g + '; mask: ' + g + '; '; };
+var colOf = function (s) { var m = /background:\s*(#[0-9A-Fa-f]{3,8}|rgba?\([^)]*\))/.exec(s || ''); return m ? m[1] : '#2397D4'; };
+var num = function (re, s) { var m = re.exec(s || ''); return m ? parseFloat(m[1]) : null; };
+var FLEX = /flex:\s*([\d.]+)\s+1\s+0/;
+var segOf = function (g) { return (typeof g.style === 'string' && FLEX.test(g.style)) ? g.style : g.bar; };
+function donut(items) {
+var tot = 0, vals = items.map(function (g) { var v = num(FLEX, segOf(g)) || 0; tot += v; return v; });
+if (!tot) return null;
+var a = 0, parts = [], top = -1, ti = 0;
+items.forEach(function (g, i) { var b = a + vals[i] / tot * 360, e = Math.max(a, b - 1.6), c = colOf(segOf(g)); parts.push(c + ' ' + a.toFixed(2) + 'deg ' + e.toFixed(2) + 'deg', 'transparent ' + e.toFixed(2) + 'deg ' + b.toFixed(2) + 'deg'); if (vals[i] > top) { top = vals[i]; ti = i; } a = b; });
+return { ring: 'position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, ' + parts.join(', ') + '); ' + mask(16), centro: Math.round(top / tot * 100) + '%', sub: String(items[ti].label || items[ti].nome || '') };
+}
+function rings(items) {
+var n = items.length, step = n > 6 ? 9 : 11, t = n > 6 ? 6 : 7, k = 0;
+return items.map(function (e, i) {
+var c = colOf(e.bar); if (SEM.indexOf(c) < 0) { c = PAL[k % PAL.length]; k++; }
+var d = Math.max(3, (num(/width:\s*([\d.]+)%/, e.bar) || 0) / 100 * 270);
+return { ring: 'position: absolute; inset: ' + (i * step) + 'px; border-radius: 50%; background: conic-gradient(from 225deg, ' + c + ' 0deg ' + d.toFixed(1) + 'deg, rgba(255,255,255,0.07) ' + d.toFixed(1) + 'deg 270deg, transparent 270deg 360deg); ' + mask(t),
+dot: 'width: 9px; height: 9px; border-radius: 99px; flex: 0 0 auto; background: ' + c + '; box-shadow: 0 0 8px ' + c,
+nome: e.nome || e.label || '', v: e.v != null ? e.v : (e.n != null ? e.n : (e.valor != null ? e.valor : (e.pct || ''))), tip: e.tip || '', pick: e.pick };
+});
+}
+function gauges(items) {
+return items.map(function (c) {
+var p = parseFloat(String(c.pct)) || 0, d = Math.min(1, p / 100) * 270, col = p >= 100 ? '#30D158' : (p >= 90 ? '#2397D4' : '#C9822A');
+return { ring: 'position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 225deg, ' + col + ' 0deg ' + d.toFixed(1) + 'deg, rgba(255,255,255,0.08) ' + d.toFixed(1) + 'deg 270deg, transparent 270deg 360deg); ' + mask(9),
+glow: 'position: relative; width: 92px; height: 92px; filter: drop-shadow(0 0 6px ' + col + ')', pct: c.pct, nome: c.nome, tip: c.tip, cor: 'font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; color: ' + col };
+});
+}
+function walk(o, depth) {
+if (!o || typeof o !== 'object' || depth > 3) return;
+Object.keys(o).forEach(function (k) {
+var v = o[k];
+if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object') {
+var f = v[0];
+if (FLEX.test(segOf(f) || '')) o[k + 'Ring'] = donut(v);
+else if (typeof f.bar === 'string' && f.meta && f.pct != null) o[k + 'Gauges'] = gauges(v);
+else if (typeof f.bar === 'string' && /width:\s*[\d.]+%/.test(f.bar) && !/(left|right):\s*50%/.test(f.bar)) o[k + 'Rings'] = rings(v);
+v.forEach(function (it) { walk(it, depth + 1); });
+} else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, depth + 1);
+});
+}
+return { wrap: function (C) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, 0); return o; }; } };
+})();
 class Component extends DCLogic {
 renderVals() {
 var A = '#2397D4', B = '#C9822A';
@@ -569,8 +677,8 @@ return { label: s[0], pct: s[1] + '%', tip: s[0] + ': ' + s[1] + '% of value', d
 });
 var fv = [['Requisitions', 186], ['Approved', 162], ['Quotes requested', 94], ['Orders', 88], ['Received', 71], ['Supplier invoices booked', 68], ['Supplier invoices approved', 63]];
 var funil = fv.map(function (f) { return { label: f[0], n: String(f[1]), tip: f[0] + ': ' + f[1], bar: 'height: 100%; border-radius: 0 4px 4px 0; background: ' + A + '; width: ' + Math.round(f[1] / 186 * 100) + '%' }; });
-var cv = [['Class A', 58, '#2397D4'], ['Class B', 104, '#2397D4'], ['Class C', 37, '#C9822A'], ['Unrated', 13, '#8E8E93']];
-var classes = cv.map(function (c) { return { label: c[0], n: String(c[1]), tip: c[0] + ': ' + c[1] + ' suppliers', bar: 'width: 60%; border-radius: 4px 4px 0 0; background: ' + c[2] + '; height: ' + Math.round(c[1] / 104 * 80) + '%' }; });
+var cv = [['Class A', 58, '#2397D4'], ['Class B', 104, '#7B87E0'], ['Class C', 37, '#C9822A'], ['Unrated', 13, '#8E8E93']];
+var classes = cv.map(function (c) { return { label: c[0], n: String(c[1]), style: 'flex: ' + c[1] + ' 1 0; background: ' + c[2], dot: 'width: 9px; height: 9px; border-radius: 99px; background: ' + c[2] + '; box-shadow: 0 0 8px ' + c[2], tip: c[0] + ': ' + c[1] + ' suppliers', bar: 'width: 60%; border-radius: 4px 4px 0 0; background: ' + c[2] + '; height: ' + Math.round(c[1] / 104 * 80) + '%' }; });
 var cnv = [['Channel 01 · Viana', 18.5, 17], ['Channel 02 · Talatona', 15.1, 16], ['Channel 03 · Kilamba', 13.0, 15], ['Channel 04 · Cacuaco', 9.7, 9], ['Channel 05 · Benfica', 7.5, 10]];
 var canais = cnv.map(function (c) {
 var p = Math.round(c[1] / c[2] * 100);
@@ -678,6 +786,7 @@ var __en = true;
 return { dkPThref: 'Executivo.dc.html', dkENhref: 'Executivo_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'},  pes: pes, abs: abs, hk: hk, frotaKpis: frotaKpis, frotaTipos: frotaTipos, frotaEmp: frotaEmp, viaturas: viaturasOut, reqKpis: reqKpis, reqSeg: reqSeg, kpis: kpis, meses: meses, empresas: empresas, semanas: semanas, ageing: ageing, ageLeg: ageLeg, stock: stock, funil: funil, classes: classes, canais: canais };
 }
 }
+__C.wrap(Component);
 DC.mount(Component);
 </script>
 </body>

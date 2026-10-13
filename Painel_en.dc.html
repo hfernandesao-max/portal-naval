@@ -138,13 +138,16 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 <h2 style="margin: 0; font-size: 17px; font-weight: 600">By company</h2>
 <a href="Executivo_en.dc.html" style="font-size: 13px">See all 23</a>
 </div>
-<sc-for list="{{empresas}}" as="e" hint-placeholder-count="7">
-<div style="display: grid; grid-template-columns: 96px minmax(0, 1fr) 64px; align-items: center; gap: 10px">
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px">{{e.nome}}</span>
-<div style="height: 10px; background: rgba(255,255,255,0.10); border-radius: 99px; overflow: hidden"><div style="{{e.bar}}"></div></div>
-<span style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; color: rgba(235,235,245,0.78)">{{e.valor}}</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<div style="position: relative; width: 168px; height: 168px; flex: 0 0 auto; filter: drop-shadow(0 0 6px rgba(35,151,212,0.45))">
+<sc-for list="{{empresasRings}}" as="rg" hint-placeholder-count="6"><div title="{{rg.tip}}" style="{{rg.ring}}"></div></sc-for>
 </div>
+<div style="flex: 1 1 170px; min-width: 0; display: flex; flex-direction: column; gap: 7px">
+<sc-for list="{{empresasRings}}" as="rg" hint-placeholder-count="6">
+<div title="{{rg.tip}}" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 12px"><span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: rgba(235,235,245,0.85)"><span style="{{rg.dot}}"></span>{{rg.nome}}</span><span style="font-variant-numeric: tabular-nums; color: #F5F5F7">{{rg.v}}</span></div>
 </sc-for>
+</div>
+</div>
 </section>
 </div>
 <section style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
@@ -185,6 +188,53 @@ a{color:#7CC6EE}a:hover{color:#B5DEF4}
 </script>
 <div id="dc-app"></div>
 <script>
+var __C = (function () {
+var PAL = ['#2397D4', '#7CC6EE', '#7B87E0', '#4A5BB0', '#30D158', '#B3BBF0', '#5AB4E5', '#9AA5F0'];
+var SEM = ['#8E8E93', '#C9822A', '#FF453A', '#FF6961', '#30D158', '#E0A458', '#FF9A6B'];
+var mask = function (t) { var g = 'radial-gradient(farthest-side, transparent calc(100% - ' + t + 'px), #000 calc(100% - ' + (t - 1) + 'px))'; return '-webkit-mask: ' + g + '; mask: ' + g + '; '; };
+var colOf = function (s) { var m = /background:\s*(#[0-9A-Fa-f]{3,8}|rgba?\([^)]*\))/.exec(s || ''); return m ? m[1] : '#2397D4'; };
+var num = function (re, s) { var m = re.exec(s || ''); return m ? parseFloat(m[1]) : null; };
+var FLEX = /flex:\s*([\d.]+)\s+1\s+0/;
+var segOf = function (g) { return (typeof g.style === 'string' && FLEX.test(g.style)) ? g.style : g.bar; };
+function donut(items) {
+var tot = 0, vals = items.map(function (g) { var v = num(FLEX, segOf(g)) || 0; tot += v; return v; });
+if (!tot) return null;
+var a = 0, parts = [], top = -1, ti = 0;
+items.forEach(function (g, i) { var b = a + vals[i] / tot * 360, e = Math.max(a, b - 1.6), c = colOf(segOf(g)); parts.push(c + ' ' + a.toFixed(2) + 'deg ' + e.toFixed(2) + 'deg', 'transparent ' + e.toFixed(2) + 'deg ' + b.toFixed(2) + 'deg'); if (vals[i] > top) { top = vals[i]; ti = i; } a = b; });
+return { ring: 'position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 0deg, ' + parts.join(', ') + '); ' + mask(16), centro: Math.round(top / tot * 100) + '%', sub: String(items[ti].label || items[ti].nome || '') };
+}
+function rings(items) {
+var n = items.length, step = n > 6 ? 9 : 11, t = n > 6 ? 6 : 7, k = 0;
+return items.map(function (e, i) {
+var c = colOf(e.bar); if (SEM.indexOf(c) < 0) { c = PAL[k % PAL.length]; k++; }
+var d = Math.max(3, (num(/width:\s*([\d.]+)%/, e.bar) || 0) / 100 * 270);
+return { ring: 'position: absolute; inset: ' + (i * step) + 'px; border-radius: 50%; background: conic-gradient(from 225deg, ' + c + ' 0deg ' + d.toFixed(1) + 'deg, rgba(255,255,255,0.07) ' + d.toFixed(1) + 'deg 270deg, transparent 270deg 360deg); ' + mask(t),
+dot: 'width: 9px; height: 9px; border-radius: 99px; flex: 0 0 auto; background: ' + c + '; box-shadow: 0 0 8px ' + c,
+nome: e.nome || e.label || '', v: e.v != null ? e.v : (e.n != null ? e.n : (e.valor != null ? e.valor : (e.pct || ''))), tip: e.tip || '', pick: e.pick };
+});
+}
+function gauges(items) {
+return items.map(function (c) {
+var p = parseFloat(String(c.pct)) || 0, d = Math.min(1, p / 100) * 270, col = p >= 100 ? '#30D158' : (p >= 90 ? '#2397D4' : '#C9822A');
+return { ring: 'position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 225deg, ' + col + ' 0deg ' + d.toFixed(1) + 'deg, rgba(255,255,255,0.08) ' + d.toFixed(1) + 'deg 270deg, transparent 270deg 360deg); ' + mask(9),
+glow: 'position: relative; width: 92px; height: 92px; filter: drop-shadow(0 0 6px ' + col + ')', pct: c.pct, nome: c.nome, tip: c.tip, cor: 'font-size: 18px; font-weight: 600; font-variant-numeric: tabular-nums; color: ' + col };
+});
+}
+function walk(o, depth) {
+if (!o || typeof o !== 'object' || depth > 3) return;
+Object.keys(o).forEach(function (k) {
+var v = o[k];
+if (Array.isArray(v) && v.length && v[0] && typeof v[0] === 'object') {
+var f = v[0];
+if (FLEX.test(segOf(f) || '')) o[k + 'Ring'] = donut(v);
+else if (typeof f.bar === 'string' && f.meta && f.pct != null) o[k + 'Gauges'] = gauges(v);
+else if (typeof f.bar === 'string' && /width:\s*[\d.]+%/.test(f.bar) && !/(left|right):\s*50%/.test(f.bar)) o[k + 'Rings'] = rings(v);
+v.forEach(function (it) { walk(it, depth + 1); });
+} else if (v && typeof v === 'object' && !Array.isArray(v)) walk(v, depth + 1);
+});
+}
+return { wrap: function (C) { var r = C.prototype.renderVals; C.prototype.renderVals = function () { var o = r.apply(this, arguments); walk(o, 0); return o; }; } };
+})();
 class Component extends DCLogic {
 renderVals() {
 var base = 'display: block; padding: 11px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; ';
@@ -224,6 +274,7 @@ var __en = true;
 return { dkPThref: 'Painel.dc.html', dkENhref: 'Painel_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'},  menu: menu, kpis: kpis, empresas: empresas, canais: canais };
 }
 }
+__C.wrap(Component);
 DC.mount(Component);
 </script>
 </body>
