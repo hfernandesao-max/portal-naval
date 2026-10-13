@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestão de pessoas</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+body{margin:0;background:#070B1F;padding-bottom:0}@media (max-width: 760px){.dock-l{display:none}.dock-i{min-width:42px !important;height:44px !important}}.dock-i:hover{background:rgba(255,255,255,0.12) !important;color:#FFFFFF !important}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+button:focus-visible{outline:2px solid #7CC6EE;outline-offset:2px}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}</style>
+<script src="dc.js"></script>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side" aria-label="Menu do colaborador" style="flex: 1 1 240px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 15px">Grupo Naval Angola</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Recursos Humanos</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="padding: 10px 12px 4px; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(124,198,238,0.75)">O meu espaço</span>
+<a href="ColabInicio.dc.html" style="display: block; padding: 9px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Início</a>
+<a href="ColabPonto.dc.html" style="display: block; padding: 9px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Registo de ponto</a>
+<a href="ColabFerias.dc.html" style="display: block; padding: 9px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Férias e ausências</a>
+<a href="ColabRecibos.dc.html" style="display: block; padding: 9px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Recibos de vencimento</a>
+<a href="ColabDocumentos.dc.html" style="display: block; padding: 9px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Documentos</a>
+<span style="padding: 10px 12px 4px; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(124,198,238,0.75)">Desenvolvimento</span>
+<a href="ColabAvaliacao.dc.html" style="display: block; padding: 9px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">Avaliação 360°</a>
+<a href="ColabResultado.dc.html" style="display: block; padding: 9px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.78)">O meu resultado</a>
+<span style="padding: 10px 12px 4px; font-size: 10px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(124,198,238,0.75)">Chefias e Recursos Humanos</span>
+<a href="RHPessoas.dc.html" style="display: block; padding: 9px 12px; border-radius: 12px; font-size: 14px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500" aria-current="page">Gestão de pessoas</a>
+</div>
+<div style="margin-top: auto; padding: 14px; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; font-weight: 500">[NOME DO COLABORADOR]</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Chefe de equipa comercial · OCEANO</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">Chefia: [NOME DA CHEFIA]</span>
+<span style="display: flex; align-items: flex-start; gap: 6px; margin-top: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: rgba(235,235,245,0.6); line-height: 1.4"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>Acesso pessoal: só o próprio colaborador vê estes dados</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Navegação rápida" style="align-self: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 6px 8px; border-radius: 22px; background: rgba(16,24,58,0.55); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); max-width: 100%; box-sizing: border-box">
+<a href="Inicio.dc.html" title="{{dk.home}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.home}}</span></a>
+<a href="Painel.dc.html" title="{{dk.sales}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.sales}}</span></a>
+<a href="ContasCorrentes.dc.html" title="{{dk.cc}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><path d="M16 15h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.cc}}</span></a>
+<a href="Stock.dc.html" title="{{dk.stock}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.stock}}</span></a>
+<a href="Executivo.dc.html" title="{{dk.exec}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.exec}}</span></a>
+<a href="CentrosCusto.dc.html" title="{{dk.ccu}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.ccu}}</span></a>
+<a href="FornCotacoes.dc.html" title="{{dk.forn}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"></path><path d="M13 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.forn}}</span></a>
+<a href="VeloTransAgendar.dc.html" title="{{dk.frota}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.6"></circle><circle cx="16" cy="17" r="1.6"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.frota}}</span></a>
+<a href="ColabInicio.dc.html" title="{{dk.colab}}" aria-current="page" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: rgba(35,151,212,0.28); color: #FFFFFF"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.colab}}</span></a>
+<a href="Organizacao.dc.html" title="{{dk.org}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1.2"></rect><rect x="2.5" y="16" width="6" height="5" rx="1.2"></rect><rect x="15.5" y="16" width="6" height="5" rx="1.2"></rect><path d="M12 8v4M5.5 16v-4h13v4"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.org}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<a href="VendasMovel.dc.html" title="{{dk.phone}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.phone}}</span></a>
+<a href="Main.dc.html" title="{{dk.out}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4"></path><path d="M10 8l-4 4 4 4"></path><path d="M6 12h10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.out}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<div role="group" aria-label="Idioma" style="display: flex; gap: 2px; padding: 2px; border-radius: 12px; background: rgba(255,255,255,0.06)">
+<a href="{{dkPThref}}" onClick="{{dkPT}}" style="{{dkPTs}}">PT</a>
+<a href="{{dkENhref}}" onClick="{{dkEN}}" style="{{dkENs}}">EN</a>
+</div>
+</nav>
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">RECURSOS HUMANOS · CHEFIAS E RH</span>
+<span class="fase2" title="Fase 2" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 99px; background: rgba(201,130,42,0.16); color: #E0A458; border: 1px solid rgba(201,130,42,0.35)">Fase 2 · protótipo do circuito, ainda não grava no ERP</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">Gestão de pessoas</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">As chefias veem só a sua equipa; os Recursos Humanos veem as 23 empresas · <span style="color: #C9822A">dados de exemplo</span></span>
+</div>
+<div role="tablist" aria-label="Vista" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; background: rgba(255,255,255,0.05)">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+<button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}<span style="{{t.badgeStyle}}">{{t.badge}}</span></button>
+</sc-for>
+</div>
+</header>
+<section aria-label="Indicadores" class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10)">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
+<span style="font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums">{{k.value}}</span>
+<span style="{{k.noteStyle}}">{{k.note}}</span>
+</div>
+</sc-for>
+</section>
+<sc-if value="{{vDir}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Diretório" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Diretório</h2>
+<input type="search" value="{{busca}}" onInput="{{setBusca}}" placeholder="Procurar por nome, função ou empresa" aria-label="Procurar" style="flex: 0 1 320px; height: 38px; border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 0 12px; font-family: inherit; font-size: 14px; background: rgba(255,255,255,0.05); color: #F5F5F7">
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 10px">
+<sc-for list="{{pessoas}}" as="p" hint-placeholder-count="8">
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07)">
+<span style="{{p.avatar}}">{{p.ini}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 auto"><span style="font-size: 14px; font-weight: 500">{{p.nome}}</span><span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{p.cargo}}</span><span style="font-size: 11px; color: rgba(235,235,245,0.45)">{{p.emp}}</span></span>
+<span style="{{p.estStyle}}">{{p.estado}}</span>
+</div>
+</sc-for>
+</div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.55)">{{dirNota}}</span>
+</section>
+</sc-if>
+<sc-if value="{{vOrg}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Organograma" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 18px; align-items: center">
+<h2 style="align-self: flex-start; margin: 0; font-size: 17px; font-weight: 600">Organograma · OCEANO · área comercial</h2>
+<div style="{{org.raiz}}"><span style="font-size: 14px; font-weight: 600">[DIRETOR COMERCIAL]</span><span style="font-size: 12px; color: rgba(235,235,245,0.6)">Diretor comercial</span></div>
+<span style="width: 2px; height: 22px; background: rgba(124,198,238,0.5); margin: -18px 0"></span>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; padding-top: 14px; border-top: 2px solid rgba(124,198,238,0.35)">
+<sc-for list="{{org.chefias}}" as="c" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+<div style="{{c.box}}"><span style="font-size: 13px; font-weight: 600">{{c.nome}}</span><span style="font-size: 11px; color: rgba(235,235,245,0.6)">{{c.cargo}}</span><span style="font-size: 11px; color: #7CC6EE">{{c.equipa}}</span></div>
+<div style="display: flex; gap: 4px">
+<sc-for list="{{c.membros}}" as="m" hint-placeholder-count="4">
+<span title="{{m.nome}}" style="{{m.avatar}}">{{m.ini}}</span>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{vPed}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Pedidos para aprovar" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0 0 4px; font-size: 17px; font-weight: 600">Pedidos da minha equipa</h2>
+<sc-for list="{{pedidos}}" as="p" hint-placeholder-count="5">
+<div style="{{p.box}}">
+<span style="{{p.tipoStyle}}">{{p.tipo}}</span>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1 1 260px; min-width: 0"><span style="font-size: 14px; font-weight: 500">{{p.quem}} · {{p.oque}}</span><span style="{{p.notaStyle}}">{{p.nota}}</span></span>
+<span style="display: flex; gap: 8px">
+<button type="button" onClick="{{p.rejeitar}}" style="{{p.rejStyle}}">Rejeitar</button>
+<button type="button" onClick="{{p.aprovar}}" style="{{p.apStyle}}">{{p.apLabel}}</button>
+</span>
+</div>
+</sc-for>
+</section>
+</sc-if>
+<sc-if value="{{vMov}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 14px">
+<section aria-label="Integração" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Entradas · integração</h2>
+<sc-for list="{{entradas}}" as="e" hint-placeholder-count="3">
+<div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07)">
+<div style="{{e.glow}}"><div style="{{e.track}}"></div><div style="{{e.ring}}"></div><div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center"><span style="font-size: 13px; font-weight: 600">{{e.pct}}</span></div></div>
+<span style="display: flex; flex-direction: column; gap: 3px; min-width: 0"><span style="font-size: 14px; font-weight: 500">{{e.nome}}</span><span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{e.info}}</span><span style="{{e.faltaStyle}}">{{e.falta}}</span></span>
+</div>
+</sc-for>
+<span style="font-size: 12px; color: rgba(235,235,245,0.55)">Lista de integração: contrato assinado · conta Microsoft 365 · equipamento · ficha no SAP · formação inicial · apresentação à equipa</span>
+</section>
+<section aria-label="Saídas" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 26px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">Saídas · desvinculação</h2>
+<sc-for list="{{saidas}}" as="e" hint-placeholder-count="2">
+<div style="display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07)">
+<div style="{{e.glow}}"><div style="{{e.track}}"></div><div style="{{e.ring}}"></div><div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center"><span style="font-size: 13px; font-weight: 600">{{e.pct}}</span></div></div>
+<span style="display: flex; flex-direction: column; gap: 3px; min-width: 0"><span style="font-size: 14px; font-weight: 500">{{e.nome}}</span><span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{e.info}}</span><span style="{{e.faltaStyle}}">{{e.falta}}</span></span>
+</div>
+</sc-for>
+<span style="font-size: 12px; color: rgba(235,235,245,0.55)">Lista de saída: devolução de equipamento · fecho da conta Microsoft 365 e do ERP · acerto final no SAP · entrevista de saída</span>
+</section>
+</div>
+</sc-if>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { tab: 'dir', busca: '', dec: {} };
+}
+renderVals() {
+var self = this;
+var mask = function (t) { var g = 'radial-gradient(farthest-side, transparent calc(100% - ' + t + 'px), #000 calc(100% - ' + (t - 1) + 'px))'; return '-webkit-mask: ' + g + '; mask: ' + g + '; '; };
+var CORES = ['#2397D4', '#7B87E0', '#4A5BB0', '#C9822A', '#30D158', '#7CC6EE'];
+var av = function (i, s) { return 'width: ' + s + 'px; height: ' + s + 'px; flex: 0 0 auto; border-radius: 99px; display: flex; align-items: center; justify-content: center; font-size: ' + Math.round(s * 0.38) + 'px; font-weight: 600; color: #FFFFFF; background: linear-gradient(140deg, ' + CORES[i % CORES.length] + ', rgba(39,55,119,0.9))'; };
+var dec = this.state.dec;
+var pend = 0;
+['p1', 'p2', 'p3', 'p4', 'p5'].forEach(function (k) { if (!dec[k]) pend++; });
+var tb = 'display: inline-flex; align-items: center; gap: 6px; height: 34px; padding: 0 14px; border-radius: 10px; border: none; font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; ';
+var tab = this.state.tab;
+var tabs = [['dir', 'Diretório', ''], ['org', 'Organograma', ''], ['ped', 'Pedidos', pend ? String(pend) : ''], ['mov', 'Entradas e saídas', '']].map(function (t) {
+var on = t[0] === tab;
+return { label: t[1], badge: t[2], on: on ? 'true' : 'false', pick: function () { self.setState({ tab: t[0] }); },
+badgeStyle: t[2] ? 'font-size: 11px; font-weight: 600; min-width: 18px; height: 18px; padding: 0 5px; box-sizing: border-box; border-radius: 99px; display: inline-flex; align-items: center; justify-content: center; ' + (on ? 'background: #FFFFFF; color: #2397D4' : 'background: rgba(201,130,42,0.25); color: #E0A458') : 'display: none',
+style: tb + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.78)') };
+});
+var nota = 'font-size: 12px; color: ';
+var kpis = [
+{ label: 'Colaboradores', value: '1 284', note: '23 empresas · 16 Primavera · 7 SAP', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Entradas no mês', value: '14', note: '3 em integração esta semana', noteStyle: nota + '#30D158' },
+{ label: 'Saídas no mês', value: '9', note: 'rotatividade de 0,7% no mês', noteStyle: nota + 'rgba(235,235,245,0.6)' },
+{ label: 'Ausentes hoje', value: '61', note: '38 de férias · 17 de baixa · 6 outras', noteStyle: nota + '#E0A458' }
+];
+var EST = { p: ['Presente', 'background: rgba(48,209,88,0.12); color: #30D158'], f: ['Férias', 'background: rgba(124,198,238,0.16); color: #7CC6EE'], b: ['Baixa', 'background: rgba(255,69,58,0.14); color: #FF6961'], t: ['Teletrabalho', 'background: rgba(123,135,224,0.2); color: #B3BBF0'] };
+var G = [['[COLABORADOR A]', 'Vendedor', 'OCEANO · Comercial', 'f'], ['[COLABORADOR B]', 'Vendedora', 'OCEANO · Comercial', 'p'], ['[COLABORADOR C]', 'Repositor', 'OCEANO · Logística', 'b'], ['[COLABORADOR D]', 'Caixa', 'CAZENGO · Canal 01', 'p'], ['[COLABORADOR E]', 'Técnico de manutenção', 'OCEANO · Oficina', 'p'], ['[COLABORADOR F]', 'Contabilista', 'Foodtec · Financeiro', 't'], ['[COLABORADOR G]', 'Motorista', 'VeloTrans · Frota', 'p'], ['[COLABORADOR H]', 'Técnica de RH', 'Recursos Humanos · grupo', 'p']];
+var q = String(this.state.busca || '').toLowerCase();
+var pessoas = G.filter(function (g) { return !q || (g[0] + ' ' + g[1] + ' ' + g[2]).toLowerCase().indexOf(q) >= 0; }).map(function (g, i) { return { nome: g[0], cargo: g[1], emp: g[2], ini: g[0].charAt(g[0].length - 2), avatar: av(i, 42), estado: EST[g[3]][0], estStyle: 'font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 99px; white-space: nowrap; ' + EST[g[3]][1] }; });
+var caixa = 'display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px 18px; border-radius: 16px; background: rgba(35,151,212,0.12); border: 1px solid rgba(124,198,238,0.4); box-shadow: 0 0 18px rgba(35,151,212,0.25); text-align: center';
+var CH = [['[CHEFE DE EQUIPA A]', 'Chefe de equipa · Lojas', 4], ['[CHEFE DE EQUIPA B]', 'Chefe de equipa · Televendas', 3], ['[CHEFE DE EQUIPA C]', 'Chefe de equipa · Grandes clientes', 4]];
+var org = { raiz: caixa, chefias: CH.map(function (c, i) { var m = []; for (var j = 0; j < c[2]; j++) m.push({ nome: '[COLABORADOR ' + 'ABCDEFGHIJKL'.charAt(i * 4 + j) + ']', ini: 'ABCDEFGHIJKL'.charAt(i * 4 + j), avatar: av(i * 4 + j, 28) }); return { nome: c[0], cargo: c[1], equipa: c[2] + ' pessoas', membros: m, box: caixa.replace('rgba(35,151,212,0.12)', 'rgba(255,255,255,0.05)').replace('rgba(124,198,238,0.4)', 'rgba(255,255,255,0.14)').replace('0 0 18px rgba(35,151,212,0.25)', 'none') }; }) };
+var PT = { fer: ['Férias', '#7CC6EE'], pon: ['Ponto', '#B3BBF0'], hex: ['Horas extra', '#30D158'], aus: ['Ausência', '#E0A458'] };
+var PD = [['p1', 'fer', '[COLABORADOR B]', '2 a 6 Nov · 5 dias úteis', 'Sem sobreposição na equipa'], ['p2', 'hex', '[COLABORADOR E]', '7 Out · 2 h 00', 'Dentro do limite da chefia (até 10 h/mês)'], ['p3', 'pon', '[COLABORADOR D]', 'Correção · 9 Out · saída às 17:00', 'Esqueceu-se de registar a saída'], ['p4', 'aus', '[COLABORADOR C]', 'Baixa médica · 12 a 16 Out', 'Atestado entregue · validado pelos Recursos Humanos'], ['p5', 'fer', '[COLABORADOR A]', '21 a 31 Dez · 7 dias úteis', 'Atenção: 2 pessoas da equipa já de férias nesse período']];
+var bb = 'height: 34px; padding: 0 14px; border-radius: 10px; font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; ';
+var pedidos = PD.map(function (p) {
+var d = dec[p[0]];
+var set = function (v) { var x = Object.assign({}, self.state.dec); x[p[0]] = v; self.setState({ dec: x }); };
+var alerta = p[0] === 'p5';
+return { tipo: PT[p[1]][0], tipoStyle: 'font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 99px; white-space: nowrap; background: rgba(255,255,255,0.06); color: ' + PT[p[1]][1], quem: p[2], oque: p[3],
+nota: d === 'ok' ? 'Aprovado · registado no SAP' : (d === 'no' ? 'Rejeitado · o colaborador foi avisado' : p[4]),
+notaStyle: 'font-size: 12px; color: ' + (d === 'ok' ? '#30D158' : (d === 'no' ? '#FF6961' : (alerta ? '#E0A458' : 'rgba(235,235,245,0.6)'))),
+apLabel: d ? 'Desfazer' : 'Aprovar', aprovar: function () { set(d ? null : 'ok'); }, rejeitar: function () { if (!d) set('no'); },
+apStyle: bb + (d ? 'border: 1px solid rgba(255,255,255,0.16); background: transparent; color: rgba(235,235,245,0.78)' : 'border: none; background: #2397D4; color: #FFFFFF'),
+rejStyle: bb + (d ? 'display: none' : 'border: 1px solid rgba(255,69,58,0.5); background: transparent; color: #FF6961'),
+box: 'display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: rgba(255,255,255,0.03); border: 1px solid ' + (d === 'ok' ? 'rgba(48,209,88,0.35)' : (d === 'no' ? 'rgba(255,69,58,0.35)' : 'rgba(255,255,255,0.07)')) };
+});
+var anel = function (frac, col) { var d = (frac * 270).toFixed(1); return { glow: 'position: relative; width: 58px; height: 58px; flex: 0 0 auto; filter: drop-shadow(0 0 6px ' + col + ')', track: 'position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 225deg, rgba(255,255,255,0.08) 0deg 270deg, transparent 270deg 360deg); ' + mask(6), ring: 'position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 225deg, ' + col + ' 0deg ' + d + 'deg, transparent ' + d + 'deg 360deg); ' + mask(6) }; };
+var mk = function (l) { return l.map(function (e) { var a = anel(e[2] / 6, e[2] === 6 ? '#30D158' : '#2397D4'); return Object.assign(a, { nome: e[0], info: e[1], pct: Math.round(e[2] / 6 * 100) + '%', falta: e[3], faltaStyle: 'font-size: 11px; color: ' + (e[2] === 6 ? '#30D158' : '#E0A458') }); }); };
+var entradas = mk([['[COLABORADOR F]', 'Vendedor · OCEANO · entra a 19 Out', 3, 'Falta: equipamento, ficha no SAP, formação inicial'], ['[COLABORADOR I]', 'Técnico · Refitec · entrou a 12 Out', 5, 'Falta: formação inicial'], ['[COLABORADOR J]', 'Contabilista · Foodtec · entrou a 5 Out', 6, 'Integração concluída']]);
+var saidas = mk([['[COLABORADOR K]', 'Repositor · CAZENGO · sai a 31 Out', 2, 'Falta: equipamento, contas, acerto final, entrevista'], ['[COLABORADOR L]', 'Caixa · YAWABA · saiu a 10 Out', 4, 'Falta: acerto final no SAP, entrevista de saída']]);
+var __me = this;
+var __pill = 'display: inline-flex; align-items: center; justify-content: center; text-decoration: none; height: 36px; width: 38px; border: none; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+var __en = false;
+return { dkPThref: 'RHPessoas.dc.html', dkENhref: 'RHPessoas_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'}, tabs: tabs, kpis: kpis, vDir: tab === 'dir', vOrg: tab === 'org', vPed: tab === 'ped', vMov: tab === 'mov', busca: this.state.busca, setBusca: function (e) { self.setState({ busca: e.target.value }); }, pessoas: pessoas, dirNota: pessoas.length + ' de 1 284 · a pesquisa abrange as empresas a que tem acesso', org: org, pedidos: pedidos, entradas: entradas, saidas: saidas };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>
