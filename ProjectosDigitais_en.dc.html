@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital projects</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<script>(function(){try{var f=location.pathname.split("/").pop()||"index.html";var en=/_en\.dc\.html$/.test(f);var p=null;try{p=localStorage.getItem("naval-lang")}catch(e){}if(!p){var n=String((navigator.languages&&navigator.languages[0])||navigator.language||"pt").toLowerCase();p=n.indexOf("pt")===0?"pt":"en"}if(p==="en"&&!en)location.replace("ProjectosDigitais.dc.html"+location.search+location.hash);else if(p==="pt"&&en)location.replace("ProjectosDigitais.dc.html"+location.search+location.hash)}catch(e){}})();</script>
+<style>
+body{margin:0;background:#070B1F;padding-bottom:0}@media (max-width: 760px){.dock-l{display:none}.dock-i{min-width:42px !important;height:44px !important}}.dock-i:hover{background:rgba(255,255,255,0.12) !important;color:#FFFFFF !important}
+a{color:#7CC6EE}a:hover{color:#B5DEF4}
+button:focus-visible{outline:2px solid #7CC6EE;outline-offset:2px}
+@media (min-width: 820px){.side{position:sticky !important;top:0;height:100vh;height:100dvh;overflow:hidden !important;align-self:flex-start;box-sizing:border-box;gap:clamp(10px,3.2vh,28px) !important;padding-top:clamp(12px,3vh,24px) !important;padding-bottom:clamp(12px,3vh,24px) !important}.side a{padding-top:clamp(4px,1.15vh,11px) !important;padding-bottom:clamp(4px,1.15vh,11px) !important}.side>div:nth-child(2){gap:clamp(1px,0.5vh,4px) !important}.side>div:last-child{padding:clamp(8px,1.6vh,14px) !important}}@media (min-width: 820px) and (max-height: 720px){.side{gap:clamp(8px,2.2vh,16px) !important}.side a{font-size:13px !important;padding-top:clamp(3px,0.85vh,7px) !important;padding-bottom:clamp(3px,0.85vh,7px) !important}.side>div:last-child span{font-size:11px !important}.side img{height:28px !important}}@media (min-width: 820px) and (max-height: 680px){.side>div:last-child{display:none !important}.side>div:first-child span+span{display:none}}@media (max-width: 819px){.side{flex-basis:100% !important;gap:12px !important;padding:14px 16px !important;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.08)}.side>div:nth-child(2){flex-direction:row !important;flex-wrap:wrap !important;gap:6px !important}.side a{padding:7px 12px !important;font-size:13px !important;border:1px solid rgba(255,255,255,0.10);display:inline-flex !important;align-items:center;gap:6px}.side>div:last-child{display:none !important}}
+
+
+
+
+.side-g details>summary::-webkit-details-marker{display:none}.side-g details>summary:hover{background:rgba(255,255,255,0.06)}.side-g details[open]>summary .chev{transform:rotate(90deg)}.side-g details[open]>summary{color:#FFFFFF;font-weight:500}.side-g a:hover{background:rgba(255,255,255,0.06)}@media (min-width: 820px){.side-g summary{padding-top:clamp(4px,0.9vh,8px) !important;padding-bottom:clamp(4px,0.9vh,8px) !important}.side-g details a{padding-top:clamp(4px,0.8vh,8px) !important;padding-bottom:clamp(4px,0.8vh,8px) !important}}@media (max-width: 819px){.side-g{display:none !important}}
+
+/*RSP*/
+.side-c details>summary::-webkit-details-marker{display:none}.side-c details>summary:hover{background:rgba(255,255,255,0.06)}.side-c details[open]>summary .chev{transform:rotate(90deg)}.side-c details[open]>summary{color:#FFFFFF;font-weight:500}.side-c a:hover{background:rgba(255,255,255,0.06)}.side-m::-webkit-scrollbar{display:none}
+@media (max-width:760px){.side-c{display:none !important}.side-m{display:flex !important}}
+@media (max-width:1100px){.g6,.g5{grid-template-columns:repeat(3,minmax(0,1fr)) !important}}@media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr)) !important}}@media (max-width:620px){.g6,.g5{grid-template-columns:repeat(2,minmax(0,1fr)) !important}.g3{grid-template-columns:1fr !important}}
+@media (max-width:1180px){.dock .dock-l{display:none !important}.dock .dock-i{min-width:44px !important;height:44px !important;padding:0 4px !important}}
+@media (max-width:760px){
+.dock{flex-wrap:nowrap !important;overflow-x:auto !important;justify-content:flex-start !important;align-self:stretch !important;max-width:100% !important;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.dock::-webkit-scrollbar{display:none}.dock>*{flex:0 0 auto}
+main{padding:14px 12px 28px !important;gap:12px !important}
+main section[style*="background"]{padding:14px !important;border-radius:20px !important}
+.g3>*,.g4>*,.g5>*,.g6>*{padding:12px 14px !important;border-radius:18px !important;min-width:0 !important;overflow:hidden}
+main [style*="justify-content: flex-end"]>span[style*="font-size: 11px; font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.78)"]{display:none}
+nav.side:not(.side-g){padding:12px !important;gap:10px !important}
+nav.side:not(.side-g)>div:nth-child(2){flex-direction:row !important;flex-wrap:nowrap !important;overflow-x:auto !important;scrollbar-width:none;gap:6px !important}
+nav.side:not(.side-g)>div:nth-child(2)::-webkit-scrollbar{display:none}
+nav.side:not(.side-g)>div:nth-child(2)>*{flex:0 0 auto;white-space:nowrap}
+nav.side:not(.side-g)>div:nth-child(2)>span{display:none}
+main h1{font-size:25px !important;letter-spacing:-0.3px !important}
+main select,main input,main textarea{max-width:100% !important;min-width:0 !important}
+main [style*="align-items: flex-end"][style*="gap: 10px"]{gap:4px !important}
+main [style*="grid-template-columns: 172px"]{grid-template-columns:104px minmax(0,1fr) 44px !important}
+main [style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]{grid-template-columns:minmax(0,1fr) 40px 100px 52px !important;gap:6px !important}
+main [style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]>:nth-child(5){grid-column:1/-1;text-align:left !important;font-size:12px !important;color:rgba(235,235,245,0.6) !important}
+main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(0, 2fr) 90px 130px 90px"]>:nth-child(5){display:none}
+}
+@media (max-width:420px){main [style*="font-size: 11px; color: rgba(235,235,245,0.6)"]{font-size:10px !important}}
+@media (min-width:1700px){main{padding-left:40px !important;padding-right:40px !important}}
+/*RSP-END*/
+</style>
+<script src="dc.js"></script>
+<style>
+.pd-row{display:grid;grid-template-columns:52px minmax(0,1fr) 170px 190px 110px;gap:14px;align-items:center;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.pd-row:last-child{border-bottom:none}
+.pd-head{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(235,235,245,0.5);padding-top:0}
+.pd-g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pd-steps{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width: 1100px){.pd-row{grid-template-columns:44px minmax(0,1fr) 150px 150px 90px}}
+@media (max-width: 900px){.pd-g2{grid-template-columns:minmax(0,1fr)}}
+@media (max-width: 760px){.pd-head{display:none}.pd-row{grid-template-columns:44px minmax(0,1fr) auto;row-gap:6px}.pd-row>span:nth-child(4){grid-column:2/3}.pd-row>span:nth-child(5){grid-column:3/4;text-align:right}}
+</style>
+</head>
+<body>
+<script type="text/x-dc-template" id="dc-tpl">
+
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif; color: #F5F5F7; -webkit-font-smoothing: antialiased; background: radial-gradient(900px 600px at 8% -12%, rgba(35,151,212,0.28), transparent 62%), radial-gradient(800px 560px at 96% -6%, rgba(39,55,119,0.75), transparent 60%), #070B1F">
+<nav class="side side-g" aria-label="Main menu" style="flex: 1 1 250px; max-width: 100%; background: rgba(255,255,255,0.04); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); border-right: 1px solid rgba(255,255,255,0.08); padding: 24px 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 8px">
+<img src="assets/naval-simbolo.png" alt="Naval" style="height: 36px; width: auto">
+<div style="display: flex; flex-direction: column">
+<span style="font-weight: 600; font-size: 15px">Grupo Naval Angola</span>
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1.2px; text-transform: uppercase">Group portal</span>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 2px">
+<a href="Inicio_en.dc.html" style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; text-decoration: none; color: rgba(235,235,245,0.9)"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 11l9-7 9 7M5 10v10h14V10"></path></svg>Home</a>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 3h7v9H3zM14 3h7v5h-7zM14 12h7v9h-7zM3 16h7v5H3z"></path></svg><span>Board</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Executive view</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"></path></svg><span>Sales</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Painel_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Consolidated sales</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 6h18v13H3zM3 10h18M16 15h2"></path></svg><span>Finance</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ContasCorrentes_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Receivables & payables</a>
+<a href="ColabDespesas_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Expenses & cards</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18M12 7a5 5 0 1 0 0 10a5 5 0 1 0 0-10M12 11v2"></path></svg><span>Management accounting</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="CentrosCusto_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Cost centres</a>
+<a href="Orcamento_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Budget & variances</a>
+<a href="Projectos_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Projects & hours</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M12 2l9 5v10l-9 5-9-5V7zM12 22V12M21 7l-9 5-9-5"></path></svg><span>Logistics & Purchasing</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Stock_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Group inventory</a>
+<a href="Requisicoes_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Internal requisitions</a>
+<a href="Cotacoes_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Quote comparison</a>
+<a href="Rececao_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Goods receipt & check</a>
+<a href="Executivo_en.dc.html#fornecedores" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Suppliers</a>
+<a href="FornCotacoes_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Supplier portal</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M5 17h14v-5l-2-5H7l-2 5zM5 12h14"></path></svg><span>Fleet</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo_en.dc.html#frota" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Fleet costs</a>
+<a href="VeloTransAgendar_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Book a vehicle service</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 4.5a3.5 3.5 0 1 0 0 7a3.5 3.5 0 1 0 0-7M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5M16 4.5a3.5 3.5 0 0 1 0 7"></path></svg><span>Human Resources</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo_en.dc.html#rh" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Staff costs</a>
+<a href="Executivo_en.dc.html#absentismo" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Absenteeism rate</a>
+<a href="ColabInicio_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Employee portal</a>
+<a href="RHPessoas_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">People management</a>
+<a href="RHTurnos_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Shifts</a>
+<a href="RHRecrutamento_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Recruitment</a>
+<a href="ColabFormacao_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Training</a>
+<a href="RHRelatorios_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">HR reports</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"></path></svg><span>General Services</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Executivo_en.dc.html#housekeeping" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Housekeeping</a>
+</details>
+<details name="menu" open>
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M4 5h16v10H4zM2 19h20M10 15v4M14 15v4"></path></svg><span>Information systems</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="ITEquipamentos_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">IT & devices</a>
+<a href="ProjectosDigitais_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; background: rgba(35,151,212,0.16); color: #FFFFFF; box-shadow: inset 2px 0 0 #7CC6EE; font-weight: 500" aria-current="page">Digital projects</a>
+</details>
+<details name="menu">
+<summary style="display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 10px; font-size: 14px; color: rgba(235,235,245,0.9); cursor: pointer; list-style: none"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 auto; color: #7CC6EE"><path d="M9 3h6v5H9zM2.5 16h6v5h-6zM15.5 16h6v5h-6zM12 8v4M5.5 16v-4h13v4"></path></svg><span>Organisation</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: auto; color: rgba(235,235,245,0.45); transition: transform .2s ease"><path d="M9 6l6 6-6 6"></path></svg></summary>
+<a href="Organizacao_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Groups & access</a>
+<a href="MatrizLOA_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Approval matrix (LOA)</a>
+<a href="Automatizacoes_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Automations</a>
+<a href="ColabComunicados_en.dc.html" style="display: block; padding: 8px 12px 8px 40px; border-radius: 10px; font-size: 13px; text-decoration: none; color: rgba(235,235,245,0.72)">Announcements & events</a>
+</details>
+</div>
+<div style="margin-top: auto; padding: 12px; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; display: flex; flex-direction: column; gap: 6px; font-variant-numeric: tabular-nums; font-size: 11px; color: rgba(235,235,245,0.6)">
+<span style="display: flex; align-items: center; gap: 8px"><span style="width: 7px; height: 7px; border-radius: 99px; background: #30D158"></span>23 companies · 16 Primavera · 7 SAP</span>
+<span>live query · 1 min ago</span>
+</div>
+</nav>
+<main style="flex: 999 1 560px; min-width: 0; padding: 28px 32px 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<nav class="dock" aria-label="Quick navigation" style="align-self: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px; padding: 6px 8px; border-radius: 22px; background: rgba(16,24,58,0.55); border: 1px solid rgba(255,255,255,0.14); backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); max-width: 100%; box-sizing: border-box">
+<a href="Inicio_en.dc.html" title="{{dk.home}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.home}}</span></a>
+<a href="Painel_en.dc.html" title="{{dk.sales}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20H2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.sales}}</span></a>
+<a href="ContasCorrentes_en.dc.html" title="{{dk.cc}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path><path d="M16 15h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.cc}}</span></a>
+<a href="Stock_en.dc.html" title="{{dk.stock}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"></path><path d="M12 22V12"></path><path d="M21 7l-9 5-9-5"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.stock}}</span></a>
+<a href="Executivo_en.dc.html" title="{{dk.exec}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"></rect><rect x="14" y="3" width="7" height="5" rx="1.5"></rect><rect x="14" y="12" width="7" height="9" rx="1.5"></rect><rect x="3" y="16" width="7" height="5" rx="1.5"></rect></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.exec}}</span></a>
+<a href="CentrosCusto_en.dc.html" title="{{dk.ccu}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.5"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.ccu}}</span></a>
+<a href="FornCotacoes_en.dc.html" title="{{dk.forn}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h11v9H2z"></path><path d="M13 10h4l3 3v3h-7"></path><circle cx="6" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.forn}}</span></a>
+<a href="VeloTransAgendar_en.dc.html" title="{{dk.frota}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M5 12h14"></path><circle cx="8" cy="17" r="1.6"></circle><circle cx="16" cy="17" r="1.6"></circle></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.frota}}</span></a>
+<a href="ColabInicio_en.dc.html" title="{{dk.colab}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18.5 14.8c1.6.8 2.6 2.5 3 5.2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.colab}}</span></a>
+<a href="Organizacao_en.dc.html" title="{{dk.org}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="5" rx="1.2"></rect><rect x="2.5" y="16" width="6" height="5" rx="1.2"></rect><rect x="15.5" y="16" width="6" height="5" rx="1.2"></rect><path d="M12 8v4M5.5 16v-4h13v4"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.org}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<a href="VendasMovel_en.dc.html" title="{{dk.phone}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2.5"></rect><path d="M11 18h2"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.phone}}</span></a>
+<a href="Main.dc.html" title="{{dk.out}}" class="dock-i" style="display: flex; flex-direction: column; align-items: center; gap: 3px; min-width: 60px; height: 52px; justify-content: center; gap: 4px; padding: 0 6px; border-radius: 14px; text-decoration: none; background: transparent; color: rgba(235,235,245,0.82)"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4"></path><path d="M10 8l-4 4 4 4"></path><path d="M6 12h10"></path></svg><span class="dock-l" style="font-size: 11px; line-height: 1; white-space: nowrap">{{dk.out}}</span></a>
+<span aria-hidden="true" style="width: 1px; height: 28px; margin: 0 4px; align-self: center; background: rgba(255,255,255,0.16)"></span>
+<div role="group" aria-label="Language" style="display: flex; gap: 2px; padding: 2px; border-radius: 12px; background: rgba(255,255,255,0.06)">
+<a href="{{dkPThref}}" onClick="{{dkPT}}" style="{{dkPTs}}">PT</a>
+<a href="{{dkENhref}}" onClick="{{dkEN}}" style="{{dkENs}}">EN</a>
+</div>
+</nav>
+<header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">{{t.eyebrow}}</span>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 99px; background: rgba(48,209,88,0.14); color: #5BE07F; border: 1px solid rgba(48,209,88,0.35)">{{t.badge}}</span>
+<h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">{{t.title}}</h1>
+<span style="font-size: 13px; color: rgba(235,235,245,0.6)">{{t.sub}}</span>
+</div>
+<div role="tablist" aria-label="{{t.filtro}}" style="display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; background: rgba(255,255,255,0.05)">
+<sc-for list="{{tabs}}" as="b" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{b.on}}" onClick="{{b.pick}}" style="{{b.style}}">{{b.label}}</button>
+</sc-for>
+</div>
+</header>
+<section aria-label="{{t.indicadores}}" class="g4" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+<sc-for list="{{kpis}}" as="k" hint-placeholder-count="4">
+<div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; gap: 8px; padding: 16px 18px">
+<span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
+<span style="font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums; color: {{k.cor}}">{{k.value}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{k.note}}</span>
+</div>
+</sc-for>
+</section>
+<section aria-label="{{t.painel}}" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; border-radius: 26px; padding: 20px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">{{t.painel}}</h2>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{resumo}}</span>
+</div>
+<div class="pd-row pd-head">
+<span>{{t.colProj}}</span><span>{{t.colTema}}</span><span>{{t.colEstado}}</span><span>{{t.colExec}}</span><span>{{t.colPrev}}</span>
+</div>
+<sc-for list="{{linhas}}" as="r" hint-placeholder-count="15">
+<div class="pd-row">
+<span style="font-size: 12px; font-weight: 600; letter-spacing: 0.5px; color: {{r.projCor}}">{{r.proj}}</span>
+<span style="font-size: 14px; color: {{r.temaCor}}">{{r.tema}}</span>
+<span><span style="{{r.pill}}">{{r.estado}}</span></span>
+<span style="display: flex; align-items: center; gap: 10px">
+<sc-if value="{{r.temBarra}}"><span style="flex: 1; max-width: 140px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.10); overflow: hidden"><span style="{{r.barra}}"></span></span></sc-if>
+<span style="font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; color: {{r.pctCor}}">{{r.pct}}</span>
+</span>
+<span style="font-size: 13px; font-variant-numeric: tabular-nums; color: {{r.prevCor}}">{{r.prev}}</span>
+</div>
+</sc-for>
+</section>
+<div class="pd-g2">
+<section aria-label="{{t.vendas}}" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><h2 style="margin: 0; font-size: 17px; font-weight: 600">{{t.vendas}}</h2><span style="font-size: 13px; color: #7CC6EE; font-weight: 600">{{vendas.resumo}}</span></div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{vendas.nota}}</span>
+<div style="height: 10px; border-radius: 5px; background: rgba(255,255,255,0.10); overflow: hidden"><div style="{{vendas.barra}}"></div></div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{vendas.rotas}}" as="v" hint-placeholder-count="11"><span style="{{v.style}}">{{v.cod}}</span></sc-for>
+</div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{vendas.legenda}}</span>
+</section>
+<section aria-label="{{t.km30}}" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><h2 style="margin: 0; font-size: 17px; font-weight: 600">{{t.km30}}</h2><span style="font-size: 22px; font-weight: 600; color: {{km.atrasoCor}}">{{km.atraso}}</span></div>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{km.nota}}</span>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<sc-for list="{{km.passos}}" as="p" hint-placeholder-count="6">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px"><span style="{{p.dot}}"></span><span style="flex: 1; color: {{p.cor}}">{{p.txt}}</span><span style="font-size: 12px; font-weight: 600; color: {{p.estCor}}">{{p.est}}</span></div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.08)">
+<span style="font-size: 12px; color: rgba(235,235,245,0.6); width: 100%">{{t.impressoras}}</span>
+<sc-for list="{{km.imp}}" as="i" hint-placeholder-count="3"><span style="{{i.style}}">{{i.loja}} · {{i.txt}}</span></sc-for>
+</div>
+</section>
+<section aria-label="{{t.fluxo}}" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">{{t.fluxo}}</h2>
+<div class="pd-steps">
+<sc-for list="{{fluxo.passos}}" as="f" hint-placeholder-count="3">
+<div style="flex: 1; min-width: 150px; display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 16px; background: rgba(35,151,212,0.10); border: 1px solid rgba(124,198,238,0.22)">
+<span style="font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #7CC6EE">{{f.n}} · {{f.sis}}</span>
+<span style="font-size: 14px; font-weight: 600">{{f.t}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.7)">{{f.d}}</span>
+</div>
+</sc-for>
+</div>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: rgba(235,235,245,0.8)">
+<sc-for list="{{fluxo.regras}}" as="g" hint-placeholder-count="3"><li>{{g.txt}}</li></sc-for>
+</ul>
+</section>
+<section aria-label="{{t.acessos}}" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><h2 style="margin: 0; font-size: 17px; font-weight: 600">{{t.acessos}}</h2><span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{ac.resumo}}</span></div>
+<div style="display: flex; height: 14px; border-radius: 7px; overflow: hidden">
+<sc-for list="{{ac.grupos}}" as="a" hint-placeholder-count="5"><div style="{{a.seg}}"></div></sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 5px">
+<sc-for list="{{ac.grupos}}" as="a" hint-placeholder-count="5">
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px"><span style="{{a.dot}}"></span><span style="flex: 1">{{a.txt}}</span><span style="font-weight: 600; font-variant-numeric: tabular-nums">{{a.n}}</span></div>
+</sc-for>
+</div>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: rgba(235,235,245,0.7)">
+<sc-for list="{{ac.notas}}" as="g" hint-placeholder-count="3"><li>{{g.txt}}</li></sc-for>
+</ul>
+</section>
+<section aria-label="{{t.series}}" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><h2 style="margin: 0; font-size: 17px; font-weight: 600">{{t.series}}</h2><span style="font-size: 13px; font-weight: 600; color: #7CC6EE">{{ser.resumo}}</span></div>
+<sc-for list="{{ser.linhas}}" as="s" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 5px">
+<div style="display: flex; justify-content: space-between; gap: 8px; font-size: 13px"><span style="font-weight: 600">{{s.emp}}</span><span style="font-variant-numeric: tabular-nums; color: rgba(235,235,245,0.8)">{{s.conta}}</span></div>
+<div style="height: 8px; border-radius: 4px; background: rgba(255,255,255,0.10); overflow: hidden"><div style="{{s.barra}}"></div></div>
+<span style="font-size: 12px; color: #E0A458">{{s.pend}}</span>
+</div>
+</sc-for>
+</section>
+<section aria-label="{{t.historico}}" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 17px; font-weight: 600">{{t.historico}}</h2>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{hist}}" as="h" hint-placeholder-count="8">
+<div style="display: flex; gap: 12px; font-size: 13px"><span style="flex: 0 0 auto; width: 48px; font-variant-numeric: tabular-nums; color: #7CC6EE">{{h.data}}</span><span style="color: rgba(235,235,245,0.85)">{{h.txt}}</span></div>
+</sc-for>
+</div>
+</section>
+</div>
+</main>
+</div>
+</script>
+<div id="dc-app"></div>
+<script src="data/projectos-digitais.js"></script>
+<script>
+class Component extends DCLogic {
+constructor(props) { super(props); this.state = { f: 'todos' }; }
+renderVals() {
+var self = this, EN = true, D = window.PD || { tarefas: [] };
+var L = function (o) { return o == null ? '' : (typeof o === 'string' ? o : (EN ? o.en : o.pt)); };
+var MES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+var dt = function (iso, ano) { if (!iso || !/^\d{4}-\d\d-\d\d$/.test(iso)) return iso; var p = iso.split('-'); return EN ? (+p[2]) + ' ' + MES[+p[1] - 1] + (ano ? ' ' + p[0] : '') : p[2] + '-' + p[1] + (ano ? '-' + p[0] : ''); };
+var T = EN ? {
+ eyebrow: 'INFORMATION SYSTEMS', badge: 'Live data · updated ' + dt(D.actualizado, true), title: 'Digital projects', sub: 'RTM · Mobility APP and Cegid Evolution ERP Primavera · status, completion and forecasts',
+ filtro: 'Filter', indicadores: 'Indicators', painel: 'Status dashboard', colProj: 'Proj.', colTema: 'Topic', colEstado: 'Status', colExec: 'Completion', colPrev: 'Forecast',
+ vendas: 'Sales go-live · RTM', km30: 'KM30 invoicing go-live', impressoras: 'Thermal receipt printers', fluxo: 'Goods flow SAP → RTM', acessos: 'Access redesign · ERP', series: 'AGT series communication', historico: 'Update log',
+ todos: 'All', est: { concluido: 'Done', definido: 'Defined', curso: 'In progress', previsto: 'Planned', aguarda: 'Awaiting approval', bloqueado: 'Blocked' }, tbc: 'TBC'
+} : {
+ eyebrow: 'SISTEMAS DE INFORMAÇÃO', badge: 'Dados reais · actualizado a ' + dt(D.actualizado, true), title: 'Projectos digitais', sub: 'RTM · APP-Mobilidade e Cegid Evolution ERP Primavera · estado, % de execução e previsões',
+ filtro: 'Filtro', indicadores: 'Indicadores', painel: 'Painel de estado', colProj: 'Proj.', colTema: 'Tema', colEstado: 'Estado', colExec: 'Execução', colPrev: 'Previsão',
+ vendas: 'Arranque das vendas · RTM', km30: 'Arranque da facturação no KM30', impressoras: 'Impressoras térmicas de talões', fluxo: 'Fluxo de mercadoria SAP → RTM', acessos: 'Redefinição de acessos · ERP', series: 'Comunicação de séries à AGT', historico: 'Histórico de actualizações',
+ todos: 'Todos', est: { concluido: 'Concluído', definido: 'Definido', curso: 'Em curso', previsto: 'Previsto', aguarda: 'Aguarda aprovação', bloqueado: 'Bloqueado' }, tbc: 'A definir'
+};
+var COR = { concluido: ['rgba(48,209,88,0.16)', '#5BE07F'], definido: ['rgba(124,198,238,0.16)', '#7CC6EE'], curso: ['rgba(35,151,212,0.20)', '#5FB8E8'], previsto: ['rgba(255,255,255,0.08)', 'rgba(235,235,245,0.75)'], aguarda: ['rgba(201,130,42,0.18)', '#E0A458'], bloqueado: ['rgba(255,105,97,0.16)', '#FF8A84'] };
+var BAR = { concluido: '#30D158', definido: '#7CC6EE', curso: '#2397D4', previsto: '#2397D4', aguarda: '#C9822A', bloqueado: '#FF6961' };
+var pill = function (e) { var c = COR[e] || COR.previsto; return 'display: inline-block; white-space: nowrap; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 99px; background: ' + c[0] + '; color: ' + c[1]; };
+var f = this.state.f;
+var tabs = [['todos', T.todos], ['RTM', 'RTM'], ['ERP', 'ERP']].map(function (x) { var on = f === x[0]; return { label: x[1], on: on, pick: function () { self.setState({ f: x[0] }); }, style: 'border: none; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 10px; ' + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.78)') }; });
+var TA = D.tarefas || [];
+var linhas = TA.filter(function (r) { return f === 'todos' || r.proj === f; }).map(function (r) {
+ var fim = r.estado === 'concluido', p = r.pct, prev = r.prev == null ? T.tbc : (typeof r.prev === 'string' ? dt(r.prev) : L(r.prev));
+ return { proj: r.proj, projCor: r.proj === 'RTM' ? '#7CC6EE' : '#B5A8F0', tema: EN ? r.en : r.pt, temaCor: fim ? 'rgba(235,235,245,0.62)' : '#F5F5F7', estado: T.est[r.estado] || r.estado, pill: pill(r.estado),
+  temBarra: p != null, barra: 'display: block; height: 100%; width: ' + (p || 0) + '%; background: ' + (BAR[r.estado] || '#2397D4') + '; border-radius: 4px',
+  pct: p != null ? p + '%' : L(r.valor), pctCor: p != null ? (COR[r.estado] || COR.curso)[1] : '#7CC6EE', prev: prev, prevCor: r.prev == null ? 'rgba(235,235,245,0.45)' : 'rgba(235,235,245,0.85)' };
+});
+var cont = function (fn) { return TA.filter(fn).length; };
+var comPct = TA.filter(function (r) { return r.pct != null; });
+var media = comPct.length ? Math.round(comPct.reduce(function (a, r) { return a + r.pct; }, 0) / comPct.length) : 0;
+var feitos = cont(function (r) { return r.estado === 'concluido' || r.estado === 'definido'; }), bloq = cont(function (r) { return r.estado === 'bloqueado' || r.estado === 'aguarda'; });
+var V = D.vendas || { rotas: [], aVender: [] }, nv = V.aVender.length, nt = V.rotas.length || 1;
+var cli = (TA.filter(function (r) { return r.valor; })[0] || {}).valor;
+var kpis = [
+ { label: EN ? 'Average completion' : 'Execução média', value: media + '%', note: EN ? 'across ' + comPct.length + ' tracked topics' : 'nos ' + comPct.length + ' temas com medição', cor: '#F5F5F7' },
+ { label: EN ? 'Done or defined' : 'Concluídos ou definidos', value: feitos + ' / ' + TA.length, note: (TA.length - feitos) + (EN ? ' in progress or pending' : ' em curso ou pendentes'), cor: '#5BE07F' },
+ { label: EN ? 'RTM routes selling' : 'Rotas RTM a vender', value: nv + ' / ' + nt, note: (EN ? 'all by ' : 'todas até ') + dt(V.prazo) + (cli ? ' · ' + L(cli) : ''), cor: '#7CC6EE' },
+ { label: EN ? 'Blocked or awaiting' : 'Bloqueados ou a aguardar', value: String(bloq), note: EN ? 'need a decision or input' : 'dependem de decisão ou de terceiros', cor: bloq ? '#FF8A84' : '#5BE07F' }
+];
+var vendas = { resumo: nv + (EN ? ' of ' : ' de ') + nt + (EN ? ' routes' : ' rotas'), nota: (EN ? 'Started ' : 'Início a ') + dt(V.inicio) + (EN ? ' · gradual roll-out · all reps selling through RTM by ' : ' · arranque gradual · todos os vendedores a vender através do RTM até ') + dt(V.prazo),
+ barra: 'height: 100%; width: ' + Math.round(nv / nt * 100) + '%; background: #2397D4; border-radius: 5px',
+ rotas: V.rotas.map(function (c) { var on = V.aVender.indexOf(c) >= 0; return { cod: c, style: 'font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; padding: 5px 10px; border-radius: 10px; ' + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.6); border: 1px dashed rgba(235,235,245,0.3)') }; }),
+ legenda: EN ? 'Filled: route already selling · dashed: still to start' : 'Preenchido: rota já a vender · tracejado: ainda por arrancar' };
+var K = D.km30 || { passos: [], impressoras: [] }, hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+var fimK = K.resolvido ? new Date(K.resolvido) : hoje, dl = new Date(K.deadline), dias = Math.max(0, Math.round((fimK - dl) / 864e5));
+var km = { atraso: dias ? '+' + dias + (EN ? (dias === 1 ? ' day' : ' days') : (dias === 1 ? ' dia' : ' dias')) : (EN ? 'On time' : 'No prazo'), atrasoCor: dias ? '#FF8A84' : '#5BE07F',
+ nota: 'Deadline ' + dt(K.deadline) + (K.resolvido ? (EN ? ' · invoicing since ' : ' · a facturar desde ') + dt(K.resolvido) : ' · ' + L(K.bloqueio)),
+ passos: K.passos.map(function (p) { var c = COR[p.estado] || COR.previsto; return { txt: L(p), cor: p.estado === 'concluido' ? 'rgba(235,235,245,0.62)' : '#F5F5F7', est: T.est[p.estado], estCor: c[1], dot: 'flex: 0 0 auto; width: 10px; height: 10px; border-radius: 50%; background: ' + (BAR[p.estado] || '#888') + (p.estado === 'previsto' ? '; background: transparent; border: 2px solid rgba(235,235,245,0.4); width: 6px; height: 6px' : '') }; }),
+ imp: K.impressoras.map(function (i) { return { loja: i.loja, txt: L(i), style: 'font-size: 12px; padding: 5px 10px; border-radius: 10px; ' + (i.ok ? 'background: rgba(48,209,88,0.14); color: #5BE07F' : 'background: rgba(201,130,42,0.16); color: #E0A458') }; }) };
+var F = D.fluxo || { passos: [], regras: [] };
+var fluxo = { passos: F.passos.map(function (p, i) { return { n: i + 1, sis: L(p), t: L(p.t), d: L(p.d) }; }), regras: F.regras.map(function (g) { return { txt: L(g) }; }) };
+var A = D.acessos || { grupos: [], notas: [] }, at = A.grupos.reduce(function (a, g) { return a + g.n; }, 0) || 1;
+var ac = { resumo: at + (EN ? ' users · as of ' : ' utilizadores · a ') + dt(A.data),
+ grupos: A.grupos.map(function (g) { return { txt: L(g), n: g.n, seg: 'flex: ' + g.n + '; background: ' + g.cor, dot: 'flex: 0 0 auto; width: 10px; height: 10px; border-radius: 3px; background: ' + g.cor }; }),
+ notas: A.notas.map(function (g) { return { txt: L(g) }; }) };
+var S = D.series || [], st = 0, sc = 0;
+S.forEach(function (s) { st += s.total; sc += s.comunicadas; });
+var ser = { resumo: sc + (EN ? ' of ' : ' de ') + st + (st ? ' · ' + Math.round(sc / st * 100) + '%' : ''),
+ linhas: S.map(function (s) { var pend = s.total - s.comunicadas; return { emp: s.emp, conta: s.comunicadas + ' / ' + s.total, barra: 'height: 100%; width: ' + Math.round(s.comunicadas / s.total * 100) + '%; background: ' + (pend ? '#2397D4' : '#30D158') + '; border-radius: 4px', pend: pend ? (EN ? 'Not communicated: ' : 'Por comunicar: ') + L(s.pend) : (EN ? 'All communicated' : 'Todas comunicadas') }; }) };
+var hist = (D.historico || []).map(function (h) { return { data: dt(h.data), txt: L(h) }; });
+var __me = this, __en = EN;
+var __pill = 'display: inline-flex; align-items: center; justify-content: center; text-decoration: none; height: 36px; width: 38px; border: none; border-radius: 10px; font-family: inherit; font-size: 12px; font-weight: 600; cursor: pointer; ';
+return { dkPThref: 'ProjectosDigitais.dc.html', dkENhref: 'ProjectosDigitais_en.dc.html', dkPT: function () { try { window.localStorage.setItem('naval-lang', 'pt'); } catch (e) {} __me.forceUpdate(); }, dkEN: function () { try { window.localStorage.setItem('naval-lang', 'en'); } catch (e) {} __me.forceUpdate(); }, dkPTs: __pill + (__en ? 'background: transparent; color: rgba(235,235,245,0.7)' : 'background: #2397D4; color: #FFFFFF'), dkENs: __pill + (__en ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.7)'), dk: __en ? {home: 'Home', sales: 'Sales', cc: 'Accounts', stock: 'Inventory', exec: 'Executive', ccu: 'Cost centres', forn: 'Suppliers', frota: 'Fleet', colab: 'Human Resources', org: 'Organisation', phone: 'Mobile', out: 'Sign out'} : {home: 'Início', sales: 'Vendas', cc: 'Contas', stock: 'Stock', exec: 'Executivo', ccu: 'Centros de custo', forn: 'Fornecedores', frota: 'Frota', colab: 'Recursos Humanos', org: 'Organização', phone: 'Telemóvel', out: 'Sair'},
+ t: T, tabs: tabs, kpis: kpis, resumo: feitos + (EN ? ' done or defined · ' : ' concluídos ou definidos · ') + (TA.length - feitos) + (EN ? ' in progress or pending' : ' em curso ou pendentes'), linhas: linhas, vendas: vendas, km: km, fluxo: fluxo, ac: ac, ser: ser, hist: hist };
+}
+}
+DC.mount(Component);
+</script>
+</body>
+</html>
