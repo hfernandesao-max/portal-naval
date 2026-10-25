@@ -53,6 +53,10 @@ h1{margin:4px 0 0;font-size:52px;font-weight:600;letter-spacing:-1px;line-height
 .big{font-size:36px;font-weight:600;color:var(--badt)}
 .emp{display:grid;grid-template-columns:110px 1fr 64px;gap:12px;align-items:center;font-size:16px}
 .emp .bar{height:8px}
+.leg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 22px;font-size:15px}
+.leg span{display:flex;align-items:center;gap:9px;color:rgba(235,235,245,0.85)}
+.leg i{flex:0 0 auto;width:10px;height:10px;border-radius:3px}
+.leg b{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums;color:#F5F5F7}
 .hist{display:flex;flex-direction:column;gap:7px;overflow:hidden}
 .hist div{display:flex;gap:14px;font-size:15px;line-height:1.3}
 .hist b{flex:0 0 52px;font-weight:500;color:var(--acc);font-variant-numeric:tabular-nums}
@@ -133,10 +137,11 @@ body.embed .lang{display:none}
        V.rotas.map(function (r) { var on = V.aVender.indexOf(r) >= 0; return '<span style="' + (on ? 'background:#2397D4;color:#fff' : 'color:rgba(235,235,245,0.6);border:1px dashed rgba(235,235,245,0.3)') + '">' + r + '</span>'; }).join('') +
        '</div><span class="small">' + (EN ? 'Gradual roll-out from ' : 'Arranque gradual desde ') + dt(V.inicio) + (nv >= nt ? (EN ? ' · all routes on RTM' : ' · todas as rotas no RTM') : (EN ? ' · all reps on RTM by ' : ' · todos no RTM até ') + dt(V.prazo)) + (V.docs ? ' · ' + esc(L(V.docs)) : '') + '</span></div>';
   h += '<div class="card box" style="flex-direction:row;align-items:center;gap:18px"><span class="big">' + (dias ? '+' + dias + (EN ? ' days' : ' dias') : (EN ? 'On time' : 'No prazo')) + '</span><div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-size:20px;font-weight:600">' + (EN ? 'KM30 invoicing go-live' : 'Arranque da facturação no KM30') + '</h2><span class="small">Deadline ' + dt(K.deadline) + ' · ' + esc(L(K.bloqueio)) + '</span></div></div>';
-  h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'AGT series · ERP access' : 'Séries AGT · acessos ERP') + '</h2><span>' + sc + (EN ? ' of ' : ' de ') + st + ' · ' + Math.round(sc / st * 100) + '%</span></div>' +
+  h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'AGT series communication' : 'Comunicação de séries à AGT') + '</h2><span>' + sc + (EN ? ' of ' : ' de ') + st + ' · ' + Math.round(sc / st * 100) + '%</span></div>' +
        S.map(function (s) { var pend = s.total - s.comunicadas; return '<div class="emp"><span>' + esc(s.emp) + '</span><span class="bar"><i style="width:' + Math.round(s.comunicadas / s.total * 100) + '%;background:' + (pend ? '#2397D4' : '#30D158') + '"></i></span><span style="text-align:right;font-variant-numeric:tabular-nums">' + s.comunicadas + '/' + s.total + '</span></div>'; }).join('') +
-       '<div style="display:flex;height:12px;border-radius:6px;overflow:hidden;margin-top:4px">' + A.grupos.map(function (g) { return '<div style="flex:' + g.n + ';background:' + g.cor + '"></div>'; }).join('') + '</div>' +
-       '<span class="small">' + A.grupos.map(function (g) { return esc(L(g)) + ' ' + g.n; }).join(' · ') + (EN ? ' (of ' : ' (de ') + at + (EN ? ' users)' : ' utilizadores)') + '</span></div>';
+       '<div class="bh" style="margin-top:8px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.08)"><h2>' + (EN ? 'ERP access review' : 'Revisão de acessos ao ERP') + '</h2><span style="font-weight:500;color:var(--mut)">' + at + (EN ? ' users · as of ' : ' utilizadores · a ') + dt(A.data) + '</span></div>' +
+       '<div style="display:flex;height:10px;border-radius:5px;overflow:hidden">' + A.grupos.map(function (g) { return '<div style="flex:' + g.n + ';background:' + g.cor + '"></div>'; }).join('') + '</div>' +
+       '<div class="leg">' + A.grupos.map(function (g) { return '<span><i style="background:' + g.cor + '"></i>' + esc(L(g)) + '<b>' + g.n + '</b></span>'; }).join('') + '</div></div>';
   h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'Latest updates' : 'Últimas actualizações') + '</h2></div><div class="hist">' +
        (D.historico || []).slice(0, 6).map(function (x) { return '<div><b>' + dt(x.data) + '</b><span>' + esc(L(x)) + '</span></div>'; }).join('') + '</div></div>';
   h += '</div></div>';

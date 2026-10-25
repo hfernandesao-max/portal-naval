@@ -62,11 +62,11 @@ window.PD = {
   acessos: {
     data: '2026-10-16',
     grupos: [
-      { pt: 'Manter', en: 'Keep', n: 20, cor: '#2397D4' },
-      { pt: 'Novos (a criar)', en: 'New (to create)', n: 4, cor: '#7CC6EE' },
-      { pt: 'Desactivar', en: 'Deactivate', n: 3, cor: '#FF6961' },
-      { pt: 'A confirmar', en: 'To confirm', n: 5, cor: '#C9822A' },
-      { pt: 'Sem resposta (a bloquear)', en: 'No reply (being blocked)', n: 38, cor: 'rgba(235,235,245,0.22)' }
+      { pt: 'Mantêm o acesso', en: 'Keep access', n: 20, cor: '#2397D4' },
+      { pt: 'Contas novas a criar', en: 'New accounts to create', n: 4, cor: '#7CC6EE' },
+      { pt: 'A desactivar', en: 'To deactivate', n: 3, cor: '#FF6961' },
+      { pt: 'Resposta incompleta', en: 'Incomplete reply', n: 5, cor: '#C9822A' },
+      { pt: 'Sem resposta · a bloquear', en: 'No reply · being blocked', n: 38, cor: 'rgba(235,235,245,0.22)' }
     ],
     notas: [
       { pt: 'Contas desactivadas, não apagadas, para manter o histórico.', en: 'Accounts are deactivated, not deleted, to keep the history.' },
