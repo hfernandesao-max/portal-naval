@@ -2,6 +2,7 @@
    Para actualizar: alterar os valores abaixo. Site público: só nomes autorizados (ex.: equipa do Dubai com acesso ao Pinguim BO); sem e-mails, NIF nem dados de acessos individuais. */
 window.PD = {
   actualizado: '2026-10-25',
+  hora: '19:01', /* hora da última actualização (Luanda) */
 
   /* estado: concluido | definido | curso | previsto | aguarda | bloqueado */
   tarefas: [

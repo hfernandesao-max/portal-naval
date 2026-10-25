@@ -113,7 +113,7 @@ col.c-proj{width:56px}col.c-tema{width:27%}col.c-est{width:150px}col.c-ex{width:
   };
   var h = '';
   h += '<div class="top"><div class="brand"><img src="assets/naval-logo.png" alt="Naval"><div><div class="eyebrow">' + (EN ? 'Digital projects · IT · Summary' : 'Projectos digitais · IT · Resumo') + '</div><h1>' + (EN ? 'Done and pending' : 'Concluído e pendente') + '</h1></div></div>';
-  h += '<div class="meta"><span class="badge">' + (EN ? 'As of ' : 'Actualizado a ') + dt(D.actualizado, true) + '</span><div class="lang"><a href="?lang=pt" data-l="pt"' + (EN ? '' : ' class="on"') + '>PT</a><a href="?lang=en" data-l="en"' + (EN ? ' class="on"' : '') + '>EN</a></div></div></div>';
+  h += '<div class="meta"><span class="badge">' + (EN ? 'As of ' : 'Actualizado a ') + dt(D.actualizado, true) + (D.hora ? (EN ? ' at ' : ', às ') + D.hora : '') + '</span><div class="lang"><a href="?lang=pt" data-l="pt"' + (EN ? '' : ' class="on"') + '>PT</a><a href="?lang=en" data-l="en"' + (EN ? ' class="on"' : '') + '>EN</a></div></div></div>';
   h += '<div class="kpis">' +
     '<div class="card kpi"><span class="v">' + feitos.length + '<small> / ' + TA.length + '</small></span><div><div class="l">' + (EN ? 'Topics completed' : 'Temas concluídos') + '</div><div class="n">' + pend.length + (EN ? ' still in progress or pending' : ' ainda em curso ou pendentes') + '</div></div></div>' +
     '<div class="card kpi"><span class="v">' + V.aVender.length + '<small> / ' + V.rotas.length + '</small></span><div><div class="l">' + (EN ? 'RTM routes selling' : 'Rotas RTM a vender') + '</div><div class="n">' + esc(L(V.docs)) + '</div></div></div>' +

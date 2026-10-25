@@ -289,12 +289,12 @@ var L = function (o) { return o == null ? '' : (typeof o === 'string' ? o : (EN 
 var MES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 var dt = function (iso, ano) { if (!iso || !/^\d{4}-\d\d-\d\d$/.test(iso)) return iso; var p = iso.split('-'); return EN ? (+p[2]) + ' ' + MES[+p[1] - 1] + (ano ? ' ' + p[0] : '') : p[2] + '-' + p[1] + (ano ? '-' + p[0] : ''); };
 var T = EN ? {
- eyebrow: 'INFORMATION SYSTEMS', badge: 'Live data · updated ' + dt(D.actualizado, true), title: 'Digital projects', sub: 'RTM · Mobility APP and Cegid Evolution ERP Primavera · status, completion and forecasts',
+ eyebrow: 'INFORMATION SYSTEMS', badge: 'Live data · updated ' + dt(D.actualizado, true) + (D.hora ? (EN ? ' at ' : ', às ') + D.hora : ''), title: 'Digital projects', sub: 'RTM · Mobility APP and Cegid Evolution ERP Primavera · status, completion and forecasts',
  filtro: 'Filter', indicadores: 'Indicators', painel: 'Status dashboard', colProj: 'Proj.', colTema: 'Topic', colEstado: 'Status', colExec: 'Completion', colPrev: 'Forecast',
  vendas: 'Sales go-live · RTM', km30: 'KM30 invoicing go-live', impressoras: 'Thermal receipt printers', fluxo: 'Goods flow SAP → RTM', acessos: 'Access redesign · ERP', series: 'AGT series communication', historico: 'Update log',
  todos: 'All', est: { concluido: 'Done', definido: 'Defined', curso: 'In progress', previsto: 'Planned', aguarda: 'Waiting', bloqueado: 'Blocked' }, tbc: 'TBC'
 } : {
- eyebrow: 'SISTEMAS DE INFORMAÇÃO', badge: 'Dados reais · actualizado a ' + dt(D.actualizado, true), title: 'Projectos digitais', sub: 'RTM · APP-Mobilidade e Cegid Evolution ERP Primavera · estado, % de execução e previsões',
+ eyebrow: 'SISTEMAS DE INFORMAÇÃO', badge: 'Dados reais · actualizado a ' + dt(D.actualizado, true) + (D.hora ? (EN ? ' at ' : ', às ') + D.hora : ''), title: 'Projectos digitais', sub: 'RTM · APP-Mobilidade e Cegid Evolution ERP Primavera · estado, % de execução e previsões',
  filtro: 'Filtro', indicadores: 'Indicadores', painel: 'Painel de estado', colProj: 'Proj.', colTema: 'Tema', colEstado: 'Estado', colExec: 'Execução', colPrev: 'Previsão',
  vendas: 'Arranque das vendas · RTM', km30: 'Arranque da facturação no KM30', impressoras: 'Impressoras térmicas de talões', fluxo: 'Fluxo de mercadoria SAP → RTM', acessos: 'Redefinição de acessos · ERP', series: 'Comunicação de séries à AGT', historico: 'Histórico de actualizações',
  todos: 'Todos', est: { concluido: 'Concluído', definido: 'Definido', curso: 'Em curso', previsto: 'Previsto', aguarda: 'A aguardar', bloqueado: 'Bloqueado' }, tbc: 'A definir'
