@@ -2,6 +2,7 @@
 <html lang="pt-PT">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projectos digitais · Grupo Naval</title>
 <link rel="icon" href="assets/naval-simbolo.png">
@@ -36,6 +37,7 @@ iframe{flex:1;width:100%;border:0;background:var(--bg)}
 <iframe id="vista" title="Projectos digitais"></iframe>
 <script>
 (function () {
+  var VER = Date.now();
   var V = [
     { id: 'resumo', pt: 'Concluído e pendente', en: 'Done and pending', url: function (l) { return 'concluidos.html?lang=' + l; } },
     { id: 'situacao', pt: 'Ponto de situação', en: 'Status update', url: function (l) { return 'ponto-situacao.html?lang=' + l; } },
@@ -61,6 +63,7 @@ iframe{flex:1;width:100%;border:0;background:var(--bg)}
     });
     document.querySelectorAll('.lang button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-l') === lang); });
     var v = V.filter(function (x) { return x.id === cur; })[0], u = v.url(lang);
+    u += (u.indexOf('?') < 0 ? '?' : '&') + 'v=' + VER;
     if (fr.getAttribute('src') !== u) fr.setAttribute('src', u);
     ab.href = u; ab.textContent = en ? 'Open full screen ↗' : 'Abrir em ecrã inteiro ↗';
   }
