@@ -21,7 +21,7 @@ window.PD = {
     { proj: 'ERP', pt: 'Front-Office KM30 (4 de 6 passos)', en: 'KM30 Front-Office (4 of 6 steps)', estado: 'bloqueado', pct: 67, prev: { pt: 'Logística', en: 'Logistics' } },
     { proj: 'ERP', pt: 'Relatório de GRN pendentes (todas as empresas)', en: 'Outstanding GRN report (all companies)', estado: 'curso', pct: 80, prev: '2026-10-30', det: { pt: 'Desenvolvido, testado e validado; aplicação em todas as empresas esta semana, concluído até 30-10.', en: 'Developed, tested and approved; roll-out to all companies this week, completed by 30 Oct.' } },
     { proj: 'ERP', pt: 'Layout da folha de rosto e da PO no Primavera', en: 'Cover sheet and PO layout in Primavera', estado: 'aguarda', pct: 25, prev: { pt: 'Licença Crystal', en: 'Crystal licence' }, det: { pt: 'Pedido e modelos recebidos (folha de rosto SAP e PO); o ajuste dos layouts só começa depois de receber a licença do Crystal Reports.', en: 'Request and models received (SAP cover sheet and PO); the layout changes start only once the Crystal Reports licence arrives.' } },
-    { proj: 'ERP', pt: 'Redefinição de acessos (27 de 70 tratados)', en: 'Access redesign (27 of 70 handled)', estado: 'curso', pct: 39, prev: '2026-10-16', det: { pt: '20 contas mantêm o acesso, 4 novas a criar (Dubai) e 3 a desactivar; 5 respostas incompletas; 38 sem resposta, a bloquear desde 16-10. 21 perfis por módulo já definidos.', en: '20 accounts keep access, 4 new to create (Dubai) and 3 to deactivate; 5 incomplete replies; 38 with no reply, being blocked since 16 Oct. 21 module profiles already defined.' } }
+    { proj: 'ERP', pt: 'Redefinição de acessos (27 de 70 tratados)', en: 'Access redesign (27 of 70 handled)', estado: 'curso', pct: 39, prev: '2026-10-28', det: { pt: '20 contas mantêm o acesso, 4 novas a criar (Dubai) e 3 a desactivar; 5 respostas incompletas; 38 sem resposta, a bloquear desde 16-10. Conclusão até 28-10.', en: '20 accounts keep access, 4 new to create (Dubai) and 3 to deactivate; 5 incomplete replies; 38 with no reply, being blocked since 16 Oct. To be completed by 28 Oct.' } }
   ],
 
   /* Arranque das vendas: códigos de rota (sem nomes) */
@@ -124,6 +124,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-25', pt: 'Redefinição de acessos ao ERP: conclusão fixada para 28-10.', en: 'ERP access redesign: completion set for 28 Oct.' },
     { data: '2026-10-25', pt: 'Fluxo SAP → RTM: dados das vendas de 20 a 23-10 (73 documentos, 30,5 M Kz) enviados ao Mr. Ashok, consultor SAP, para o ficheiro de importação.', en: 'SAP → RTM flow: 20–23 Oct sales data (73 documents, 30.5 M Kz) sent to Mr Ashok, SAP consultant, for the import file.' },
     { data: '2026-10-25', pt: 'Séries de facturação electrónica comunicadas à AGT em todas as empresas (47 de 47).', en: 'E-invoicing series communicated to the AGT in all companies (47 of 47).' },
     { data: '2026-10-25', pt: 'Layout da folha de rosto e da PO: a aguardar a licença do Crystal Reports para começar o ajuste dos mapas.', en: 'Cover sheet and PO layout: waiting for the Crystal Reports licence to start adjusting the forms.' },
