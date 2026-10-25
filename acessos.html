@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Revisão de acessos ao ERP · Projectos digitais</title>
+<title>Grupo Naval - Projectos Digitais</title>
 <link rel="icon" href="assets/naval-simbolo.png">
 <style>
 :root{--bg:#070B1F;--card:rgba(255,255,255,0.06);--line:rgba(255,255,255,0.12);--tx:#F5F5F7;--mut:rgba(235,235,245,0.62);--acc:#7CC6EE;--blue:#2397D4;--okt:#5BE07F;--warnt:#E0A458;--badt:#FF8A84}
@@ -87,7 +87,7 @@ body.flow .foot{flex-direction:column}
   var MES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var dt = function (iso, ano) { if (!iso || !/^\d{4}-\d\d-\d\d$/.test(iso)) return iso || ''; var x = iso.split('-'); return EN ? (+x[2]) + ' ' + MES[+x[1] - 1] + (ano ? ' ' + x[0] : '') : x[2] + '-' + x[1] + (ano ? '-' + x[0] : ''); };
   document.documentElement.lang = EN ? 'en' : 'pt-PT';
-  document.title = (EN ? 'ERP access review' : 'Revisão de acessos ao ERP') + ' · ' + (EN ? 'Digital projects' : 'Projectos digitais');
+  document.title = EN ? 'Grupo Naval - Digital Projects' : 'Grupo Naval - Projectos Digitais';
   var tot = A.grupos.reduce(function (a, g) { return a + g.n; }, 0) || 1;
   var G = {}; A.grupos.forEach(function (g, i) { G[i] = g; });
   var trat = (G[0] ? G[0].n : 0) + (G[1] ? G[1].n : 0) + (G[2] ? G[2].n : 0);

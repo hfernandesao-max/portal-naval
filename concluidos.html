@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Concluído e pendente · Projectos digitais</title>
+<title>Grupo Naval - Projectos Digitais</title>
 <link rel="icon" href="assets/naval-simbolo.png">
 <style>
 :root{--bg:#070B1F;--card:rgba(255,255,255,0.05);--line:rgba(255,255,255,0.10);--tx:#F5F5F7;--mut:rgba(235,235,245,0.66);--acc:#7CC6EE;--blue:#2397D4}
@@ -82,7 +82,7 @@ col.c-proj{width:56px}col.c-tema{width:27%}col.c-est{width:150px}col.c-ex{width:
   var MES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   var dt = function (iso, ano) { if (!iso || !/^\d{4}-\d\d-\d\d$/.test(iso)) return iso || ''; var x = iso.split('-'); return EN ? (+x[2]) + ' ' + MES[+x[1] - 1] + (ano ? ' ' + x[0] : '') : x[2] + '-' + x[1] + (ano ? '-' + x[0] : ''); };
   document.documentElement.lang = EN ? 'en' : 'pt-PT';
-  document.title = (EN ? 'Done and pending' : 'Concluído e pendente') + ' · ' + (EN ? 'Digital projects' : 'Projectos digitais');
+  document.title = EN ? 'Grupo Naval - Digital Projects' : 'Grupo Naval - Projectos Digitais';
   if (window.self !== window.top) document.body.classList.add('embed');
   var TA = D.ordem ? D.ordem(D.ativos ? D.ativos(D.tarefas) : D.tarefas) : (D.tarefas || []);
   var ARQ = D.arquivados ? D.arquivados(D.tarefas).length : 0;

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ponto de situação · Projectos digitais</title>
+<title>Grupo Naval - Projectos Digitais</title>
 <link rel="icon" href="assets/naval-simbolo.png">
 <style>
 :root{--bg:#070B1F;--card:rgba(255,255,255,0.06);--line:rgba(255,255,255,0.12);--tx:#F5F5F7;--mut:rgba(235,235,245,0.62);--acc:#7CC6EE;--blue:#2397D4;--ok:#30D158;--okt:#5BE07F;--warn:#C9822A;--warnt:#E0A458;--bad:#FF6961;--badt:#FF8A84}
@@ -101,7 +101,7 @@ body.embed .lang{display:none}
   var T = EN ? { eb: 'Digital projects · IT', h1: 'Status update', badge: 'As of ' + dt(D.actualizado, true), est: { concluido: 'Done', definido: 'Defined', curso: 'In progress', previsto: 'Planned', aguarda: 'Waiting', bloqueado: 'Blocked' }, tbc: 'TBC', cols: ['Proj.', 'Topic', 'Status', 'Completion', 'Forecast'] }
                : { eb: 'Projectos digitais · IT', h1: 'Ponto de situação', badge: 'Actualizado a ' + dt(D.actualizado, true), est: { concluido: 'Concluído', definido: 'Definido', curso: 'Em curso', previsto: 'Previsto', aguarda: 'A aguardar', bloqueado: 'Bloqueado' }, tbc: 'A definir', cols: ['Proj.', 'Tema', 'Estado', 'Execução', 'Previsão'] };
   document.documentElement.lang = EN ? 'en' : 'pt-PT';
-  document.title = (EN ? 'Status update' : 'Ponto de situação') + ' · ' + (EN ? 'Digital projects' : 'Projectos digitais');
+  document.title = EN ? 'Grupo Naval - Digital Projects' : 'Grupo Naval - Projectos Digitais';
   var COR = { concluido: ['rgba(48,209,88,0.16)', '#5BE07F', '#30D158'], definido: ['rgba(124,198,238,0.16)', '#7CC6EE', '#7CC6EE'], curso: ['rgba(35,151,212,0.22)', '#5FB8E8', '#2397D4'], previsto: ['rgba(255,255,255,0.08)', 'rgba(235,235,245,0.75)', '#2397D4'], aguarda: ['rgba(201,130,42,0.18)', '#E0A458', '#C9822A'], bloqueado: ['rgba(255,105,97,0.16)', '#FF8A84', '#FF6961'] };
   var TA = D.ordem ? D.ordem(D.ativos ? D.ativos(D.tarefas) : D.tarefas) : (D.tarefas || []);
   var ARQ = D.arquivados ? D.arquivados(D.tarefas).length : 0;
