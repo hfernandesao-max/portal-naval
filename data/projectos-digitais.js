@@ -180,3 +180,11 @@ window.PD.dependencias = function (EN) {
   return window.PD.ordem(window.PD.tarefas).filter(function (t) { return t.estado === 'bloqueado' || t.estado === 'aguarda'; })
     .map(function (t) { return (t.curto ? L(t.curto) : (EN ? t.en : t.pt)) + ' → ' + L(t.prev); });
 };
+/* Estrutura rotativa: os temas concluídos ficam visíveis durante DIAS_CONCLUIDOS dias após a conclusão
+   e depois passam ao arquivo (saem dos painéis, mas continuam no histórico). Os temas novos entram no topo pela ordem de importância. */
+window.PD.DIAS_CONCLUIDOS = 14;
+window.PD._hoje = function () { var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
+window.PD._limite = function () { var d = new Date(); d.setDate(d.getDate() - window.PD.DIAS_CONCLUIDOS); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
+window.PD.arquivado = function (t) { return t.estado === 'concluido' && typeof t.concl === 'string' && t.concl < window.PD._limite(); };
+window.PD.ativos = function (lista) { return (lista || []).filter(function (t) { return !window.PD.arquivado(t); }); };
+window.PD.arquivados = function (lista) { return (lista || []).filter(window.PD.arquivado); };

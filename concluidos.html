@@ -99,7 +99,8 @@ body.flow .col{overflow:visible}body.flow .list{justify-content:flex-start}body.
   var dt = function (iso, ano) { if (!iso || !/^\d{4}-\d\d-\d\d$/.test(iso)) return iso || ''; var x = iso.split('-'); return EN ? (+x[2]) + ' ' + MES[+x[1] - 1] + (ano ? ' ' + x[0] : '') : x[2] + '-' + x[1] + (ano ? '-' + x[0] : ''); };
   document.documentElement.lang = EN ? 'en' : 'pt-PT';
   document.title = (EN ? 'Done and pending' : 'Concluído e pendente') + ' · ' + (EN ? 'Digital projects' : 'Projectos digitais');
-  var TA = D.ordem ? D.ordem(D.tarefas) : (D.tarefas || []);
+  var TA = D.ordem ? D.ordem(D.ativos ? D.ativos(D.tarefas) : D.tarefas) : (D.tarefas || []);
+  var ARQ = D.arquivados ? D.arquivados(D.tarefas).length : 0;
   var feitos = TA.filter(function (r) { return r.estado === 'concluido'; });
   // mais recentes primeiro; sem data no fim
   feitos.sort(function (a, b) { return (b.concl || '0') < (a.concl || '0') ? -1 : (b.concl || '0') > (a.concl || '0') ? 1 : 0; });
@@ -120,7 +121,7 @@ body.flow .col{overflow:visible}body.flow .list{justify-content:flex-start}body.
   var pend = TA.filter(function (r) { return r.estado !== 'concluido'; });
   var tag = function (pj) { return '<span class="tag" style="color:' + (pj === 'RTM' ? '#7CC6EE' : '#B5A8F0') + '">' + pj + '</span>'; };
   h += '<div class="cols">';
-  h += '<div class="card col"><div class="ch"><h2><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#30D158;margin-right:10px;vertical-align:middle"></span>' + (EN ? 'Done' : 'Concluído') + '</h2><span>' + nf + (EN ? ' topics' : ' temas') + '</span></div><div class="list">';
+  h += '<div class="card col"><div class="ch"><h2><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#30D158;margin-right:10px;vertical-align:middle"></span>' + (EN ? 'Done' : 'Concluído') + '</h2><span>' + nf + (EN ? ' topics' : ' temas') + (ARQ ? ' · ' + ARQ + (EN ? ' archived' : (ARQ === 1 ? ' arquivado' : ' arquivados')) : '') + (EN ? ' · last ' : ' · últimos ') + (D.DIAS_CONCLUIDOS || 14) + (EN ? ' days' : ' dias') + '</span></div><div class="list">';
   feitos.forEach(function (r) {
     h += '<div class="it" title="' + esc((EN ? r.en : r.pt) + (r.det ? ' — ' + L(r.det) : '')) + '">' + CK + '<div style="min-width:0"><div class="t">' + tag(r.proj) + esc(EN ? r.en : r.pt) + '</div>' + (r.det ? '<div class="d">' + esc(L(r.det)) + '</div>' : '') + '</div><div class="dt">' + (r.concl ? dt(r.concl) : '') + '</div></div>';
   });
