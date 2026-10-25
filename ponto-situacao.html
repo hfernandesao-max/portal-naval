@@ -147,7 +147,7 @@ body.embed .lang{display:none}
   h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'Latest updates' : 'Últimas actualizações') + '</h2></div><div class="hist">' +
        (D.historico || []).slice(0, 6).map(function (x) { return '<div><b>' + dt(x.data) + '</b><span>' + esc(L(x)) + '</span></div>'; }).join('') + '</div></div>';
   h += '</div></div>';
-  h += '<div class="foot"><span>Grupo Naval Angola · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span style="display:flex;gap:28px"><a href="concluidos.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Done and pending →' : 'Concluído e pendente →') + '</a><a href="' + (EN ? 'ProjectosDigitais_en.dc.html' : 'ProjectosDigitais.dc.html') + '">' + (EN ? 'Full detail in the portal →' : 'Detalhe completo no portal →') + '</a></span></div>';
+  h += '<div class="foot"><span>Grupo Naval · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span style="display:flex;gap:28px"><a href="concluidos.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Done and pending →' : 'Concluído e pendente →') + '</a><a href="' + (EN ? 'ProjectosDigitais_en.dc.html' : 'ProjectosDigitais.dc.html') + '">' + (EN ? 'Full detail in the portal →' : 'Detalhe completo no portal →') + '</a></span></div>';
   var st0 = document.getElementById('stage'); st0.innerHTML = h;
   st0.querySelectorAll('.lang a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('naval-lang', a.getAttribute('data-l')); } catch (e) {} }); });
   if (window.self !== window.top) document.body.classList.add('embed');

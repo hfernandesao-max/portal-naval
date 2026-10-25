@@ -132,7 +132,7 @@ body.flow .col{overflow:visible}body.flow .list{justify-content:flex-start}body.
     h += '<div class="pd" title="' + esc((EN ? r.en : r.pt) + (r.det ? ' — ' + L(r.det) : '')) + '"><div style="min-width:0"><div class="t">' + tag(r.proj) + esc(EN ? r.en : r.pt) + '</div>' + (r.det ? '<div class="d">' + esc(L(r.det)) + '</div>' : '') + '</div><span class="pill" style="background:' + c[0] + ';color:' + c[1] + '">' + esc(EST[r.estado] || r.estado) + '</span><span class="ex">' + ex + '</span><span class="pv" style="color:' + (r.prev == null ? 'rgba(235,235,245,0.45)' : (D.atrasado && D.atrasado(r) ? '#E0A458;font-weight:600' : 'rgba(235,235,245,0.85)')) + '">' + esc(prev) + '</span></div>';
   });
   h += '</div></div></div>';
-  h += '<div class="foot"><span>Grupo Naval Angola · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span><a href="ponto-situacao.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Full status update →' : 'Ponto de situação completo →') + '</a></span></div>';
+  h += '<div class="foot"><span>Grupo Naval · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span><a href="ponto-situacao.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Full status update →' : 'Ponto de situação completo →') + '</a></span></div>';
   var st = document.getElementById('stage'); st.innerHTML = h;
   st.querySelectorAll('.lang a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('naval-lang', a.getAttribute('data-l')); } catch (e) {} }); });
   if (window.self !== window.top) document.body.classList.add('embed');
