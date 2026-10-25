@@ -98,7 +98,7 @@ body.flow .col{overflow:visible}body.flow .list{justify-content:flex-start}body.
   var dt = function (iso, ano) { if (!iso || !/^\d{4}-\d\d-\d\d$/.test(iso)) return iso || ''; var x = iso.split('-'); return EN ? (+x[2]) + ' ' + MES[+x[1] - 1] + (ano ? ' ' + x[0] : '') : x[2] + '-' + x[1] + (ano ? '-' + x[0] : ''); };
   document.documentElement.lang = EN ? 'en' : 'pt-PT';
   document.title = (EN ? 'Done and pending' : 'Concluído e pendente') + ' · ' + (EN ? 'Digital projects' : 'Projectos digitais');
-  var TA = D.tarefas || [];
+  var TA = D.ordem ? D.ordem(D.tarefas) : (D.tarefas || []);
   var feitos = TA.filter(function (r) { return r.estado === 'concluido'; });
   // mais recentes primeiro; sem data no fim
   feitos.sort(function (a, b) { return (b.concl || '0') < (a.concl || '0') ? -1 : (b.concl || '0') > (a.concl || '0') ? 1 : 0; });
@@ -116,7 +116,7 @@ body.flow .col{overflow:visible}body.flow .list{justify-content:flex-start}body.
   var EST = EN ? { definido: 'Defined', curso: 'In progress', previsto: 'Planned', aguarda: 'Awaiting approval', bloqueado: 'Blocked' } : { definido: 'Definido', curso: 'Em curso', previsto: 'Previsto', aguarda: 'Aguarda aprovação', bloqueado: 'Bloqueado' };
   var COR = { definido: ['rgba(124,198,238,0.16)', '#7CC6EE', '#7CC6EE'], curso: ['rgba(35,151,212,0.22)', '#5FB8E8', '#2397D4'], previsto: ['rgba(255,255,255,0.08)', 'rgba(235,235,245,0.75)', '#2397D4'], aguarda: ['rgba(201,130,42,0.18)', '#E0A458', '#C9822A'], bloqueado: ['rgba(255,105,97,0.16)', '#FF8A84', '#FF6961'] };
   var ORD = { bloqueado: 0, aguarda: 1, curso: 2, definido: 3, previsto: 4 };
-  var pend = TA.filter(function (r) { return r.estado !== 'concluido'; }).sort(function (a, b) { return (ORD[a.estado] - ORD[b.estado]) || ((b.pct || 0) - (a.pct || 0)); });
+  var pend = TA.filter(function (r) { return r.estado !== 'concluido'; });
   var tag = function (pj) { return '<span class="tag" style="color:' + (pj === 'RTM' ? '#7CC6EE' : '#B5A8F0') + '">' + pj + '</span>'; };
   h += '<div class="cols">';
   h += '<div class="card col"><div class="ch"><h2 style="color:var(--okt)">' + (EN ? 'Done' : 'Concluído') + '</h2><span>' + nf + (EN ? ' topics' : ' temas') + '</span></div><div class="list">';
@@ -128,7 +128,7 @@ body.flow .col{overflow:visible}body.flow .list{justify-content:flex-start}body.
   pend.forEach(function (r) {
     var c = COR[r.estado] || COR.previsto, prev = r.prev == null ? (EN ? 'TBC' : 'A definir') : (typeof r.prev === 'string' ? dt(r.prev) : L(r.prev));
     var ex = r.pct != null ? '<span class="bar"><i style="width:' + r.pct + '%;background:' + c[2] + '"></i></span><span class="pc" style="color:' + c[1] + '">' + r.pct + '%</span>' : '<span class="pc" style="color:#7CC6EE;text-align:left">' + esc(L(r.valor)) + '</span>';
-    h += '<div class="pd" title="' + esc((EN ? r.en : r.pt) + (r.det ? ' — ' + L(r.det) : '')) + '"><div style="min-width:0"><div class="t">' + tag(r.proj) + esc(EN ? r.en : r.pt) + '</div>' + (r.det ? '<div class="d">' + esc(L(r.det)) + '</div>' : '') + '</div><span class="pill" style="background:' + c[0] + ';color:' + c[1] + '">' + esc(EST[r.estado] || r.estado) + '</span><span class="ex">' + ex + '</span><span class="pv" style="color:' + (r.prev == null ? 'rgba(235,235,245,0.45)' : 'rgba(235,235,245,0.85)') + '">' + esc(prev) + '</span></div>';
+    h += '<div class="pd" title="' + esc((EN ? r.en : r.pt) + (r.det ? ' — ' + L(r.det) : '')) + '"><div style="min-width:0"><div class="t">' + tag(r.proj) + esc(EN ? r.en : r.pt) + '</div>' + (r.det ? '<div class="d">' + esc(L(r.det)) + '</div>' : '') + '</div><span class="pill" style="background:' + c[0] + ';color:' + c[1] + '">' + esc(EST[r.estado] || r.estado) + '</span><span class="ex">' + ex + '</span><span class="pv" style="color:' + (r.prev == null ? 'rgba(235,235,245,0.45)' : (D.atrasado && D.atrasado(r) ? '#E0A458;font-weight:600' : 'rgba(235,235,245,0.85)')) + '">' + esc(prev) + '</span></div>';
   });
   h += '</div></div></div>';
   h += '<div class="foot"><span>Grupo Naval Angola · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span><a href="ponto-situacao.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Full status update →' : 'Ponto de situação completo →') + '</a></span></div>';

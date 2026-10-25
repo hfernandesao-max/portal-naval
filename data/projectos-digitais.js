@@ -99,3 +99,27 @@ window.PD = {
     { data: '2026-10-10', pt: 'KM30: POS configurado e testado.', en: 'KM30: POS configured and tested.' }
   ]
 };
+
+/* Ordem de importância usada em todas as páginas: do mais crítico até aos concluídos.
+   1 bloqueado · 2 aguarda aprovação · 3 prazo já ultrapassado (qualquer estado não concluído)
+   · 4 em curso (prazo mais próximo primeiro; sem data no fim) · 5 previsto · 6 definido · 7 concluído (mais recente primeiro). */
+window.PD.ordem = function (lista) {
+  var R = { bloqueado: 0, aguarda: 1, curso: 3, previsto: 4, definido: 5, concluido: 6 };
+  var hoje = new Date(); var h = hoje.getFullYear() + '-' + ('0' + (hoje.getMonth() + 1)).slice(-2) + '-' + ('0' + hoje.getDate()).slice(-2);
+  var data = function (v) { return typeof v === 'string' && /^\d{4}-\d\d-\d\d$/.test(v) ? v : null; };
+  var rank = function (t) { var r = R[t.estado]; if (r >= 3 && r < 6 && data(t.prev) && data(t.prev) < h) return 2; return r; };
+  return (lista || []).slice().sort(function (a, b) {
+    var d = rank(a) - rank(b); if (d) return d;
+    if (a.estado === 'concluido') { var ca = a.concl || '', cb = b.concl || ''; return ca === cb ? 0 : (ca > cb ? -1 : 1); }
+    var pa = data(a.prev), pb = data(b.prev);
+    if (pa && pb && pa !== pb) return pa < pb ? -1 : 1;
+    if (pa && !pb) return -1; if (pb && !pa) return 1;
+    return (a.pct == null ? 0 : a.pct) - (b.pct == null ? 0 : b.pct);
+  });
+};
+/* Prazo ultrapassado (para destacar a previsão a laranja). */
+window.PD.atrasado = function (t) {
+  if (!t || t.estado === 'concluido' || typeof t.prev !== 'string' || !/^\d{4}-\d\d-\d\d$/.test(t.prev)) return false;
+  var hoje = new Date(); var h = hoje.getFullYear() + '-' + ('0' + (hoje.getMonth() + 1)).slice(-2) + '-' + ('0' + hoje.getDate()).slice(-2);
+  return t.prev < h;
+};

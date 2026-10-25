@@ -304,12 +304,12 @@ var BAR = { concluido: '#30D158', definido: '#7CC6EE', curso: '#2397D4', previst
 var pill = function (e) { var c = COR[e] || COR.previsto; return 'display: inline-block; white-space: nowrap; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 99px; background: ' + c[0] + '; color: ' + c[1]; };
 var f = this.state.f;
 var tabs = [['todos', T.todos], ['RTM', 'RTM'], ['ERP', 'ERP']].map(function (x) { var on = f === x[0]; return { label: x[1], on: on, pick: function () { self.setState({ f: x[0] }); }, style: 'border: none; cursor: pointer; font-family: inherit; font-size: 13px; font-weight: 500; padding: 7px 14px; border-radius: 10px; ' + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.78)') }; });
-var TA = D.tarefas || [];
+var TA = D.ordem ? D.ordem(D.tarefas) : (D.tarefas || []);
 var linhas = TA.filter(function (r) { return f === 'todos' || r.proj === f; }).map(function (r) {
  var fim = r.estado === 'concluido', p = r.pct, prev = r.prev == null ? T.tbc : (typeof r.prev === 'string' ? dt(r.prev) : L(r.prev));
  return { proj: r.proj, projCor: r.proj === 'RTM' ? '#7CC6EE' : '#B5A8F0', tema: EN ? r.en : r.pt, temaCor: fim ? 'rgba(235,235,245,0.62)' : '#F5F5F7', estado: T.est[r.estado] || r.estado, pill: pill(r.estado),
   temBarra: p != null, barra: 'display: block; height: 100%; width: ' + (p || 0) + '%; background: ' + (BAR[r.estado] || '#2397D4') + '; border-radius: 4px',
-  pct: p != null ? p + '%' : L(r.valor), pctCor: p != null ? (COR[r.estado] || COR.curso)[1] : '#7CC6EE', prev: prev, prevCor: r.prev == null ? 'rgba(235,235,245,0.45)' : 'rgba(235,235,245,0.85)' };
+  pct: p != null ? p + '%' : L(r.valor), pctCor: p != null ? (COR[r.estado] || COR.curso)[1] : '#7CC6EE', prev: prev, prevCor: r.prev == null ? 'rgba(235,235,245,0.45)' : (D.atrasado && D.atrasado(r) ? '#E0A458' : 'rgba(235,235,245,0.85)') };
 });
 var cont = function (fn) { return TA.filter(fn).length; };
 var comPct = TA.filter(function (r) { return r.pct != null; });

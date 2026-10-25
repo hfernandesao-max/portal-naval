@@ -98,7 +98,7 @@ body.embed .lang{display:none}
   document.documentElement.lang = EN ? 'en' : 'pt-PT';
   document.title = (EN ? 'Status update' : 'Ponto de situação') + ' · ' + (EN ? 'Digital projects' : 'Projectos digitais');
   var COR = { concluido: ['rgba(48,209,88,0.16)', '#5BE07F', '#30D158'], definido: ['rgba(124,198,238,0.16)', '#7CC6EE', '#7CC6EE'], curso: ['rgba(35,151,212,0.22)', '#5FB8E8', '#2397D4'], previsto: ['rgba(255,255,255,0.08)', 'rgba(235,235,245,0.75)', '#2397D4'], aguarda: ['rgba(201,130,42,0.18)', '#E0A458', '#C9822A'], bloqueado: ['rgba(255,105,97,0.16)', '#FF8A84', '#FF6961'] };
-  var TA = D.tarefas || [];
+  var TA = D.ordem ? D.ordem(D.tarefas) : (D.tarefas || []);
   var comPct = TA.filter(function (r) { return r.pct != null; });
   var media = comPct.length ? Math.round(comPct.reduce(function (a, r) { return a + r.pct; }, 0) / comPct.length) : 0;
   var feitos = TA.filter(function (r) { return r.estado === 'concluido' || r.estado === 'definido'; }).length;
@@ -125,7 +125,7 @@ body.embed .lang{display:none}
     var c = COR[r.estado] || COR.previsto, fim = r.estado === 'concluido';
     var prev = r.prev == null ? T.tbc : (typeof r.prev === 'string' ? dt(r.prev) : L(r.prev));
     var ex = r.pct != null ? '<span class="bar"><i style="width:' + r.pct + '%;background:' + c[2] + '"></i></span><span class="pct" style="color:' + c[1] + '">' + r.pct + '%</span>' : '<span class="pct" style="color:#7CC6EE;text-align:left">' + esc(L(r.valor)) + '</span>';
-    h += '<div class="row"><span class="proj" style="color:' + (r.proj === 'RTM' ? '#7CC6EE' : '#B5A8F0') + '">' + r.proj + '</span><span class="tema" style="color:' + (fim ? 'rgba(235,235,245,0.6)' : '#F5F5F7') + '" title="' + esc(EN ? r.en : r.pt) + '">' + esc(EN ? r.en : r.pt) + '</span><span><span class="pill" style="background:' + c[0] + ';color:' + c[1] + '">' + esc(T.est[r.estado]) + '</span></span><span class="ex">' + ex + '</span><span class="prev" style="color:' + (r.prev == null ? 'rgba(235,235,245,0.45)' : 'rgba(235,235,245,0.85)') + '">' + esc(prev) + '</span></div>';
+    h += '<div class="row"><span class="proj" style="color:' + (r.proj === 'RTM' ? '#7CC6EE' : '#B5A8F0') + '">' + r.proj + '</span><span class="tema" style="color:' + (fim ? 'rgba(235,235,245,0.6)' : '#F5F5F7') + '" title="' + esc(EN ? r.en : r.pt) + '">' + esc(EN ? r.en : r.pt) + '</span><span><span class="pill" style="background:' + c[0] + ';color:' + c[1] + '">' + esc(T.est[r.estado]) + '</span></span><span class="ex">' + ex + '</span><span class="prev" style="color:' + (r.prev == null ? 'rgba(235,235,245,0.45)' : (D.atrasado && D.atrasado(r) ? '#E0A458;font-weight:600' : 'rgba(235,235,245,0.85)')) + '">' + esc(prev) + '</span></div>';
   });
   h += '</div><div class="side">';
   h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'Sales go-live · RTM' : 'Arranque das vendas · RTM') + '</h2><span>' + nv + (EN ? ' of ' : ' de ') + nt + (EN ? ' routes' : ' rotas') + '</span></div><div class="rotas">' +
@@ -137,7 +137,7 @@ body.embed .lang{display:none}
        '<div style="display:flex;height:12px;border-radius:6px;overflow:hidden;margin-top:4px">' + A.grupos.map(function (g) { return '<div style="flex:' + g.n + ';background:' + g.cor + '"></div>'; }).join('') + '</div>' +
        '<span class="small">' + A.grupos.map(function (g) { return esc(L(g)) + ' ' + g.n; }).join(' · ') + (EN ? ' (of ' : ' (de ') + at + (EN ? ' users)' : ' utilizadores)') + '</span></div>';
   h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'Latest updates' : 'Últimas actualizações') + '</h2></div><div class="hist">' +
-       (D.historico || []).slice(0, 3).map(function (x) { return '<div><b>' + dt(x.data) + '</b><span>' + esc(L(x)) + '</span></div>'; }).join('') + '</div></div>';
+       (D.historico || []).slice(0, 6).map(function (x) { return '<div><b>' + dt(x.data) + '</b><span>' + esc(L(x)) + '</span></div>'; }).join('') + '</div></div>';
   h += '</div></div>';
   h += '<div class="foot"><span>Grupo Naval Angola · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span style="display:flex;gap:28px"><a href="concluidos.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Done and pending →' : 'Concluído e pendente →') + '</a><a href="' + (EN ? 'ProjectosDigitais_en.dc.html' : 'ProjectosDigitais.dc.html') + '">' + (EN ? 'Full detail in the portal →' : 'Detalhe completo no portal →') + '</a></span></div>';
   var st0 = document.getElementById('stage'); st0.innerHTML = h;
@@ -148,6 +148,7 @@ body.embed .lang{display:none}
     if (w < 900 || w / hh < 1.1) { document.body.classList.add('flow'); st0.style.transform = ''; return; }
     document.body.classList.remove('flow');
     st0.style.transform = 'scale(' + Math.min(w / 1920, hh / 1080) + ')';
+    var hs = st0.querySelector('.hist'); if (hs) { hs.querySelectorAll('div').forEach(function (d) { d.style.display = ''; }); var it = hs.querySelectorAll(':scope > div'); for (var i = it.length - 1; i > 0 && hs.scrollHeight > hs.clientHeight + 1; i--) it[i].style.display = 'none'; }
   }
   window.addEventListener('resize', fit); fit();
 })();
