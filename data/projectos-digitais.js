@@ -8,7 +8,7 @@ window.PD = {
     { proj: 'RTM', pt: 'Pré-requisitos e formação in loco (11 de 11)', en: 'Prerequisites and on-site training (11 of 11)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-16', det: { pt: 'Os 11 vendedores formados no registo de clientes, com acompanhamento in loco.', en: 'All 11 sales reps trained on customer registration, with on-site follow-up.' } },
     { proj: 'RTM', pt: 'Instalação da APP WinRest (11 de 11 equipamentos)', en: 'WinRest APP installation (11 of 11 devices)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-19', det: { pt: 'APP de vendas instalada nos 11 smartphones das rotas.', en: 'Sales APP installed on the 11 route smartphones.' } },
     { proj: 'RTM', pt: 'Vendas na APP (11 de 11 rotas · só Factura/Recibo)', en: 'Sales on the APP (11 of 11 routes · FR only)', estado: 'concluido', pct: 100, prev: '—', det: { pt: 'Todas as rotas a vender no RTM; nesta fase, só Factura/Recibo.', en: 'All routes selling on RTM; Invoice/Receipt only for now.' } },
-    { proj: 'RTM', pt: 'Registo de clientes na APP', en: 'Customer registration on the APP', estado: 'curso', pct: null, valor: { pt: '≈ 651 clientes', en: '≈ 651 customers' }, prev: '2026-10-16' },
+    { proj: 'RTM', pt: 'Registo de clientes na APP', en: 'Customer registration on the APP', estado: 'curso', pct: null, valor: { pt: '≈ 937 clientes', en: '≈ 937 customers' }, prev: '2026-10-16' },
     { proj: 'RTM', pt: 'Fluxo de mercadoria SAP → RTM (manual)', en: 'Goods flow SAP → RTM (manual)', estado: 'definido', pct: 67, prev: '2026-10-19' },
     { proj: 'RTM', pt: 'Acessos ao Pinguim BO (5 · equipa do Dubai)', en: 'Pinguim BO portal access (5 users · Dubai team)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-25', det: { pt: 'Muzamil Walele, Shanwaz Karani, Atif Zaidi, Mahesh Kumar Anuganti e Rohit Patel.', en: 'Muzamil Walele, Shanwaz Karani, Atif Zaidi, Mahesh Kumar Anuganti and Rohit Patel.' } },
     { proj: 'RTM', pt: 'Lista de artigos e template de carga diária', en: 'Item list and daily load template', estado: 'previsto', pct: 0, prev: '2026-10-19' },
@@ -82,6 +82,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-25', pt: 'Cerca de 937 clientes registados na APP.', en: 'About 937 customers registered on the APP.' },
     { data: '2026-10-25', pt: 'Criação automática de códigos nas empresas concluída (inclui a actualização do câmbio).', en: 'Automatic code creation across companies completed (includes the exchange-rate update).' },
     { data: '2026-10-25', pt: 'Relatório de GRN pendentes desenvolvido, testado e validado; aplicação em todas as empresas esta semana.', en: 'Outstanding GRN report developed, tested and approved; roll-out to all companies this week.' },
     { data: '2026-10-25', pt: 'Portal AGT: acesso criado; APP de leitura em desenvolvimento, conclusão prevista a 30-10.', en: 'AGT portal: access created; reader APP in development, due 30 Oct.' },
