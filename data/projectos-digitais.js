@@ -18,7 +18,7 @@ window.PD = {
     { proj: 'ERP', pt: 'Criação automática de códigos nas empresas', en: 'Automatic code creation across companies', estado: 'curso', pct: 40, prev: null },
     { proj: 'ERP', pt: 'Séries AGT (Cazengo, Yawaba, Inovagate)', en: 'AGT series (Cazengo, Yawaba, Inovagate)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-19', det: { pt: 'Séries criadas e activadas para a facturação digital nas três empresas.', en: 'Series created and activated for digital invoicing in the three companies.' } },
     { proj: 'ERP', pt: 'Módulo de Serviços – Oceano', en: 'Services module – Oceano', estado: 'curso', pct: 60, prev: null },
-    { proj: 'ERP', pt: 'Portal AGT: APP de leitura e relatório de gestão', en: 'AGT portal: reader APP and management report', estado: 'aguarda', pct: 33, prev: { pt: 'Aprovação', en: 'Approval' } },
+    { proj: 'ERP', pt: 'Portal AGT: APP de leitura e relatório de gestão', en: 'AGT portal: reader APP and management report', estado: 'curso', pct: 67, prev: '2026-10-30' },
     { proj: 'ERP', pt: 'Front-Office KM30 (4 de 6 passos)', en: 'KM30 Front-Office (4 of 6 steps)', estado: 'bloqueado', pct: 67, prev: { pt: 'Logística', en: 'Logistics' } },
     { proj: 'ERP', pt: 'Redefinição de acessos (27 de 70 tratados)', en: 'Access redesign (27 of 70 handled)', estado: 'curso', pct: 39, prev: '2026-10-16' }
   ],
@@ -81,6 +81,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-25', pt: 'Portal AGT: acesso criado; APP de leitura em desenvolvimento, conclusão prevista a 30-10.', en: 'AGT portal: access created; reader APP in development, due 30 Oct.' },
     { data: '2026-10-25', pt: 'Todas as 11 rotas a vender no RTM; nesta fase, só vendas com Factura/Recibo.', en: 'All 11 routes selling on RTM; for now, Invoice/Receipt sales only.' },
     { data: '2026-10-25', pt: 'Acessos ao portal Pinguim BO dados a 5 utilizadores da equipa do Dubai.', en: 'Pinguim BO portal access granted to 5 Dubai team users.' },
     { data: '2026-10-19', pt: 'Vendas no RTM iniciadas em 2 rotas; arranque gradual até 21-10.', en: 'RTM sales started on 2 routes; gradual roll-out until 21 Oct.' },
