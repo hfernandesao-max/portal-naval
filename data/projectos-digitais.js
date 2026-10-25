@@ -20,7 +20,7 @@ window.PD = {
     { proj: 'ERP', pt: 'Portal AGT: APP de leitura e relatório de gestão', en: 'AGT portal: reader APP and management report', estado: 'curso', pct: 67, prev: '2026-10-30' },
     { proj: 'ERP', pt: 'Front-Office KM30 (4 de 6 passos)', en: 'KM30 Front-Office (4 of 6 steps)', estado: 'bloqueado', pct: 67, prev: { pt: 'Logística', en: 'Logistics' } },
     { proj: 'ERP', pt: 'Relatório de GRN pendentes (todas as empresas)', en: 'Outstanding GRN report (all companies)', estado: 'curso', pct: 80, prev: '2026-10-30', det: { pt: 'Desenvolvido, testado e validado; aplicação em todas as empresas esta semana, concluído até 30-10.', en: 'Developed, tested and approved; roll-out to all companies this week, completed by 30 Oct.' } },
-    { proj: 'ERP', pt: 'Layout da folha de rosto e da PO no Primavera', en: 'Cover sheet and PO layout in Primavera', estado: 'aguarda', pct: 75, prev: { pt: 'Licença Crystal', en: 'Crystal licence' }, det: { pt: 'Folha de rosto (modelo SAP) e layout da PO tratados; só falta receber a licença do Crystal Reports para fechar.', en: 'Cover sheet (SAP model) and PO layout done; only the Crystal Reports licence is missing to close it.' } },
+    { proj: 'ERP', pt: 'Layout da folha de rosto e da PO no Primavera', en: 'Cover sheet and PO layout in Primavera', estado: 'aguarda', pct: 25, prev: { pt: 'Licença Crystal', en: 'Crystal licence' }, det: { pt: 'Pedido e modelos recebidos (folha de rosto SAP e PO); o ajuste dos layouts só começa depois de receber a licença do Crystal Reports.', en: 'Request and models received (SAP cover sheet and PO); the layout changes start only once the Crystal Reports licence arrives.' } },
     { proj: 'ERP', pt: 'Redefinição de acessos (27 de 70 tratados)', en: 'Access redesign (27 of 70 handled)', estado: 'curso', pct: 39, prev: '2026-10-16' }
   ],
 
@@ -82,7 +82,7 @@ window.PD = {
   ],
 
   historico: [
-    { data: '2026-10-25', pt: 'Layout da folha de rosto e da PO: a aguardar a licença do Crystal Reports para fechar.', en: 'Cover sheet and PO layout: waiting for the Crystal Reports licence to close.' },
+    { data: '2026-10-25', pt: 'Layout da folha de rosto e da PO: a aguardar a licença do Crystal Reports para começar o ajuste dos mapas.', en: 'Cover sheet and PO layout: waiting for the Crystal Reports licence to start adjusting the forms.' },
     { data: '2026-10-25', pt: 'Módulo de Serviços da Oceano liquidado; conclusão prevista a 10-11.', en: 'Oceano Services module paid in full; completion due 10 Nov.' },
     { data: '2026-10-25', pt: 'Registo de clientes passa para a equipa comercial; agrupado com a instalação da APP WinRest.', en: 'Customer registration handed over to the sales team; grouped with the WinRest APP installation.' },
     { data: '2026-10-25', pt: 'Cerca de 937 clientes registados na APP.', en: 'About 937 customers registered on the APP.' },
