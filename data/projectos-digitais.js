@@ -1,7 +1,7 @@
 /* Projectos digitais · dados do ponto de situação (RTM e Cegid Evolution ERP Primavera).
    Para actualizar: alterar os valores abaixo. Sem nomes de pessoas: este site é público. */
 window.PD = {
-  actualizado: '2026-10-19',
+  actualizado: '2026-10-25',
 
   /* estado: concluido | definido | curso | previsto | aguarda | bloqueado */
   tarefas: [
@@ -10,6 +10,7 @@ window.PD = {
     { proj: 'RTM', pt: 'Arranque das vendas na APP (2 de 11 rotas)', en: 'Sales go-live on the APP (2 of 11 routes)', estado: 'curso', pct: 18, prev: '2026-10-21' },
     { proj: 'RTM', pt: 'Registo de clientes na APP', en: 'Customer registration on the APP', estado: 'curso', pct: null, valor: { pt: '≈ 651 clientes', en: '≈ 651 customers' }, prev: '2026-10-16' },
     { proj: 'RTM', pt: 'Fluxo de mercadoria SAP → RTM (manual)', en: 'Goods flow SAP → RTM (manual)', estado: 'definido', pct: 67, prev: '2026-10-19' },
+    { proj: 'RTM', pt: 'Acessos ao portal Pinguim BO (4 utilizadores)', en: 'Pinguim BO portal access (4 users)', estado: 'concluido', pct: 100, prev: '—' },
     { proj: 'RTM', pt: 'Lista de artigos e template de carga diária', en: 'Item list and daily load template', estado: 'previsto', pct: 0, prev: '2026-10-19' },
     { proj: 'ERP', pt: 'Servidor, relatórios Finanças, câmbio e listas', en: 'Server, finance reports, exchange rate, lists', estado: 'concluido', pct: 100, prev: '—' },
     { proj: 'ERP', pt: 'Formação Oceano (2 módulos)', en: 'Oceano training (2 modules)', estado: 'concluido', pct: 100, prev: '—' },
@@ -80,6 +81,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-25', pt: 'Acessos ao portal Pinguim BO dados a 4 utilizadores.', en: 'Pinguim BO portal access granted to 4 users.' },
     { data: '2026-10-19', pt: 'Vendas no RTM iniciadas em 2 rotas; arranque gradual até 21-10.', en: 'RTM sales started on 2 routes; gradual roll-out until 21 Oct.' },
     { data: '2026-10-19', pt: 'Séries AGT criadas e enviadas para comunicação nas três empresas; ajustes às listas V10 concluídos.', en: 'AGT series created and sent for communication in the three companies; V10 list adjustments completed.' },
     { data: '2026-10-19', pt: 'Pagos o Módulo de Serviços da Oceano e os automatismos do Primavera.', en: 'Oceano Services module and Primavera automations paid.' },

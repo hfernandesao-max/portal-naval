@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ponto de situação · Projectos digitais</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+:root{--bg:#070B1F;--card:rgba(255,255,255,0.06);--line:rgba(255,255,255,0.12);--tx:#F5F5F7;--mut:rgba(235,235,245,0.62);--acc:#7CC6EE;--blue:#2397D4;--ok:#30D158;--okt:#5BE07F;--warn:#C9822A;--warnt:#E0A458;--bad:#FF6961;--badt:#FF8A84}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage{width:1920px;height:1080px;flex:0 0 auto;transform-origin:center center;position:relative;padding:56px 72px 48px;display:flex;flex-direction:column;gap:22px;
+ background:radial-gradient(1200px 700px at 85% -10%,rgba(35,151,212,0.22),transparent 60%),radial-gradient(900px 600px at -10% 110%,rgba(123,135,224,0.16),transparent 60%),#070B1F}
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:22px}
+.brand img{height:64px}
+.eyebrow{font-size:18px;letter-spacing:2px;color:var(--acc);text-transform:uppercase}
+h1{margin:4px 0 0;font-size:52px;font-weight:600;letter-spacing:-1px;line-height:1.05}
+.meta{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.badge{font-size:16px;font-weight:600;padding:6px 14px;border-radius:99px;background:rgba(48,209,88,0.14);color:var(--okt);border:1px solid rgba(48,209,88,0.35)}
+.lang{display:flex;gap:2px;padding:3px;border-radius:12px;background:rgba(255,255,255,0.06)}
+.lang a{font-size:15px;font-weight:600;text-decoration:none;color:var(--mut);padding:6px 12px;border-radius:9px}
+.lang a.on{background:var(--blue);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.10)}
+.kpi{padding:16px 22px;display:flex;flex-direction:column;gap:4px}
+.kpi .l{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mut)}
+.kpi .v{font-size:40px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi .n{font-size:16px;color:var(--mut)}
+.main{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:16px}
+.tbl{padding:14px 22px;display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:54px minmax(0,1fr) 180px 200px 104px;gap:14px;align-items:center;padding:0 2px;border-bottom:1px solid rgba(255,255,255,0.07);flex:1;min-height:0}
+.row:last-child{border-bottom:none}
+.row.h{flex:0 0 34px;font-size:13px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(235,235,245,0.5)}
+.proj{font-size:14px;font-weight:700;letter-spacing:.5px}
+.tema{font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pill{display:inline-block;white-space:nowrap;font-size:14px;font-weight:600;padding:3px 12px;border-radius:99px}
+.ex{display:flex;align-items:center;gap:12px}
+.bar{flex:1;height:9px;border-radius:5px;background:rgba(255,255,255,0.10);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:5px}
+.pct{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;min-width:48px;text-align:right}
+.prev{font-size:16px;font-variant-numeric:tabular-nums}
+.side{display:grid;grid-template-rows:auto auto auto 1fr;gap:16px;min-height:0}
+.box{padding:16px 22px;display:flex;flex-direction:column;gap:10px;min-height:0}
+.bh{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.bh h2{margin:0;font-size:20px;font-weight:600}
+.bh span{font-size:16px;font-weight:600;color:var(--acc)}
+.small{font-size:15px;color:var(--mut)}
+.rotas{display:flex;flex-wrap:wrap;gap:7px}
+.rotas span{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;padding:5px 11px;border-radius:10px}
+.big{font-size:36px;font-weight:600;color:var(--badt)}
+.emp{display:grid;grid-template-columns:110px 1fr 64px;gap:12px;align-items:center;font-size:16px}
+.emp .bar{height:8px}
+.hist{display:flex;flex-direction:column;gap:7px;overflow:hidden}
+.hist div{display:flex;gap:14px;font-size:15px;line-height:1.3}
+.hist b{flex:0 0 52px;font-weight:500;color:var(--acc);font-variant-numeric:tabular-nums}
+.foot{display:flex;justify-content:space-between;font-size:15px;color:rgba(235,235,245,0.45)}
+.foot a{color:var(--acc);text-decoration:none}
+/* ecrãs estreitos: sem escala, em coluna */
+body.flow{display:block;overflow:auto}
+body.flow .stage{width:auto;height:auto;transform:none !important;padding:20px 16px 28px;gap:14px}
+body.flow h1{font-size:30px}
+body.flow .brand img{height:40px}
+body.flow .top{flex-wrap:wrap}
+body.flow .meta{align-items:flex-start}
+body.flow .kpis{grid-template-columns:repeat(2,1fr);gap:10px}
+body.flow .kpi .v{font-size:28px}
+body.flow .main{grid-template-columns:minmax(0,1fr)}
+body.flow .row{grid-template-columns:42px minmax(0,1fr) auto;row-gap:6px;padding:9px 0}
+body.flow .row.h{display:none}
+body.flow .tema{white-space:normal;font-size:15px}
+body.flow .row>.ex{grid-column:2/3}
+body.flow .row>.prev{grid-column:3/4;text-align:right;font-size:14px}
+body.flow .side{grid-template-rows:none}
+body.flow .hist{overflow:visible}
+body.flow .pill{white-space:normal;text-align:center;font-size:12px}
+body.flow .big{font-size:28px;white-space:nowrap}
+@media print{body{display:block}.stage{transform:none !important}@page{size:1920px 1080px;margin:0}}
+</style>
+</head>
+<body>
+<div class="stage" id="stage"></div>
+<script src="data/projectos-digitais.js"></script>
+<script>
+(function () {
+  var D = window.PD || { tarefas: [] };
+  var q = new URLSearchParams(location.search), EN;
+  if (q.get('lang')) EN = q.get('lang') === 'en';
+  else { var p = null; try { p = localStorage.getItem('naval-lang'); } catch (e) {} EN = p ? p === 'en' : !/^pt/i.test(navigator.language || 'pt'); }
+  var L = function (o) { return o == null ? '' : (typeof o === 'string' ? o : (EN ? o.en : o.pt)); };
+  var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); };
+  var MES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var dt = function (iso, ano) { if (!iso || !/^\d{4}-\d\d-\d\d$/.test(iso)) return iso; var x = iso.split('-'); return EN ? (+x[2]) + ' ' + MES[+x[1] - 1] + (ano ? ' ' + x[0] : '') : x[2] + '-' + x[1] + (ano ? '-' + x[0] : ''); };
+  var T = EN ? { eb: 'Digital projects · IT', h1: 'Status update', badge: 'As of ' + dt(D.actualizado, true), est: { concluido: 'Done', definido: 'Defined', curso: 'In progress', previsto: 'Planned', aguarda: 'Awaiting approval', bloqueado: 'Blocked' }, tbc: 'TBC', cols: ['Proj.', 'Topic', 'Status', 'Completion', 'Forecast'] }
+               : { eb: 'Projectos digitais · IT', h1: 'Ponto de situação', badge: 'Actualizado a ' + dt(D.actualizado, true), est: { concluido: 'Concluído', definido: 'Definido', curso: 'Em curso', previsto: 'Previsto', aguarda: 'Aguarda aprovação', bloqueado: 'Bloqueado' }, tbc: 'A definir', cols: ['Proj.', 'Tema', 'Estado', 'Execução', 'Previsão'] };
+  document.documentElement.lang = EN ? 'en' : 'pt-PT';
+  document.title = (EN ? 'Status update' : 'Ponto de situação') + ' · ' + (EN ? 'Digital projects' : 'Projectos digitais');
+  var COR = { concluido: ['rgba(48,209,88,0.16)', '#5BE07F', '#30D158'], definido: ['rgba(124,198,238,0.16)', '#7CC6EE', '#7CC6EE'], curso: ['rgba(35,151,212,0.22)', '#5FB8E8', '#2397D4'], previsto: ['rgba(255,255,255,0.08)', 'rgba(235,235,245,0.75)', '#2397D4'], aguarda: ['rgba(201,130,42,0.18)', '#E0A458', '#C9822A'], bloqueado: ['rgba(255,105,97,0.16)', '#FF8A84', '#FF6961'] };
+  var TA = D.tarefas || [];
+  var comPct = TA.filter(function (r) { return r.pct != null; });
+  var media = comPct.length ? Math.round(comPct.reduce(function (a, r) { return a + r.pct; }, 0) / comPct.length) : 0;
+  var feitos = TA.filter(function (r) { return r.estado === 'concluido' || r.estado === 'definido'; }).length;
+  var bloq = TA.filter(function (r) { return r.estado === 'bloqueado' || r.estado === 'aguarda'; }).length;
+  var V = D.vendas || { rotas: [], aVender: [] }, nv = V.aVender.length, nt = V.rotas.length || 1;
+  var cli = (TA.filter(function (r) { return r.valor; })[0] || {}).valor;
+  var K = D.km30 || {}, hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+  var dias = Math.max(0, Math.round(((K.resolvido ? new Date(K.resolvido) : hoje) - new Date(K.deadline)) / 864e5));
+  var S = D.series || [], st = 0, sc = 0; S.forEach(function (s) { st += s.total; sc += s.comunicadas; });
+  var A = D.acessos || { grupos: [] }, at = A.grupos.reduce(function (a, g) { return a + g.n; }, 0) || 1;
+
+  var h = '';
+  h += '<div class="top"><div class="brand"><img src="assets/naval-logo.png" alt="Naval"><div><div class="eyebrow">' + esc(T.eb) + ' · RTM · Cegid Evolution ERP Primavera</div><h1>' + esc(T.h1) + '</h1></div></div>';
+  h += '<div class="meta"><span class="badge">' + esc(T.badge) + '</span><div class="lang"><a href="?lang=pt" data-l="pt"' + (EN ? '' : ' class="on"') + '>PT</a><a href="?lang=en" data-l="en"' + (EN ? ' class="on"' : '') + '>EN</a></div></div></div>';
+  var kp = [
+    [EN ? 'Average completion' : 'Execução média', media + '%', (EN ? 'across ' : 'nos ') + comPct.length + (EN ? ' tracked topics' : ' temas com medição'), '#F5F5F7'],
+    [EN ? 'Done or defined' : 'Concluídos ou definidos', feitos + ' / ' + TA.length, (TA.length - feitos) + (EN ? ' in progress or pending' : ' em curso ou pendentes'), '#5BE07F'],
+    [EN ? 'RTM routes selling' : 'Rotas RTM a vender', nv + ' / ' + nt, (EN ? 'all by ' : 'todas até ') + dt(V.prazo) + (cli ? ' · ' + L(cli) : ''), '#7CC6EE'],
+    [EN ? 'Blocked or awaiting' : 'Bloqueados ou a aguardar', String(bloq), EN ? 'need a decision or input' : 'dependem de decisão ou de terceiros', bloq ? '#FF8A84' : '#5BE07F']
+  ];
+  h += '<div class="kpis">' + kp.map(function (k) { return '<div class="card kpi"><span class="l">' + esc(k[0]) + '</span><span class="v" style="color:' + k[3] + '">' + esc(k[1]) + '</span><span class="n">' + esc(k[2]) + '</span></div>'; }).join('') + '</div>';
+  h += '<div class="main"><div class="card tbl"><div class="row h">' + T.cols.map(function (c) { return '<span>' + c + '</span>'; }).join('') + '</div>';
+  TA.forEach(function (r) {
+    var c = COR[r.estado] || COR.previsto, fim = r.estado === 'concluido';
+    var prev = r.prev == null ? T.tbc : (typeof r.prev === 'string' ? dt(r.prev) : L(r.prev));
+    var ex = r.pct != null ? '<span class="bar"><i style="width:' + r.pct + '%;background:' + c[2] + '"></i></span><span class="pct" style="color:' + c[1] + '">' + r.pct + '%</span>' : '<span class="pct" style="color:#7CC6EE;text-align:left">' + esc(L(r.valor)) + '</span>';
+    h += '<div class="row"><span class="proj" style="color:' + (r.proj === 'RTM' ? '#7CC6EE' : '#B5A8F0') + '">' + r.proj + '</span><span class="tema" style="color:' + (fim ? 'rgba(235,235,245,0.6)' : '#F5F5F7') + '" title="' + esc(EN ? r.en : r.pt) + '">' + esc(EN ? r.en : r.pt) + '</span><span><span class="pill" style="background:' + c[0] + ';color:' + c[1] + '">' + esc(T.est[r.estado]) + '</span></span><span class="ex">' + ex + '</span><span class="prev" style="color:' + (r.prev == null ? 'rgba(235,235,245,0.45)' : 'rgba(235,235,245,0.85)') + '">' + esc(prev) + '</span></div>';
+  });
+  h += '</div><div class="side">';
+  h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'Sales go-live · RTM' : 'Arranque das vendas · RTM') + '</h2><span>' + nv + (EN ? ' of ' : ' de ') + nt + (EN ? ' routes' : ' rotas') + '</span></div><div class="rotas">' +
+       V.rotas.map(function (r) { var on = V.aVender.indexOf(r) >= 0; return '<span style="' + (on ? 'background:#2397D4;color:#fff' : 'color:rgba(235,235,245,0.6);border:1px dashed rgba(235,235,245,0.3)') + '">' + r + '</span>'; }).join('') +
+       '</div><span class="small">' + (EN ? 'Gradual roll-out from ' : 'Arranque gradual desde ') + dt(V.inicio) + (EN ? ' · all reps on RTM by ' : ' · todos no RTM até ') + dt(V.prazo) + '</span></div>';
+  h += '<div class="card box" style="flex-direction:row;align-items:center;gap:18px"><span class="big">' + (dias ? '+' + dias + (EN ? ' days' : ' dias') : (EN ? 'On time' : 'No prazo')) + '</span><div style="display:flex;flex-direction:column;gap:4px"><h2 style="margin:0;font-size:20px;font-weight:600">' + (EN ? 'KM30 invoicing go-live' : 'Arranque da facturação no KM30') + '</h2><span class="small">Deadline ' + dt(K.deadline) + ' · ' + esc(L(K.bloqueio)) + '</span></div></div>';
+  h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'AGT series · ERP access' : 'Séries AGT · acessos ERP') + '</h2><span>' + sc + (EN ? ' of ' : ' de ') + st + ' · ' + Math.round(sc / st * 100) + '%</span></div>' +
+       S.map(function (s) { var pend = s.total - s.comunicadas; return '<div class="emp"><span>' + esc(s.emp) + '</span><span class="bar"><i style="width:' + Math.round(s.comunicadas / s.total * 100) + '%;background:' + (pend ? '#2397D4' : '#30D158') + '"></i></span><span style="text-align:right;font-variant-numeric:tabular-nums">' + s.comunicadas + '/' + s.total + '</span></div>'; }).join('') +
+       '<div style="display:flex;height:12px;border-radius:6px;overflow:hidden;margin-top:4px">' + A.grupos.map(function (g) { return '<div style="flex:' + g.n + ';background:' + g.cor + '"></div>'; }).join('') + '</div>' +
+       '<span class="small">' + A.grupos.map(function (g) { return esc(L(g)) + ' ' + g.n; }).join(' · ') + (EN ? ' (of ' : ' (de ') + at + (EN ? ' users)' : ' utilizadores)') + '</span></div>';
+  h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'Latest updates' : 'Últimas actualizações') + '</h2></div><div class="hist">' +
+       (D.historico || []).slice(0, 3).map(function (x) { return '<div><b>' + dt(x.data) + '</b><span>' + esc(L(x)) + '</span></div>'; }).join('') + '</div></div>';
+  h += '</div></div>';
+  h += '<div class="foot"><span>Grupo Naval Angola · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><a href="' + (EN ? 'ProjectosDigitais_en.dc.html' : 'ProjectosDigitais.dc.html') + '">' + (EN ? 'Full detail in the portal →' : 'Detalhe completo no portal →') + '</a></div>';
+  var st0 = document.getElementById('stage'); st0.innerHTML = h;
+  st0.querySelectorAll('.lang a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('naval-lang', a.getAttribute('data-l')); } catch (e) {} }); });
+  function fit() {
+    var w = window.innerWidth, hh = window.innerHeight;
+    if (w < 900 || w / hh < 1.1) { document.body.classList.add('flow'); st0.style.transform = ''; return; }
+    document.body.classList.remove('flow');
+    st0.style.transform = 'scale(' + Math.min(w / 1920, hh / 1080) + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+})();
+</script>
+</body>
+</html>
