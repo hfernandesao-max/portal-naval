@@ -75,6 +75,48 @@ window.PD = {
     ]
   },
 
+  /* Revisão de acessos ao ERP: análise agregada da matriz (sem nomes: o site é público). Fonte: matriz de 15-10. */
+  acessosAnalise: {
+    fonte: { pt: 'Matriz de acessos Cegid Primavera Evolution V10 · utilizadores a 08-10, actualizada a 15-10', en: 'Cegid Primavera Evolution V10 access matrix · users as of 8 Oct, updated 15 Oct' },
+    empresas: 17,
+    niveis: [
+      { pt: 'Administrador', en: 'Administrator', n: 11, cor: '#FF8A84' },
+      { pt: 'Super', en: 'Super', n: 3, cor: '#E0A458' },
+      { pt: 'Utilizador', en: 'User', n: 52, cor: '#2397D4' },
+      { pt: 'Novo (a criar)', en: 'New (to create)', n: 4, cor: '#7CC6EE' }
+    ],
+    perfis: 21,
+    modulos: [
+      { pt: 'Vendas', en: 'Sales', t: 7, c: 12, s: 2 },
+      { pt: 'Compras', en: 'Purchasing', t: 14, c: 7, s: 0 },
+      { pt: 'Inventário', en: 'Inventory', t: 3, c: 17, s: 1 },
+      { pt: 'Contas Correntes', en: 'Current accounts', t: 15, c: 6, s: 0 },
+      { pt: 'Tesouraria', en: 'Treasury', t: 12, c: 9, s: 0 },
+      { pt: 'Contabilidade', en: 'Accounting', t: 14, c: 7, s: 0 },
+      { pt: 'Contab. de Gestão', en: 'Management accounting', t: 14, c: 7, s: 0 },
+      { pt: 'Equipamentos e Activos', en: 'Fixed assets', t: 13, c: 8, s: 0 },
+      { pt: 'Contactos e Oportunidades', en: 'Contacts & opportunities', t: 3, c: 8, s: 10 },
+      { pt: 'Retalho / POS', en: 'Retail / POS', t: 10, c: 6, s: 5 }
+    ],
+    credito: { sim: 11, total: 21 },
+    riscos: [
+      { nivel: 'alto', pt: '4 contas de Administrador sem resposta: confirmar ou bloquear primeiro.', en: '4 Administrator accounts with no reply: confirm or block first.' },
+      { nivel: 'alto', pt: '1 conta de Administrador de ex-colaborador ainda activa: desactivar já.', en: '1 Administrator account of a former employee still active: deactivate now.' },
+      { nivel: 'alto', pt: '2 Administradores com resposta incompleta; um deles deve ter apenas consulta.', en: '2 Administrators with an incomplete reply; one should have read-only access.' },
+      { nivel: 'medio', pt: '11 de 21 perfis podem emitir documentos de crédito (NC, NCA, NCO, PDV, DV): rever, a regra é «Não».', en: '11 of 21 profiles may issue credit documents (NC, NCA, NCO, PDV, DV): review, the default is "No".' },
+      { nivel: 'medio', pt: '6 contas genéricas (Extra, Refresh, Sales…) sem utilizador identificado.', en: '6 shared accounts (Extra, Refresh, Sales…) with no identified user.' },
+      { nivel: 'medio', pt: '2 contas do fornecedor com nível Super: limitar ao período de implementação.', en: '2 vendor accounts with Super level: limit to the implementation period.' },
+      { nivel: 'baixo', pt: '3 contas novas sem e-mail e 5 e-mails com domínio ou grafia a corrigir.', en: '3 new accounts with no e-mail and 5 e-mails with a domain or spelling to fix.' }
+    ],
+    passos: [
+      { pt: 'Bloquear as 35 contas de utilizadores sem resposta; as 3 contas Super, de gestão do ERP, ficam de fora.', en: 'Block the 35 user accounts with no reply; the 3 Super accounts, used to manage the ERP, are excluded.' },
+      { pt: 'Desactivar 2 ex-colaboradores já e 1 a 01-11, sem apagar as contas.', en: 'Deactivate 2 former employees now and 1 on 1 Nov, without deleting the accounts.' },
+      { pt: 'Criar as 4 contas da equipa do Dubai, com acesso remoto.', en: 'Create the 4 Dubai team accounts, with remote access.' },
+      { pt: 'Fechar as 5 respostas incompletas com os responsáveis.', en: 'Close the 5 incomplete replies with the managers.' },
+      { pt: 'Aplicar os 21 perfis por módulo e reservar o nível Administrador a quem gere o ERP.', en: 'Apply the 21 module profiles and keep the Administrator level for ERP managers only.' }
+    ]
+  },
+
   series: [
     { emp: 'Cazengo', total: 14, comunicadas: 14, pend: null },
     { emp: 'Yawaba', total: 14, comunicadas: 14, pend: null },

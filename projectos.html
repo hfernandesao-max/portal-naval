@@ -41,6 +41,7 @@ iframe{flex:1;width:100%;border:0;background:var(--bg)}
   var V = [
     { id: 'resumo', pt: 'Concluído e pendente', en: 'Done and pending', url: function (l) { return 'concluidos.html?lang=' + l; } },
     { id: 'situacao', pt: 'Ponto de situação', en: 'Status update', url: function (l) { return 'ponto-situacao.html?lang=' + l; } },
+    { id: 'acessos', pt: 'Acessos ERP', en: 'ERP access', url: function (l) { return 'acessos.html?lang=' + l; } },
     { id: 'detalhe', pt: 'Detalhe e histórico', en: 'Detail and log', url: function (l) { return l === 'en' ? 'ProjectosDigitais_en.dc.html' : 'ProjectosDigitais.dc.html'; } }
   ];
   var q = new URLSearchParams(location.search), lang = q.get('lang');
