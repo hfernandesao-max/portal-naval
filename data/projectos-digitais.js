@@ -20,7 +20,7 @@ window.PD = {
     { proj: 'ERP', pt: 'Módulo de Serviços – Oceano', en: 'Services module – Oceano', estado: 'curso', pct: 60, prev: null },
     { proj: 'ERP', pt: 'Portal AGT: APP de leitura e relatório de gestão', en: 'AGT portal: reader APP and management report', estado: 'curso', pct: 67, prev: '2026-10-30' },
     { proj: 'ERP', pt: 'Front-Office KM30 (4 de 6 passos)', en: 'KM30 Front-Office (4 of 6 steps)', estado: 'bloqueado', pct: 67, prev: { pt: 'Logística', en: 'Logistics' } },
-    { proj: 'ERP', pt: 'Relatório de GRN pendentes (todas as empresas)', en: 'Outstanding GRN report (all companies)', estado: 'curso', pct: 80, prev: '2026-10-30' },
+    { proj: 'ERP', pt: 'Relatório de GRN pendentes (todas as empresas)', en: 'Outstanding GRN report (all companies)', estado: 'curso', pct: 80, prev: '2026-10-30', det: { pt: 'Desenvolvido, testado e validado; aplicação em todas as empresas esta semana, concluído até 30-10.', en: 'Developed, tested and approved; roll-out to all companies this week, completed by 30 Oct.' } },
     { proj: 'ERP', pt: 'Redefinição de acessos (27 de 70 tratados)', en: 'Access redesign (27 of 70 handled)', estado: 'curso', pct: 39, prev: '2026-10-16' }
   ],
 
