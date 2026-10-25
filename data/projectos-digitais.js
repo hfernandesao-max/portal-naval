@@ -7,7 +7,7 @@ window.PD = {
   tarefas: [
     { proj: 'RTM', pt: 'Pré-requisitos e formação in loco (11 de 11)', en: 'Prerequisites and on-site training (11 of 11)', estado: 'concluido', pct: 100, prev: '—' },
     { proj: 'RTM', pt: 'Instalação da APP WinRest (11 de 11 equipamentos)', en: 'WinRest APP installation (11 of 11 devices)', estado: 'concluido', pct: 100, prev: '—' },
-    { proj: 'RTM', pt: 'Vendas na APP (11 de 11 rotas · só Factura/Recibo)', en: 'Sales on the APP (11 of 11 routes · Invoice/Receipt only)', estado: 'concluido', pct: 100, prev: '—' },
+    { proj: 'RTM', pt: 'Vendas na APP (11 de 11 rotas · só Factura/Recibo)', en: 'Sales on the APP (11 of 11 routes · FR only)', estado: 'concluido', pct: 100, prev: '—' },
     { proj: 'RTM', pt: 'Registo de clientes na APP', en: 'Customer registration on the APP', estado: 'curso', pct: null, valor: { pt: '≈ 651 clientes', en: '≈ 651 customers' }, prev: '2026-10-16' },
     { proj: 'RTM', pt: 'Fluxo de mercadoria SAP → RTM (manual)', en: 'Goods flow SAP → RTM (manual)', estado: 'definido', pct: 67, prev: '2026-10-19' },
     { proj: 'RTM', pt: 'Acessos ao portal Pinguim BO (4 utilizadores)', en: 'Pinguim BO portal access (4 users)', estado: 'concluido', pct: 100, prev: '—' },
