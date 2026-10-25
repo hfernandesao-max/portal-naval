@@ -15,7 +15,7 @@ window.PD = {
     { proj: 'ERP', pt: 'Formação Oceano (2 módulos)', en: 'Oceano training (2 modules)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-12', det: { pt: 'Logística e Compras; Contactos e Oportunidades.', en: 'Logistics and Purchasing; Contacts and Opportunities.' } },
     { proj: 'ERP', pt: 'Ajustes às listas V10', en: 'V10 list adjustments', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-19', det: { pt: 'Global Sales List, Global Stock e novas listas.', en: 'Global Sales List, Global Stock and new lists.' } },
     { proj: 'ERP', pt: 'Criação automática de códigos nas empresas', en: 'Automatic code creation across companies', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-25', det: { pt: 'Ao criar clientes, fornecedores, artigos ou contas do plano de contas, abre-os em todas as outras empresas; inclui a actualização do câmbio.', en: 'When customers, suppliers, items or chart-of-accounts accounts are created, they are opened in all other companies; includes the exchange-rate update.' } },
-    { proj: 'ERP', pt: 'Séries AGT (Cazengo, Yawaba, Inovagate)', en: 'AGT series (Cazengo, Yawaba, Inovagate)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-19', det: { pt: 'Séries criadas e activadas para a facturação digital nas três empresas.', en: 'Series created and activated for digital invoicing in the three companies.' } },
+    { proj: 'ERP', pt: 'Séries AGT (Cazengo, Yawaba, Inovagate)', en: 'AGT series (Cazengo, Yawaba, Inovagate)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-19', det: { pt: 'Séries criadas, activadas e comunicadas à AGT nas três empresas (47 de 47).', en: 'Series created, activated and communicated to the AGT in the three companies (47 of 47).' } },
     { proj: 'ERP', pt: 'Módulo de Serviços – Oceano (10 utilizadores)', en: 'Services module – Oceano (10 users)', estado: 'curso', pct: 60, prev: '2026-11-10', det: { pt: 'Evolution Serviços Técnicos para 10 utilizadores, já liquidado; faltam a implementação (10 dias) e a formação nas instalações, em português (5 dias).', en: 'Evolution Technical Services for 10 users, paid in full; implementation (10 days) and on-site training in Portuguese (5 days) pending.' } },
     { proj: 'ERP', pt: 'Portal AGT: APP de leitura e relatório de gestão', en: 'AGT portal: reader APP and management report', estado: 'curso', pct: 67, prev: '2026-10-30' },
     { proj: 'ERP', pt: 'Front-Office KM30 (4 de 6 passos)', en: 'KM30 Front-Office (4 of 6 steps)', estado: 'bloqueado', pct: 67, prev: { pt: 'Logística', en: 'Logistics' } },
@@ -76,12 +76,13 @@ window.PD = {
   },
 
   series: [
-    { emp: 'Cazengo', total: 14, comunicadas: 13, pend: { pt: 'VD', en: 'VD' } },
-    { emp: 'Yawaba', total: 14, comunicadas: 10, pend: { pt: 'FI, FM, ND, VD (erro E99: estabelecimento A)', en: 'FI, FM, ND, VD (error E99: establishment A)' } },
-    { emp: 'Inovagate', total: 19, comunicadas: 18, pend: { pt: 'VD', en: 'VD' } }
+    { emp: 'Cazengo', total: 14, comunicadas: 14, pend: null },
+    { emp: 'Yawaba', total: 14, comunicadas: 14, pend: null },
+    { emp: 'Inovagate', total: 19, comunicadas: 19, pend: null }
   ],
 
   historico: [
+    { data: '2026-10-25', pt: 'Séries de facturação electrónica comunicadas à AGT em todas as empresas (47 de 47).', en: 'E-invoicing series communicated to the AGT in all companies (47 of 47).' },
     { data: '2026-10-25', pt: 'Layout da folha de rosto e da PO: a aguardar a licença do Crystal Reports para começar o ajuste dos mapas.', en: 'Cover sheet and PO layout: waiting for the Crystal Reports licence to start adjusting the forms.' },
     { data: '2026-10-25', pt: 'Módulo de Serviços da Oceano liquidado; conclusão prevista a 10-11.', en: 'Oceano Services module paid in full; completion due 10 Nov.' },
     { data: '2026-10-25', pt: 'Registo de clientes passa para a equipa comercial; agrupado com a instalação da APP WinRest.', en: 'Customer registration handed over to the sales team; grouped with the WinRest APP installation.' },
