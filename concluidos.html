@@ -29,7 +29,7 @@ h1{margin:4px 0 0;font-size:52px;font-weight:600;letter-spacing:-1px;line-height
 .kpi .l{font-size:18px;font-weight:600}
 .kpi .n{font-size:15px;color:var(--mut)}
 .cols{flex:1;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.col{padding:20px 24px;display:flex;flex-direction:column;gap:6px;min-height:0}
+.col{padding:20px 24px;display:flex;flex-direction:column;gap:6px;min-height:0;overflow-y:auto}
 .ch{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.08)}
 .ch h2{margin:0;font-size:24px;font-weight:600}
 .ch span{font-size:16px;color:var(--mut)}
@@ -37,11 +37,11 @@ h1{margin:4px 0 0;font-size:52px;font-weight:600;letter-spacing:-1px;line-height
 .it:last-child{border-bottom:none}
 .ck{width:28px;height:28px;border-radius:50%;background:rgba(48,209,88,0.18);display:flex;align-items:center;justify-content:center;margin-top:1px}
 .ck svg{width:16px;height:16px;color:var(--okt)}
-.t{font-size:20px;font-weight:500;line-height:1.3}
-.d{font-size:16px;color:var(--mut);line-height:1.35;margin-top:3px}
+.t{font-size:19px;font-weight:500;line-height:1.25}
+.d{font-size:15px;color:var(--mut);line-height:1.3;margin-top:2px}
 .dt{font-size:17px;font-variant-numeric:tabular-nums;color:var(--acc);text-align:right;padding-top:2px}
 /* pendentes */
-.pd{display:grid;grid-template-columns:minmax(0,1fr) 168px 136px 96px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.pd{display:grid;grid-template-columns:minmax(0,1fr) 168px 136px 96px;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
 .pd:last-child{border-bottom:none}
 .pill{display:inline-block;white-space:nowrap;font-size:14px;font-weight:600;padding:3px 11px;border-radius:99px;justify-self:start}
 .ex{display:flex;align-items:center;gap:10px}
@@ -50,7 +50,7 @@ h1{margin:4px 0 0;font-size:52px;font-weight:600;letter-spacing:-1px;line-height
 .pc{font-size:16px;font-weight:600;font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
 .pv{font-size:16px;font-variant-numeric:tabular-nums;text-align:right}
 .tag{font-size:12px;font-weight:700;letter-spacing:.5px;margin-right:8px}
-.it{padding:9px 0}
+.it{padding:7px 0}
 .sub{font-size:15px;color:var(--mut);margin:8px 0 0}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .chips span{font-size:14px;padding:4px 10px;border-radius:10px;background:rgba(48,209,88,0.12);color:var(--okt)}
@@ -79,7 +79,7 @@ body.embed .lang{display:none}
 </head>
 <body>
 <div class="stage" id="stage"></div>
-<script src="data/projectos-digitais.js"></script>
+<script>document.write('<script src="data/projectos-digitais.js?t=' + Date.now() + '"><\/script>');</script>
 <script>
 (function () {
   var D = window.PD || { tarefas: [] };
