@@ -84,7 +84,7 @@ window.PD = {
   historico: [
     { data: '2026-10-25', pt: 'Cerca de 937 clientes registados na APP.', en: 'About 937 customers registered on the APP.' },
     { data: '2026-10-25', pt: 'Criação automática de códigos nas empresas concluída (inclui a actualização do câmbio).', en: 'Automatic code creation across companies completed (includes the exchange-rate update).' },
-    { data: '2026-10-25', pt: 'Relatório de GRN pendentes desenvolvido, testado e validado; aplicação em todas as empresas esta semana.', en: 'Outstanding GRN report developed, tested and approved; roll-out to all companies this week.' },
+    { data: '2026-10-25', pt: 'Relatório de GRN pendentes desenvolvido, testado e validado; aplicação em todas as empresas esta semana, concluído até 30-10-2026.', en: 'Outstanding GRN report developed, tested and approved; roll-out to all companies this week, completed by 30 Oct 2026.' },
     { data: '2026-10-25', pt: 'Portal AGT: acesso criado; APP de leitura em desenvolvimento, conclusão prevista a 30-10.', en: 'AGT portal: access created; reader APP in development, due 30 Oct.' },
     { data: '2026-10-25', pt: 'Todas as 11 rotas a vender no RTM; nesta fase, só vendas com Factura/Recibo.', en: 'All 11 routes selling on RTM; for now, Invoice/Receipt sales only.' },
     { data: '2026-10-25', pt: 'Acessos ao portal Pinguim BO dados a 5 utilizadores da equipa do Dubai.', en: 'Pinguim BO portal access granted to 5 Dubai team users.' },
