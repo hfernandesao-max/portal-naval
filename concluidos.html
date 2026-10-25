@@ -41,7 +41,7 @@ h1{margin:4px 0 0;font-size:52px;font-weight:600;letter-spacing:-1px;line-height
 .d{font-size:16px;color:var(--mut);line-height:1.35;margin-top:3px}
 .dt{font-size:17px;font-variant-numeric:tabular-nums;color:var(--acc);text-align:right;padding-top:2px}
 /* pendentes */
-.pd{display:grid;grid-template-columns:minmax(0,1fr) 168px 136px 96px;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.pd{display:grid;grid-template-columns:minmax(0,1fr) 168px 136px 96px;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
 .pd:last-child{border-bottom:none}
 .pill{display:inline-block;white-space:nowrap;font-size:14px;font-weight:600;padding:3px 11px;border-radius:99px;justify-self:start}
 .ex{display:flex;align-items:center;gap:10px}
@@ -122,7 +122,7 @@ body.embed .lang{display:none}
   pend.forEach(function (r) {
     var c = COR[r.estado] || COR.previsto, prev = r.prev == null ? (EN ? 'TBC' : 'A definir') : (typeof r.prev === 'string' ? dt(r.prev) : L(r.prev));
     var ex = r.pct != null ? '<span class="bar"><i style="width:' + r.pct + '%;background:' + c[2] + '"></i></span><span class="pc" style="color:' + c[1] + '">' + r.pct + '%</span>' : '<span class="pc" style="color:#7CC6EE;text-align:left">' + esc(L(r.valor)) + '</span>';
-    h += '<div class="pd"><div class="t">' + tag(r.proj) + esc(EN ? r.en : r.pt) + '</div><span class="pill" style="background:' + c[0] + ';color:' + c[1] + '">' + esc(EST[r.estado] || r.estado) + '</span><span class="ex">' + ex + '</span><span class="pv" style="color:' + (r.prev == null ? 'rgba(235,235,245,0.45)' : 'rgba(235,235,245,0.85)') + '">' + esc(prev) + '</span></div>';
+    h += '<div class="pd"><div><div class="t">' + tag(r.proj) + esc(EN ? r.en : r.pt) + '</div>' + (r.det ? '<div class="d">' + esc(L(r.det)) + '</div>' : '') + '</div><span class="pill" style="background:' + c[0] + ';color:' + c[1] + '">' + esc(EST[r.estado] || r.estado) + '</span><span class="ex">' + ex + '</span><span class="pv" style="color:' + (r.prev == null ? 'rgba(235,235,245,0.45)' : 'rgba(235,235,245,0.85)') + '">' + esc(prev) + '</span></div>';
   });
   h += '</div></div>';
   h += '<div class="foot"><span>Grupo Naval Angola · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span><a href="ponto-situacao.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Full status update →' : 'Ponto de situação completo →') + '</a></span></div>';
