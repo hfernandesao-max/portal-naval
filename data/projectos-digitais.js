@@ -1,5 +1,5 @@
 /* Projectos digitais · dados do ponto de situação (RTM e Cegid Evolution ERP Primavera).
-   Para actualizar: alterar os valores abaixo. Sem nomes de pessoas: este site é público. */
+   Para actualizar: alterar os valores abaixo. Site público: só nomes autorizados (ex.: equipa do Dubai com acesso ao Pinguim BO); sem e-mails, NIF nem dados de acessos individuais. */
 window.PD = {
   actualizado: '2026-10-25',
 
@@ -10,7 +10,7 @@ window.PD = {
     { proj: 'RTM', pt: 'Vendas na APP (11 de 11 rotas · só Factura/Recibo)', en: 'Sales on the APP (11 of 11 routes · FR only)', estado: 'concluido', pct: 100, prev: '—', det: { pt: 'Todas as rotas a vender no RTM; nesta fase, só Factura/Recibo.', en: 'All routes selling on RTM; Invoice/Receipt only for now.' } },
     { proj: 'RTM', pt: 'Registo de clientes na APP', en: 'Customer registration on the APP', estado: 'curso', pct: null, valor: { pt: '≈ 651 clientes', en: '≈ 651 customers' }, prev: '2026-10-16' },
     { proj: 'RTM', pt: 'Fluxo de mercadoria SAP → RTM (manual)', en: 'Goods flow SAP → RTM (manual)', estado: 'definido', pct: 67, prev: '2026-10-19' },
-    { proj: 'RTM', pt: 'Acessos ao portal Pinguim BO (4 utilizadores)', en: 'Pinguim BO portal access (4 users)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-25', det: { pt: 'Acesso ao back office do RTM para acompanhar as vendas.', en: 'Access to the RTM back office to follow sales.' } },
+    { proj: 'RTM', pt: 'Acessos ao portal Pinguim BO (5 utilizadores · equipa do Dubai)', en: 'Pinguim BO portal access (5 users · Dubai team)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-25', det: { pt: 'Muzamil Walele, Shanwaz Karani, Atif Zaidi, Mahesh Kumar Anuganti e Rohit Patel.', en: 'Muzamil Walele, Shanwaz Karani, Atif Zaidi, Mahesh Kumar Anuganti and Rohit Patel.' } },
     { proj: 'RTM', pt: 'Lista de artigos e template de carga diária', en: 'Item list and daily load template', estado: 'previsto', pct: 0, prev: '2026-10-19' },
     { proj: 'ERP', pt: 'Servidor, relatórios Finanças, câmbio e listas', en: 'Server, finance reports, exchange rate, lists', estado: 'concluido', pct: 100, prev: '—', det: { pt: 'Relatório técnico do servidor antigo, relatórios Bank, Supplier e Customer, câmbio de 01-10 e listas migradas para a V10.', en: 'Old server technical report, Bank, Supplier and Customer reports, 1 Oct exchange rate and lists migrated to V10.' } },
     { proj: 'ERP', pt: 'Formação Oceano (2 módulos)', en: 'Oceano training (2 modules)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-12', det: { pt: 'Logística e Compras; Contactos e Oportunidades.', en: 'Logistics and Purchasing; Contacts and Opportunities.' } },
@@ -82,7 +82,7 @@ window.PD = {
 
   historico: [
     { data: '2026-10-25', pt: 'Todas as 11 rotas a vender no RTM; nesta fase, só vendas com Factura/Recibo.', en: 'All 11 routes selling on RTM; for now, Invoice/Receipt sales only.' },
-    { data: '2026-10-25', pt: 'Acessos ao portal Pinguim BO dados a 4 utilizadores.', en: 'Pinguim BO portal access granted to 4 users.' },
+    { data: '2026-10-25', pt: 'Acessos ao portal Pinguim BO dados a 5 utilizadores da equipa do Dubai.', en: 'Pinguim BO portal access granted to 5 Dubai team users.' },
     { data: '2026-10-19', pt: 'Vendas no RTM iniciadas em 2 rotas; arranque gradual até 21-10.', en: 'RTM sales started on 2 routes; gradual roll-out until 21 Oct.' },
     { data: '2026-10-19', pt: 'Séries AGT criadas e enviadas para comunicação nas três empresas; ajustes às listas V10 concluídos.', en: 'AGT series created and sent for communication in the three companies; V10 list adjustments completed.' },
     { data: '2026-10-19', pt: 'Pagos o Módulo de Serviços da Oceano e os automatismos do Primavera.', en: 'Oceano Services module and Primavera automations paid.' },
