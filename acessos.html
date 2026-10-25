@@ -24,6 +24,18 @@ h1{margin:4px 0 0;font-size:52px;font-weight:600;letter-spacing:-1px;line-height
 .lang a{font-size:15px;font-weight:600;text-decoration:none;color:var(--mut);padding:6px 12px;border-radius:9px}
 .lang a.on{background:var(--blue);color:#fff}
 body.embed .lang{display:none}
+.xbtn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:15px;font-weight:600;color:#fff;background:#3C79BE;border:1px solid rgba(156,196,234,0.5);border-radius:11px;padding:8px 14px;cursor:pointer}
+.xbtn:hover{background:#2F68A8}.xbtn svg{width:17px;height:17px}
+.mrow{display:flex;align-items:center;gap:10px}
+#xm{position:fixed;inset:0;background:rgba(3,6,20,0.72);display:none;align-items:center;justify-content:center;z-index:50;font-family:inherit}
+#xm.on{display:flex}
+#xm .dlg{width:min(440px,calc(100vw - 32px));background:#121A36;border:1px solid rgba(156,196,234,0.35);border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;color:#F5F5F7;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+#xm h3{margin:0;font-size:19px}#xm p{margin:0;font-size:14px;color:rgba(235,235,245,0.7);line-height:1.45}
+#xm input{font-family:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid rgba(156,196,234,0.4);background:#0A1028;color:#fff}
+#xm .act{display:flex;justify-content:flex-end;gap:10px}
+#xm .act button{font-family:inherit;font-size:14px;font-weight:600;border-radius:10px;padding:8px 14px;cursor:pointer;border:1px solid rgba(156,196,234,0.4);background:transparent;color:#F5F5F7}
+#xm .act button.ok{background:#3C79BE;border-color:#3C79BE}
+#xm .msg{font-size:13px;min-height:18px;color:#FF8A84}
 .card{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.10)}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .kpi{padding:16px 22px;display:flex;flex-direction:column;gap:4px}
@@ -95,7 +107,7 @@ body.flow .foot{flex-direction:column}
   var pct = function (n) { return Math.round(n / tot * 100) + '%'; };
   var h = '';
   h += '<div class="top"><div class="brand"><img src="assets/naval-logo.png" alt="Naval"><div><div class="eyebrow">Cegid Evolution ERP Primavera · ' + (EN ? 'Security' : 'Segurança') + '</div><h1>' + (EN ? 'ERP access review' : 'Revisão de acessos ao ERP') + '</h1></div></div>';
-  h += '<div class="meta"><span class="badge">' + (EN ? 'Status as of ' : 'Situação a ') + dt(A.data, true) + '</span><div class="lang"><a href="?lang=pt" data-l="pt"' + (EN ? '' : ' class="on"') + '>PT</a><a href="?lang=en" data-l="en"' + (EN ? ' class="on"' : '') + '>EN</a></div></div></div>';
+  h += '<div class="meta"><div class="mrow"><button type="button" class="xbtn" id="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>' + (EN ? 'Export to Excel' : 'Exportar para Excel') + '</button><span class="badge">' + (EN ? 'Status as of ' : 'Situação a ') + dt(A.data, true) + '</span></div><div class="lang"><a href="?lang=pt" data-l="pt"' + (EN ? '' : ' class="on"') + '>PT</a><a href="?lang=en" data-l="en"' + (EN ? ' class="on"' : '') + '>EN</a></div></div></div>';
   var K = [
     [EN ? 'Accounts reviewed' : 'Contas analisadas', String(tot), (EN ? 'in ' : 'em ') + X.empresas + (EN ? ' companies' : ' empresas'), '#F5F5F7'],
     [EN ? 'Decision taken' : 'Com decisão', trat + ' / ' + tot, pct(trat) + (EN ? ' · keep, create or deactivate' : ' · manter, criar ou desactivar'), '#9CC4EA'],
@@ -141,6 +153,64 @@ body.flow .foot{flex-direction:column}
     if (over) document.body.classList.add('d1');
   }
   window.addEventListener('resize', fit); fit();
+
+  /* Exportação da matriz de acessos: dados cifrados (AES-GCM) em data/acessos-matriz.enc.json; o Excel é gerado no browser. */
+  var T = EN ? { t: 'Export the access matrix', d: 'The matrix has names, e-mails and access levels, so it is protected. Enter the password to download it in Excel, with the same structure as the original file.', ph: 'Password', ok: 'Download Excel', no: 'Cancel', bad: 'Wrong password.', err: 'The file could not be generated. Check the internet connection and try again.', wait: 'Preparing the file…' }
+             : { t: 'Exportar a matriz de acessos', d: 'A matriz tem nomes, e-mails e níveis de acesso, por isso está protegida. Introduza a palavra-passe para a descarregar em Excel, com a mesma estrutura do ficheiro original.', ph: 'Palavra-passe', ok: 'Descarregar Excel', no: 'Cancelar', bad: 'Palavra-passe errada.', err: 'Não foi possível gerar o ficheiro. Verifique a ligação à internet e tente de novo.', wait: 'A preparar o ficheiro…' };
+  var m = document.createElement('div'); m.id = 'xm';
+  m.innerHTML = '<form class="dlg" autocomplete="off"><h3>' + T.t + '</h3><p>' + T.d + '</p><input type="password" id="xpw" placeholder="' + T.ph + '" aria-label="' + T.ph + '"><div class="msg" id="xmsg" role="status"></div><div class="act"><button type="button" id="xno">' + T.no + '</button><button type="submit" class="ok" id="xok">' + T.ok + '</button></div></form>';
+  document.body.appendChild(m);
+  var msg = m.querySelector('#xmsg'), pw = m.querySelector('#xpw'), okb = m.querySelector('#xok');
+  var abrir = function () { m.classList.add('on'); msg.textContent = ''; pw.value = ''; setTimeout(function () { pw.focus(); }, 30); };
+  var fechar = function () { m.classList.remove('on'); };
+  document.getElementById('xbtn').addEventListener('click', abrir);
+  m.querySelector('#xno').addEventListener('click', fechar);
+  m.addEventListener('click', function (e) { if (e.target === m) fechar(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
+  var b64 = function (s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; };
+  var lib = function () { return window.ExcelJS ? Promise.resolve() : new Promise(function (ok, ko) { var sc = document.createElement('script'); sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js'; sc.onload = ok; sc.onerror = ko; document.head.appendChild(sc); }); };
+  var decifrar = async function (senha) {
+    var E = await (await fetch('data/acessos-matriz.enc.json?t=' + Date.now())).json();
+    var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(senha), 'PBKDF2', false, ['deriveKey']);
+    var key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(E.salt), iterations: E.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    var raw;
+    try { raw = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(E.iv) }, key, b64(E.ct)); } catch (e) { throw new Error('senha'); }
+    var txt = await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    return JSON.parse(txt);
+  };
+  var gerar = async function (M) {
+    var wb = new ExcelJS.Workbook(); wb.creator = 'Grupo Naval · Projectos Digitais'; wb.created = new Date();
+    M.sheets.forEach(function (S) {
+      var ws = wb.addWorksheet(S.name);
+      Object.keys(S.cols).forEach(function (k) { ws.getColumn(k).width = S.cols[k]; });
+      Object.keys(S.rows).forEach(function (k) { ws.getRow(+k).height = S.rows[k]; });
+      S.cells.forEach(function (e) {
+        var c = ws.getCell(e.r, e.c);
+        if (e.f) c.value = { formula: e.f, result: e.v == null ? '' : e.v }; else if (e.v != null) c.value = e.v;
+        var f = { name: 'Arial', size: (e.font && e.font.sz) || 10 };
+        if (e.font) { if (e.font.b) f.bold = true; if (e.font.i) f.italic = true; if (e.font.c) f.color = { argb: e.font.c }; }
+        c.font = f;
+        if (e.fill) c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: e.fill } };
+        if (e.al) c.alignment = { wrapText: !!e.al.w, horizontal: e.al.h, vertical: e.al.v };
+        if (e.bd) { var t = { style: 'thin', color: { argb: 'FFD9DEE7' } }; c.border = { top: t, left: t, bottom: t, right: t }; }
+      });
+      S.merges.forEach(function (rg) { try { ws.mergeCells(rg); } catch (x) {} });
+      if (S.freeze) { var mm = S.freeze.match(/^([A-Z]+)(\d+)$/); if (mm) { var col = 0; for (var i = 0; i < mm[1].length; i++) col = col * 26 + mm[1].charCodeAt(i) - 64; ws.views = [{ state: 'frozen', xSplit: col - 1, ySplit: +mm[2] - 1 }]; } }
+      S.dv.forEach(function (d) { d.ref.split(' ').forEach(function (rg) { var cfg = { type: 'list', allowBlank: true, formulae: [d.f] }; if (ws.dataValidations && ws.dataValidations.add) ws.dataValidations.add(rg, cfg); }); });
+    });
+    var buf = await wb.xlsx.writeBuffer();
+    var a = document.createElement('a'), hj = new Date(), dd = hj.getFullYear() + '-' + ('0' + (hj.getMonth() + 1)).slice(-2) + '-' + ('0' + hj.getDate()).slice(-2);
+    a.href = URL.createObjectURL(new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
+    a.download = 'Matriz_de_acessos_Cegid_Primavera_Evolution_V10_' + dd + '.xlsx';
+    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  };
+  m.querySelector('form').addEventListener('submit', async function (e) {
+    e.preventDefault(); if (!pw.value) { pw.focus(); return; }
+    okb.disabled = true; msg.style.color = 'rgba(235,235,245,0.7)'; msg.textContent = T.wait;
+    try { var M = await decifrar(pw.value); await lib(); await gerar(M); fechar(); }
+    catch (x) { msg.style.color = '#FF8A84'; msg.textContent = x && x.message === 'senha' ? T.bad : T.err; }
+    okb.disabled = false;
+  });
 })();
 </script>
 </body>

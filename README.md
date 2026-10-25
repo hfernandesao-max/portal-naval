@@ -13,3 +13,6 @@ Fundo `#070B1F`; azuis Naval `#283E81` (escuro) e `#3C79BE` (médio); destaques 
 
 ### Estrutura rotativa dos temas
 Os temas novos entram pela ordem de importância. Os temas concluídos ficam visíveis durante 14 dias após a data de conclusão (`concl`) e depois saem dos painéis automaticamente (`DIAS_CONCLUIDOS` em `data/projectos-digitais.js`); continuam registados no histórico.
+
+### Exportação da matriz de acessos
+O botão «Exportar para Excel» em `acessos.html` gera a matriz completa (folhas Instruções, Utilizadores e Alterações) a partir de `data/acessos-matriz.enc.json`, cifrado com AES-GCM 256 (chave PBKDF2-SHA256, 310 000 iterações). A palavra-passe não está no repositório. Os dados só são decifrados no browser de quem a introduz.
