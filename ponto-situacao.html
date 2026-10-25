@@ -122,9 +122,11 @@ body.embed .lang{display:none}
     [EN ? 'Average completion' : 'Execução média', media + '%', (EN ? 'across ' : 'nos ') + comPct.length + (EN ? ' tracked topics' : ' temas com medição'), '#F5F5F7'],
     [EN ? 'Done or defined' : 'Concluídos ou definidos', feitos + ' / ' + TA.length, (TA.length - feitos) + (EN ? ' in progress or pending' : ' em curso ou pendentes'), '#9CC4EA'],
     [EN ? 'RTM routes selling' : 'Rotas RTM a vender', nv + ' / ' + nt, (nv >= nt ? (EN ? 'all routes selling' : 'todas as rotas a vender') : (EN ? 'all by ' : 'todas até ') + dt(V.prazo)) + (cli ? ' · ' + L(cli) : ''), '#7CC6EE'],
-    [EN ? 'Blocked or awaiting' : 'Bloqueados ou a aguardar', String(bloq), EN ? 'need a decision or input' : 'dependem de decisão ou de terceiros', bloq ? '#FF8A84' : '#5BE07F']
+    [EN ? 'Blocked or waiting on others' : 'Bloqueados ou à espera de terceiros', String(bloq), (D.dependencias ? D.dependencias(EN).join('\n') : ''), bloq ? '#FF8A84' : '#5BE07F']
   ];
-  h += '<div class="kpis">' + kp.map(function (k) { return '<div class="card kpi"><span class="l">' + esc(k[0]) + '</span><span class="v" style="color:' + k[3] + '">' + esc(k[1]) + '</span><span class="n">' + esc(k[2]) + '</span></div>'; }).join('') + '</div>';
+  var dep = kp.pop();
+  h += '<div class="kpis">' + kp.map(function (k) { return '<div class="card kpi"><span class="l">' + esc(k[0]) + '</span><span class="v" style="color:' + k[3] + '">' + esc(k[1]) + '</span><span class="n">' + esc(k[2]) + '</span></div>'; }).join('') +
+    '<div class="card kpi"><span class="l">' + esc(dep[0]) + '</span><div style="display:flex;align-items:center;gap:16px"><span class="v" style="color:' + dep[3] + '">' + esc(dep[1]) + '</span><span class="n" style="font-size:14px;line-height:1.35">' + esc(dep[2]).replace(/\n/g, '<br>') + '</span></div></div></div>';
   h += '<div class="main"><div class="card tbl"><div class="row h">' + T.cols.map(function (c) { return '<span>' + c + '</span>'; }).join('') + '</div>';
   TA.forEach(function (r) {
     var c = COR[r.estado] || COR.previsto, fim = r.estado === 'concluido';

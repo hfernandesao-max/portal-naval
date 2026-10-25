@@ -179,7 +179,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.10); padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; gap: 8px; padding: 16px 18px">
 <span style="font-size: 11px; color: rgba(235,235,245,0.6); letter-spacing: 1px; text-transform: uppercase">{{k.label}}</span>
 <span style="font-size: 26px; font-weight: 500; font-variant-numeric: tabular-nums; color: {{k.cor}}">{{k.value}}</span>
-<span style="font-size: 12px; color: rgba(235,235,245,0.6)">{{k.note}}</span>
+<span style="font-size: 12px; color: rgba(235,235,245,0.6); white-space: pre-line">{{k.note}}</span>
 </div>
 </sc-for>
 </section>
@@ -321,7 +321,7 @@ var kpis = [
  { label: EN ? 'Average completion' : 'Execução média', value: media + '%', note: EN ? 'across ' + comPct.length + ' tracked topics' : 'nos ' + comPct.length + ' temas com medição', cor: '#F5F5F7' },
  { label: EN ? 'Done or defined' : 'Concluídos ou definidos', value: feitos + ' / ' + TA.length, note: (TA.length - feitos) + (EN ? ' in progress or pending' : ' em curso ou pendentes'), cor: '#9CC4EA' },
  { label: EN ? 'RTM routes selling' : 'Rotas RTM a vender', value: nv + ' / ' + nt, note: (nv >= nt ? (EN ? 'all routes selling' : 'todas as rotas a vender') : (EN ? 'all by ' : 'todas até ') + dt(V.prazo)) + (cli ? ' · ' + L(cli) : ''), cor: '#7CC6EE' },
- { label: EN ? 'Blocked or awaiting' : 'Bloqueados ou a aguardar', value: String(bloq), note: EN ? 'need a decision or input' : 'dependem de decisão ou de terceiros', cor: bloq ? '#FF8A84' : '#5BE07F' }
+ { label: EN ? 'Blocked or waiting on others' : 'Bloqueados ou à espera de terceiros', value: String(bloq), note: D.dependencias ? D.dependencias(EN).join('\n') : '', cor: bloq ? '#FF8A84' : '#5BE07F' }
 ];
 var vendas = { resumo: nv + (EN ? ' of ' : ' de ') + nt + (EN ? ' routes' : ' rotas'), nota: (EN ? 'Started ' : 'Início a ') + dt(V.inicio) + (EN ? ' · gradual roll-out · all reps selling through RTM by ' : ' · arranque gradual · todos os vendedores a vender através do RTM até ') + dt(V.prazo) + (V.docs ? ' · ' + L(V.docs) : ''),
  barra: 'height: 100%; width: ' + Math.round(nv / nt * 100) + '%; background: #2397D4; border-radius: 5px',
