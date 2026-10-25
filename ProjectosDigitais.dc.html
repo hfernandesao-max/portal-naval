@@ -162,7 +162,7 @@ main [style*="text-transform: uppercase"][style*="grid-template-columns: minmax(
 <header style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 6px">
 <span style="font-size: 12px; color: #7CC6EE; letter-spacing: 1px">{{t.eyebrow}}</span>
-<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 99px; background: rgba(48,209,88,0.14); color: #5BE07F; border: 1px solid rgba(48,209,88,0.35)">{{t.badge}}</span>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; padding: 4px 10px; border-radius: 99px; background: rgba(60,121,190,0.18); color: #9CC4EA; border: 1px solid rgba(60,121,190,0.5)">{{t.badge}}</span>
 <h1 style="margin: 0; font-size: 32px; font-weight: 600; letter-spacing: -0.5px">{{t.title}}</h1>
 <span style="font-size: 13px; color: rgba(235,235,245,0.6)">{{t.sub}}</span>
 </div>
@@ -319,7 +319,7 @@ var V = D.vendas || { rotas: [], aVender: [] }, nv = V.aVender.length, nt = V.ro
 var cli = (TA.filter(function (r) { return r.valor; })[0] || {}).valor;
 var kpis = [
  { label: EN ? 'Average completion' : 'Execução média', value: media + '%', note: EN ? 'across ' + comPct.length + ' tracked topics' : 'nos ' + comPct.length + ' temas com medição', cor: '#F5F5F7' },
- { label: EN ? 'Done or defined' : 'Concluídos ou definidos', value: feitos + ' / ' + TA.length, note: (TA.length - feitos) + (EN ? ' in progress or pending' : ' em curso ou pendentes'), cor: '#5BE07F' },
+ { label: EN ? 'Done or defined' : 'Concluídos ou definidos', value: feitos + ' / ' + TA.length, note: (TA.length - feitos) + (EN ? ' in progress or pending' : ' em curso ou pendentes'), cor: '#9CC4EA' },
  { label: EN ? 'RTM routes selling' : 'Rotas RTM a vender', value: nv + ' / ' + nt, note: (nv >= nt ? (EN ? 'all routes selling' : 'todas as rotas a vender') : (EN ? 'all by ' : 'todas até ') + dt(V.prazo)) + (cli ? ' · ' + L(cli) : ''), cor: '#7CC6EE' },
  { label: EN ? 'Blocked or awaiting' : 'Bloqueados ou a aguardar', value: String(bloq), note: EN ? 'need a decision or input' : 'dependem de decisão ou de terceiros', cor: bloq ? '#FF8A84' : '#5BE07F' }
 ];
