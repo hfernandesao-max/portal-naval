@@ -20,6 +20,7 @@ window.PD = {
     { proj: 'ERP', pt: 'Portal AGT: APP de leitura e relatório de gestão', en: 'AGT portal: reader APP and management report', estado: 'curso', pct: 67, prev: '2026-10-30' },
     { proj: 'ERP', pt: 'Front-Office KM30 (4 de 6 passos)', en: 'KM30 Front-Office (4 of 6 steps)', estado: 'bloqueado', pct: 67, prev: { pt: 'Logística', en: 'Logistics' } },
     { proj: 'ERP', pt: 'Relatório de GRN pendentes (todas as empresas)', en: 'Outstanding GRN report (all companies)', estado: 'curso', pct: 80, prev: '2026-10-30', det: { pt: 'Desenvolvido, testado e validado; aplicação em todas as empresas esta semana, concluído até 30-10.', en: 'Developed, tested and approved; roll-out to all companies this week, completed by 30 Oct.' } },
+    { proj: 'ERP', pt: 'Layout da folha de rosto e da PO no Primavera', en: 'Cover sheet and PO layout in Primavera', estado: 'aguarda', pct: 75, prev: { pt: 'Licença Crystal', en: 'Crystal licence' }, det: { pt: 'Folha de rosto (modelo SAP) e layout da PO tratados; só falta receber a licença do Crystal Reports para fechar.', en: 'Cover sheet (SAP model) and PO layout done; only the Crystal Reports licence is missing to close it.' } },
     { proj: 'ERP', pt: 'Redefinição de acessos (27 de 70 tratados)', en: 'Access redesign (27 of 70 handled)', estado: 'curso', pct: 39, prev: '2026-10-16' }
   ],
 
@@ -81,6 +82,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-25', pt: 'Layout da folha de rosto e da PO: a aguardar a licença do Crystal Reports para fechar.', en: 'Cover sheet and PO layout: waiting for the Crystal Reports licence to close.' },
     { data: '2026-10-25', pt: 'Módulo de Serviços da Oceano liquidado; conclusão prevista a 10-11.', en: 'Oceano Services module paid in full; completion due 10 Nov.' },
     { data: '2026-10-25', pt: 'Registo de clientes passa para a equipa comercial; agrupado com a instalação da APP WinRest.', en: 'Customer registration handed over to the sales team; grouped with the WinRest APP installation.' },
     { data: '2026-10-25', pt: 'Cerca de 937 clientes registados na APP.', en: 'About 937 customers registered on the APP.' },
@@ -97,7 +99,9 @@ window.PD = {
     { data: '2026-10-17', pt: 'Fluxo de mercadoria SAP → RTM definido, com início a 19-10.', en: 'Goods flow SAP → RTM defined, starting 19 Oct.' },
     { data: '2026-10-16', pt: 'Instalação da APP WinRest iniciada; prazo da matriz de acessos terminado.', en: 'WinRest APP installation started; access matrix deadline passed.' },
     { data: '2026-10-12', pt: 'Formação Oceano concluída (2 módulos).', en: 'Oceano training completed (2 modules).' },
-    { data: '2026-10-10', pt: 'KM30: POS configurado e testado.', en: 'KM30: POS configured and tested.' }
+    { data: '2026-10-10', pt: 'KM30: POS configurado e testado.', en: 'KM30: POS configured and tested.' },
+    { data: '2026-10-09', pt: 'Pedido de alteração do layout da PO, além da folha de rosto.', en: 'PO layout change requested, in addition to the cover sheet.' },
+    { data: '2026-10-07', pt: 'Pedido de alteração do layout da folha de rosto do Primavera (modelo SAP).', en: 'Primavera cover sheet layout change requested (SAP model).' }
   ]
 };
 
