@@ -322,7 +322,7 @@ var kpis = [
  { label: EN ? 'RTM routes selling' : 'Rotas RTM a vender', value: nv + ' / ' + nt, note: (EN ? 'all by ' : 'todas até ') + dt(V.prazo) + (cli ? ' · ' + L(cli) : ''), cor: '#7CC6EE' },
  { label: EN ? 'Blocked or awaiting' : 'Bloqueados ou a aguardar', value: String(bloq), note: EN ? 'need a decision or input' : 'dependem de decisão ou de terceiros', cor: bloq ? '#FF8A84' : '#5BE07F' }
 ];
-var vendas = { resumo: nv + (EN ? ' of ' : ' de ') + nt + (EN ? ' routes' : ' rotas'), nota: (EN ? 'Started ' : 'Início a ') + dt(V.inicio) + (EN ? ' · gradual roll-out · all reps selling through RTM by ' : ' · arranque gradual · todos os vendedores a vender através do RTM até ') + dt(V.prazo),
+var vendas = { resumo: nv + (EN ? ' of ' : ' de ') + nt + (EN ? ' routes' : ' rotas'), nota: (EN ? 'Started ' : 'Início a ') + dt(V.inicio) + (EN ? ' · gradual roll-out · all reps selling through RTM by ' : ' · arranque gradual · todos os vendedores a vender através do RTM até ') + dt(V.prazo) + (V.docs ? ' · ' + L(V.docs) : ''),
  barra: 'height: 100%; width: ' + Math.round(nv / nt * 100) + '%; background: #2397D4; border-radius: 5px',
  rotas: V.rotas.map(function (c) { var on = V.aVender.indexOf(c) >= 0; return { cod: c, style: 'font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; padding: 5px 10px; border-radius: 10px; ' + (on ? 'background: #2397D4; color: #FFFFFF' : 'background: transparent; color: rgba(235,235,245,0.6); border: 1px dashed rgba(235,235,245,0.3)') }; }),
  legenda: EN ? 'Filled: route already selling · dashed: still to start' : 'Preenchido: rota já a vender · tracejado: ainda por arrancar' };

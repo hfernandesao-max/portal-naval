@@ -6,8 +6,8 @@ window.PD = {
   /* estado: concluido | definido | curso | previsto | aguarda | bloqueado */
   tarefas: [
     { proj: 'RTM', pt: 'Pré-requisitos e formação in loco (11 de 11)', en: 'Prerequisites and on-site training (11 of 11)', estado: 'concluido', pct: 100, prev: '—' },
-    { proj: 'RTM', pt: 'Instalação da APP WinRest (9 de 11 equipamentos)', en: 'WinRest APP installation (9 of 11 devices)', estado: 'curso', pct: 82, prev: '2026-10-19' },
-    { proj: 'RTM', pt: 'Arranque das vendas na APP (2 de 11 rotas)', en: 'Sales go-live on the APP (2 of 11 routes)', estado: 'curso', pct: 18, prev: '2026-10-21' },
+    { proj: 'RTM', pt: 'Instalação da APP WinRest (11 de 11 equipamentos)', en: 'WinRest APP installation (11 of 11 devices)', estado: 'concluido', pct: 100, prev: '—' },
+    { proj: 'RTM', pt: 'Vendas na APP (11 de 11 rotas · só Factura/Recibo)', en: 'Sales on the APP (11 of 11 routes · Invoice/Receipt only)', estado: 'concluido', pct: 100, prev: '—' },
     { proj: 'RTM', pt: 'Registo de clientes na APP', en: 'Customer registration on the APP', estado: 'curso', pct: null, valor: { pt: '≈ 651 clientes', en: '≈ 651 customers' }, prev: '2026-10-16' },
     { proj: 'RTM', pt: 'Fluxo de mercadoria SAP → RTM (manual)', en: 'Goods flow SAP → RTM (manual)', estado: 'definido', pct: 67, prev: '2026-10-19' },
     { proj: 'RTM', pt: 'Acessos ao portal Pinguim BO (4 utilizadores)', en: 'Pinguim BO portal access (4 users)', estado: 'concluido', pct: 100, prev: '—' },
@@ -24,7 +24,7 @@ window.PD = {
   ],
 
   /* Arranque das vendas: códigos de rota (sem nomes) */
-  vendas: { rotas: ['1001', '1002', '1003', '1004', '1005', '1006', '1007', '1008', '1009', '1010', '1011'], aVender: ['1001', '1006'], inicio: '2026-10-19', prazo: '2026-10-21' },
+  vendas: { rotas: ['1001', '1002', '1003', '1004', '1005', '1006', '1007', '1008', '1009', '1010', '1011'], aVender: ['1001', '1002', '1003', '1004', '1005', '1006', '1007', '1008', '1009', '1010', '1011'], docs: { pt: 'Nesta fase, só vendas com Factura/Recibo (FR).', en: 'For now, sales with Invoice/Receipt (FR) only.' }, inicio: '2026-10-19', prazo: '2026-10-21' },
 
   fluxo: {
     passos: [
@@ -81,6 +81,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-25', pt: 'Todas as 11 rotas a vender no RTM; nesta fase, só vendas com Factura/Recibo.', en: 'All 11 routes selling on RTM; for now, Invoice/Receipt sales only.' },
     { data: '2026-10-25', pt: 'Acessos ao portal Pinguim BO dados a 4 utilizadores.', en: 'Pinguim BO portal access granted to 4 users.' },
     { data: '2026-10-19', pt: 'Vendas no RTM iniciadas em 2 rotas; arranque gradual até 21-10.', en: 'RTM sales started on 2 routes; gradual roll-out until 21 Oct.' },
     { data: '2026-10-19', pt: 'Séries AGT criadas e enviadas para comunicação nas três empresas; ajustes às listas V10 concluídos.', en: 'AGT series created and sent for communication in the three companies; V10 list adjustments completed.' },
