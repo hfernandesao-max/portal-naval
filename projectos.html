@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projectos digitais · Grupo Naval</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+:root{--bg:#070B1F;--tx:#F5F5F7;--mut:rgba(235,235,245,0.62);--acc:#7CC6EE;--blue:#2397D4}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{display:flex;flex-direction:column;height:100vh;height:100dvh}
+.bar{flex:0 0 auto;display:flex;align-items:center;gap:16px;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.03);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--tx)}
+.brand img{height:30px}
+.brand b{font-size:16px;font-weight:600}
+.brand span{font-size:12px;color:var(--mut);display:block}
+nav{display:flex;gap:4px;padding:4px;border:1px solid rgba(255,255,255,0.12);border-radius:14px;background:rgba(255,255,255,0.05);margin-left:auto;flex-wrap:wrap}
+nav button,.lang button{border:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:500;padding:8px 14px;border-radius:10px;background:transparent;color:rgba(235,235,245,0.78)}
+nav button[aria-selected="true"],.lang button.on{background:var(--blue);color:#fff}
+nav button:focus-visible,.lang button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.lang{display:flex;gap:2px;padding:3px;border-radius:12px;background:rgba(255,255,255,0.06)}
+.lang button{font-size:13px;font-weight:600;padding:6px 11px}
+.tools a{font-size:13px;color:var(--acc);text-decoration:none;white-space:nowrap}
+iframe{flex:1;width:100%;border:0;background:var(--bg)}
+@media (max-width:760px){.bar{padding:10px 12px;gap:10px}nav{margin-left:0;width:100%}nav button{flex:1;padding:8px 6px;font-size:13px}.brand span{display:none}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <a class="brand" href="projectos.html"><img src="assets/naval-simbolo.png" alt=""><div><b id="tt">Projectos digitais</b><span id="st">RTM · Cegid Evolution ERP Primavera</span></div></a>
+  <nav role="tablist" id="tabs"></nav>
+  <div class="lang" role="group" aria-label="Idioma"><button type="button" data-l="pt">PT</button><button type="button" data-l="en">EN</button></div>
+  <span class="tools"><a id="abrir" href="#" target="_blank" rel="noopener"></a></span>
+</div>
+<iframe id="vista" title="Projectos digitais"></iframe>
+<script>
+(function () {
+  var V = [
+    { id: 'resumo', pt: 'Concluído e pendente', en: 'Done and pending', url: function (l) { return 'concluidos.html?lang=' + l; } },
+    { id: 'situacao', pt: 'Ponto de situação', en: 'Status update', url: function (l) { return 'ponto-situacao.html?lang=' + l; } },
+    { id: 'detalhe', pt: 'Detalhe e histórico', en: 'Detail and log', url: function (l) { return l === 'en' ? 'ProjectosDigitais_en.dc.html' : 'ProjectosDigitais.dc.html'; } }
+  ];
+  var q = new URLSearchParams(location.search), lang = q.get('lang');
+  if (!lang) { try { lang = localStorage.getItem('naval-lang'); } catch (e) {} }
+  if (!lang) lang = /^pt/i.test(navigator.language || 'pt') ? 'pt' : 'en';
+  var cur = (location.hash || '').slice(1); if (!V.some(function (v) { return v.id === cur; })) cur = 'resumo';
+  var tabs = document.getElementById('tabs'), fr = document.getElementById('vista'), ab = document.getElementById('abrir');
+  function draw() {
+    var en = lang === 'en';
+    document.documentElement.lang = en ? 'en' : 'pt-PT';
+    document.getElementById('tt').textContent = en ? 'Digital projects' : 'Projectos digitais';
+    document.title = (en ? 'Digital projects' : 'Projectos digitais') + ' · Grupo Naval';
+    tabs.setAttribute('aria-label', en ? 'Views' : 'Vistas');
+    tabs.innerHTML = '';
+    V.forEach(function (v) {
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'tab');
+      b.setAttribute('aria-selected', String(v.id === cur)); b.textContent = en ? v.en : v.pt;
+      b.addEventListener('click', function () { cur = v.id; history.replaceState(null, '', '?lang=' + lang + '#' + cur); draw(); });
+      tabs.appendChild(b);
+    });
+    document.querySelectorAll('.lang button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-l') === lang); });
+    var v = V.filter(function (x) { return x.id === cur; })[0], u = v.url(lang);
+    if (fr.getAttribute('src') !== u) fr.setAttribute('src', u);
+    ab.href = u; ab.textContent = en ? 'Open full screen ↗' : 'Abrir em ecrã inteiro ↗';
+  }
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () { lang = b.getAttribute('data-l'); try { localStorage.setItem('naval-lang', lang); } catch (e) {} history.replaceState(null, '', '?lang=' + lang + '#' + cur); draw(); });
+  });
+  draw();
+})();
+</script>
+</body>
+</html>

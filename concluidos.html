@@ -73,6 +73,7 @@ body.flow .foot{flex-direction:column}
 body.flow .pd{grid-template-columns:minmax(0,1fr) auto;row-gap:6px}
 body.flow .pd .ex{grid-column:1/2}
 body.flow .pill{font-size:12px;white-space:normal}
+body.embed .lang{display:none}
 @media print{body{display:block}.stage{transform:none !important}@page{size:1920px 1080px;margin:0}}
 </style>
 </head>
@@ -127,6 +128,7 @@ body.flow .pill{font-size:12px;white-space:normal}
   h += '<div class="foot"><span>Grupo Naval Angola · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span><a href="ponto-situacao.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Full status update →' : 'Ponto de situação completo →') + '</a></span></div>';
   var st = document.getElementById('stage'); st.innerHTML = h;
   st.querySelectorAll('.lang a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('naval-lang', a.getAttribute('data-l')); } catch (e) {} }); });
+  if (window.self !== window.top) document.body.classList.add('embed');
   function fit() {
     var w = window.innerWidth, hh = window.innerHeight;
     if (w < 900 || w / hh < 1.1) { document.body.classList.add('flow'); st.style.transform = ''; return; }

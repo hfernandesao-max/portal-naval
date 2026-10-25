@@ -76,6 +76,7 @@ body.flow .side{grid-template-rows:none}
 body.flow .hist{overflow:visible}
 body.flow .pill{white-space:normal;text-align:center;font-size:12px}
 body.flow .big{font-size:28px;white-space:nowrap}
+body.embed .lang{display:none}
 @media print{body{display:block}.stage{transform:none !important}@page{size:1920px 1080px;margin:0}}
 </style>
 </head>
@@ -115,7 +116,7 @@ body.flow .big{font-size:28px;white-space:nowrap}
   var kp = [
     [EN ? 'Average completion' : 'Execução média', media + '%', (EN ? 'across ' : 'nos ') + comPct.length + (EN ? ' tracked topics' : ' temas com medição'), '#F5F5F7'],
     [EN ? 'Done or defined' : 'Concluídos ou definidos', feitos + ' / ' + TA.length, (TA.length - feitos) + (EN ? ' in progress or pending' : ' em curso ou pendentes'), '#5BE07F'],
-    [EN ? 'RTM routes selling' : 'Rotas RTM a vender', nv + ' / ' + nt, (EN ? 'all by ' : 'todas até ') + dt(V.prazo) + (cli ? ' · ' + L(cli) : ''), '#7CC6EE'],
+    [EN ? 'RTM routes selling' : 'Rotas RTM a vender', nv + ' / ' + nt, (nv >= nt ? (EN ? 'all routes selling' : 'todas as rotas a vender') : (EN ? 'all by ' : 'todas até ') + dt(V.prazo)) + (cli ? ' · ' + L(cli) : ''), '#7CC6EE'],
     [EN ? 'Blocked or awaiting' : 'Bloqueados ou a aguardar', String(bloq), EN ? 'need a decision or input' : 'dependem de decisão ou de terceiros', bloq ? '#FF8A84' : '#5BE07F']
   ];
   h += '<div class="kpis">' + kp.map(function (k) { return '<div class="card kpi"><span class="l">' + esc(k[0]) + '</span><span class="v" style="color:' + k[3] + '">' + esc(k[1]) + '</span><span class="n">' + esc(k[2]) + '</span></div>'; }).join('') + '</div>';
@@ -141,6 +142,7 @@ body.flow .big{font-size:28px;white-space:nowrap}
   h += '<div class="foot"><span>Grupo Naval Angola · ' + (EN ? 'Digital Projects' : 'Projectos Digitais') + '</span><span style="display:flex;gap:28px"><a href="concluidos.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Done and pending →' : 'Concluído e pendente →') + '</a><a href="' + (EN ? 'ProjectosDigitais_en.dc.html' : 'ProjectosDigitais.dc.html') + '">' + (EN ? 'Full detail in the portal →' : 'Detalhe completo no portal →') + '</a></span></div>';
   var st0 = document.getElementById('stage'); st0.innerHTML = h;
   st0.querySelectorAll('.lang a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('naval-lang', a.getAttribute('data-l')); } catch (e) {} }); });
+  if (window.self !== window.top) document.body.classList.add('embed');
   function fit() {
     var w = window.innerWidth, hh = window.innerHeight;
     if (w < 900 || w / hh < 1.1) { document.body.classList.add('flow'); st0.style.transform = ''; return; }
