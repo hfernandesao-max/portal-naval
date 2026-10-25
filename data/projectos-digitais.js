@@ -16,7 +16,7 @@ window.PD = {
     { proj: 'ERP', pt: 'Ajustes às listas V10', en: 'V10 list adjustments', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-19', det: { pt: 'Global Sales List, Global Stock e novas listas.', en: 'Global Sales List, Global Stock and new lists.' } },
     { proj: 'ERP', pt: 'Criação automática de códigos nas empresas', en: 'Automatic code creation across companies', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-25', det: { pt: 'Ao criar clientes, fornecedores, artigos ou contas do plano de contas, abre-os em todas as outras empresas; inclui a actualização do câmbio.', en: 'When customers, suppliers, items or chart-of-accounts accounts are created, they are opened in all other companies; includes the exchange-rate update.' } },
     { proj: 'ERP', pt: 'Séries AGT (Cazengo, Yawaba, Inovagate)', en: 'AGT series (Cazengo, Yawaba, Inovagate)', estado: 'concluido', pct: 100, prev: '—', concl: '2026-10-19', det: { pt: 'Séries criadas e activadas para a facturação digital nas três empresas.', en: 'Series created and activated for digital invoicing in the three companies.' } },
-    { proj: 'ERP', pt: 'Módulo de Serviços – Oceano', en: 'Services module – Oceano', estado: 'curso', pct: 60, prev: null },
+    { proj: 'ERP', pt: 'Módulo de Serviços – Oceano', en: 'Services module – Oceano', estado: 'curso', pct: 60, prev: '2026-11-10', det: { pt: 'Proposta adjudicada, planeamento concluído e pagamento liquidado; faltam a implementação e a formação.', en: 'Proposal awarded, planning done and payment settled; implementation and training pending.' } },
     { proj: 'ERP', pt: 'Portal AGT: APP de leitura e relatório de gestão', en: 'AGT portal: reader APP and management report', estado: 'curso', pct: 67, prev: '2026-10-30' },
     { proj: 'ERP', pt: 'Front-Office KM30 (4 de 6 passos)', en: 'KM30 Front-Office (4 of 6 steps)', estado: 'bloqueado', pct: 67, prev: { pt: 'Logística', en: 'Logistics' } },
     { proj: 'ERP', pt: 'Relatório de GRN pendentes (todas as empresas)', en: 'Outstanding GRN report (all companies)', estado: 'curso', pct: 80, prev: '2026-10-30', det: { pt: 'Desenvolvido, testado e validado; aplicação em todas as empresas esta semana, concluído até 30-10.', en: 'Developed, tested and approved; roll-out to all companies this week, completed by 30 Oct.' } },
@@ -81,6 +81,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-25', pt: 'Módulo de Serviços da Oceano liquidado; conclusão prevista a 10-11.', en: 'Oceano Services module paid in full; completion due 10 Nov.' },
     { data: '2026-10-25', pt: 'Registo de clientes passa para a equipa comercial; agrupado com a instalação da APP WinRest.', en: 'Customer registration handed over to the sales team; grouped with the WinRest APP installation.' },
     { data: '2026-10-25', pt: 'Cerca de 937 clientes registados na APP.', en: 'About 937 customers registered on the APP.' },
     { data: '2026-10-25', pt: 'Criação automática de códigos nas empresas concluída (inclui a actualização do câmbio).', en: 'Automatic code creation across companies completed (includes the exchange-rate update).' },
