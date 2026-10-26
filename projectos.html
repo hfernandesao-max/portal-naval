@@ -72,7 +72,7 @@ iframe{flex:1;width:100%;border:0;background:var(--bg)}
     if (fr.getAttribute('src') !== u) fr.setAttribute('src', u);
     ab.href = u; ab.textContent = en ? 'Open full screen ↗' : 'Abrir em ecrã inteiro ↗';
     document.getElementById('pptxl').textContent = en ? 'Export to PowerPoint' : 'Exportar para PowerPoint';
-    document.getElementById('pptx').title = en ? 'Status update and Done and pending, as an editable .pptx' : 'Ponto de situação e Concluído e pendente, em .pptx editável';
+    document.getElementById('pptx').title = en ? 'One summary slide (.pptx, editable)' : 'Um diapositivo-resumo (.pptx editável)';
   }
   document.querySelectorAll('.lang button').forEach(function (b) {
     b.addEventListener('click', function () { lang = b.getAttribute('data-l'); try { localStorage.setItem('naval-lang', lang); } catch (e) {} history.replaceState(null, '', '?lang=' + lang + '#' + cur); draw(); });
