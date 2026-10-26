@@ -61,50 +61,54 @@
       var cel = function (txt, o) { return { text: txt, options: o || {} }; };
       var projCel = function (t) { return cel(t.proj, { bold: true, color: t.proj === 'RTM' ? C.rtm : C.erp, fontSize: 9 }); };
 
-      // 1. Ponto de situação
-      var s1 = base(EN ? 'Digital projects · IT · RTM · Cegid Evolution ERP Primavera' : 'Projectos digitais · IT · RTM · Cegid Evolution ERP Primavera', EN ? 'Status update' : 'Ponto de situação');
+      // Indicadores
       var comPct = TA.filter(function (t) { return t.pct != null; });
       var media = comPct.length ? Math.round(comPct.reduce(function (a, t) { return a + t.pct; }, 0) / comPct.length) : 0;
-      var nfd = TA.filter(function (t) { return t.estado === 'concluido' || t.estado === 'definido'; }).length;
       var V = D.vendas || { rotas: [], aVender: [] };
       var deps = D.dependencias ? D.dependencias(EN) : [];
+      var S = D.series || [], st = 0, sc = 0; S.forEach(function (x) { st += x.total; sc += x.comunicadas; });
+      var kmp = ((D.km30 || {}).passos || []);
       var kw = (W - 2 * M - 0.45) / 4;
-      kpi(s1, M, 1.3, kw, EN ? 'Average completion' : 'Execução média', media + '%', (EN ? 'across ' : 'nos ') + comPct.length + (EN ? ' tracked topics' : ' temas com medição'), C.tx);
-      kpi(s1, M + (kw + 0.15), 1.3, kw, EN ? 'Done or defined' : 'Concluídos ou definidos', nfd + ' / ' + TA.length, (TA.length - nfd) + (EN ? ' in progress or pending' : ' em curso ou pendentes'));
-      kpi(s1, M + 2 * (kw + 0.15), 1.3, kw, EN ? 'RTM routes selling' : 'Rotas RTM a vender', V.aVender.length + ' / ' + V.rotas.length, L(V.docs));
-      kpi(s1, M + 3 * (kw + 0.15), 1.3, kw, EN ? 'Blocked or waiting' : 'Bloqueados ou à espera', String(deps.length), deps.join(' · '), 'FF8A84');
-      var rows1 = [[cab('Proj.'), cab(EN ? 'Topic' : 'Tema'), cab(EN ? 'Status' : 'Estado'), cab(EN ? 'Completion' : 'Execução'), cab(EN ? 'Forecast / done on' : 'Previsão / concluído a')]];
-      TA.forEach(function (t) {
-        var fim = t.estado === 'concluido';
-        rows1.push([projCel(t), cel(nome(t), { color: fim ? C.mut : C.tx }), pill(t), cel(exec(t), { bold: true, color: (EST[t.estado] || EST.previsto)[2], align: 'right' }),
-          cel(fim ? (t.concl ? dt(t.concl) : '—') : prev(t), { color: (!fim && D.atrasado && D.atrasado(t)) ? 'E0A458' : C.tx })]);
-      });
-      var fs1 = TA.length > 18 ? 8.5 : 9.5;
-      s1.addTable(rows1, { x: M, y: 2.42, w: W - 2 * M, colW: [0.6, 7.0, 1.6, 1.3, 1.83], fontFace: FONT, fontSize: fs1, color: C.tx, fill: { color: C.card }, border: { type: 'solid', color: C.line, pt: 0.5 }, valign: 'middle', margin: [2, 6, 2, 6], rowH: 0.205, autoPage: false });
+      var TOP = 2.42, FUNDO = 6.95;
 
-      // 2-3. Concluído e pendente (com descrições completas, em vários diapositivos se preciso)
-      function blocos(lista, titulo, sub, dataRot, fim) {
-        // paginação pela altura estimada de cada linha (descrição ~105 caracteres por linha a 9 pt)
-        var alt = function (t) { var ld = Math.ceil(((t.det ? L(t.det) : '—').length) / 100), lt = Math.ceil(nome(t).length / 34); return 0.14 + 0.165 * Math.max(ld, lt, 1); };
-        var paginas = [], cur = [], h = 0, MAXH = 5.0;
-        lista.forEach(function (t) { var a = alt(t); if (cur.length && h + a > MAXH) { paginas.push(cur); cur = []; h = 0; } cur.push(t); h += a; });
-        if (cur.length || !paginas.length) paginas.push(cur);
-        var total = paginas.length;
-        paginas.forEach(function (fatia, k) {
-          var parte = k + 1;
-          var s = base(EN ? 'Digital projects · IT · Summary' : 'Projectos digitais · IT · Resumo', (EN ? 'Done and pending' : 'Concluído e pendente') + ' · ' + titulo + (total > 1 ? ' (' + parte + '/' + total + ')' : ''));
-          s.addText(sub, { x: M, y: 1.18, w: W - 2 * M, h: 0.3, fontFace: FONT, fontSize: 11, color: C.mut });
-          var rows = [[cab('Proj.'), cab(EN ? 'Topic' : 'Tema'), cab(EN ? 'Description' : 'Descrição'), cab(EN ? 'Status' : 'Estado'), cab(EN ? 'Completion' : 'Execução'), cab(dataRot)]];
-          fatia.forEach(function (t) {
-            rows.push([projCel(t), cel(nome(t), { bold: true }), cel(t.det ? L(t.det) : '—', { color: t.det ? 'D4D7E2' : '6E7591' }), pill(t),
-              cel(exec(t), { bold: true, color: (EST[t.estado] || EST.previsto)[2], align: 'right' }),
-              cel(fim ? (t.concl ? dt(t.concl) : '—') : prev(t), { color: (!fim && D.atrasado && D.atrasado(t)) ? 'E0A458' : C.tx })]);
+      // Tabela com descrição completa; ajusta o tamanho da letra para caber no diapositivo
+      function tabela(s, lista, dataRot, fim) {
+        var colW = [0.55, 2.7, 6.1, 1.15, 0.95, 0.88];
+        var cpl = function (pt, w) { return Math.floor(w * 72 / (pt * 0.42)); }; // caracteres por linha (aprox.)
+        var altura = function (pt) {
+          var lh = pt * 1.22 / 72, tot = 0.26;
+          lista.forEach(function (t) {
+            var ld = Math.ceil(((t.det ? L(t.det) : '—').length + 1) / cpl(pt, colW[2] - 0.12));
+            var lt = Math.ceil((nome(t).length + 1) / cpl(pt, colW[1] - 0.12));
+            tot += Math.max(ld, lt, 1) * lh + 0.07;
           });
-          s.addTable(rows, { x: M, y: 1.55, w: W - 2 * M, colW: [0.55, 2.75, 5.6, 1.25, 1.05, 1.13], fontFace: FONT, fontSize: 9, color: C.tx, fill: { color: C.card }, border: { type: 'solid', color: C.line, pt: 0.5 }, valign: 'top', margin: [4, 6, 4, 6], autoPage: false });
+          return tot;
+        };
+        var pt = 10.5; while (pt > 6.5 && altura(pt) > FUNDO - TOP) pt -= 0.5;
+        var rows = [[cab('Proj.'), cab(EN ? 'Topic' : 'Tema'), cab(EN ? 'Description' : 'Descrição'), cab(EN ? 'Status' : 'Estado'), cab(EN ? 'Completion' : 'Execução'), cab(dataRot)]];
+        lista.forEach(function (t) {
+          rows.push([projCel(t), cel(nome(t), { bold: true }), cel(t.det ? L(t.det) : '—', { color: t.det ? 'D4D7E2' : '6E7591' }), pill(t),
+            cel(exec(t), { bold: true, color: (EST[t.estado] || EST.previsto)[2], align: 'right' }),
+            cel(fim ? (t.concl ? dt(t.concl) : '—') : prev(t), { color: (!fim && D.atrasado && D.atrasado(t)) ? 'E0A458' : C.tx })]);
         });
+        s.addTable(rows, { x: M, y: TOP, w: W - 2 * M, colW: colW, fontFace: FONT, fontSize: pt, color: C.tx, fill: { color: C.card }, border: { type: 'solid', color: C.line, pt: 0.5 }, valign: 'top', margin: [2, 5, 2, 5], autoPage: false });
       }
-      blocos(pend, EN ? 'Pending' : 'Pendente', pend.length + (EN ? ' topics · most critical first' : ' temas · do mais crítico para o menos crítico'), EN ? 'Forecast' : 'Previsão', false);
-      blocos(feitos, EN ? 'Done' : 'Concluído', feitos.length + (EN ? ' topics · last ' : ' temas · últimos ') + (D.DIAS_CONCLUIDOS || 14) + (EN ? ' days' : ' dias'), EN ? 'Completed on' : 'Concluído a', true);
+
+      // 1. Ponto de situação · pendente
+      var s1 = base(EN ? 'Digital projects · IT · RTM · Cegid Evolution ERP Primavera' : 'Projectos digitais · IT · RTM · Cegid Evolution ERP Primavera', (EN ? 'Status update · Pending' : 'Ponto de situação · Pendente') + ' (' + pend.length + ')');
+      kpi(s1, M, 1.3, kw, EN ? 'Average completion' : 'Execução média', media + '%', (EN ? 'across ' : 'nos ') + comPct.length + (EN ? ' tracked topics' : ' temas com medição'), C.tx);
+      kpi(s1, M + (kw + 0.15), 1.3, kw, EN ? 'Pending' : 'Pendentes', pend.length + ' / ' + TA.length, EN ? 'most critical first' : 'do mais crítico para o menos crítico');
+      kpi(s1, M + 2 * (kw + 0.15), 1.3, kw, EN ? 'Next deadlines' : 'Próximos prazos', String(pend.filter(function (t) { return typeof t.prev === 'string' && /^\d{4}/.test(t.prev); }).length), EN ? 'topics with a set date' : 'temas com data definida');
+      kpi(s1, M + 3 * (kw + 0.15), 1.3, kw, EN ? 'Blocked or waiting' : 'Bloqueados ou à espera', String(deps.length), deps.join(' · '), 'FF8A84');
+      tabela(s1, pend, EN ? 'Forecast' : 'Previsão', false);
+
+      // 2. Concluído
+      var s2 = base(EN ? 'Digital projects · IT · Summary' : 'Projectos digitais · IT · Resumo', (EN ? 'Done' : 'Concluído') + ' (' + feitos.length + ')' + (EN ? ' · last ' : ' · últimos ') + (D.DIAS_CONCLUIDOS || 14) + (EN ? ' days' : ' dias'));
+      kpi(s2, M, 1.3, kw, EN ? 'Topics completed' : 'Temas concluídos', feitos.length + ' / ' + TA.length, pend.length + (EN ? ' still in progress or pending' : ' ainda em curso ou pendentes'));
+      kpi(s2, M + (kw + 0.15), 1.3, kw, EN ? 'RTM routes selling' : 'Rotas RTM a vender', V.aVender.length + ' / ' + V.rotas.length, L(V.docs));
+      kpi(s2, M + 2 * (kw + 0.15), 1.3, kw, EN ? 'AGT series communicated' : 'Séries AGT comunicadas', sc + ' / ' + st, S.map(function (x) { return x.emp; }).join(' · '));
+      kpi(s2, M + 3 * (kw + 0.15), 1.3, kw, EN ? 'KM30 steps done' : 'Passos do KM30 concluídos', kmp.filter(function (x) { return x.estado === 'concluido'; }).length + ' / ' + kmp.length, L((D.km30 || {}).bloqueio));
+      tabela(s2, feitos, EN ? 'Completed on' : 'Concluído a', true);
 
       var d = D.actualizado || '';
       return pptx.writeFile({ fileName: (EN ? 'Grupo_Naval_Digital_Projects_' : 'Grupo_Naval_Projectos_Digitais_') + d + '.pptx' });
