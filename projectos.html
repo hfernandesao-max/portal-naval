@@ -22,7 +22,10 @@ nav button[aria-selected="true"],.lang button.on{background:var(--blue);color:#f
 nav button:focus-visible,.lang button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .lang{display:flex;gap:2px;padding:3px;border-radius:12px;background:rgba(255,255,255,0.06)}
 .lang button{font-size:13px;font-weight:600;padding:6px 11px}
+.tools{display:flex;align-items:center;gap:12px}
 .tools a{font-size:13px;color:var(--acc);text-decoration:none;white-space:nowrap}
+.pbtn{display:inline-flex;align-items:center;gap:7px;font-family:inherit;font-size:13px;font-weight:600;color:#fff;background:#3C79BE;border:1px solid rgba(156,196,234,0.5);border-radius:10px;padding:7px 12px;cursor:pointer;white-space:nowrap}
+.pbtn:hover{background:#2F68A8}.pbtn[disabled]{opacity:.6;cursor:wait}.pbtn svg{width:15px;height:15px}
 iframe{flex:1;width:100%;border:0;background:var(--bg)}
 @media (max-width:760px){.bar{padding:10px 12px;gap:10px}nav{margin-left:0;width:100%}nav button{flex:1;padding:8px 6px;font-size:13px}.brand span{display:none}}
 </style>
@@ -32,9 +35,10 @@ iframe{flex:1;width:100%;border:0;background:var(--bg)}
   <a class="brand" href="projectos.html"><img src="assets/naval-simbolo.png" alt=""><div><b id="tt">Projectos digitais</b><span id="st">RTM · Cegid Evolution ERP Primavera</span></div></a>
   <nav role="tablist" id="tabs"></nav>
   <div class="lang" role="group" aria-label="Idioma"><button type="button" data-l="pt">PT</button><button type="button" data-l="en">EN</button></div>
-  <span class="tools"><a id="abrir" href="#" target="_blank" rel="noopener"></a></span>
+  <span class="tools"><button type="button" class="pbtn" id="pptx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg><span id="pptxl">PowerPoint</span></button><a id="abrir" href="#" target="_blank" rel="noopener"></a></span>
 </div>
 <iframe id="vista" title="Projectos digitais"></iframe>
+<script>document.write('<script src="data/projectos-digitais.js?t=' + Date.now() + '"><\/script><script src="export-pptx.js?t=' + Date.now() + '"><\/script>');</script>
 <script>
 (function () {
   var VER = Date.now();
@@ -67,11 +71,20 @@ iframe{flex:1;width:100%;border:0;background:var(--bg)}
     u += (u.indexOf('?') < 0 ? '?' : '&') + 'v=' + VER;
     if (fr.getAttribute('src') !== u) fr.setAttribute('src', u);
     ab.href = u; ab.textContent = en ? 'Open full screen ↗' : 'Abrir em ecrã inteiro ↗';
+    document.getElementById('pptxl').textContent = en ? 'Export to PowerPoint' : 'Exportar para PowerPoint';
+    document.getElementById('pptx').title = en ? 'Status update and Done and pending, as an editable .pptx' : 'Ponto de situação e Concluído e pendente, em .pptx editável';
   }
   document.querySelectorAll('.lang button').forEach(function (b) {
     b.addEventListener('click', function () { lang = b.getAttribute('data-l'); try { localStorage.setItem('naval-lang', lang); } catch (e) {} history.replaceState(null, '', '?lang=' + lang + '#' + cur); draw(); });
   });
   draw();
+  var pb = document.getElementById('pptx');
+  pb.addEventListener('click', function () {
+    if (!window.exportarPPTX) return;
+    pb.disabled = true; var t = document.getElementById('pptxl'), old = t.textContent; t.textContent = lang === 'en' ? 'Preparing…' : 'A preparar…';
+    window.exportarPPTX(lang === 'en').catch(function () { alert(lang === 'en' ? 'The file could not be generated. Check the internet connection.' : 'Não foi possível gerar o ficheiro. Verifique a ligação à internet.'); })
+      .then(function () { pb.disabled = false; t.textContent = old; });
+  });
 })();
 </script>
 </body>
