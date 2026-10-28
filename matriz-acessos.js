@@ -119,12 +119,28 @@
     var pl = function (n, s, p) { return n === 1 ? s : p; };
     var riscos = [];
     if (admSem) riscos.push({ nivel: 'alto', pt: admSem + pl(admSem, ' conta de Administrador sem resposta: confirmar ou bloquear primeiro.', ' contas de Administrador sem resposta: confirmar ou bloquear primeiro.'), en: admSem + pl(admSem, ' Administrator account with no reply: confirm or block first.', ' Administrator accounts with no reply: confirm or block first.') });
-    if (admDes) riscos.push({ nivel: 'alto', pt: admDes + pl(admDes, ' conta de Administrador a desactivar: desactivar já.', ' contas de Administrador a desactivar: desactivar já.'), en: admDes + pl(admDes, ' Administrator account to deactivate: deactivate now.', ' Administrator accounts to deactivate: deactivate now.') });
+    if (admDes && !(M.erp && M.erp.users)) riscos.push({ nivel: 'alto', pt: admDes + pl(admDes, ' conta de Administrador a desactivar: desactivar já.', ' contas de Administrador a desactivar: desactivar já.'), en: admDes + pl(admDes, ' Administrator account to deactivate: deactivate now.', ' Administrator accounts to deactivate: deactivate now.') });
     if (admConf) riscos.push({ nivel: 'alto', pt: admConf + pl(admConf, ' Administrador com resposta incompleta.', ' Administradores com resposta incompleta.'), en: admConf + pl(admConf, ' Administrator with an incomplete reply.', ' Administrators with an incomplete reply.') });
     if (credSim) riscos.push({ nivel: 'medio', pt: credSim + ' de ' + perfis.length + ' perfis podem emitir documentos de crédito (NC, NCA, NCO, PDV, DV): rever, a regra é «Não».', en: credSim + ' of ' + perfis.length + ' profiles may issue credit documents (NC, NCA, NCO, PDV, DV): review, the default is "No".' });
     if (genericas) riscos.push({ nivel: 'medio', pt: genericas + pl(genericas, ' conta genérica sem utilizador identificado.', ' contas genéricas (Extra, Refresh, Sales…) sem utilizador identificado.'), en: genericas + pl(genericas, ' shared account with no identified user.', ' shared accounts (Extra, Refresh, Sales…) with no identified user.') });
     if (fornecedor) riscos.push({ nivel: 'medio', pt: fornecedor + pl(fornecedor, ' conta do fornecedor com nível Super: limitar ao período de implementação.', ' contas do fornecedor com nível Super: limitar ao período de implementação.'), en: fornecedor + pl(fornecedor, ' vendor account with Super level: limit to the implementation period.', ' vendor accounts with Super level: limit to the implementation period.') });
     if (semEmail || emailMau) riscos.push({ nivel: 'baixo', pt: (semEmail ? semEmail + pl(semEmail, ' conta sem e-mail', ' contas sem e-mail') : '') + (semEmail && emailMau ? ' e ' : '') + (emailMau ? emailMau + pl(emailMau, ' e-mail com domínio a corrigir', ' e-mails com domínio a corrigir') : '') + '.', en: (semEmail ? semEmail + pl(semEmail, ' account with no e-mail', ' accounts with no e-mail') : '') + (semEmail && emailMau ? ' and ' : '') + (emailMau ? emailMau + pl(emailMau, ' e-mail with a domain to fix', ' e-mails with a domain to fix') : '') + '.' });
+    var erpR = null;
+    if (M.erp && M.erp.users) {
+      var dv = MA.divergencias(M), porT = {};
+      dv.forEach(function (x) { porT[x.tipo] = (porT[x.tipo] || 0) + 1; });
+      var nU = function (tipos) { var s = {}; dv.forEach(function (x) { if (tipos.indexOf(x.tipo) >= 0) s[x.utilizador] = 1; }); return Object.keys(s).length; };
+      var activas = Object.keys(M.erp.users).filter(function (k) { return M.erp.users[k].activo; }).length;
+      var rE = [];
+      if (porT.desactivar_activa) rE.push({ nivel: 'alto', pt: porT.desactivar_activa + pl(porT.desactivar_activa, ' conta a desactivar continua activa no ERP.', ' contas a desactivar continuam activas no ERP.'), en: porT.desactivar_activa + pl(porT.desactivar_activa, ' account to deactivate is still active in the ERP.', ' accounts to deactivate are still active in the ERP.') });
+      if (porT.sem_resposta_activa) rE.push({ nivel: 'alto', pt: porT.sem_resposta_activa + pl(porT.sem_resposta_activa, ' conta sem resposta continua activa no ERP.', ' contas sem resposta continuam activas no ERP.'), en: porT.sem_resposta_activa + pl(porT.sem_resposta_activa, ' account with no reply is still active in the ERP.', ' accounts with no reply are still active in the ERP.') });
+      var exc = nU(['empresas_a_mais', 'modulos_a_mais']);
+      if (exc) rE.push({ nivel: 'medio', pt: exc + pl(exc, ' utilizador tem', ' utilizadores têm') + ' no ERP mais empresas ou módulos do que os aprovados.', en: exc + pl(exc, ' user has', ' users have') + ' more companies or modules in the ERP than approved.' });
+      var ordR = { alto: 0, medio: 1, baixo: 2 };
+      riscos = rE.concat(riscos).map(function (x, i) { return [x, i]; }).sort(function (a, b) { return (ordR[a[0].nivel] - ordR[b[0].nivel]) || (a[1] - b[1]); }).map(function (x) { return x[0]; });
+      if (riscos.length > 8) riscos = riscos.filter(function (x) { return x.nivel !== 'baixo'; }).slice(0, 8);
+      erpR = { data: M.erp.data, hora: M.erp.hora, activas: activas, diferencas: dv.filter(function (x) { return x.g !== 'info'; }).length, contas: nU(Object.keys(MA.TIPOS_DIF).filter(function (t) { return MA.TIPOS_DIF[t].g !== 'info'; })), porTipo: porT };
+    }
     var passos = [];
     var bloq = nSem - superSem;
     if (nSem) passos.push({ pt: 'Bloquear as ' + bloq + ' contas de utilizadores sem resposta' + (superSem ? '; as ' + superSem + ' contas Super, de gestão do ERP, ficam de fora.' : '.'), en: 'Block the ' + bloq + ' user accounts with no reply' + (superSem ? '; the ' + superSem + ' Super accounts, used to manage the ERP, are excluded.' : '.') });
@@ -167,8 +183,103 @@
         riscos: riscos,
         passos: passos
       },
+      erp: erpR,
       tarefa: { total: tot, tratados: nManter + nNovo + nDes, manter: nManter, novo: nNovo, desactivar: nDes, confirmar: nConf, sem: nSem }
     };
+  };
+
+  /* ---------- Ligação ao ERP Primavera ----------
+     M.erp guarda o último retrato do ERP (lido da base PRIEMPRE pelo processo de sincronização):
+     { data, hora, users: { '<login em minúsculas>': { codigo, nome, email, activo, nivel, empresas: [..] ou ['*'], apl: [..] } } }
+     As colunas a cinzento da matriz (Utilizador, Nome, E-mail, Nível) passam a vir do ERP; as decisões (a amarelo) ficam como estão.
+     Módulos: código da aplicação no Primavera; null = ainda por confirmar (não é comparado). */
+  MA.APL = { 'Vendas': 'VND', 'Compras': 'CMP', 'Inventário': 'INV', 'Contas Correntes': 'CCT', 'Tesouraria': 'TES', 'Contabilidade': 'CBL', 'Contabilidade de Gestão': null, 'Equipamentos e Activos': 'EAP', 'Contactos e Oportunidades': 'CRM', 'Retalho / Pontos de Venda': null };
+  var chaveU = function (v) { return String(v == null ? '' : v).trim().toLowerCase(); };
+  MA.chaveU = chaveU;
+
+  /* Aplica um novo retrato do ERP à matriz. Devolve as linhas actualizadas e as entradas para a folha «Alterações». */
+  MA.sincronizarERP = function (M, erp) {
+    var C = MA.COL, rows = MA.linhas(M), ant = M.erp && M.erp.users ? M.erp.users : null, alts = [], hj = MA.hoje();
+    var reg = function (nome, txt) { alts.push({ data: hj.dmy, utilizador: nome, alteracao: txt, origem: 'Primavera (sincronização automática)' }); };
+    var porU = {}; rows.forEach(function (r) { porU[chaveU(r[C.user])] = r; });
+    var vz = function (v) { return v == null || v === '' ? '—' : String(v); };
+    Object.keys(erp.users).forEach(function (k) {
+      var u = erp.users[k], r = porU[k];
+      if (!r) {
+        if (!u.activo) return;
+        r = new Array(MA.NCOL).fill(null);
+        r[C.user] = u.codigo; r[C.nome] = u.nome || null; r[C.email] = u.email || null; r[C.nivel] = u.nivel;
+        rows.push(r); porU[k] = r;
+        reg(u.nome || u.codigo, 'Conta activa no ERP que não estava na matriz: acrescentada, sem decisão');
+        return;
+      }
+      var mud = [];
+      if (r[C.nivel] === 'Novo (a criar)') mud.push('Conta criada no ERP');
+      if (u.nome && vz(r[C.nome]) !== u.nome) { mud.push('Nome: ' + vz(r[C.nome]) + ' → ' + u.nome); r[C.nome] = u.nome; }
+      if (u.email && vz(r[C.email]) !== u.email) { mud.push('E-mail: ' + vz(r[C.email]) + ' → ' + u.email); r[C.email] = u.email; }
+      if (vz(r[C.nivel]) !== u.nivel) { if (r[C.nivel] !== 'Novo (a criar)') mud.push('Nível no ERP: ' + vz(r[C.nivel]) + ' → ' + u.nivel); r[C.nivel] = u.nivel; }
+      if (ant && ant[k] && ant[k].activo !== u.activo) mud.push(u.activo ? 'Conta reactivada no ERP' : 'Conta desactivada ou bloqueada no ERP');
+      if (ant && ant[k]) {
+        var e0 = (ant[k].empresas || []).join(', '), e1 = (u.empresas || []).join(', ');
+        if (e0 !== e1) mud.push('Empresas no ERP: ' + (e0 || '—') + ' → ' + (e1 || '—'));
+        var a0 = (ant[k].apl || []).join(', '), a1 = (u.apl || []).join(', ');
+        if (a0 !== a1) mud.push('Módulos no ERP: ' + (a0 || '—') + ' → ' + (a1 || '—'));
+      }
+      if (mud.length) reg(r[C.nome] || r[C.user], mud.join('; '));
+    });
+    if (ant) Object.keys(ant).forEach(function (k) { if (!erp.users[k]) reg(ant[k].nome || ant[k].codigo, 'Conta deixou de existir no ERP'); });
+    M.erp = erp;
+    return { rows: rows, alteracoes: alts };
+  };
+
+  /* Diferenças entre a matriz aprovada e o que está no ERP (controlo de reconciliação de acessos). */
+  MA.TIPOS_DIF = {
+    desactivar_activa: { g: 'alto', pt: 'A desactivar, mas ainda activa no ERP', en: 'To deactivate, still active in the ERP' },
+    sem_resposta_activa: { g: 'alto', pt: 'Sem resposta, ainda activa no ERP', en: 'No reply, still active in the ERP' },
+    empresas_a_mais: { g: 'medio', pt: 'Empresas no ERP além das aprovadas', en: 'More companies in the ERP than approved' },
+    modulos_a_mais: { g: 'medio', pt: 'Módulos no ERP marcados «Sem acesso» na matriz', en: 'ERP modules marked "No access" in the matrix' },
+    empresas_em_falta: { g: 'baixo', pt: 'Empresas aprovadas ainda sem acesso no ERP', en: 'Approved companies not yet set in the ERP' },
+    modulos_em_falta: { g: 'baixo', pt: 'Módulos aprovados ainda sem acesso no ERP', en: 'Approved modules not yet set in the ERP' },
+    manter_inactiva: { g: 'baixo', pt: '«Manter», mas inactiva no ERP', en: '"Keep", but inactive in the ERP' },
+    novo_por_criar: { g: 'info', pt: 'Conta nova ainda por criar no ERP', en: 'New account not yet created in the ERP' },
+    nao_existe: { g: 'baixo', pt: 'Na matriz, mas não existe no ERP', en: 'In the matrix, but not in the ERP' }
+  };
+  MA.divergenciasLinha = function (r, erp, EMP, MODS) {
+    var C = MA.COL, out = [], T = MA.TIPOS_DIF;
+    if (!erp || !erp.users) return out;
+    var u = erp.users[chaveU(r[C.user])], est = r[C.estado] ? String(r[C.estado]).trim() : '', hoje = MA.hoje().iso;
+    var add = function (t, det) { out.push({ tipo: t, g: T[t].g, pt: T[t].pt + (det ? ': ' + det : ''), en: T[t].en }); };
+    if (!u) { if (est === 'Novo' || r[C.nivel] === 'Novo (a criar)') add('novo_por_criar'); else if (!/^desactivar/i.test(est)) add('nao_existe'); return out; }
+    var dm = /^Desactivar em (\d\d)\/(\d\d)\/(\d{4})/i.exec(est);
+    if (u.activo) {
+      if (est === 'Desactivar' || (dm && dm[3] + '-' + dm[2] + '-' + dm[1] <= hoje)) add('desactivar_activa');
+      else if (est === '' && u.nivel !== 'Super') add('sem_resposta_activa');
+    } else if (est === 'Manter') add('manter_inactiva');
+    if (!u.activo || !(est === 'Manter' || est === 'Novo')) return out;
+    var marc = []; for (var i = 0; i < C.empN; i++) if (r[C.emp0 + i]) marc.push(EMP[i]);
+    if (marc.length) {
+      var todas = (u.empresas || []).indexOf('*') >= 0, noErp = todas ? EMP.slice() : (u.empresas || []);
+      var mais = noErp.filter(function (e) { return EMP.indexOf(e) >= 0 && marc.indexOf(e) < 0; });
+      var menos = marc.filter(function (e) { return noErp.indexOf(e) < 0; });
+      if (mais.length) add('empresas_a_mais', todas ? 'todas as empresas (***)' : mais.join(', '));
+      if (menos.length) add('empresas_em_falta', menos.join(', '));
+    }
+    var mMais = [], mMenos = [];
+    MODS.forEach(function (m, j) {
+      var apl = MA.APL[m]; if (!apl) return;
+      var v = r[C.mod0 + j], tem = (u.apl || []).indexOf(apl) >= 0;
+      if (v === 'Sem acesso' && tem) mMais.push(m);
+      if ((v === 'Total' || v === 'Consulta') && !tem) mMenos.push(m);
+    });
+    if (mMais.length) add('modulos_a_mais', mMais.join(', '));
+    if (mMenos.length) add('modulos_em_falta', mMenos.join(', '));
+    return out;
+  };
+  MA.divergencias = function (M) {
+    var EMP = MA.empresas(M), MODS = MA.modulos(M), out = [];
+    if (!M.erp) return out;
+    MA.linhas(M).forEach(function (r) { MA.divergenciasLinha(r, M.erp, EMP, MODS).forEach(function (d) { d.utilizador = r[MA.COL.user]; d.nome = r[MA.COL.nome] || r[MA.COL.user]; out.push(d); }); });
+    return out;
   };
 
   /* Texto do ficheiro data/acessos-resumo.js */
@@ -261,7 +372,7 @@
   };
 
   /* Excel: biblioteca ExcelJS carregada a pedido */
-  MA.excelJS = function () { return root.ExcelJS ? Promise.resolve() : new Promise(function (ok, ko) { var sc = document.createElement('script'); sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js'; sc.onload = ok; sc.onerror = ko; document.head.appendChild(sc); }); };
+  MA.excelJS = function () { return typeof ExcelJS !== 'undefined' ? Promise.resolve() : new Promise(function (ok, ko) { var sc = document.createElement('script'); sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js'; sc.onload = ok; sc.onerror = ko; document.head.appendChild(sc); }); };
   MA.excel = async function (M) {
     await MA.excelJS();
     var wb = new ExcelJS.Workbook(); wb.creator = 'Grupo Naval · Projectos Digitais'; wb.created = new Date();
@@ -283,6 +394,24 @@
       if (S.freeze) { var mm = S.freeze.match(/^([A-Z]+)(\d+)$/); if (mm) { var col = 0; for (var i = 0; i < mm[1].length; i++) col = col * 26 + mm[1].charCodeAt(i) - 64; ws.views = [{ state: 'frozen', xSplit: col - 1, ySplit: +mm[2] - 1 }]; } }
       S.dv.forEach(function (d) { d.ref.split(' ').forEach(function (rg) { if (ws.dataValidations && ws.dataValidations.add) ws.dataValidations.add(rg, { type: 'list', allowBlank: true, formulae: [d.f] }); }); });
     });
+    if (M.erp && M.erp.users) {
+      var cab = function (ws, titulo, sub, heads, larg) {
+        ws.getCell(1, 1).value = titulo; ws.getCell(1, 1).font = { name: 'Arial', size: 13, bold: true, color: { argb: 'FF273777' } };
+        ws.getCell(2, 1).value = sub; ws.getCell(2, 1).font = { name: 'Arial', size: 9, italic: true, color: { argb: 'FF666666' } };
+        heads.forEach(function (h, i) { var c = ws.getCell(4, i + 1); c.value = h; c.font = { name: 'Arial', size: 9, bold: true, color: { argb: 'FFFFFFFF' } }; c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF273777' } }; c.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true }; ws.getColumn(i + 1).width = larg[i]; });
+        ws.views = [{ state: 'frozen', ySplit: 4 }]; ws.autoFilter = { from: { row: 4, column: 1 }, to: { row: 4, column: heads.length } };
+      };
+      var linha = function (ws, r, vals, cor) { vals.forEach(function (v, i) { var c = ws.getCell(r, i + 1); c.value = v == null ? '' : v; c.font = { name: 'Arial', size: 9, color: cor && i === 0 ? { argb: cor } : undefined, bold: cor && i === 0 ? true : undefined }; c.alignment = { vertical: 'top', wrapText: true }; var t = { style: 'thin', color: { argb: 'FFD9DEE7' } }; c.border = { top: t, left: t, bottom: t, right: t }; }); };
+      var quando = 'Leitura do ERP Primavera (base PRIEMPRE) a ' + M.erp.data.split('-').reverse().join('/') + ' às ' + M.erp.hora;
+      var GC = { alto: 'FFC0392B', medio: 'FFB9770E', baixo: 'FF2397D4', info: 'FF666666' }, GN = { alto: 'Alto', medio: 'Médio', baixo: 'Baixo', info: 'Informação' };
+      var w1 = wb.addWorksheet('Diferenças ERP');
+      cab(w1, 'Diferenças entre a matriz aprovada e o ERP', quando + '. Corrigir no Primavera ou na matriz; a próxima sincronização actualiza esta folha.', ['Prioridade', 'Utilizador', 'Nome', 'Diferença'], [12, 22, 28, 90]);
+      var ord = { alto: 0, medio: 1, baixo: 2, info: 3 };
+      MA.divergencias(M).sort(function (a, b) { return ord[a.g] - ord[b.g]; }).forEach(function (d, i) { linha(w1, 5 + i, [GN[d.g], d.utilizador, d.nome, d.pt], GC[d.g]); });
+      var w2 = wb.addWorksheet('ERP (Primavera)');
+      cab(w2, 'Contas no ERP Primavera', quando + '. Só leitura.', ['Utilizador', 'Nome', 'E-mail', 'Activa', 'Nível', 'Empresas', 'Módulos (aplicações)'], [22, 28, 30, 9, 14, 40, 50]);
+      Object.keys(M.erp.users).sort().forEach(function (k, i) { var u = M.erp.users[k]; linha(w2, 5 + i, [u.codigo, u.nome, u.email, u.activo ? 'Sim' : 'Não', u.nivel, (u.empresas || []).join(', ').replace('*', 'Todas (***)'), (u.apl || []).join(', ')]); });
+    }
     return wb.xlsx.writeBuffer();
   };
   MA.descarregar = function (buf, nome) {

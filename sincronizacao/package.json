@@ -1,0 +1,16 @@
+{
+  "name": "sincronizacao-primavera",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sincronização da matriz de acessos do portal com o ERP Primavera (base PRIEMPRE, só leitura)",
+  "main": "sincronizar-primavera.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "teste": "node sincronizar-primavera.js --teste",
+    "sincronizar": "node sincronizar-primavera.js"
+  },
+  "dependencies": {
+    "exceljs": "4.4.0",
+    "mssql": "11.0.1"
+  }
+}

@@ -139,7 +139,8 @@ body.flow .foot{flex-direction:column}
   h += '<div class="card box"><div class="bh"><h2>' + (EN ? 'Risks found' : 'Riscos identificados') + '</h2><span>' + X.riscos.length + (EN ? ' points' : ' pontos') + '</span></div><div class="risks">' +
     X.riscos.map(function (r) { var c = PR[r.nivel] || PR.baixo; return '<div class="risk"><span class="p" style="background:' + c[0] + ';color:' + c[1] + '">' + c[2] + '</span><span>' + esc(L(r)) + '</span></div>'; }).join('') + '</div></div>';
   h += '</div>';
-  h += '<div class="foot"><span>' + esc(L(X.fonte)) + ' · ' + (EN ? 'aggregated figures, no personal data' : 'números agregados, sem dados pessoais') + '</span><a href="ponto-situacao.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Full status update →' : 'Ponto de situação completo →') + '</a></div>';
+  var ERP = D.acessosERP, nC = ERP ? (ERP.contas != null ? ERP.contas : ERP.diferencas) : 0, erpTxt = ERP ? (EN ? ' · linked to the Primavera ERP (read ' + dt(ERP.data) + ' at ' + ERP.hora + '; ' + nC + (nC === 1 ? ' account differs' : ' accounts differ') + ' from the matrix)' : ' · ligada ao ERP Primavera (lido a ' + dt(ERP.data) + ' às ' + ERP.hora + '; ' + nC + (nC === 1 ? ' conta com diferenças' : ' contas com diferenças') + ')') : '';
+  h += '<div class="foot"><span>' + esc(L(X.fonte)) + esc(erpTxt) + ' · ' + (EN ? 'aggregated, no personal data' : 'agregado, sem dados pessoais') + '</span><a href="ponto-situacao.html?lang=' + (EN ? 'en' : 'pt') + '">' + (EN ? 'Full status update →' : 'Ponto de situação completo →') + '</a></div>';
   var st = document.getElementById('stage'); st.innerHTML = h;
   st.querySelectorAll('.lang a').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('naval-lang', a.getAttribute('data-l')); } catch (e) {} }); });
   if (window.self !== window.top) document.body.classList.add('embed');

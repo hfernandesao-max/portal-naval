@@ -2,7 +2,7 @@
    Para actualizar: alterar os valores abaixo. Site público: só nomes autorizados (ex.: equipa do Dubai com acesso ao Pinguim BO); sem e-mails, NIF nem dados de acessos individuais. */
 window.PD = {
   actualizado: '2026-10-28',
-  hora: '11:50', /* hora da última actualização (Luanda) */
+  hora: '15:09', /* hora da última actualização (Luanda) */
 
   /* estado: concluido | definido | curso | previsto | aguarda | bloqueado */
   tarefas: [
@@ -128,6 +128,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-28', pt: 'Matriz de acessos preparada para ligação ao ERP Primavera: sincronização automática e diferenças entre o aprovado e o ERP.', en: 'Access matrix ready to link to the Primavera ERP: automatic sync and differences between the approved matrix and the ERP.' },
     { data: '2026-10-28', pt: 'Matriz de acessos ao ERP passa a ser actualizada online no portal, com registo automático das alterações.', en: 'The ERP access matrix can now be updated online in the portal, with every change logged automatically.' },
     { data: '2026-10-25', pt: 'Contrato de empreitada: recebidas as respostas aos 9 pontos; falta a conciliação final.', en: 'Construction contract: answers to all 9 points received; final reconciliation pending.' },
     { data: '2026-10-25', pt: 'Contrato de empreitada: confirmado erro na descrição das NC de regularização do adiantamento e valores da conta 3736 em acréscimos de proveitos.', en: 'Construction contract: error confirmed in the description of the advance credit notes; account 3736 amounts are accrued income.' },
@@ -202,7 +203,7 @@ window.PD.arquivados = function (lista) { return (lista || []).filter(window.PD.
    «Redefinição de acessos» e a data/hora da última actualização do portal. */
 window.PD.aplicarAcessos = function (R) {
   var P = window.PD; if (!R || !R.acessos) return;
-  P.acessos = R.acessos; P.acessosAnalise = R.acessosAnalise;
+  P.acessos = R.acessos; P.acessosAnalise = R.acessosAnalise; P.acessosERP = R.erp || null;
   var T = R.tarefa, t = (P.tarefas || []).filter(function (x) { return x.id === 'acessos'; })[0];
   if (t && T && T.total) {
     var pl = function (n, s, p) { return n === 1 ? s : p; };

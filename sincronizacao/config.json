@@ -1,0 +1,6 @@
+{
+  "_comentario": "Códigos de empresa do Primavera que não coincidem com o cabeçalho da matriz. Ex.: \"NAVAL_AGRO\": \"AGRO\". Os restantes são ligados pelo próprio código.",
+  "empresas": {},
+  "sqlEncriptar": true,
+  "sqlConfiarCertificado": true
+}

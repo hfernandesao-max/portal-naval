@@ -141,7 +141,7 @@ label.f.w{grid-column:1/-1}
     </div>
     <div class="card pend" id="pend" role="status"><span><b id="pn">0</b> <span id="pt">alterações por guardar</span></span><span class="sp"></span><button class="b g" type="button" id="bver">Ver alterações</button><button class="b r" type="button" id="bundo">Desfazer tudo</button></div>
     <div class="card tbl"><table>
-      <thead><tr><th>N.º</th><th>Utilizador</th><th class="hide-s">Nível</th><th>Estado</th><th class="hide-s">Área / Função</th><th class="hide-s">Empresas</th><th class="hide-s">Módulos</th><th class="hide-s">Crédito</th></tr></thead>
+      <thead><tr><th>N.º</th><th>Utilizador</th><th class="hide-s">Nível</th><th>Estado</th><th class="hide-s">Área / Função</th><th class="hide-s">Empresas</th><th class="hide-s">Módulos</th><th class="hide-s">Crédito</th><th class="hide-s">ERP</th></tr></thead>
       <tbody id="tb"></tbody>
     </table></div>
     <div class="foot"><span id="fsrc"></span><span>As alterações ficam registadas na folha «Alterações» da matriz. As páginas públicas mostram só números agregados.</span></div>
@@ -234,7 +234,7 @@ label.f.w{grid-column:1/-1}
     $('lock').style.display = 'none'; $('app').style.display = 'flex'; $('app').style.flexDirection = 'column'; $('app').style.gap = '14px';
     var niv = {}; rows.forEach(function (r) { if (r.v[C.nivel]) niv[r.v[C.nivel]] = 1; }); MA.NIVEIS.forEach(function (n) { niv[n] = 1; });
     $('fn').innerHTML = '<option value="">Todos os níveis</option>' + Object.keys(niv).map(function (n) { return '<option>' + esc(n) + '</option>'; }).join('');
-    $('fsrc').textContent = 'Matriz carregada ' + (fonte === 'repo' ? 'do repositório (versão mais recente)' : 'do site publicado') + ' · ' + rows.length + ' utilizadores · ' + EMP.length + ' empresas · ' + MODS.length + ' módulos';
+    $('fsrc').textContent = 'Matriz carregada ' + (fonte === 'repo' ? 'do repositório (versão mais recente)' : 'do site publicado') + ' · ' + rows.length + ' utilizadores · ' + EMP.length + ' empresas · ' + MODS.length + ' módulos' + (M.erp ? ' · ERP Primavera lido a ' + M.erp.data.split('-').reverse().join('-') + ' às ' + M.erp.hora : ' · ainda sem ligação ao ERP Primavera');
     desenhar();
   }
 
@@ -258,17 +258,34 @@ label.f.w{grid-column:1/-1}
   }
   window.addEventListener('beforeunload', function (e) { if (M && pendentes().length) { e.preventDefault(); e.returnValue = ''; } });
 
+  /* ---------- comparação com o ERP Primavera ---------- */
+  var GCOR = { alto: ['rgba(255,105,97,0.18)', '#FF8A84'], medio: ['rgba(201,130,42,0.2)', '#E0A458'], baixo: ['rgba(124,198,238,0.16)', '#9CD3F2'], info: ['rgba(235,235,245,0.10)', 'rgba(235,235,245,0.7)'] };
+  var GORD = { alto: 0, medio: 1, baixo: 2, info: 3 };
+  function difs(v) { return M && M.erp ? MA.divergenciasLinha(v, M.erp, EMP, MODS) : []; }
+  function celulaERP(v) {
+    if (!M.erp) return '<span class="sub">—</span>';
+    var u = M.erp.users[MA.chaveU(v[C.user])], d = difs(v), pior = d.slice().sort(function (a, b) { return GORD[a.g] - GORD[b.g]; })[0];
+    var pill = function (txt, g, tit) { var c = GCOR[g]; return '<span class="pill" style="background:' + c[0] + ';color:' + c[1] + '"' + (tit ? ' title="' + esc(tit) + '"' : '') + '>' + esc(txt) + '</span>'; };
+    var tit = d.map(function (x) { return x.pt; }).join('\n');
+    if (!u) return pill(d.length && d[0].tipo === 'novo_por_criar' ? 'Por criar' : 'Não existe', pior ? pior.g : 'info', tit);
+    var n = d.filter(function (x) { return x.g !== 'info'; }).length;
+    if (!n) return pill(u.activo ? 'Igual' : 'Inactiva', 'info', u.activo ? 'Igual ao aprovado' : 'Conta inactiva ou bloqueada no ERP');
+    return pill(n + (n === 1 ? ' diferença' : ' diferenças'), pior.g, tit);
+  }
+
   /* ---------- tabela ---------- */
   function desenhar() {
     var cont = { '': 0, Manter: 0, Novo: 0, Desactivar: 0, 'A confirmar': 0 };
     rows.forEach(function (r) { cont[grupo(r.v[C.estado])]++; });
     var ch = '<button type="button" class="chip" data-k="*" aria-pressed="' + (filtroEstado === null) + '"><span class="l">Total</span><span class="v">' + rows.length + '</span></button>';
     ESTADOS.forEach(function (e) { ch += '<button type="button" class="chip" data-k="' + esc(e.k) + '" aria-pressed="' + (filtroEstado === e.k) + '"><span class="l"><i style="background:' + e.cor + '"></i>' + e.l + '</span><span class="v">' + cont[e.k] + '</span></button>'; });
+    if (M.erp) { var nd = rows.filter(function (r) { return difs(r.v).some(function (x) { return x.g !== 'info'; }); }).length; ch += '<button type="button" class="chip" data-k="#erp" aria-pressed="' + (filtroEstado === '#erp') + '"><span class="l"><i style="background:#E0A458"></i>Diferenças com o ERP</span><span class="v">' + nd + '</span></button>'; }
     $('chips').innerHTML = ch;
     $('chips').querySelectorAll('.chip').forEach(function (b) { b.addEventListener('click', function () { var k = b.getAttribute('data-k'); filtroEstado = k === '*' || filtroEstado === k ? null : k; desenhar(); }); });
     var q = $('q').value.trim().toLowerCase(), fn = $('fn').value;
     var vis = rows.filter(function (r) {
-      if (filtroEstado !== null && grupo(r.v[C.estado]) !== filtroEstado) return false;
+      if (filtroEstado === '#erp') { if (!difs(r.v).some(function (x) { return x.g !== 'info'; })) return false; }
+      else if (filtroEstado !== null && grupo(r.v[C.estado]) !== filtroEstado) return false;
       if (fn && r.v[C.nivel] !== fn) return false;
       if (q) { var t = [r.v[C.user], r.v[C.nome], r.v[C.area], r.v[C.resp], r.v[C.valid], r.v[C.email]].join(' ').toLowerCase(); if (t.indexOf(q) < 0) return false; }
       return true;
@@ -286,9 +303,9 @@ label.f.w{grid-column:1/-1}
         '<td class="hide-s">' + esc(v[C.area] || '') + (v[C.resp] ? '<div class="sub">' + esc(v[C.resp]) + '</div>' : '') + '</td>' +
         '<td class="hide-s" title="' + esc(MA.empresasSel(v, EMP)) + '">' + (ne ? ne + ' / ' + C.empN : '<span class="sub">—</span>') + '</td>' +
         '<td class="hide-s">' + mini + '</td>' +
-        '<td class="hide-s">' + esc(v[C.cred] || '—') + '</td></tr>';
+        '<td class="hide-s">' + esc(v[C.cred] || '—') + '</td><td class="hide-s">' + celulaERP(v) + '</td></tr>';
     }).join('');
-    $('tb').innerHTML = h || '<tr><td colspan="8" class="empty">Nenhum utilizador corresponde ao filtro.</td></tr>';
+    $('tb').innerHTML = h || '<tr><td colspan="9" class="empty">Nenhum utilizador corresponde ao filtro.</td></tr>';
     $('tb').querySelectorAll('tr[data-id]').forEach(function (tr) { tr.addEventListener('click', function () { abrirEd(+tr.getAttribute('data-id')); }); });
     estadoPend();
   }
@@ -303,6 +320,14 @@ label.f.w{grid-column:1/-1}
     if (!r) rascunho[C.estado] = 'Novo', rascunho[C.nivel] = 'Novo (a criar)';
     var v = rascunho, dm = /^Desactivar em (\d\d)\/(\d\d)\/(\d{4})/i.exec(v[C.estado] || ''), ek = dm ? 'data' : (v[C.estado] || '');
     var h = '';
+    if (M.erp && r) {
+      var u = M.erp.users[MA.chaveU(v[C.user])], dd = difs(v);
+      h += '<fieldset><legend>No ERP Primavera · leitura de ' + M.erp.data.split('-').reverse().join('-') + ' às ' + esc(M.erp.hora) + '</legend>';
+      if (u) h += '<div class="lnk" style="flex-direction:column;gap:4px;color:rgba(235,235,245,0.85)"><span>Conta <b>' + (u.activo ? 'activa' : 'inactiva ou bloqueada') + '</b> · nível ' + esc(u.nivel) + '</span><span>Empresas: ' + esc((u.empresas || []).join(', ').replace('*', 'todas (***)') || '—') + '</span><span>Módulos: ' + esc((u.apl || []).join(', ') || '—') + '</span></div>';
+      else h += '<div class="lnk" style="color:rgba(235,235,245,0.85)">Esta conta não existe no ERP.</div>';
+      h += dd.length ? '<ul style="grid-column:1/-1;margin:0;padding-left:18px;font-size:13px;line-height:1.5">' + dd.map(function (x) { return '<li style="color:' + GCOR[x.g][1] + '">' + esc(x.pt) + '</li>'; }).join('') + '</ul>' : '<div class="lnk" style="color:#9CC4EA">Igual ao aprovado na matriz.</div>';
+      h += '<div class="ro" style="grid-column:1/-1">Nome, e-mail e nível vêm do ERP e são actualizados na sincronização. Corrija as diferenças no Primavera; a próxima sincronização confirma.</div></fieldset>';
+    }
     h += '<fieldset><legend>Identificação</legend>' +
       '<label class="f">Utilizador (login no ERP) *<input type="text" id="e_user" value="' + esc(v[C.user] || '') + '"></label>' +
       '<label class="f">Nome<input type="text" id="e_nome" value="' + esc(v[C.nome] || '') + '"></label>' +

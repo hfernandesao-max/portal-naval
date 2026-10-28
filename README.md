@@ -24,3 +24,6 @@ O botão «Exportar para Excel» em `acessos.html` gera a matriz completa (folha
 - `PD.aplicarAcessos` actualiza a revisão de acessos, o tema «Redefinição de acessos» e a hora da última actualização em todas as páginas.
 
 A gravação usa um token *fine-grained* do GitHub com acesso só ao repositório `portal-naval` e permissão **Contents: Read and write**, guardado apenas no browser de quem o introduz. A mensagem do commit (pública) não tem nomes. A lógica comum está em `matriz-acessos.js`.
+
+### Ligação ao ERP Primavera
+A pasta `sincronizacao/` tem o processo agendado que lê o Primavera (PRIEMPRE, só leitura) num servidor da rede, actualiza as colunas que vêm do ERP, regista as alterações e compara a matriz aprovada com o ERP (reconciliação de acessos). Instruções em `sincronizacao/LEIA-ME.md`.
