@@ -1,8 +1,8 @@
 /* Projectos digitais · dados do ponto de situação (RTM e Cegid Evolution ERP Primavera).
    Para actualizar: alterar os valores abaixo. Site público: só nomes autorizados (ex.: equipa do Dubai com acesso ao Pinguim BO); sem e-mails, NIF nem dados de acessos individuais. */
 window.PD = {
-  actualizado: '2026-10-25',
-  hora: '19:42', /* hora da última actualização (Luanda) */
+  actualizado: '2026-10-28',
+  hora: '11:50', /* hora da última actualização (Luanda) */
 
   /* estado: concluido | definido | curso | previsto | aguarda | bloqueado */
   tarefas: [
@@ -25,7 +25,7 @@ window.PD = {
     { proj: 'ERP', curto: { pt: 'Contrato de empreitada', en: 'Construction contract' }, res: { pt: 'Respostas recebidas; falta a conciliação final', en: 'Answers received; final reconciliation pending' }, pt: 'Contrato de empreitada: acerto contabilístico', en: 'Construction contract: accounting reconciliation', estado: 'curso', pct: 80, prev: '2026-10-29', det: { pt: 'Vistar · Foodtec. Respostas aos 9 pontos recebidas: reclassificação feita; ligação ADC/FAA só na factura final; contrato único de 50% confirmado; orçamento das estruturas metálicas, autos 7 e 8, extractos BAI e comunicação da GWIC enviados; saldo intragrupo formalizado por transferências de aprovisionamento (Tesouraria do Grupo); trabalhos não facturados em acréscimos de proveitos; erro confirmado na descrição das NC do adiantamento. Duas diferenças de valor ainda em revisão pela orçamentação. Falta a conciliação final, até 29-10.', en: 'Vistar · Foodtec. Answers to all 9 points received: reclassification done; ADC/FAA matching only at the final invoice; single 50% contract confirmed; steel structures budget, measurements 7 and 8, BAI statements and GWIC notice sent; intra-group balance formalised through supply transfers (Group Treasury); unbilled work booked as accrued income; error confirmed in the advance credit notes description. Two value differences still under review by the budgeting team. Final reconciliation pending, by 29 Oct.' } },
     { proj: 'ERP', res: { pt: 'Pedido da Fiscalidade; ainda não iniciado', en: 'Tax team request; not started' }, pt: 'SAF-T Inventário e Contabilidade (Primavera)', en: 'SAF-T Inventory and Accounting (Primavera)', estado: 'previsto', pct: 0, prev: '2026-12-31', det: { pt: 'Pedido da Fiscalidade (22-10): confirmar se o ERP Primavera está preparado para gerar os ficheiros SAF-T de Inventário e de Contabilidade, com ponto de situação e previsão. Resposta necessária até ao fim do ano. Ainda não iniciado.', en: 'Tax team request (22 Oct): confirm whether the Primavera ERP is ready to generate the SAF-T Inventory and Accounting files, with status and forecast. Answer needed by year-end. Not started yet.' } },
     { proj: 'ERP', res: { pt: 'Desenvolvimento a fazer no Primavera', en: 'Development to be done in Primavera' }, pt: 'ADF: n.º da PO obrigatório', en: 'Supplier advances: PO number mandatory', estado: 'previsto', pct: 0, prev: '2026-11-15', det: { pt: 'Pedido de Finanças (22-10): obrigar ao preenchimento do n.º do pedido de compra (PO) no campo «Número do Documento» dos adiantamentos a fornecedores (ADF), para acompanhar os pagamentos antecipados e agilizar a conciliação. Desenvolvimento a fazer no Primavera, até 15-11.', en: 'Finance request (22 Oct): make the purchase order (PO) number mandatory in the "Document number" field of supplier advances (ADF), to track prepayments and speed up reconciliation. Development to be done in Primavera, by 15 Nov.' } },
-    { proj: 'ERP', res: { pt: '38 sem resposta a bloquear; 5 respostas incompletas', en: '38 with no reply being blocked; 5 incomplete replies' }, pt: 'Redefinição de acessos (27 de 70 tratados)', en: 'Access redesign (27 of 70 handled)', estado: 'curso', pct: 39, prev: '2026-10-28', det: { pt: '20 contas mantêm o acesso, 4 novas a criar (Dubai) e 3 a desactivar; 5 respostas incompletas; 38 sem resposta, a bloquear desde 16-10. Conclusão até 28-10.', en: '20 accounts keep access, 4 new to create (Dubai) and 3 to deactivate; 5 incomplete replies; 38 with no reply, being blocked since 16 Oct. To be completed by 28 Oct.' } }
+    { id: 'acessos', proj: 'ERP', res: { pt: '38 sem resposta a bloquear; 5 respostas incompletas', en: '38 with no reply being blocked; 5 incomplete replies' }, pt: 'Redefinição de acessos (27 de 70 tratados)', en: 'Access redesign (27 of 70 handled)', estado: 'curso', pct: 39, prev: '2026-10-28', det: { pt: '20 contas mantêm o acesso, 4 novas a criar (Dubai) e 3 a desactivar; 5 respostas incompletas; 38 sem resposta, a bloquear desde 16-10. Conclusão até 28-10.', en: '20 accounts keep access, 4 new to create (Dubai) and 3 to deactivate; 5 incomplete replies; 38 with no reply, being blocked since 16 Oct. To be completed by 28 Oct.' } }
   ],
 
   /* Arranque das vendas: códigos de rota (sem nomes) */
@@ -128,6 +128,7 @@ window.PD = {
   ],
 
   historico: [
+    { data: '2026-10-28', pt: 'Matriz de acessos ao ERP passa a ser actualizada online no portal, com registo automático das alterações.', en: 'The ERP access matrix can now be updated online in the portal, with every change logged automatically.' },
     { data: '2026-10-25', pt: 'Contrato de empreitada: recebidas as respostas aos 9 pontos; falta a conciliação final.', en: 'Construction contract: answers to all 9 points received; final reconciliation pending.' },
     { data: '2026-10-25', pt: 'Contrato de empreitada: confirmado erro na descrição das NC de regularização do adiantamento e valores da conta 3736 em acréscimos de proveitos.', en: 'Construction contract: error confirmed in the description of the advance credit notes; account 3736 amounts are accrued income.' },
     { data: '2026-10-25', pt: 'Novos temas: contrato de empreitada (acerto contabilístico), SAF-T de Inventário e de Contabilidade e n.º da PO obrigatório nos ADF.', en: 'New topics: construction contract (accounting reconciliation), SAF-T Inventory and Accounting, and PO number mandatory on ADF.' },
@@ -195,3 +196,33 @@ window.PD._limite = function () { var d = new Date(); d.setDate(d.getDate() - wi
 window.PD.arquivado = function (t) { return t.estado === 'concluido' && typeof t.concl === 'string' && t.concl < window.PD._limite(); };
 window.PD.ativos = function (lista) { return (lista || []).filter(function (t) { return !window.PD.arquivado(t); }); };
 window.PD.arquivados = function (lista) { return (lista || []).filter(window.PD.arquivado); };
+
+/* Matriz de acessos: o ficheiro data/acessos-resumo.js, gerado pelo portal sempre que a matriz é actualizada online,
+   chama esta função com os números agregados (sem dados pessoais). Actualiza a revisão de acessos, o tema
+   «Redefinição de acessos» e a data/hora da última actualização do portal. */
+window.PD.aplicarAcessos = function (R) {
+  var P = window.PD; if (!R || !R.acessos) return;
+  P.acessos = R.acessos; P.acessosAnalise = R.acessosAnalise;
+  var T = R.tarefa, t = (P.tarefas || []).filter(function (x) { return x.id === 'acessos'; })[0];
+  if (t && T && T.total) {
+    var pl = function (n, s, p) { return n === 1 ? s : p; };
+    t.pt = 'Redefinição de acessos (' + T.tratados + ' de ' + T.total + ' tratados)';
+    t.en = 'Access redesign (' + T.tratados + ' of ' + T.total + ' handled)';
+    if (t.estado !== 'concluido') t.pct = Math.round(T.tratados / T.total * 100);
+    var rp = [], re = [];
+    if (T.sem) { rp.push(T.sem + ' sem resposta a bloquear'); re.push(T.sem + ' with no reply being blocked'); }
+    if (T.confirmar) { rp.push(T.confirmar + pl(T.confirmar, ' resposta incompleta', ' respostas incompletas')); re.push(T.confirmar + pl(T.confirmar, ' incomplete reply', ' incomplete replies')); }
+    if (!rp.length) { rp.push('Todas as contas com decisão; falta aplicar no ERP'); re.push('All accounts have a decision; to be applied in the ERP'); }
+    t.res = { pt: rp.join('; '), en: re.join('; ') };
+    var prev = typeof t.prev === 'string' && /^\d{4}-\d\d-\d\d$/.test(t.prev) ? t.prev : null;
+    t.det = {
+      pt: T.manter + pl(T.manter, ' conta mantém', ' contas mantêm') + ' o acesso, ' + T.novo + pl(T.novo, ' nova a criar', ' novas a criar') + ' e ' + T.desactivar + ' a desactivar' +
+        (T.confirmar ? '; ' + T.confirmar + pl(T.confirmar, ' resposta incompleta', ' respostas incompletas') : '') + (T.sem ? '; ' + T.sem + ' sem resposta, a bloquear' : '') +
+        '. Matriz actualizada a ' + R.data.slice(8, 10) + '-' + R.data.slice(5, 7) + (prev && t.estado !== 'concluido' ? '. Conclusão até ' + prev.slice(8, 10) + '-' + prev.slice(5, 7) + '.' : '.'),
+      en: T.manter + pl(T.manter, ' account keeps', ' accounts keep') + ' access, ' + T.novo + ' new to create and ' + T.desactivar + ' to deactivate' +
+        (T.confirmar ? '; ' + T.confirmar + pl(T.confirmar, ' incomplete reply', ' incomplete replies') : '') + (T.sem ? '; ' + T.sem + ' with no reply, being blocked' : '') +
+        '. Matrix updated on ' + R.data + (prev && t.estado !== 'concluido' ? '. To be completed by ' + prev + '.' : '.')
+    };
+  }
+  if (R.data && (R.data + ' ' + (R.hora || '00:00')) > ((P.actualizado || '') + ' ' + (P.hora || '00:00'))) { P.actualizado = R.data; P.hora = R.hora || P.hora; }
+};

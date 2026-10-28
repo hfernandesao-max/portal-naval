@@ -25,7 +25,7 @@ h1{margin:4px 0 0;font-size:52px;font-weight:600;letter-spacing:-1px;line-height
 .lang a.on{background:var(--blue);color:#fff}
 body.embed .lang{display:none}
 .xbtn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:15px;font-weight:600;color:#fff;background:#3C79BE;border:1px solid rgba(156,196,234,0.5);border-radius:11px;padding:8px 14px;cursor:pointer}
-.xbtn:hover{background:#2F68A8}.xbtn svg{width:17px;height:17px}
+.xbtn:hover{background:#2F68A8}a.xbtn{text-decoration:none}.xbtn.ghost{background:transparent;color:#9CC4EA}.xbtn.ghost:hover{background:rgba(60,121,190,0.18)}.xbtn svg{width:17px;height:17px}
 .mrow{display:flex;align-items:center;gap:10px}
 #xm{position:fixed;inset:0;background:rgba(3,6,20,0.72);display:none;align-items:center;justify-content:center;z-index:50;font-family:inherit}
 #xm.on{display:flex}
@@ -87,7 +87,7 @@ body.flow .foot{flex-direction:column}
 </head>
 <body>
 <div class="stage" id="stage"></div>
-<script>document.write('<script src="data/projectos-digitais.js?t=' + Date.now() + '"><\/script>');</script>
+<script>document.write('<script src="data/projectos-digitais.js?t=' + Date.now() + '"><\/script><script src="data/acessos-resumo.js?t=' + Date.now() + '"><\/script><script src="matriz-acessos.js?t=' + Date.now() + '"><\/script>');</script>
 <script>
 (function () {
   var D = window.PD || {}, A = D.acessos || { grupos: [] }, X = D.acessosAnalise || { niveis: [], modulos: [], riscos: [], passos: [], credito: {} };
@@ -107,11 +107,11 @@ body.flow .foot{flex-direction:column}
   var pct = function (n) { return Math.round(n / tot * 100) + '%'; };
   var h = '';
   h += '<div class="top"><div class="brand"><img src="assets/naval-logo.png" alt="Naval"><div><div class="eyebrow">Cegid Evolution ERP Primavera · ' + (EN ? 'Security' : 'Segurança') + '</div><h1>' + (EN ? 'ERP access review' : 'Revisão de acessos ao ERP') + '</h1></div></div>';
-  h += '<div class="meta"><div class="mrow"><button type="button" class="xbtn" id="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>' + (EN ? 'Export to Excel' : 'Exportar para Excel') + '</button><span class="badge">' + (EN ? 'Status as of ' : 'Situação a ') + dt(A.data, true) + '</span></div><div class="lang"><a href="?lang=pt" data-l="pt"' + (EN ? '' : ' class="on"') + '>PT</a><a href="?lang=en" data-l="en"' + (EN ? ' class="on"' : '') + '>EN</a></div></div></div>';
+  h += '<div class="meta"><div class="mrow"><a class="xbtn ghost" id="ebtn" href="matriz.html" target="_top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>' + (EN ? 'Update matrix' : 'Actualizar matriz') + '</a><button type="button" class="xbtn" id="xbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>' + (EN ? 'Export to Excel' : 'Exportar para Excel') + '</button><span class="badge">' + (EN ? 'Status as of ' : 'Situação a ') + dt(A.data, true) + '</span></div><div class="lang"><a href="?lang=pt" data-l="pt"' + (EN ? '' : ' class="on"') + '>PT</a><a href="?lang=en" data-l="en"' + (EN ? ' class="on"' : '') + '>EN</a></div></div></div>';
   var K = [
     [EN ? 'Accounts reviewed' : 'Contas analisadas', String(tot), (EN ? 'in ' : 'em ') + X.empresas + (EN ? ' companies' : ' empresas'), '#F5F5F7'],
     [EN ? 'Decision taken' : 'Com decisão', trat + ' / ' + tot, pct(trat) + (EN ? ' · keep, create or deactivate' : ' · manter, criar ou desactivar'), '#9CC4EA'],
-    [EN ? 'No reply · being blocked' : 'Sem resposta · a bloquear', String(G[4] ? G[4].n : 0), pct(G[4] ? G[4].n : 0) + (EN ? ' · deadline was ' : ' · prazo terminou a ') + dt(A.data), '#FF8A84'],
+    [EN ? 'No reply · being blocked' : 'Sem resposta · a bloquear', String(G[4] ? G[4].n : 0), pct(G[4] ? G[4].n : 0) + (EN ? ' · deadline was ' : ' · prazo terminou a ') + dt(A.prazo || '2026-10-16'), '#FF8A84'],
     [EN ? 'Administrator or Super level' : 'Nível Administrador ou Super', String(adm), (EN ? 'priority in the review' : 'prioridade na revisão'), '#E0A458']
   ];
   h += '<div class="kpis">' + K.map(function (k) { return '<div class="card kpi"><span class="l">' + esc(k[0]) + '</span><span class="v" style="color:' + k[3] + '">' + esc(k[1]) + '</span><span class="n">' + esc(k[2]) + '</span></div>'; }).join('') + '</div>';
@@ -167,47 +167,10 @@ body.flow .foot{flex-direction:column}
   m.querySelector('#xno').addEventListener('click', fechar);
   m.addEventListener('click', function (e) { if (e.target === m) fechar(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
-  var b64 = function (s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; };
-  var lib = function () { return window.ExcelJS ? Promise.resolve() : new Promise(function (ok, ko) { var sc = document.createElement('script'); sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js'; sc.onload = ok; sc.onerror = ko; document.head.appendChild(sc); }); };
-  var decifrar = async function (senha) {
-    var E = await (await fetch('data/acessos-matriz.enc.json?t=' + Date.now())).json();
-    var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(senha), 'PBKDF2', false, ['deriveKey']);
-    var key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(E.salt), iterations: E.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
-    var raw;
-    try { raw = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(E.iv) }, key, b64(E.ct)); } catch (e) { throw new Error('senha'); }
-    var txt = await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
-    return JSON.parse(txt);
-  };
-  var gerar = async function (M) {
-    var wb = new ExcelJS.Workbook(); wb.creator = 'Grupo Naval · Projectos Digitais'; wb.created = new Date();
-    M.sheets.forEach(function (S) {
-      var ws = wb.addWorksheet(S.name);
-      Object.keys(S.cols).forEach(function (k) { ws.getColumn(k).width = S.cols[k]; });
-      Object.keys(S.rows).forEach(function (k) { ws.getRow(+k).height = S.rows[k]; });
-      S.cells.forEach(function (e) {
-        var c = ws.getCell(e.r, e.c);
-        if (e.f) c.value = { formula: e.f, result: e.v == null ? '' : e.v }; else if (e.v != null) c.value = e.v;
-        var f = { name: 'Arial', size: (e.font && e.font.sz) || 10 };
-        if (e.font) { if (e.font.b) f.bold = true; if (e.font.i) f.italic = true; if (e.font.c) f.color = { argb: e.font.c }; }
-        c.font = f;
-        if (e.fill) c.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: e.fill } };
-        if (e.al) c.alignment = { wrapText: !!e.al.w, horizontal: e.al.h, vertical: e.al.v };
-        if (e.bd) { var t = { style: 'thin', color: { argb: 'FFD9DEE7' } }; c.border = { top: t, left: t, bottom: t, right: t }; }
-      });
-      S.merges.forEach(function (rg) { try { ws.mergeCells(rg); } catch (x) {} });
-      if (S.freeze) { var mm = S.freeze.match(/^([A-Z]+)(\d+)$/); if (mm) { var col = 0; for (var i = 0; i < mm[1].length; i++) col = col * 26 + mm[1].charCodeAt(i) - 64; ws.views = [{ state: 'frozen', xSplit: col - 1, ySplit: +mm[2] - 1 }]; } }
-      S.dv.forEach(function (d) { d.ref.split(' ').forEach(function (rg) { var cfg = { type: 'list', allowBlank: true, formulae: [d.f] }; if (ws.dataValidations && ws.dataValidations.add) ws.dataValidations.add(rg, cfg); }); });
-    });
-    var buf = await wb.xlsx.writeBuffer();
-    var a = document.createElement('a'), hj = new Date(), dd = hj.getFullYear() + '-' + ('0' + (hj.getMonth() + 1)).slice(-2) + '-' + ('0' + hj.getDate()).slice(-2);
-    a.href = URL.createObjectURL(new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
-    a.download = 'Matriz_de_acessos_Cegid_Primavera_Evolution_V10_' + dd + '.xlsx';
-    document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
-  };
   m.querySelector('form').addEventListener('submit', async function (e) {
     e.preventDefault(); if (!pw.value) { pw.focus(); return; }
     okb.disabled = true; msg.style.color = 'rgba(235,235,245,0.7)'; msg.textContent = T.wait;
-    try { var M = await decifrar(pw.value); await lib(); await gerar(M); fechar(); }
+    try { var F = await MA.carregar(); var M = await MA.decifrarTexto(F.E, pw.value); MA.descarregar(await MA.excel(M)); fechar(); }
     catch (x) { msg.style.color = '#FF8A84'; msg.textContent = x && x.message === 'senha' ? T.bad : T.err; }
     okb.disabled = false;
   });

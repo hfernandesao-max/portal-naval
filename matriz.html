@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Grupo Naval - Projectos Digitais</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+:root{--bg:#070B1F;--card:rgba(255,255,255,0.06);--line:rgba(255,255,255,0.12);--tx:#F5F5F7;--mut:rgba(235,235,245,0.62);--acc:#7CC6EE;--blue:#2397D4;--navy:#273777;--btn:#3C79BE;--badt:#FF8A84;--warnt:#E0A458}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Segoe UI','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100vh;background:radial-gradient(1200px 700px at 85% -10%,rgba(60,121,190,0.20),transparent 60%),#070B1F}
+button,input,select,textarea{font-family:inherit}
+.bar{display:flex;align-items:center;gap:16px;padding:12px 24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,0.03);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:34px}
+.brand .e{font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--acc)}
+.brand h1{margin:0;font-size:20px;font-weight:600}
+.bar .back{margin-left:auto;font-size:14px;color:var(--acc);text-decoration:none}
+.wrap{max-width:1480px;margin:0 auto;padding:20px 24px 40px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.08)}
+.b{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#fff;background:var(--btn);border:1px solid rgba(156,196,234,0.5);border-radius:10px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.b:hover{background:#2F68A8}.b[disabled]{opacity:.55;cursor:not-allowed}
+.b.g{background:transparent;color:#CFE3F6}.b.g:hover{background:rgba(60,121,190,0.18)}
+.b.r{background:transparent;color:var(--badt);border-color:rgba(255,138,132,0.5)}.b.r:hover{background:rgba(255,105,97,0.12)}
+.b svg{width:16px;height:16px}
+.b .n{background:#fff;color:var(--navy);border-radius:99px;font-size:12px;padding:1px 7px}
+input[type=text],input[type=password],input[type=search],input[type=date],select,textarea{font-size:14px;padding:8px 10px;border-radius:9px;border:1px solid rgba(156,196,234,0.35);background:#0A1028;color:#fff;min-width:0}
+input:focus-visible,select:focus-visible,textarea:focus-visible,.b:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+select{appearance:auto}
+/* bloqueio */
+#lock{max-width:460px;margin:8vh auto 0;padding:26px 28px;display:flex;flex-direction:column;gap:12px}
+#lock h2{margin:0;font-size:21px}#lock p{margin:0;font-size:14px;color:var(--mut);line-height:1.5}
+#lock .msg{font-size:13px;min-height:18px;color:var(--badt)}
+#app{display:none}
+/* indicadores */
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{display:flex;flex-direction:column;gap:2px;padding:10px 16px;border-radius:14px;border:1px solid var(--line);background:var(--card);cursor:pointer;color:var(--tx);text-align:left;min-width:128px}
+.chip .l{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mut);display:flex;align-items:center;gap:7px}
+.chip .l i{width:9px;height:9px;border-radius:3px}
+.chip .v{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{border-color:var(--blue);background:rgba(35,151,212,0.16)}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tools .sp{flex:1}
+.pend{display:none;align-items:center;gap:12px;padding:10px 16px;font-size:14px;border-color:rgba(35,151,212,0.55);background:rgba(35,151,212,0.10)}
+.pend.on{display:flex}.pend b{color:var(--acc)}
+.pend .sp{flex:1}
+/* tabela */
+.tbl{overflow:auto;max-height:calc(100vh - 330px);min-height:280px;border-radius:18px}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+th{position:sticky;top:0;z-index:2;background:#151E3E;text-align:left;font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--mut);font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.06);vertical-align:middle}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:rgba(255,255,255,0.04)}
+tbody tr.mod td:first-child{box-shadow:inset 3px 0 0 var(--blue)}
+td.num{color:var(--mut);font-variant-numeric:tabular-nums;width:48px}
+td .u{font-weight:600}
+td .sub{font-size:12px;color:var(--mut)}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:2px 7px;border-radius:6px;margin-left:6px;background:rgba(35,151,212,0.22);color:var(--acc);vertical-align:middle}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.mini{display:flex;height:10px;width:120px;border-radius:4px;overflow:hidden;background:rgba(255,255,255,0.06)}
+.mini span{display:block}
+.empty{padding:30px;text-align:center;color:var(--mut)}
+/* painel de edição */
+#ov{position:fixed;inset:0;background:rgba(3,6,20,0.6);display:none;z-index:40}
+#ov.on{display:block}
+#ed{position:fixed;top:0;right:0;bottom:0;width:min(640px,100vw);background:#0E1530;border-left:1px solid rgba(156,196,234,0.3);z-index:41;transform:translateX(102%);transition:transform .2s ease;display:flex;flex-direction:column}
+#ed.on{transform:none}
+#ed header{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+#ed header h2{margin:0;font-size:19px;flex:1}
+#ed .x{background:none;border:none;color:var(--mut);font-size:24px;cursor:pointer;line-height:1}
+#ed .body{flex:1;overflow:auto;padding:16px 20px;display:flex;flex-direction:column;gap:16px}
+#ed footer{display:flex;gap:10px;padding:14px 20px;border-top:1px solid var(--line);align-items:center}
+#ed footer .sp{flex:1}
+fieldset{border:1px solid var(--line);border-radius:14px;padding:12px 14px 14px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
+legend{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--acc);padding:0 6px}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--mut)}
+label.f.w{grid-column:1/-1}
+.ro{font-size:11px;color:rgba(235,235,245,0.4)}
+.emp{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:6px}
+.emp label{display:flex;align-items:center;gap:7px;font-size:13px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.04);cursor:pointer}
+.emp input{accent-color:var(--blue);width:16px;height:16px}
+.lnk{grid-column:1/-1;display:flex;gap:14px;font-size:13px}
+.lnk button{background:none;border:none;color:var(--acc);cursor:pointer;padding:0;font-size:13px}
+.mods{grid-column:1/-1;display:flex;flex-direction:column;gap:6px}
+.mrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;font-size:13px}
+.seg{display:inline-flex;border:1px solid rgba(156,196,234,0.3);border-radius:9px;overflow:hidden}
+.seg button{border:none;background:transparent;color:rgba(235,235,245,0.75);font-size:12px;font-weight:600;padding:6px 10px;cursor:pointer;border-right:1px solid rgba(156,196,234,0.2)}
+.seg button:last-child{border-right:none}
+.seg button.on[data-v="Total"]{background:#2397D4;color:#fff}
+.seg button.on[data-v="Consulta"]{background:#7B87E0;color:#fff}
+.seg button.on[data-v="Sem acesso"]{background:rgba(235,235,245,0.22);color:#fff}
+.seg button.on[data-v=""]{background:rgba(255,255,255,0.08);color:#fff}
+.err{font-size:13px;color:var(--badt);min-height:18px}
+/* janelas */
+.dlgw{position:fixed;inset:0;background:rgba(3,6,20,0.72);display:none;align-items:center;justify-content:center;z-index:60;padding:16px}
+.dlgw.on{display:flex}
+.dlg{width:min(620px,100%);max-height:calc(100vh - 32px);overflow:auto;background:#121A36;border:1px solid rgba(156,196,234,0.35);border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.dlg h3{margin:0;font-size:19px}.dlg p{margin:0;font-size:14px;color:rgba(235,235,245,0.72);line-height:1.5}
+.dlg .act{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.dlg ul{margin:0;padding-left:18px;font-size:13px;line-height:1.5;max-height:240px;overflow:auto;color:rgba(235,235,245,0.85)}
+.dlg ul b{color:#fff}
+.dlg details{font-size:13px;color:rgba(235,235,245,0.75);line-height:1.55}
+.dlg details summary{cursor:pointer;color:var(--acc)}
+.dlg ol{margin:6px 0 0;padding-left:18px}
+.st{font-size:13px;min-height:18px}
+.ok{color:#9CC4EA}.ko{color:var(--badt)}
+.chk{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(235,235,245,0.8)}
+.foot{font-size:13px;color:rgba(235,235,245,0.45);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:760px){.wrap{padding:14px 12px 30px}.bar{padding:10px 12px}.brand h1{font-size:17px}fieldset{grid-template-columns:1fr}.tbl{max-height:none}.hide-s{display:none}.chip{min-width:0;flex:1 1 40%}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="brand"><img src="assets/naval-simbolo.png" alt=""><div><div class="e">Cegid Evolution ERP Primavera · Segurança</div><h1>Actualizar a matriz de acessos</h1></div></div>
+  <a class="back" href="projectos.html#acessos">← Revisão de acessos</a>
+</div>
+
+<div class="wrap">
+  <form class="card" id="lock" autocomplete="off">
+    <h2>Abrir a matriz</h2>
+    <p>A matriz tem nomes, e-mails e níveis de acesso, por isso está cifrada. Introduza a palavra-passe da matriz para a consultar e actualizar.</p>
+    <input type="password" id="pw" placeholder="Palavra-passe da matriz" aria-label="Palavra-passe da matriz">
+    <div class="msg" id="lmsg" role="status"></div>
+    <div style="display:flex;justify-content:flex-end"><button class="b" type="submit" id="lok">Abrir matriz</button></div>
+  </form>
+
+  <div id="app">
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por estado"></div>
+    <div class="tools">
+      <input type="search" id="q" placeholder="Procurar utilizador, nome, área ou responsável" aria-label="Procurar" style="width:min(360px,100%)">
+      <select id="fn" aria-label="Filtrar por nível"><option value="">Todos os níveis</option></select>
+      <span class="sp"></span>
+      <button class="b g" type="button" id="badd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>Adicionar utilizador</button>
+      <button class="b g" type="button" id="bimp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9"/><path d="M7 14l5-5 5 5"/><path d="M5 3h14"/></svg>Importar Excel</button>
+      <button class="b g" type="button" id="bexp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Exportar Excel</button>
+      <button class="b" type="button" id="bsave" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h11l3 3v15H5z"/><path d="M8 3v6h8V3"/><path d="M8 21v-7h8v7"/></svg>Guardar no portal <span class="n" id="nsave">0</span></button>
+      <input type="file" id="fimp" accept=".xlsx" hidden>
+    </div>
+    <div class="card pend" id="pend" role="status"><span><b id="pn">0</b> <span id="pt">alterações por guardar</span></span><span class="sp"></span><button class="b g" type="button" id="bver">Ver alterações</button><button class="b r" type="button" id="bundo">Desfazer tudo</button></div>
+    <div class="card tbl"><table>
+      <thead><tr><th>N.º</th><th>Utilizador</th><th class="hide-s">Nível</th><th>Estado</th><th class="hide-s">Área / Função</th><th class="hide-s">Empresas</th><th class="hide-s">Módulos</th><th class="hide-s">Crédito</th></tr></thead>
+      <tbody id="tb"></tbody>
+    </table></div>
+    <div class="foot"><span id="fsrc"></span><span>As alterações ficam registadas na folha «Alterações» da matriz. As páginas públicas mostram só números agregados.</span></div>
+  </div>
+</div>
+
+<div id="ov"></div>
+<aside id="ed" aria-labelledby="edt" role="dialog" aria-modal="true">
+  <header><h2 id="edt">Utilizador</h2><button class="x" type="button" id="edx" aria-label="Fechar">×</button></header>
+  <div class="body" id="edb"></div>
+  <footer><button class="b r" type="button" id="edrm">Retirar da matriz</button><span class="sp"></span><button class="b g" type="button" id="edc">Cancelar</button><button class="b" type="button" id="edok">Aplicar</button></footer>
+</aside>
+
+<div class="dlgw" id="dsv"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dsvt">
+  <h3 id="dsvt">Guardar no portal</h3>
+  <p id="dsvd"></p>
+  <ul id="dsvl"></ul>
+  <label class="f">Origem (vai para a folha «Alterações»)<input type="text" id="sorig" value="Actualização online no portal"></label>
+  <div id="tokw">
+    <label class="f">Token do GitHub (só gravação no repositório portal-naval)<input type="password" id="tok" placeholder="github_pat_…" autocomplete="off"></label>
+    <label class="chk" style="margin-top:8px"><input type="checkbox" id="trem"> Lembrar neste computador</label>
+    <details style="margin-top:8px"><summary>Como obter o token</summary><ol>
+      <li>No GitHub: <b>Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token</b>.</li>
+      <li>Repository access: <b>Only select repositories → portal-naval</b>.</li>
+      <li>Permissions → Repository permissions → <b>Contents: Read and write</b>. Não é preciso mais nenhuma.</li>
+      <li>Validade recomendada: 90 dias. Copie o token e cole-o aqui.</li>
+    </ol></details>
+  </div>
+  <div id="tokok" class="chk" style="display:none">Token guardado neste computador. <button type="button" class="lnk" id="tokfg" style="background:none;border:none;color:var(--acc);cursor:pointer;padding:0;font-size:13px">Esquecer token</button></div>
+  <div class="st" id="sst" role="status"></div>
+  <div class="act"><button class="b g" type="button" id="sno">Fechar</button><button class="b" type="button" id="sok">Guardar</button></div>
+</div></div>
+
+<div class="dlgw" id="dim"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dimt">
+  <h3 id="dimt">Importar Excel</h3>
+  <p id="dimd"></p>
+  <ul id="diml"></ul>
+  <label class="chk"><input type="checkbox" id="irm"> Retirar da matriz os utilizadores que não estão no ficheiro</label>
+  <div class="st" id="ist" role="status"></div>
+  <div class="act"><button class="b g" type="button" id="ino">Cancelar</button><button class="b" type="button" id="iok">Aplicar importação</button></div>
+</div></div>
+
+<div class="dlgw" id="dlv"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dlvt">
+  <h3 id="dlvt">Alterações por guardar</h3>
+  <ul id="dlvl"></ul>
+  <div class="act"><button class="b g" type="button" id="lvno">Fechar</button></div>
+</div></div>
+
+<script>document.write('<script src="matriz-acessos.js?t=' + Date.now() + '"><\/script>');</script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+  var C = MA.COL, M = null, SENHA = '', SHA = null, CAB = [], EMP = [], MODS = [];
+  var rows = [], base = {}, motivo = {}, seq = 0, filtroEstado = null, editId = null;
+  var TK = 'naval-gh-token';
+  var lerTok = function () { try { return localStorage.getItem(TK) || sessionStorage.getItem(TK) || ''; } catch (e) { return ''; } };
+  var gravarTok = function (t, lembrar) { try { sessionStorage.setItem(TK, t); if (lembrar) localStorage.setItem(TK, t); } catch (e) {} };
+  var esquecerTok = function () { try { localStorage.removeItem(TK); sessionStorage.removeItem(TK); } catch (e) {} };
+
+  var ESTADOS = [
+    { k: 'Manter', l: 'Manter', cor: '#2397D4', bg: 'rgba(35,151,212,0.22)', fg: '#9CD3F2' },
+    { k: 'Novo', l: 'Novo', cor: '#7CC6EE', bg: 'rgba(124,198,238,0.18)', fg: '#BFE4F8' },
+    { k: 'Desactivar', l: 'Desactivar', cor: '#FF6961', bg: 'rgba(255,105,97,0.18)', fg: '#FF8A84' },
+    { k: 'A confirmar', l: 'A confirmar', cor: '#C9822A', bg: 'rgba(201,130,42,0.2)', fg: '#E0A458' },
+    { k: '', l: 'Sem resposta', cor: 'rgba(235,235,245,0.3)', bg: 'rgba(235,235,245,0.10)', fg: 'rgba(235,235,245,0.7)' }
+  ];
+  var grupo = function (v) { v = v ? String(v).trim() : ''; if (/^desactivar/i.test(v)) return 'Desactivar'; return ['Manter', 'Novo', 'A confirmar'].indexOf(v) >= 0 ? v : ''; };
+  var E = function (k) { return ESTADOS.filter(function (e) { return e.k === k; })[0]; };
+  var copia = function (a) { return a.slice(); };
+  var igual = function (a, b) { for (var i = 0; i < C.obs + 1; i++) { if (i === C.num || i === C.empSel) continue; var x = a[i] == null ? '' : String(a[i]), y = b[i] == null ? '' : String(b[i]); if (x !== y) return false; } return true; };
+  var nomeDe = function (r) { return r.v[C.nome] || r.v[C.user]; };
+
+  /* ---------- abrir ---------- */
+  $('lock').addEventListener('submit', async function (e) {
+    e.preventDefault(); var pw = $('pw').value; if (!pw) { $('pw').focus(); return; }
+    $('lok').disabled = true; $('lmsg').style.color = 'rgba(235,235,245,0.7)'; $('lmsg').textContent = 'A abrir a matriz…';
+    try {
+      var F = await MA.carregar(lerTok());
+      M = await MA.decifrarTexto(F.E, pw); SENHA = pw; SHA = F.sha;
+      iniciar(F.fonte);
+    } catch (x) { $('lmsg').style.color = '#FF8A84'; $('lmsg').textContent = x && x.message === 'senha' ? 'Palavra-passe errada.' : 'Não foi possível abrir a matriz. Verifique a ligação à internet.'; }
+    $('lok').disabled = false;
+  });
+  function iniciar(fonte) {
+    CAB = MA.cabecalho(M); EMP = MA.empresas(M); MODS = MA.modulos(M);
+    rows = MA.linhas(M).map(function (v) { return { id: ++seq, v: v }; });
+    base = {}; rows.forEach(function (r) { base[r.id] = copia(r.v); }); motivo = {};
+    $('lock').style.display = 'none'; $('app').style.display = 'flex'; $('app').style.flexDirection = 'column'; $('app').style.gap = '14px';
+    var niv = {}; rows.forEach(function (r) { if (r.v[C.nivel]) niv[r.v[C.nivel]] = 1; }); MA.NIVEIS.forEach(function (n) { niv[n] = 1; });
+    $('fn').innerHTML = '<option value="">Todos os níveis</option>' + Object.keys(niv).map(function (n) { return '<option>' + esc(n) + '</option>'; }).join('');
+    $('fsrc').textContent = 'Matriz carregada ' + (fonte === 'repo' ? 'do repositório (versão mais recente)' : 'do site publicado') + ' · ' + rows.length + ' utilizadores · ' + EMP.length + ' empresas · ' + MODS.length + ' módulos';
+    desenhar();
+  }
+
+  /* ---------- alterações pendentes ---------- */
+  function pendentes() {
+    var out = [], vivos = {};
+    rows.forEach(function (r) {
+      vivos[r.id] = 1;
+      var a = base[r.id];
+      if (!a) out.push({ id: r.id, tipo: 'novo', nome: nomeDe(r), txt: MA.diferencas(null, r.v, CAB) });
+      else if (!igual(a, r.v)) out.push({ id: r.id, tipo: 'alt', nome: nomeDe(r), txt: MA.diferencas(a, r.v, CAB) });
+    });
+    Object.keys(base).forEach(function (id) { if (!vivos[id]) out.push({ id: +id, tipo: 'rm', nome: base[id][C.nome] || base[id][C.user], txt: MA.diferencas(base[id], null, CAB) }); });
+    return out;
+  }
+  function estadoPend() {
+    var p = pendentes(), n = p.length;
+    $('nsave').textContent = n; $('bsave').disabled = !n;
+    $('pend').classList.toggle('on', n > 0); $('pn').textContent = n; $('pt').textContent = n === 1 ? 'alteração por guardar' : 'alterações por guardar';
+    return p;
+  }
+  window.addEventListener('beforeunload', function (e) { if (M && pendentes().length) { e.preventDefault(); e.returnValue = ''; } });
+
+  /* ---------- tabela ---------- */
+  function desenhar() {
+    var cont = { '': 0, Manter: 0, Novo: 0, Desactivar: 0, 'A confirmar': 0 };
+    rows.forEach(function (r) { cont[grupo(r.v[C.estado])]++; });
+    var ch = '<button type="button" class="chip" data-k="*" aria-pressed="' + (filtroEstado === null) + '"><span class="l">Total</span><span class="v">' + rows.length + '</span></button>';
+    ESTADOS.forEach(function (e) { ch += '<button type="button" class="chip" data-k="' + esc(e.k) + '" aria-pressed="' + (filtroEstado === e.k) + '"><span class="l"><i style="background:' + e.cor + '"></i>' + e.l + '</span><span class="v">' + cont[e.k] + '</span></button>'; });
+    $('chips').innerHTML = ch;
+    $('chips').querySelectorAll('.chip').forEach(function (b) { b.addEventListener('click', function () { var k = b.getAttribute('data-k'); filtroEstado = k === '*' || filtroEstado === k ? null : k; desenhar(); }); });
+    var q = $('q').value.trim().toLowerCase(), fn = $('fn').value;
+    var vis = rows.filter(function (r) {
+      if (filtroEstado !== null && grupo(r.v[C.estado]) !== filtroEstado) return false;
+      if (fn && r.v[C.nivel] !== fn) return false;
+      if (q) { var t = [r.v[C.user], r.v[C.nome], r.v[C.area], r.v[C.resp], r.v[C.valid], r.v[C.email]].join(' ').toLowerCase(); if (t.indexOf(q) < 0) return false; }
+      return true;
+    });
+    var h = vis.map(function (r) {
+      var v = r.v, g = E(grupo(v[C.estado])), a = base[r.id], tag = !a ? '<span class="tag">novo</span>' : (!igual(a, v) ? '<span class="tag">alterado</span>' : '');
+      var ne = 0; for (var k = 0; k < C.empN; k++) if (v[C.emp0 + k]) ne++;
+      var t = 0, c = 0, s = 0; for (var m = 0; m < C.modN; m++) { var x = v[C.mod0 + m]; if (x === 'Total') t++; else if (x === 'Consulta') c++; else if (x === 'Sem acesso') s++; }
+      var mini = t + c + s ? '<div class="mini" title="Total ' + t + ' · Consulta ' + c + ' · Sem acesso ' + s + '"><span style="flex:' + t + ';background:#2397D4"></span><span style="flex:' + c + ';background:#7B87E0"></span><span style="flex:' + s + ';background:rgba(235,235,245,0.25)"></span><span style="flex:' + (C.modN - t - c - s) + '"></span></div>' : '<span class="sub">por definir</span>';
+      var est = v[C.estado] ? String(v[C.estado]) : g.l;
+      return '<tr data-id="' + r.id + '"' + (tag ? ' class="mod"' : '') + '><td class="num">' + (rows.indexOf(r) + 1) + '</td>' +
+        '<td><div class="u">' + esc(v[C.nome] || v[C.user]) + tag + '</div><div class="sub">' + esc(v[C.user]) + '</div></td>' +
+        '<td class="hide-s">' + esc(v[C.nivel] || '') + '</td>' +
+        '<td><span class="pill" style="background:' + g.bg + ';color:' + g.fg + '">' + esc(est) + '</span></td>' +
+        '<td class="hide-s">' + esc(v[C.area] || '') + (v[C.resp] ? '<div class="sub">' + esc(v[C.resp]) + '</div>' : '') + '</td>' +
+        '<td class="hide-s" title="' + esc(MA.empresasSel(v, EMP)) + '">' + (ne ? ne + ' / ' + C.empN : '<span class="sub">—</span>') + '</td>' +
+        '<td class="hide-s">' + mini + '</td>' +
+        '<td class="hide-s">' + esc(v[C.cred] || '—') + '</td></tr>';
+    }).join('');
+    $('tb').innerHTML = h || '<tr><td colspan="8" class="empty">Nenhum utilizador corresponde ao filtro.</td></tr>';
+    $('tb').querySelectorAll('tr[data-id]').forEach(function (tr) { tr.addEventListener('click', function () { abrirEd(+tr.getAttribute('data-id')); }); });
+    estadoPend();
+  }
+  $('q').addEventListener('input', desenhar); $('fn').addEventListener('change', desenhar);
+
+  /* ---------- editor ---------- */
+  var rascunho = null;
+  function opt(lista, v) { var o = lista.slice(); if (v && o.indexOf(v) < 0) o.push(v); return o.map(function (x) { return '<option' + (x === v ? ' selected' : '') + '>' + esc(x) + '</option>'; }).join(''); }
+  function abrirEd(id) {
+    editId = id; var r = rows.filter(function (x) { return x.id === id; })[0];
+    rascunho = r ? copia(r.v) : new Array(MA.NCOL).fill(null);
+    if (!r) rascunho[C.estado] = 'Novo', rascunho[C.nivel] = 'Novo (a criar)';
+    var v = rascunho, dm = /^Desactivar em (\d\d)\/(\d\d)\/(\d{4})/i.exec(v[C.estado] || ''), ek = dm ? 'data' : (v[C.estado] || '');
+    var h = '';
+    h += '<fieldset><legend>Identificação</legend>' +
+      '<label class="f">Utilizador (login no ERP) *<input type="text" id="e_user" value="' + esc(v[C.user] || '') + '"></label>' +
+      '<label class="f">Nome<input type="text" id="e_nome" value="' + esc(v[C.nome] || '') + '"></label>' +
+      '<label class="f w">E-mail<input type="text" id="e_email" value="' + esc(v[C.email] || '') + '"></label>' +
+      '<label class="f">Nível actual no ERP<select id="e_nivel"><option value=""></option>' + opt(MA.NIVEIS, v[C.nivel] || '') + '</select></label>' +
+      '<label class="f">Estado / Acção<select id="e_est">' +
+        [['', 'Sem resposta'], ['Manter', 'Manter'], ['Novo', 'Novo'], ['Desactivar', 'Desactivar já'], ['data', 'Desactivar numa data'], ['A confirmar', 'A confirmar']].map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === ek ? ' selected' : '') + '>' + o[1] + '</option>'; }).join('') +
+        (ek && ['', 'Manter', 'Novo', 'Desactivar', 'data', 'A confirmar'].indexOf(ek) < 0 ? '<option selected value="' + esc(ek) + '">' + esc(ek) + '</option>' : '') +
+      '</select></label>' +
+      '<label class="f" id="e_dtw" style="' + (dm ? '' : 'display:none') + '">Data de desactivação<input type="date" id="e_dt" value="' + (dm ? dm[3] + '-' + dm[2] + '-' + dm[1] : '') + '"></label>' +
+      '</fieldset>';
+    h += '<fieldset><legend>Responsáveis</legend>' +
+      '<label class="f w">Área / Função<input type="text" id="e_area" value="' + esc(v[C.area] || '') + '"></label>' +
+      '<label class="f">Responsável<input type="text" id="e_resp" value="' + esc(v[C.resp] || '') + '"></label>' +
+      '<label class="f">Validado por<input type="text" id="e_valid" value="' + esc(v[C.valid] || '') + '"></label></fieldset>';
+    h += '<fieldset><legend>Empresas</legend><div class="lnk"><button type="button" id="e_et">Todas</button><button type="button" id="e_en">Nenhuma</button></div><div class="emp">' +
+      EMP.map(function (n, i) { return '<label><input type="checkbox" data-e="' + i + '"' + (v[C.emp0 + i] ? ' checked' : '') + '>' + esc(n) + '</label>'; }).join('') + '</div></fieldset>';
+    var seg = function (i) { var cur = v[C.mod0 + i] || ''; return '<div class="seg" data-m="' + i + '">' + [['Total', 'Total'], ['Consulta', 'Consulta'], ['Sem acesso', 'Sem acesso'], ['', '—']].map(function (o) { return '<button type="button" data-v="' + o[0] + '" class="' + (cur === o[0] ? 'on' : '') + '" aria-pressed="' + (cur === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div>'; };
+    h += '<fieldset><legend>Módulos</legend><div class="lnk"><span style="color:var(--mut)">Aplicar a todos:</span><button type="button" data-all="Total">Total</button><button type="button" data-all="Consulta">Consulta</button><button type="button" data-all="Sem acesso">Sem acesso</button><button type="button" data-all="">Limpar</button></div><div class="mods">' +
+      MODS.map(function (n, i) { return '<div class="mrow"><span>' + esc(n) + '</span>' + seg(i) + '</div>'; }).join('') + '</div>' +
+      '<label class="f w">Pode emitir documentos de crédito? (NC, NCA, NCO, PDV, DV · regra por defeito: «Não»)<select id="e_cred"><option value=""></option>' + opt(['Sim', 'Não'], v[C.cred] || '') + '</select></label></fieldset>';
+    h += '<fieldset><legend>Notas</legend><label class="f w">Outros módulos / Observações<textarea id="e_obs" rows="3">' + esc(v[C.obs] || '') + '</textarea></label>' +
+      '<label class="f w">Motivo ou pedido desta alteração (vai para a folha «Alterações»)<input type="text" id="e_mot" value="' + esc(motivo[id] || '') + '" placeholder="Ex.: pedido por e-mail de Vanda Costa"></label></fieldset>';
+    h += '<div class="err" id="e_err" role="alert"></div>';
+    $('edb').innerHTML = h; $('edt').textContent = r ? (v[C.nome] || v[C.user]) : 'Novo utilizador';
+    $('edrm').style.display = r ? '' : 'none'; $('edrm').textContent = 'Retirar da matriz'; $('edrm').dataset.c = '';
+    $('e_est').addEventListener('change', function () { $('e_dtw').style.display = this.value === 'data' ? '' : 'none'; });
+    $('e_et').addEventListener('click', function () { $('edb').querySelectorAll('[data-e]').forEach(function (c) { c.checked = true; }); });
+    $('e_en').addEventListener('click', function () { $('edb').querySelectorAll('[data-e]').forEach(function (c) { c.checked = false; }); });
+    var setSeg = function (sg, val) { sg.querySelectorAll('button').forEach(function (b) { var on = b.getAttribute('data-v') === val; b.classList.toggle('on', on); b.setAttribute('aria-pressed', String(on)); }); };
+    $('edb').querySelectorAll('.seg').forEach(function (sg) { sg.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { setSeg(sg, b.getAttribute('data-v')); }); }); });
+    $('edb').querySelectorAll('[data-all]').forEach(function (b) { b.addEventListener('click', function () { var val = b.getAttribute('data-all'); $('edb').querySelectorAll('.seg').forEach(function (sg) { setSeg(sg, val); }); }); });
+    $('ov').classList.add('on'); $('ed').classList.add('on'); setTimeout(function () { $('e_user').focus(); }, 60);
+  }
+  function fecharEd() { $('ov').classList.remove('on'); $('ed').classList.remove('on'); editId = null; }
+  $('edx').addEventListener('click', fecharEd); $('edc').addEventListener('click', fecharEd); $('ov').addEventListener('click', fecharEd);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { if ($('ed').classList.contains('on')) fecharEd(); document.querySelectorAll('.dlgw.on').forEach(function (d) { d.classList.remove('on'); }); } });
+  $('edok').addEventListener('click', function () {
+    var v = rascunho, t = function (id) { var s = $(id).value.trim(); return s === '' ? null : s; };
+    var u = t('e_user');
+    if (!u) { $('e_err').textContent = 'Indique o utilizador (login no ERP).'; $('e_user').focus(); return; }
+    var dup = rows.some(function (r) { return r.id !== editId && String(r.v[C.user] || '').trim().toLowerCase() === u.toLowerCase(); });
+    if (dup) { $('e_err').textContent = 'Já existe um utilizador «' + u + '» na matriz.'; $('e_user').focus(); return; }
+    var est = $('e_est').value;
+    if (est === 'data') { var d = $('e_dt').value; if (!d) { $('e_err').textContent = 'Indique a data de desactivação.'; $('e_dt').focus(); return; } est = 'Desactivar em ' + d.slice(8, 10) + '/' + d.slice(5, 7) + '/' + d.slice(0, 4); }
+    v[C.user] = u; v[C.nome] = t('e_nome'); v[C.email] = t('e_email'); v[C.nivel] = $('e_nivel').value || null; v[C.estado] = est || null;
+    v[C.area] = t('e_area'); v[C.resp] = t('e_resp'); v[C.valid] = t('e_valid');
+    $('edb').querySelectorAll('[data-e]').forEach(function (c) { v[C.emp0 + +c.getAttribute('data-e')] = c.checked ? 'X' : null; });
+    $('edb').querySelectorAll('.seg').forEach(function (sg) { var on = sg.querySelector('button.on'); v[C.mod0 + +sg.getAttribute('data-m')] = on && on.getAttribute('data-v') ? on.getAttribute('data-v') : null; });
+    v[C.cred] = $('e_cred').value || null; v[C.obs] = t('e_obs');
+    v[C.empSel] = MA.empresasSel(v, EMP);
+    var id = editId;
+    if (id == null) { id = ++seq; rows.push({ id: id, v: v }); }
+    else rows.filter(function (r) { return r.id === id; })[0].v = v;
+    var mt = t('e_mot'); if (mt) motivo[id] = mt; else delete motivo[id];
+    fecharEd(); desenhar();
+  });
+  $('edrm').addEventListener('click', function () {
+    var b = $('edrm');
+    if (!b.dataset.c) { b.dataset.c = '1'; b.textContent = 'Confirmar: retirar'; return; }
+    var id = editId; rows = rows.filter(function (r) { return r.id !== id; }); fecharEd(); desenhar();
+  });
+  $('badd').addEventListener('click', function () { abrirEd(null); });
+
+  /* ---------- lista de alterações ---------- */
+  var ROT = { novo: 'Novo', alt: 'Alterado', rm: 'Retirado' };
+  var listar = function (p) { return p.map(function (x) { return '<li><b>' + esc(x.nome) + '</b> · ' + ROT[x.tipo] + (x.tipo === 'alt' ? ': ' + esc(x.txt) : '') + (motivo[x.id] ? ' <span style="color:var(--mut)">(' + esc(motivo[x.id]) + ')</span>' : '') + '</li>'; }).join(''); };
+  $('bver').addEventListener('click', function () { $('dlvl').innerHTML = listar(pendentes()); $('dlv').classList.add('on'); });
+  $('lvno').addEventListener('click', function () { $('dlv').classList.remove('on'); });
+  $('bundo').addEventListener('click', function () {
+    var b = $('bundo');
+    if (!b.dataset.c) { b.dataset.c = '1'; b.textContent = 'Confirmar: desfazer tudo'; setTimeout(function () { b.dataset.c = ''; b.textContent = 'Desfazer tudo'; }, 4000); return; }
+    b.dataset.c = ''; b.textContent = 'Desfazer tudo';
+    rows = MA.linhas(M).map(function (v) { return { id: ++seq, v: v }; }); base = {}; rows.forEach(function (r) { base[r.id] = copia(r.v); }); motivo = {}; desenhar();
+  });
+
+  /* ---------- matriz com as alterações aplicadas ---------- */
+  function matrizFinal(p, origem) {
+    var N = JSON.parse(JSON.stringify(M)), hj = MA.hoje();
+    var alts = p.map(function (x) { return { data: hj.dmy, utilizador: x.nome, alteracao: x.txt, origem: motivo[x.id] ? motivo[x.id] + ' · ' + origem : origem }; });
+    MA.gravar(N, rows.map(function (r) { return copia(r.v); }), alts);
+    return N;
+  }
+
+  /* ---------- exportar ---------- */
+  $('bexp').addEventListener('click', async function () {
+    var b = $('bexp'); b.disabled = true;
+    try { var p = pendentes(); MA.descarregar(await MA.excel(p.length ? matrizFinal(p, 'Exportação com alterações por guardar') : M)); }
+    catch (e) { alert('Não foi possível gerar o ficheiro. Verifique a ligação à internet.'); }
+    b.disabled = false;
+  });
+
+  /* ---------- importar ---------- */
+  var imp = null;
+  $('bimp').addEventListener('click', function () { $('fimp').value = ''; $('fimp').click(); });
+  $('fimp').addEventListener('change', async function () {
+    var f = this.files && this.files[0]; if (!f) return;
+    $('dimd').textContent = 'A ler ' + f.name + '…'; $('diml').innerHTML = ''; $('ist').textContent = ''; $('iok').disabled = true; $('irm').checked = false; $('dim').classList.add('on');
+    try {
+      var R = await MA.lerExcel(await f.arrayBuffer(), M);
+      var porU = {}; rows.forEach(function (r) { porU[String(r.v[C.user]).trim().toLowerCase()] = r; });
+      var novos = 0, alt = 0, iguais = 0, vistos = {};
+      R.linhas.forEach(function (v) { var k = String(v[C.user]).trim().toLowerCase(), r = porU[k]; vistos[k] = 1; if (!r) novos++; else if (igual(r.v, v)) iguais++; else alt++; });
+      var fora = rows.filter(function (r) { return !vistos[String(r.v[C.user]).trim().toLowerCase()]; }).length;
+      imp = { R: R, porU: porU, vistos: vistos };
+      $('dimd').textContent = f.name + ' · folha «' + R.folha + '» · ' + R.linhas.length + ' utilizadores lidos.';
+      var pl = function (n, s, p) { return '<li><b>' + n + '</b> ' + (n === 1 ? s : p) + '</li>'; };
+      $('diml').innerHTML = pl(alt, 'utilizador com alterações', 'utilizadores com alterações') + pl(novos, 'utilizador novo', 'utilizadores novos') + pl(iguais, 'sem alterações', 'sem alterações') + pl(fora, 'na matriz mas não no ficheiro', 'na matriz mas não no ficheiro') +
+        (pendentes().length ? '<li style="color:#E0A458">Os valores do ficheiro substituem as alterações feitas nesta sessão aos mesmos utilizadores.</li>' : '') +
+        (R.falta.length ? '<li style="color:#E0A458">Colunas não encontradas no ficheiro (ficam como estão): ' + esc(R.falta.join(', ')) + '</li>' : '');
+      $('iok').disabled = !(alt + novos + fora);
+      $('ist').className = 'st ok'; $('ist').textContent = alt + novos ? 'Revise e aplique. As alterações só ficam no portal depois de «Guardar no portal».' : 'O ficheiro não traz alterações à matriz.';
+    } catch (e) {
+      imp = null; $('dimd').textContent = 'Não foi possível ler o ficheiro.';
+      $('ist').className = 'st ko'; $('ist').textContent = e && e.message === 'cabecalho' ? 'Não encontrei a folha «Utilizadores» com a coluna «Utilizador». Use o ficheiro exportado pelo portal.' : 'Confirme que é um ficheiro Excel (.xlsx) e tente de novo.';
+    }
+  });
+  $('ino').addEventListener('click', function () { $('dim').classList.remove('on'); imp = null; });
+  $('iok').addEventListener('click', function () {
+    if (!imp) return;
+    var falta = imp.R.falta.map(function (h) { return CAB.indexOf(h); });
+    imp.R.linhas.forEach(function (v) {
+      var r = imp.porU[String(v[C.user]).trim().toLowerCase()];
+      if (r) { falta.forEach(function (i) { if (i >= 0) v[i] = r.v[i]; }); v[C.empSel] = MA.empresasSel(v, EMP); r.v = v; }
+      else { v[C.empSel] = MA.empresasSel(v, EMP); rows.push({ id: ++seq, v: v }); }
+    });
+    if ($('irm').checked) rows = rows.filter(function (r) { return imp.vistos[String(r.v[C.user]).trim().toLowerCase()]; });
+    var ordem = {}; imp.R.linhas.forEach(function (v, i) { ordem[String(v[C.user]).trim().toLowerCase()] = i; });
+    rows.sort(function (a, b) { var x = ordem[String(a.v[C.user]).trim().toLowerCase()], y = ordem[String(b.v[C.user]).trim().toLowerCase()]; return (x == null ? 1e6 : x) - (y == null ? 1e6 : y); });
+    $('dim').classList.remove('on'); imp = null; desenhar();
+  });
+
+  /* ---------- guardar no portal ---------- */
+  function abrirSv() {
+    var p = pendentes(); if (!p.length) return;
+    var tk = lerTok();
+    $('dsvd').textContent = p.length + (p.length === 1 ? ' alteração' : ' alterações') + ' na matriz. Ao guardar: a matriz cifrada e o resumo público são actualizados num único registo no GitHub, e as alterações ficam na folha «Alterações».';
+    $('dsvl').innerHTML = listar(p);
+    $('tokw').style.display = tk ? 'none' : ''; $('tokok').style.display = tk ? 'flex' : 'none';
+    $('sst').className = 'st'; $('sst').textContent = ''; $('sok').disabled = false; $('sok').style.display = '';
+    $('dsv').classList.add('on');
+  }
+  $('bsave').addEventListener('click', abrirSv);
+  $('sno').addEventListener('click', function () { $('dsv').classList.remove('on'); });
+  $('tokfg').addEventListener('click', function () { esquecerTok(); $('tokw').style.display = ''; $('tokok').style.display = 'none'; });
+  var msgErro = function (e) {
+    if (e && e.message === 'conflito') return 'A matriz foi alterada noutro local desde que a abriu. Exporte as suas alterações para Excel, recarregue a página e importe-as de novo.';
+    if (e && (e.status === 401)) return 'Token inválido ou expirado. Crie um novo token e tente de novo.';
+    if (e && (e.status === 403 || e.status === 404)) return 'O token não tem permissão de escrita no repositório portal-naval (Contents: Read and write).';
+    if (e && e.status === 409 || e && e.status === 422) return 'O repositório mudou durante a gravação. Tente de novo.';
+    return 'Não foi possível guardar. Verifique a ligação à internet e tente de novo.';
+  };
+  $('sok').addEventListener('click', async function () {
+    var tk = lerTok() || $('tok').value.trim(), st = $('sst'), b = $('sok');
+    if (!tk) { st.className = 'st ko'; st.textContent = 'Indique o token do GitHub.'; $('tok').focus(); return; }
+    b.disabled = true; st.className = 'st ok';
+    try {
+      st.textContent = 'A validar o token…';
+      await MA.verificarToken(tk);
+      if (!lerTok()) gravarTok(tk, $('trem').checked);
+      st.textContent = 'A preparar e a cifrar a matriz…';
+      var p = pendentes(), N = matrizFinal(p, $('sorig').value.trim() || 'Actualização online no portal');
+      var hj = MA.hoje(), R = MA.resumo(N, hj.iso);
+      var enc = await MA.cifrar(N, SENHA);
+      var M2 = await MA.decifrarTexto(enc, SENHA);
+      if (JSON.stringify(M2) !== JSON.stringify(N)) throw new Error('verificacao');
+      st.textContent = 'A gravar no GitHub…';
+      var cnt = { novo: 0, alt: 0, rm: 0 }; p.forEach(function (x) { cnt[x.tipo]++; });
+      /* A mensagem do commit é pública: só números, sem nomes. */
+      var msgC = 'Matriz de acessos actualizada no portal: ' + p.length + (p.length === 1 ? ' alteração' : ' alterações') + '\n\nNovos: ' + cnt.novo + ' · Alterados: ' + cnt.alt + ' · Retirados: ' + cnt.rm + '. Detalhe na folha «Alterações» da matriz cifrada.';
+      var res = await MA.publicar(tk, [
+        { path: MA.REPO.ficheiro, content: JSON.stringify(enc) },
+        { path: MA.REPO.resumo, content: MA.ficheiroResumo(R) }
+      ], msgC, SHA);
+      M = N; SHA = res.sha;
+      rows = MA.linhas(M).map(function (v) { return { id: ++seq, v: v }; }); base = {}; rows.forEach(function (r) { base[r.id] = copia(r.v); }); motivo = {};
+      desenhar();
+      st.textContent = 'Guardado às ' + hj.hora + '. O portal mostra os novos números dentro de 1 a 2 minutos.';
+      b.style.display = 'none';
+      $('fsrc').textContent = 'Última gravação às ' + hj.hora + ' · ' + rows.length + ' utilizadores · ' + EMP.length + ' empresas · ' + MODS.length + ' módulos';
+    } catch (e) {
+      st.className = 'st ko'; st.textContent = e && e.message === 'verificacao' ? 'A verificação da cifra falhou; nada foi gravado. Tente de novo.' : msgErro(e);
+      if (e && (e.status === 401 || e.status === 403)) { esquecerTok(); $('tokw').style.display = ''; $('tokok').style.display = 'none'; }
+      b.disabled = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>

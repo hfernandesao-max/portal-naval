@@ -16,3 +16,11 @@ Os temas novos entram pela ordem de importância. Os temas concluídos ficam vis
 
 ### Exportação da matriz de acessos
 O botão «Exportar para Excel» em `acessos.html` gera a matriz completa (folhas Instruções, Utilizadores e Alterações) a partir de `data/acessos-matriz.enc.json`, cifrado com AES-GCM 256 (chave PBKDF2-SHA256, 310 000 iterações). A palavra-passe não está no repositório. Os dados só são decifrados no browser de quem a introduz.
+
+### Actualização online da matriz de acessos
+`matriz.html` (botão «Actualizar matriz» em `acessos.html`) abre a matriz com a mesma palavra-passe e permite editar utilizadores (estado, nível, empresas, módulos, documentos de crédito, observações), acrescentar ou retirar utilizadores e importar um Excel actualizado (folha «Utilizadores»). Ao «Guardar no portal»:
+- cada alteração é registada na folha «Alterações» (data, utilizador, alteração, origem);
+- a matriz é cifrada de novo e gravada com `data/acessos-resumo.js` (números agregados, sem dados pessoais) num único commit, através da API do GitHub;
+- `PD.aplicarAcessos` actualiza a revisão de acessos, o tema «Redefinição de acessos» e a hora da última actualização em todas as páginas.
+
+A gravação usa um token *fine-grained* do GitHub com acesso só ao repositório `portal-naval` e permissão **Contents: Read and write**, guardado apenas no browser de quem o introduz. A mensagem do commit (pública) não tem nomes. A lógica comum está em `matriz-acessos.js`.
