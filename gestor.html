@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Grupo Naval - Gestor de Acessos</title>
+<link rel="icon" href="assets/naval-simbolo.png">
+<style>
+:root{--bg:#070B1F;--card:rgba(255,255,255,0.06);--line:rgba(255,255,255,0.12);--tx:#F5F5F7;--mut:rgba(235,235,245,0.62);--acc:#7CC6EE;--blue:#2397D4;--navy:#273777;--btn:#3C79BE;--ok:#4CC38A;--badt:#FF8A84;--warnt:#E0A458}
+*{box-sizing:border-box;scrollbar-width:none}*::-webkit-scrollbar{display:none}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI','Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{background:radial-gradient(1200px 700px at 85% -10%,rgba(60,121,190,0.20),transparent 60%),#070B1F;display:flex;flex-direction:column}
+button,input,select,textarea{font-family:inherit}
+.bar{display:flex;align-items:center;gap:16px;padding:10px 24px;border-bottom:1px solid var(--line);background:rgba(255,255,255,0.03);flex:none}
+.brand{display:flex;align-items:center;gap:12px}.brand img{height:30px}
+.brand .e{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:var(--acc)}.brand h1{margin:0;font-size:18px;font-weight:600}
+nav.tabs{display:flex;gap:4px;margin-left:18px}
+nav.tabs button{background:none;border:0;color:var(--mut);font-size:14px;font-weight:600;padding:8px 12px;border-radius:9px;cursor:pointer}
+nav.tabs button.on{color:#fff;background:rgba(60,121,190,0.28)}
+.who{margin-left:auto;font-size:13px;color:var(--mut);display:flex;gap:12px;align-items:center}
+.who a{color:var(--acc);text-decoration:none}
+main{flex:1;min-height:0;padding:16px 24px;display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.08)}
+.b{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:600;color:#fff;background:var(--btn);border:1px solid rgba(156,196,234,0.5);border-radius:10px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.b:hover{background:#2F68A8}.b[disabled]{opacity:.5;cursor:not-allowed}
+.b.g{background:transparent;color:#CFE3F6}.b.r{background:transparent;color:var(--badt);border-color:rgba(255,138,132,0.5)}
+input[type=text],input[type=password],select,textarea{font-size:14px;padding:8px 10px;border-radius:9px;border:1px solid rgba(156,196,234,0.35);background:#0A1028;color:#fff;min-width:0}
+:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--mut)}
+.st{font-size:13px;min-height:18px;color:var(--mut)}.st.ko{color:var(--badt)}.st.ok{color:var(--ok)}
+#lock{max-width:480px;margin:7vh auto 0;padding:24px 26px;display:flex;flex-direction:column;gap:12px}
+#lock h2{margin:0;font-size:20px}#lock p{margin:0;font-size:14px;color:var(--mut);line-height:1.5}
+#app{display:none;flex:1;min-height:0;flex-direction:column;gap:12px}
+.view{flex:1;min-height:0;display:none}.view.on{display:flex;gap:12px}
+.kpis{display:flex;gap:10px;flex:none}
+.kpi{padding:10px 16px;flex:1}.kpi .l{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--mut)}.kpi .v{font-size:24px;font-weight:600;font-variant-numeric:tabular-nums}
+.col{display:flex;flex-direction:column;min-height:0}
+.list{flex:1;min-height:0;overflow:hidden}
+.item{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.06);cursor:pointer;display:flex;flex-direction:column;gap:3px}
+.item:hover{background:rgba(255,255,255,0.04)}.item.on{background:rgba(35,151,212,0.14);box-shadow:inset 3px 0 0 var(--blue)}
+.item b{font-size:14px}.item span{font-size:12px;color:var(--mut)}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:99px;background:rgba(235,235,245,0.12);color:rgba(235,235,245,0.85)}
+.tag.i{background:rgba(35,151,212,0.22);color:#9CD3F2}.tag.o{background:rgba(76,195,138,0.18);color:#8FE0B5}.tag.w{background:rgba(201,130,42,0.22);color:#E0A458}.tag.x{background:rgba(255,105,97,0.18);color:var(--badt)}
+.pgr{display:flex;align-items:center;justify-content:flex-end;gap:6px;padding:8px 12px;font-size:12.5px;color:var(--mut);border-top:1px solid var(--line);flex:none}
+.pgr button{min-width:30px;height:28px;border:1px solid var(--line);background:transparent;color:#fff;border-radius:7px;cursor:pointer;font-weight:600}.pgr button:disabled{opacity:.35}
+.det{flex:1;min-width:0;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-height:0}
+.det h2{margin:0;font-size:18px}.det .sub{font-size:13px;color:var(--mut)}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.tl li{display:flex;gap:10px;font-size:13px;align-items:baseline}.tl li i{width:9px;height:9px;border-radius:50%;background:var(--acc);flex:none;transform:translateY(1px)}
+.tl li.ko i{background:var(--badt)}.tl li.av i{background:var(--warnt)}.tl li span{color:var(--mut)}
+.acts{display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.acts .note{font-size:12.5px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font-size:11px;letter-spacing:.8px;text-transform:uppercase;color:var(--mut);font-weight:600;padding:9px 10px;border-bottom:1px solid var(--line);background:#151E3E}
+td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,0.06);vertical-align:top}
+td .sub{font-size:12px;color:var(--mut)}
+.chips{display:flex;gap:4px;flex-wrap:wrap}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line);flex:none}
+.tools .sp{flex:1}
+.form{max-width:640px;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.how{padding:18px 22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-content:start}
+.how h3{margin:0 0 6px;font-size:15px}.how p{margin:0;font-size:13px;color:var(--mut);line-height:1.5}
+.dlgw{position:fixed;inset:0;background:rgba(3,6,20,0.7);display:none;align-items:center;justify-content:center;z-index:20}.dlgw.on{display:flex}
+.dlg{width:min(480px,92vw);background:#0E1534;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.dlg h3{margin:0}.dlg p{margin:0;font-size:14px;color:var(--mut)}
+@media (max-width:900px){nav.tabs{margin-left:0;overflow-x:auto}.bar{flex-wrap:wrap}.view.on{flex-direction:column}.how{grid-template-columns:1fr}.kpis{flex-wrap:wrap}html,body{overflow:auto}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div class="brand"><img src="assets/naval-simbolo.png" alt=""><div><div class="e">Grupo Naval · ERP Primavera</div><h1>Gestor de Acessos</h1></div></div>
+  <nav class="tabs" id="tabs" hidden>
+    <button type="button" data-v="pedidos" class="on">Pedidos</button>
+    <button type="button" data-v="novo">Novo pedido da matriz</button>
+    <button type="button" data-v="jit">Acesso temporário</button>
+    <button type="button" data-v="como">Como funciona</button>
+  </nav>
+  <div class="who"><span id="quem"></span><a href="acessos.html">‹ Revisão de acessos</a></div>
+</div>
+<main>
+  <form id="lock" class="card" autocomplete="off">
+    <h2>Abrir o Gestor de Acessos</h2>
+    <p>Os pedidos estão cifrados com a palavra-passe da matriz de acessos. O token do GitHub identifica quem pede, aprova ou dá a ordem de produção: cada passo fica assinado com a sua conta.</p>
+    <label class="f">Palavra-passe da matriz<input type="password" id="pw" autocomplete="current-password"></label>
+    <label class="f">Token do GitHub (fine-grained, só portal-naval, Contents: Read and write)<input type="password" id="tk" placeholder="github_pat_…"></label>
+    <label style="font-size:13px;color:var(--mut);display:flex;gap:8px;align-items:center"><input type="checkbox" id="trem"> Lembrar o token neste computador</label>
+    <div class="st" id="lmsg" role="status"></div>
+    <button class="b" id="lok" type="submit">Abrir</button>
+  </form>
+  <div id="app">
+    <div class="kpis" id="kpis"></div>
+    <section class="view on" id="v-pedidos">
+      <div class="card col" style="width:360px;flex:none"><div class="list" id="lista"></div><div class="pgr" id="lpg"></div></div>
+      <div class="card det" id="det"></div>
+    </section>
+    <section class="view" id="v-novo"><div class="card col" style="flex:1;min-width:0">
+      <div class="tools"><b id="ntit">Contas com decisão na matriz</b><span class="sp"></span>
+        <label style="font-size:13px;color:var(--mut)"><input type="checkbox" id="sodif" checked> Só com diferenças no ERP</label>
+        <button class="b g" type="button" id="nall">Seleccionar todas</button><button class="b" type="button" id="ncri" disabled>Criar pedido</button></div>
+      <div class="list" id="nlista"></div><div class="pgr" id="npg"></div></div></section>
+    <section class="view" id="v-jit"><form class="card form" id="jform" autocomplete="off">
+      <h2 style="margin:0;font-size:18px">Pedir acesso temporário ao Administrador</h2>
+      <p class="sub" style="margin:0;color:var(--mut);font-size:13px">Ninguém tem acesso permanente. A conta fica activa só durante o prazo aprovado e o agente fecha-a sozinho no fim. Só as contas configuradas no agente podem ser abertas.</p>
+      <div class="grid2"><label class="f">Conta do Primavera<input type="text" id="jc" required placeholder="ex.: conta do técnico"></label>
+        <label class="f">Duração<select id="jh"><option value="1">1 hora</option><option value="2" selected>2 horas</option><option value="4">4 horas</option><option value="8">8 horas</option></select></label></div>
+      <div class="grid2"><label class="f">Âmbito<select id="ja"><option>Só perfis e permissões</option><option>Só empresas e parâmetros</option><option>Administrador completo</option></select></label>
+        <label class="f">Ticket<input type="text" id="jt" required placeholder="ex.: INC-2240"></label></div>
+      <label class="f">Motivo<input type="text" id="jm" required placeholder="ex.: instalar a actualização 10.12"></label>
+      <div class="st" id="jst" role="status"></div>
+      <div><button class="b" type="submit">Criar pedido de aprovação</button></div>
+    </form></section>
+    <section class="view" id="v-como"><div class="card how">
+      <div><h3>1. Pedir</h3><p>Escolha na matriz as contas a aplicar, ou peça um acesso temporário. O pedido fica cifrado no portal e com uma impressão digital (SHA-256) do que vai ser executado.</p></div>
+      <div><h3>2. Aprovar</h3><p>Outra pessoa, da lista de aprovadores, aprova com a sua conta do GitHub. Quem pede não aprova. Se o pedido mudar depois de aprovado, a aprovação deixa de valer.</p></div>
+      <div><h3>3. Ensaiar</h3><p>O agente, num servidor da rede, confirma quem aprovou e aplica primeiro na cópia de testes, com verificação no fim.</p></div>
+      <div><h3>4. Dar a ordem</h3><p>Com o ensaio bem feito, um executor (que não seja quem aprovou) escreve APLICAR. O agente aplica em produção numa só transacção e guarda uma cópia de segurança no servidor.</p></div>
+      <div><h3>5. Verificar e reverter</h3><p>O agente volta a ler o Primavera e confirma que não falta nem sobra nada. Se for preciso, «Reverter» repõe o estado anterior a partir da cópia.</p></div>
+      <div><h3>O que nunca faz</h3><p>Não cria contas, não mexe no conteúdo dos perfis, no licenciamento nem em palavras-passe, e nunca reactiva contas inactivas. O site público só mostra números.</p></div>
+    </div></section>
+  </div>
+</main>
+<div class="dlgw" id="dcf"><div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dcft">
+  <h3 id="dcft"></h3><p id="dcfd"></p>
+  <label class="f" id="dcfl">Escreva APLICAR para confirmar<input type="text" id="dcfi" autocomplete="off"></label>
+  <div class="st" id="dcfs" role="status"></div>
+  <div style="display:flex;gap:8px;justify-content:flex-end"><button class="b g" type="button" id="dcfn">Cancelar</button><button class="b" type="button" id="dcfo">Confirmar</button></div>
+</div></div>
+
+<script>document.write('<script src="matriz-acessos.js?t=' + Date.now() + '"><\/script><script src="gestor-acessos.js?t=' + Date.now() + '"><\/script>');</script>
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+  var TK = 'naval-gh-token', SENHA = '', TOKEN = '', EU = '', M = null, D = null, sel = null, pag = { l: 0, n: 0 }, escolha = {};
+  var lerTok = function () { try { return localStorage.getItem(TK) || sessionStorage.getItem(TK) || ''; } catch (e) { return ''; } };
+  var gravarTok = function (t, lembrar) { try { sessionStorage.setItem(TK, t); if (lembrar) localStorage.setItem(TK, t); } catch (e) {} };
+  var dt = function (iso) { if (!iso) return ''; var d = new Date(iso); return d.toLocaleDateString('pt-PT') + ' ' + d.toTimeString().slice(0, 5); };
+  var fmtT = function (n) { return n >= 60 ? Math.floor(n / 60) + ' h' + (n % 60 ? ' ' + (n % 60) + ' min' : '') : n + ' min'; };
+  var TAG = { pendente: 'w', aprovado: 'i', testado: 'i', producao: 'i', executado: 'o', activo: 'w', fechado: '', revertido: '', rejeitado: 'x', falhou: 'x', falhou_testes: 'x', reverter: 'w' };
+  var erroGh = function (e) {
+    if (e && e.message === 'senha') return 'Palavra-passe errada.';
+    if (e && e.status === 401) return 'Token inválido ou expirado.';
+    if (e && (e.status === 403 || e.status === 404)) return 'O token não tem permissão no repositório portal-naval (Contents: Read and write).';
+    return 'Não foi possível falar com o GitHub. Verifique a ligação.';
+  };
+
+  $('tk').value = lerTok();
+  $('lock').addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var pw = $('pw').value, tk = $('tk').value.trim();
+    if (!pw || !tk) { $('lmsg').className = 'st ko'; $('lmsg').textContent = 'Indique a palavra-passe e o token.'; return; }
+    $('lok').disabled = true; $('lmsg').className = 'st'; $('lmsg').textContent = 'A abrir…';
+    try {
+      EU = await GA.quem(tk);
+      var F = await MA.carregar(tk); M = await MA.decifrarTexto(F.E, pw);
+      D = (await GA.ler(tk, pw)).D;
+      SENHA = pw; TOKEN = tk; gravarTok(tk, $('trem').checked);
+      $('lock').style.display = 'none'; $('app').style.display = 'flex'; $('tabs').hidden = false;
+      $('quem').textContent = 'Ligado como ' + EU;
+      desenhar();
+    } catch (e) { $('lmsg').className = 'st ko'; $('lmsg').textContent = erroGh(e); }
+    $('lok').disabled = false;
+  });
+
+  /* ---------- navegação ---------- */
+  var vista = 'pedidos';
+  $('tabs').addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    vista = b.getAttribute('data-v');
+    [].forEach.call($('tabs').children, function (x) { x.classList.toggle('on', x === b); });
+    ['pedidos', 'novo', 'jit', 'como'].forEach(function (v) { $('v-' + v).classList.toggle('on', v === vista); });
+    desenhar();
+  });
+  addEventListener('resize', function () { if (D) desenhar(); });
+
+  /* lista paginada à medida da altura disponível (sem barras de deslocamento) */
+  function paginar(caixa, pgr, itens, html, chave) {
+    caixa.innerHTML = ''; var h = caixa.clientHeight;
+    if (!itens.length) { caixa.innerHTML = '<div class="item"><span>Sem registos.</span></div>'; pgr.innerHTML = ''; return; }
+    caixa.innerHTML = html(itens[0], 0); var alt = Math.max(30, caixa.firstElementChild.offsetHeight + 1);
+    var por = Math.max(1, Math.floor(h / alt)), pags = Math.ceil(itens.length / por);
+    pag[chave] = Math.min(pag[chave] || 0, pags - 1); var p = pag[chave];
+    caixa.innerHTML = itens.slice(p * por, (p + 1) * por).map(function (x, i) { return html(x, p * por + i); }).join('');
+    while (caixa.scrollHeight > caixa.clientHeight + 1 && caixa.children.length > 1) caixa.lastElementChild.remove();
+    pgr.innerHTML = pags > 1 ? '<span>' + (p * por + 1) + '–' + Math.min(itens.length, (p + 1) * por) + ' de ' + itens.length + '</span><button type="button" ' + (p ? '' : 'disabled') + ' data-d="-1" aria-label="Página anterior">‹</button><span>' + (p + 1) + '/' + pags + '</span><button type="button" ' + (p < pags - 1 ? '' : 'disabled') + ' data-d="1" aria-label="Página seguinte">›</button>' : '<span>' + itens.length + ' registo' + (itens.length === 1 ? '' : 's') + '</span>';
+    pgr.onclick = function (e) { var b = e.target.closest('button[data-d]'); if (!b) return; pag[chave] += +b.getAttribute('data-d'); desenhar(); };
+  }
+
+  function desenhar() {
+    var est = {}; D.pedidos.forEach(function (p) { var e = GA.estado(p); est[e] = (est[e] || 0) + 1; });
+    var R = GA.resumo(D);
+    $('kpis').innerHTML = [['Aguardam aprovação', est.pendente || 0], ['Em ensaio ou à espera da ordem', (est.aprovado || 0) + (est.testado || 0) + (est.producao || 0)], ['Executados em produção', est.executado || 0], ['Acessos temporários abertos', est.activo || 0], ['Tempo poupado', fmtT(R.minutosPoupados)]]
+      .map(function (k) { return '<div class="card kpi"><div class="l">' + k[0] + '</div><div class="v">' + k[1] + '</div></div>'; }).join('');
+    if (vista === 'pedidos') desenharPedidos();
+    if (vista === 'novo') desenharNovo();
+  }
+
+  /* ---------- pedidos ---------- */
+  function desenharPedidos() {
+    if (!sel && D.pedidos.length) sel = D.pedidos[0].id;
+    paginar($('lista'), $('lpg'), D.pedidos, function (p) {
+      var e = GA.estado(p);
+      return '<div class="item' + (p.id === sel ? ' on' : '') + '" data-id="' + p.id + '"><b>' + esc(p.titulo) + '</b><span>' + p.id + ' · ' + esc(p.h[0].por) + ' · ' + dt(p.h[0].em) + '</span><span><span class="tag ' + (TAG[e] || '') + '">' + GA.ESTADOS[e] + '</span></span></div>';
+    }, 'l');
+    $('lista').onclick = function (e) { var it = e.target.closest('.item[data-id]'); if (it) { sel = it.getAttribute('data-id'); desenharPedidos(); } };
+    var p = D.pedidos.filter(function (x) { return x.id === sel; })[0];
+    if (!p) { $('det').innerHTML = '<div class="sub">Ainda não há pedidos. Crie um em «Novo pedido da matriz» ou «Acesso temporário».</div>'; return; }
+    var e = GA.estado(p), autor = p.h[0].por, apr = GA.ultimo(p, ['aprovacao']), aprov = apr ? apr.por : null;
+    var linhas = p.h.map(function (x) {
+      var t = { pedido: 'Pedido criado', aprovacao: 'Aprovado', rejeicao: 'Rejeitado', testes: x.ok ? 'Ensaio na cópia de testes: correu bem' : 'Ensaio na cópia de testes: falhou', producao: 'Ordem de produção dada', execucao: x.ok ? 'Executado e verificado em produção' : 'Falhou em produção', reverter: 'Reversão pedida', revertido: 'Revertido', aviso: 'Aviso do agente', 'jit-aberto': 'Acesso aberto', 'jit-fechado': 'Acesso fechado', fechar: 'Fecho pedido' }[x.t] || x.t;
+      var res = x.resumo ? ' · ' + x.resumo.contas + ' contas, +' + x.resumo.atribuidos + ' / −' + x.resumo.retirados + ' perfis, ' + x.resumo.desactivadas + ' desactivadas' : '';
+      return '<li class="' + (x.ok === false ? 'ko' : x.t === 'aviso' ? 'av' : '') + '"><i></i><div><b>' + t + '</b> <span>' + esc(x.por) + ' · ' + dt(x.em) + res + (x.nota ? ' · ' + esc(x.nota) : '') + '</span></div></li>';
+    }).join('');
+    var corpo = '';
+    if (p.tipo === 'matriz') {
+      var cs = p.conteudo.contas, des = cs.filter(function (c) { return c.accao === 'desactivar'; }).length;
+      corpo = '<div class="sub">' + cs.length + ' contas · ' + (cs.length - des) + ' a aplicar · ' + des + ' a desactivar' + (p.tempo ? ' · <span class="tag o">Poupa ' + fmtT(p.tempo.poupado) + '</span> à mão ' + fmtT(p.tempo.manual) + ', com a app ' + fmtT(p.tempo.app) : '') + '</div>' +
+        '<div class="chips">' + cs.slice(0, 18).map(function (c) { return '<span class="tag ' + (c.accao === 'desactivar' ? 'x' : 'i') + '">' + esc(c.login) + '</span>'; }).join('') + (cs.length > 18 ? '<span class="tag">+' + (cs.length - 18) + '</span>' : '') + '</div>';
+    } else if (p.tipo === 'jit') {
+      var c = p.conteudo, ab = GA.ultimo(p, ['jit-aberto']);
+      corpo = '<div class="sub">Conta <b>' + esc(c.conta) + '</b> · ' + c.horas + ' h · ' + esc(c.ambito) + ' · ' + esc(c.ticket) + ' · ' + esc(c.motivo) + (ab && e === 'activo' ? ' · fecha às ' + dt(ab.fim) : '') + '</div>';
+    }
+    var acts = '';
+    if (e === 'pendente') acts = autor === EU ? '<span class="note">Não pode aprovar um pedido seu. Outra pessoa da lista de aprovadores tem de o fazer.</span>' : '<button class="b r" type="button" data-a="rejeicao">Rejeitar</button><button class="b" type="button" data-a="aprovacao">Aprovar</button>';
+    else if (e === 'aprovado') acts = '<span class="note">À espera do agente: vai ensaiar na cópia de testes na próxima passagem (de 5 em 5 minutos).</span>';
+    else if (e === 'testado') acts = aprov === EU ? '<span class="note">Quem aprovou não pode dar a ordem de produção.</span>' : '<button class="b" type="button" data-a="producao">Dar ordem de produção</button>';
+    else if (e === 'producao' || e === 'reverter') acts = '<span class="note">À espera do agente.</span>';
+    else if (e === 'executado') acts = '<button class="b g" type="button" data-a="reverter">Reverter</button>';
+    else if (e === 'activo') acts = '<button class="b r" type="button" data-a="fechar">Fechar já</button>';
+    $('det').innerHTML = '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="sub">' + p.id + '</span><span class="tag ' + (TAG[e] || '') + '">' + GA.ESTADOS[e] + '</span><span class="sub" title="Impressão digital do conteúdo aprovado">SHA-256 ' + p.hash.slice(0, 12) + '…</span></div><h2>' + esc(p.titulo) + '</h2>' + corpo + '<ul class="tl">' + linhas + '</ul><div class="acts">' + acts + '</div>';
+    $('det').querySelectorAll('button[data-a]').forEach(function (b) { b.onclick = function () { passo(p, b.getAttribute('data-a')); }; });
+  }
+
+  var TXT = {
+    aprovacao: ['Aprovar ' , 'O agente vai ensaiar o pedido na cópia de testes. A aprovação fica assinada com a sua conta do GitHub.', false],
+    rejeicao: ['Rejeitar ', 'O pedido fica fechado e não é executado.', false],
+    producao: ['Dar ordem de produção · ', 'O agente vai aplicar em PRODUÇÃO o que correu bem na cópia de testes, numa só transacção e com cópia de segurança.', true],
+    reverter: ['Reverter ', 'O agente repõe em produção o estado anterior, a partir da cópia de segurança guardada no servidor.', true],
+    fechar: ['Fechar o acesso · ', 'A conta é desactivada na próxima passagem do agente.', false]
+  };
+  function passo(p, ev) {
+    var t = TXT[ev];
+    $('dcft').textContent = t[0] + p.id; $('dcfd').textContent = t[1]; $('dcfl').style.display = t[2] ? '' : 'none'; $('dcfi').value = ''; $('dcfs').textContent = '';
+    $('dcf').classList.add('on'); (t[2] ? $('dcfi') : $('dcfo')).focus();
+    $('dcfn').onclick = function () { $('dcf').classList.remove('on'); };
+    $('dcfo').onclick = async function () {
+      if (t[2] && $('dcfi').value.trim() !== 'APLICAR') { $('dcfs').className = 'st ko'; $('dcfs').textContent = 'Escreva APLICAR para confirmar.'; return; }
+      $('dcfo').disabled = true; $('dcfs').className = 'st'; $('dcfs').textContent = 'A gravar…';
+      try {
+        var r = await GA.alterar(TOKEN, SENHA, function (X) { return GA.registar(X, p.id, ev, EU); }, 'Gestor de acessos: ' + ev + ' de ' + p.id);
+        D = r.D; $('dcf').classList.remove('on'); desenhar();
+      } catch (e) { $('dcfs').className = 'st ko'; $('dcfs').textContent = erroGh(e); }
+      $('dcfo').disabled = false;
+    };
+  }
+
+  /* ---------- novo pedido a partir da matriz ---------- */
+  var CAND = null;
+  function desenharNovo() {
+    if (!CAND) { CAND = GA.candidatas(M); if (!M.erp) { $('sodif').checked = false; $('sodif').disabled = true; $('sodif').parentNode.title = 'Ainda não há retrato do ERP na matriz'; } }
+    var so = $('sodif').checked, it = CAND.filter(function (c) { return !so || c.diferencas.some(function (d) { return d.g !== 'info'; }); });
+    $('ntit').textContent = it.length + ' contas com decisão na matriz' + (so ? ' e diferenças no ERP' : '') + (M.erp ? ' · ERP lido a ' + M.erp.data + ' ' + M.erp.hora : '');
+    paginar($('nlista'), $('npg'), it, function (c) {
+      var bloq = c.sod.some(function (r) { return r.sev === 'B'; }), k = c.conta.login, mods = Object.keys(c.conta.modulos);
+      return '<div class="item" style="flex-direction:row;gap:12px;align-items:flex-start" data-k="' + esc(k) + '"><input type="checkbox" ' + (escolha[k] ? 'checked' : '') + (bloq ? ' disabled title="Bloqueada pela segregação de funções"' : '') + ' aria-label="Seleccionar ' + esc(c.nome) + '">' +
+        '<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px"><b>' + esc(c.nome) + ' <span class="tag ' + (c.conta.accao === 'desactivar' ? 'x' : 'i') + '">' + (c.conta.accao === 'desactivar' ? 'Desactivar' : 'Aplicar') + '</span></b>' +
+        '<span>' + esc(k) + (c.conta.accao === 'aplicar' ? ' · ' + c.conta.empresas.length + ' empresas · ' + mods.map(function (m) { return m + ' ' + c.conta.modulos[m]; }).join(', ') + (c.conta.credito ? ' · documentos de crédito' : '') : '') + '</span>' +
+        '<span class="chips">' + c.diferencas.map(function (d) { return '<span class="tag ' + (d.g === 'alto' ? 'x' : d.g === 'medio' ? 'w' : '') + '">' + esc(d.pt) + '</span>'; }).join('') + c.sod.map(function (r) { return '<span class="tag x">' + r.id + ' · ' + esc(r.t) + (r.sev === 'B' ? ' · bloqueia' : ' · precisa de justificação') + '</span>'; }).join('') + '</span></div></div>';
+    }, 'n');
+    $('nlista').onchange = function (e) { var it2 = e.target.closest('.item[data-k]'); if (it2) { escolha[it2.getAttribute('data-k')] = e.target.checked; contar(); } };
+    contar();
+  }
+  function contar() { var n = Object.keys(escolha).filter(function (k) { return escolha[k]; }).length; $('ncri').disabled = !n; $('ncri').textContent = n ? 'Criar pedido · ' + n + ' conta' + (n === 1 ? '' : 's') : 'Criar pedido'; }
+  $('sodif').onchange = function () { pag.n = 0; desenharNovo(); };
+  $('nall').onclick = function () { var so = $('sodif').checked; CAND.forEach(function (c) { if ((!so || c.diferencas.some(function (d) { return d.g !== 'info'; })) && !c.sod.some(function (r) { return r.sev === 'B'; })) escolha[c.conta.login] = true; }); desenharNovo(); };
+  $('ncri').onclick = async function () {
+    var cs = CAND.filter(function (c) { return escolha[c.conta.login]; }).map(function (c) { return c.conta; });
+    if (!cs.length) return;
+    $('ncri').disabled = true; $('ncri').textContent = 'A gravar…';
+    try {
+      var r = await GA.alterar(TOKEN, SENHA, async function (X) {
+        return GA.criarPedido(X, 'matriz', 'Aplicar a matriz a ' + cs.length + ' conta' + (cs.length === 1 ? '' : 's'), { contas: cs }, EU, { tempo: GA.tempo(cs) });
+      }, 'Gestor de acessos: novo pedido (' + cs.length + ' contas)');
+      D = r.D; escolha = {}; sel = D.pedidos[0].id; $('tabs').querySelector('[data-v=pedidos]').click();
+    } catch (e) { alert(erroGh(e)); contar(); }
+  };
+
+  /* ---------- acesso temporário ---------- */
+  $('jform').addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var c = { conta: $('jc').value.trim(), horas: +$('jh').value, ambito: $('ja').value, ticket: $('jt').value.trim(), motivo: $('jm').value.trim() };
+    $('jst').className = 'st'; $('jst').textContent = 'A gravar…';
+    try {
+      var r = await GA.alterar(TOKEN, SENHA, async function (X) { return GA.criarPedido(X, 'jit', 'Acesso temporário · ' + c.conta + ' · ' + c.horas + ' h', c, EU, { tempo: { manual: 20, app: 2, poupado: 18 } }); }, 'Gestor de acessos: pedido de acesso temporário');
+      D = r.D; $('jform').reset(); $('jst').textContent = ''; sel = D.pedidos[0].id; $('tabs').querySelector('[data-v=pedidos]').click();
+    } catch (e) { $('jst').className = 'st ko'; $('jst').textContent = erroGh(e); }
+  });
+})();
+</script>
+</body>
+</html>

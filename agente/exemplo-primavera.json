@@ -1,0 +1,8 @@
+{
+  "utilizadores": [
+    { "codigo": "exemplo.utilizador", "activo": true, "perfilPessoal": null },
+    { "codigo": "conta.tecnico.primavera", "activo": false, "perfilPessoal": null }
+  ],
+  "permissoes": [ { "utilizador": "exemplo.utilizador", "perfil": "Geral", "empresa": "OCEANO" } ],
+  "perfis": ["VND_RD_02", "VND_WR_02", "VND_NC_02", "CMP_RD_02", "CMP_WR_02", "INV_RD_02", "INV_WR_02", "CCT_RD_02", "CCT_WR_02", "BNC_RD_02", "BNC_WR_02", "CBL_RD_02", "CBL_WR_02", "EQA_RD_02", "EQA_WR_02", "CRM_RD_02", "CRM_WR_02", "POS_RD_02", "POS_WR_02", "Geral"]
+}

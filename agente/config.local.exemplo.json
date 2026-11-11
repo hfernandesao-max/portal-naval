@@ -1,0 +1,6 @@
+{
+  "_comentario": "Copiar para config.local.json (não vai para o GitHub). Logins do GitHub de quem pode aprovar e de quem pode dar a ordem de produção. Quem pede não aprova e quem aprova não dá a ordem.",
+  "aprovadores": ["login-github-de-quem-aprova"],
+  "executores": ["login-github-de-quem-da-a-ordem"],
+  "contasJit": ["conta.tecnico.primavera"]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "gestor-acessos-agente",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agente do Gestor de Acessos: executa no ERP Primavera os pedidos aprovados no portal",
+  "main": "agente.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test testes/agente.test.js",
+    "simular": "node agente.js --simular exemplo-primavera.json"
+  },
+  "dependencies": { "mssql": "11.0.1" }
+}

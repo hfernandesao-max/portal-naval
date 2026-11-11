@@ -27,3 +27,13 @@ A gravação usa um token *fine-grained* do GitHub com acesso só ao repositóri
 
 ### Ligação ao ERP Primavera
 A pasta `sincronizacao/` tem o processo agendado que lê o Primavera (PRIEMPRE, só leitura) num servidor da rede, actualiza as colunas que vêm do ERP, regista as alterações e compara a matriz aprovada com o ERP (reconciliação de acessos). Instruções em `sincronizacao/LEIA-ME.md`.
+
+### Gestor de acessos (pedidos, aprovação e execução no Primavera)
+`gestor.html` (botão «Gestor de acessos» em `acessos.html`) transforma as decisões da matriz em pedidos.
+- O fluxo é: pedido → aprovação por outra pessoa → ensaio automático na cópia de testes → ordem de produção, com «APLICAR» escrito por quem não aprovou → execução verificada em produção, com cópia de segurança → reversão, se for preciso.
+- O ecrã também faz pedidos de acesso temporário ao Administrador. Esses acessos fecham sozinhos no fim do prazo.
+- Os pedidos ficam cifrados em `data/gestor-pedidos.enc.json`, com a mesma palavra-passe da matriz.
+- Cada passo deixa um marcador sem dados pessoais em `data/gestor/eventos/`. O autor do commit desse marcador identifica quem deu o passo.
+- `data/gestor-resumo.js` tem só números.
+- A lógica comum está em `gestor-acessos.js`.
+- A execução é feita pelo agente em `agente/`, que corre na rede. As instruções estão em `agente/LEIA-ME.md`.
